@@ -1,0 +1,55 @@
+---
+import { getImage } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/artists/Breadcrumb.astro';
+import ProfileHero from '../../components/artists/ProfileHero.astro';
+import Biography from '../../components/artists/Biography.astro';
+import HtgRecord from '../../components/artists/HtgRecord.astro';
+import ConnectionsWheel from '../../components/artists/ConnectionsWheel.astro';
+import CareerSections from '../../components/artists/CareerSections.astro';
+import ProfileSidebar from '../../components/artists/ProfileSidebar.astro';
+import ArtistFilm from '../../components/artists/ArtistFilm.astro';
+import { heroImage, loadArchive, rolesLine, truncate } from '../../lib/people';
+import { profileGraph } from '../../lib/jsonld';
+import '../../styles/artists.css';
+
+export async function getStaticPaths() {
+  const a = await loadArchive();
+  // `unverified` people get no page: they are listed by name only on the directory.
+  return a.people.filter((p) => p.published).map((p) => ({ params: { slug: p.slug } }));
+}
+
+const a = await loadArchive();
+const p = a.bySlug.get(Astro.params.slug!)!;
+const hero = heroImage(p, a);
+const share = hero ? await getImage({ src: hero.src, width: 1200, format: 'jpg' }) : null;
+const ownImage = p.image ? share?.src : undefined; // Person.image only when the picture is of their own work/them
+const role = rolesLine(p).split(' · ')[0];
+const filmThumb = p.video ? (await getImage({ src: p.video.poster, width: 1280, format: 'jpg' })).src : undefined;
+---
+<Base
+  title={`${p.name} · ${role} | Holland Tunnel Gallery`}
+  description={truncate(p.bio_short)}
+  path={p.url!}
+  noindex={p.status !== 'verified'}
+  ogType="profile"
+  ogImage={`/share/og/${p.slug}.jpg`}
+  ogImageMeta={{ width: 1200, height: 630, alt: `${p.name}, ${role}, Holland Tunnel Gallery` }}
+  active="artists"
+  jsonld={profileGraph(p, a, ownImage, filmThumb)}
+>
+  <Breadcrumb items={[{ name: 'Artists & Musicians', href: '/artists' }, { name: p.name }]} />
+  <article class="profile" data-status={p.status}>
+    <ProfileHero p={p} a={a} />
+    <div class="cols">
+      <div class="main-col">
+        <Biography p={p} />
+        {p.video && <ArtistFilm p={p} />}
+        <HtgRecord p={p} a={a} />
+        <ConnectionsWheel p={p} a={a} />
+        <CareerSections p={p} />
+      </div>
+      <ProfileSidebar p={p} a={a} />
+    </div>
+  </article>
+</Base>

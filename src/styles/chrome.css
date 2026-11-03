@@ -1,0 +1,114 @@
+/* Holland Tunnel Gallery · shared tokens, header and footer (every page).
+   Colors are the live site's; see project brief §2. Contrast notes:
+   - orange #E75D18 is 3.5:1 on white, so orange TEXT only at ≥24px (large text);
+   - #F16F1E (the old wordmark) is 2.99:1, just under 3:1, so the wordmark uses #E75D18;
+   - small labels use --muted (4.9:1) or --ink, never --tagline (3.3:1). */
+:root {
+  --orange: #E75D18;
+  --orange-light: #F16F1E;
+  --orange-bright: #FF5500;
+  --orange-wash: #FDF1EA;
+  --bg: #FFFFFF;
+  --paper: #FAF8F6;
+  --ink: #111111;
+  --text: #474343;
+  --heading-gray: #666666;
+  --muted: #7C6E6E;
+  --tagline: #918D8D;
+  --rule: #D2D0D0;
+  --border: #E6E2DF;
+  --green: #3F7D4E;
+  --amber: #8A5A12;
+  --display: "Bebas Neue", "Arial Narrow", sans-serif;
+  --body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --max: 1180px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 400 17px/1.65 var(--body); }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--ink); text-decoration-color: var(--orange); text-underline-offset: 3px; }
+a:hover { color: var(--orange); }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: 8px 14px; z-index: 10; }
+.skip:focus { left: 8px; }
+[hidden] { display: none !important; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.concept { background: var(--ink); color: #fff; font-size: 13px; text-align: center; padding: 8px 16px; margin: 0; }
+.concept strong { color: var(--orange-light); font-weight: 600; }
+
+/* ---- header: same centered structure as her current site */
+.site-head { text-align: center; padding: 40px 16px 0; max-width: var(--max); margin: 0 auto; border-bottom: 1px solid var(--rule); }
+.wordmark { font: 400 clamp(30px, 6vw, 62px)/1 var(--display); letter-spacing: .28em; margin-right: -.28em; color: var(--orange); text-decoration: none; text-transform: uppercase; }
+.wordmark:hover { color: var(--ink); }
+.tagline { margin: 14px 0 20px; color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.main-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px; padding-bottom: 20px; }
+.main-nav a { font: 400 20px/1.2 var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--ink); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px; text-decoration-color: currentColor; }
+.main-nav a:hover { color: var(--orange); }
+/* active item: ink text (orange at 20px fails contrast) with a heavy orange underline */
+.main-nav a[aria-current="page"] { text-decoration-color: var(--orange); text-decoration-thickness: 4px; }
+
+/* ---- footer */
+.site-foot { background: var(--ink); color: #D9D5D2; margin-top: 40px; padding: 44px 16px 26px; }
+.foot-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr 1.3fr; gap: 28px; font-size: 14px; }
+.foot-grid p { margin: 0; }
+.foot-mark { font: 400 26px/1 var(--display) !important; letter-spacing: .08em; color: var(--orange-light); margin-bottom: 10px !important; }
+.foot-h { display: block; font: 400 18px/1 var(--display); letter-spacing: .08em; color: #fff; margin-bottom: 8px !important; }
+.site-foot a { color: #fff; }
+.site-foot ul { list-style: none; margin: 0; padding: 0; }
+.site-foot li { margin: 0 0 4px; }
+.nl-row { display: flex; }
+.nl-row input { flex: 1; min-width: 0; font: 500 14px var(--body); padding: 10px; border: 0; }
+.nl-row button { font: 400 24px/1 var(--display); letter-spacing: .06em; background: var(--orange); color: #fff; border: 0; padding: 0 16px; cursor: pointer; }
+.nl-row button:hover { background: #fff; color: var(--ink); }
+.foot-note { max-width: var(--max); margin: 30px auto 0; font-size: 12px; color: #8E8883; }
+.foot-note { display: flex; flex-wrap: wrap; gap: 4px 28px; border-top: 1px solid #2c2c2c; padding-top: 16px; }
+.foot-note p { margin: 0; }
+
+@media (max-width: 960px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) {
+  .site-head { padding-top: 28px; }
+  .main-nav { gap: 4px 16px; }
+  .main-nav a { font-size: 19px; }
+  .foot-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ---- contact pop-up (opened by any link to the gallery's email address) */
+.cd { width: min(620px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 2px solid var(--ink); background: #fff; color: var(--text); overflow: auto; }
+.cd::backdrop { background: rgba(17, 17, 17, .55); }
+.cd-form, .cd-done { position: relative; padding: 30px 30px 26px; }
+.cd-close { position: absolute; top: 10px; right: 12px; width: 44px; height: 44px; border: 0; background: none; font: 400 34px/1 var(--display); color: var(--ink); cursor: pointer; }
+.cd-close:hover { color: var(--orange); }
+.cd-kicker { margin: 0 0 6px; font: 600 12px/1.4 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--ink); }
+.cd-kicker::before { content: ""; display: inline-block; width: 22px; height: 3px; background: var(--orange); vertical-align: middle; margin: -2px 10px 0 0; }
+.cd-title { margin: 0; font: 400 clamp(40px, 7vw, 56px)/.95 var(--display); letter-spacing: .02em; color: var(--orange); }
+.cd-intro { margin: 10px 0 0; font-size: 15px; }
+.cd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; margin-top: 20px; }
+.cd-full { grid-column: 1 / -1; }
+.cd-grid label { display: block; margin-bottom: 5px; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+.cd-grid label span { font-weight: 500; letter-spacing: .04em; text-transform: none; color: var(--muted); }
+.cd-grid input, .cd-grid select, .cd-grid textarea { width: 100%; padding: 10px 12px; font: 400 16px var(--body); color: var(--ink); background: #fff; border: 1px solid var(--muted); border-radius: 0; }
+.cd-grid textarea { resize: vertical; }
+.cd-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 18px; }
+.cd-send { font: 400 24px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--orange); border: 0; padding: 12px 22px 10px; cursor: pointer; }
+.cd-send:hover { background: var(--ink); }
+.cd-send:disabled { opacity: .6; cursor: progress; }
+.cd-alt { margin: 0; font-size: 13px; color: var(--muted); }
+.cd-addr { color: var(--ink); user-select: all; }
+.cd-status { margin: 10px 0 0; font-size: 14px; color: var(--ink); min-height: 1.2em; }
+.cd-done .cd-send { margin-top: 18px; }
+.cd-hp { position: absolute; left: -9999px; }
+@media (max-width: 600px) {
+  .cd-form, .cd-done { padding: 26px 18px 20px; }
+  .cd-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cd[open] { animation: cd-in .28s cubic-bezier(.2, .7, .2, 1); }
+  .cd[open]::backdrop { animation: cd-fade .28s ease-out; }
+}
+@keyframes cd-in { from { opacity: 0; transform: translateY(16px); } }
+@keyframes cd-fade { from { opacity: 0; } }

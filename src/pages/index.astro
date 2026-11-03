@@ -1,0 +1,313 @@
+---
+// Ported from the static demo (index.html) by scripts/port-demo-pages.py
+import Base from '../layouts/Base.astro';
+import '../styles/pages.css';
+import { Picture } from 'astro:assets';
+import { onView, shortDate, longDate } from '../lib/onview';
+import { eventNode } from '../lib/jsonld';
+import { EMAIL } from '../lib/site';
+const ov = await onView();
+const show = ov?.show;
+const badge = !ov ? '' :
+  ov.status === 'current' ? (ov.lastWeekend ? `Last weekend · closes ${longDate(ov.end)}` : `Now on view · closes ${shortDate(ov.end)}`) :
+  ov.status === 'upcoming' ? `Opens ${longDate(show!.startDate)}` : 'Recently on view';
+const metaDescription = ov?.status === 'current'
+  ? `Holland Tunnel Gallery is open: now showing ${show!.title} through ${longDate(ov.end)}. Contemporary art, music, film and events at 46 Chambers Street, Newburgh, NY. Open Sat & Sun 1–5 pm. Since 1997.`
+  : ov?.status === 'upcoming'
+  ? `Holland Tunnel Gallery: ${show!.title} opens ${longDate(show!.startDate)}. Contemporary art, music, film and events at 46 Chambers Street, Newburgh, NY. Since 1997.`
+  : 'Holland Tunnel Gallery: contemporary art, music, film and events at 46 Chambers Street, Newburgh, NY. Open Sat & Sun 1–5 pm and by appointment. Since 1997.';
+const maps = 'https://www.google.com/maps/dir/?api=1&destination=46+Chambers+Street+Newburgh+NY+12550';
+const jsonld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ArtGallery",
+      "@id": "https://www.hollandtunnelgallery.com/#gallery",
+      "name": "Holland Tunnel Gallery",
+      "alternateName": [
+        "Holland Tunnel Revisited",
+        "Holland Tunnel Newburgh"
+      ],
+      "description": "Contemporary art gallery, music and event space in Newburgh's Historic District. Founded in 1997 in Williamsburg, Brooklyn by Paulien Lethen.",
+      "foundingDate": "1997",
+      "url": "https://www.hollandtunnelgallery.com/",
+      "email": EMAIL,
+      "image": "https://www.hollandtunnelgallery.com/img/og-unframed.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "46 Chambers Street",
+        "addressLocality": "Newburgh",
+        "addressRegion": "NY",
+        "postalCode": "12550",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "13:00",
+          "closes": "17:00"
+        }
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Paulien Lethen",
+        "url": "https://paulienlethen.com"
+      },
+      "sameAs": [
+        "https://en.wikipedia.org/wiki/Holland_Tunnel_Gallery",
+        "https://www.instagram.com/hollandtunnelnewburgh/"
+      ]
+    }
+  ]
+};
+if (show) (jsonld["@graph"] as object[]).push(eventNode(show, { performers: ov!.people }));
+---
+<Base title={"Holland Tunnel Gallery \u00b7 Contemporary Art, Music & Events in Newburgh, NY"} description={metaDescription} path="/" jsonld={jsonld}>
+
+
+  <!-- Hero: the featured exhibition (on now, coming up, or most recent), from the show data -->
+  {ov && show && (
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="urgency" data-until={ov.status === 'current' ? ov.end : undefined}>{badge}</p>
+        <h1>{show.title}</h1>
+        <p class="hero-meta">{show.dates}{ov.status !== 'between' && <><br /><span>Open Sat &amp; Sun 1–5 pm</span></>}</p>
+        {ov.people.length > 0 && (
+          <p class="artists">{ov.people.map((p, i) => <>{i > 0 && ', '}{p.url ? <a href={p.url}>{p.name}</a> : p.name}</>)}</p>
+        )}
+        {show.description && <p class="lede">{show.description}</p>}
+        {ov.status === 'between' && <p class="lede">The next exhibition will be announced soon. Visit by appointment, or join the list to hear about the opening first.</p>}
+        <div class="btn-row">
+          {ov.status === 'between' ? (
+            <><a class="btn" href={show.url}>See the show &amp; artists</a><a class="btn ghost" href="#newsletter">Hear about the next opening</a></>
+          ) : (
+            <><a class="btn" href="/exhibitions">See the show</a><a class="btn ghost" href={maps}>Get directions</a></>
+          )}
+        </div>
+      </div>
+      <figure>
+        {show.image ? (
+          <Picture src={show.image} alt={show.imageAlt!} formats={['avif', 'webp']} widths={[480, 800, 1200, 1600]}
+            sizes="(max-width: 860px) calc(100vw - 32px), 680px" loading="eager" fetchpriority="high" />
+        ) : (
+          <img src="/img/og-unframed.jpg" alt="" width="1200" height="630" />
+        )}
+        {show.imageAlt && <figcaption>{show.imageAlt}</figcaption>}
+      </figure>
+    </div>
+  </section>
+  )}
+
+  <!-- Visit strip -->
+  <div class="visit-strip" id="visit-strip">
+    <div class="wrap">
+      <div>
+        <p class="label">Where</p>
+        <p>46 Chambers Street, Newburgh, NY<br><span class="muted">Historic District, between Broadway &amp; First St</span></p>
+      </div>
+      <div>
+        <p class="label">When</p>
+        <p>Saturday &amp; Sunday, 1–5 pm<br><span class="muted">and by appointment</span></p>
+      </div>
+      <div>
+        <p class="label">Admission</p>
+        <p>Free<br><span class="muted">{EMAIL}</span></p>
+      </div>
+      <div>
+        <a class="btn light" href="#visit">Plan your visit</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Next up -->
+  <section class="dark" id="next-up">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Next up</p>
+          <h2>Art, music &amp; film on Chambers Street</h2>
+        </div>
+        <a class="link-arrow" href="#newsletter">Get the monthly email →</a>
+      </div>
+      <div class="cards">
+        {ov && show && (
+        <article class="card">
+          <div class="img">{show.image
+            ? <Picture src={show.image} alt={show.imageAlt!} formats={['avif', 'webp']} widths={[400, 700]} sizes="(max-width: 600px) 100vw, 360px" loading="lazy" />
+            : <img src="/img/og-unframed.jpg" alt="" loading="lazy" />}</div>
+          <div class="body">
+            {ov.status === 'current' ? (
+              <>
+                <p class="tag">Exhibition · Free</p>
+                <p class="date" data-until={ov.end}>{ov.lastWeekend ? 'Final weekend' : `Through ${longDate(ov.end)}`}</p>
+                <h3>{ov.lastWeekend ? `Last weekend to see ${show.title}` : `Now on view: ${show.title}`}</h3>
+                <p>{show.description ?? `${show.type} at Holland Tunnel Gallery.`} Open Saturday &amp; Sunday, 1–5 pm.</p>
+                <div class="actions"><a href="#visit">Plan your visit</a><a href="/exhibitions">About the show</a></div>
+              </>
+            ) : ov.status === 'upcoming' ? (
+              <>
+                <p class="tag">Exhibition · Opening</p>
+                <p class="date">{show.reception ?? longDate(show.startDate)}</p>
+                <h3>{show.title} opens</h3>
+                <p>{show.description ?? `${show.dates} at Holland Tunnel Gallery.`}</p>
+                <div class="actions"><a href="/exhibitions">About the show</a></div>
+              </>
+            ) : (
+              <>
+                <p class="tag">Exhibition · Recently on view</p>
+                <p class="date">{show.dates}</p>
+                <h3>Meet the artists of {show.title}</h3>
+                <p>See the work and read about the {ov.people.length > 1 ? `${['two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'][ov.people.length - 2] ?? ov.people.length} artists` : 'artist'} behind it, then join the list to hear about the next opening.</p>
+                <div class="actions"><a href={show.url}>See the show</a><a href="#newsletter">Get the next date</a></div>
+              </>
+            )}
+          </div>
+        </article>
+        )}
+        <article class="card">
+          <div class="img"><img src="/img/music-night-performers.webp" alt="Six musicians who have played Holland Tunnel music nights: singers, a jazz guitarist, a bassist, a drummer and a pianist at a grand piano" loading="lazy"></div>
+          <div class="body">
+            <p class="tag">Music night · New</p>
+            <p class="date">Launching this fall</p>
+            <h3>Vinyl Night with Soul Shades</h3>
+            <p>Soul Shades, the violin, piano and DJ duo of Julie Schatz and DJ DX, bring soul, jazz and Latin on vinyl to the white-wall gallery, with the baby grand as a backdrop. A new monthly night, built around the show on view.</p>
+            <div class="actions">
+              <a href="#newsletter">Tell me the date</a>
+              <a href="/artists/julie-schatz">About Soul Shades</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="img"><img src="/img/holland-tunnel-postcard.webp" alt="Colorful Holland Tunnel postcard artwork: a cartoon yellow dog over a collage of patterns and figures" loading="lazy"></div>
+          <div class="body">
+            <p class="tag">Cinema Club</p>
+            <p class="date">Doors 6 pm · Film 7 pm</p>
+            <h3>Cinema Club</h3>
+            <p>Classic films picked by programmer Kent Peterson, hosted by Paulien Lethen. Free popcorn, drinks available. Membership $10 a year, then $5 a film.</p>
+            <div class="actions">
+              <a href="#newsletter">Join the club</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story + press -->
+  <section id="story">
+    <div class="wrap story-grid">
+      <div>
+        <p class="since">Since 1997</p>
+        <p class="eyebrow orange">From a garden shed in Williamsburg to Newburgh</p>
+        <p>Paulien Lethen opened Holland Tunnel in 1997 in a Home Depot garden shed in her Williamsburg backyard. It grew into a Brooklyn institution, a summer gallery on the Greek island of Paros, and since 2018, a home in an 1860 warehouse in Newburgh's Historic District.</p>
+        <p>Today, as Holland Tunnel Revisited, it runs a full program of shows, concerts and films, open every weekend.</p>
+        <ul class="timeline">
+          <li><b>1997</b>Garden shed gallery, Williamsburg</li>
+          <li><b>2000</b>Summer gallery on Paros, Greece</li>
+          <li><b>2018</b>Opens in Newburgh</li>
+          <li><b>2025</b>Holland Tunnel Revisited</li>
+        </ul>
+      </div>
+      <div>
+        <blockquote>
+          <p>“One of the quirkiest spaces in Williamsburg … a front-runner for first place as the tiniest gallery in the metropolitan area.”</p>
+          <cite>Roberta Smith, The New York Times</cite>
+        </blockquote>
+        <blockquote>
+          <p>“The smallest gallery of New York.”</p>
+          <cite>The New York Times</cite>
+        </blockquote>
+        <blockquote>
+          <p>“Holland Tunnel Returns.”</p>
+          <cite>The Highlands Current, March 13, 2026</cite>
+        </blockquote>
+        <div class="split" style="grid-template-columns: 120px 1fr; gap: 18px; align-items: center; margin-top: 8px;">
+          <img src="/img/paulien-lethen-portrait.webp" alt="Paulien Lethen, founder of Holland Tunnel Gallery, standing in a gallery doorway" loading="lazy" width="120" height="132" style="width:120px;">
+          <p class="small muted" style="margin:0;">Paulien Lethen, artist and founder-director. Featured in Yara Hannema's documentary <em>Requiem for Williamsburg</em>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rent teaser -->
+  <section class="wash">
+    <div class="wrap split">
+      <div class="duo">
+        <img src="/img/reclamation-2025-gibian-gallery-view.webp" alt="White-walled gallery interior with a red and black sculpture by Mark Gibian on a plinth" loading="lazy">
+        <img src="/img/reclamation-2025-lindell-garden.webp" alt="The gallery garden in summer with a large sculpture by Julie Lindell" loading="lazy">
+      </div>
+      <div>
+        <p class="eyebrow orange">Rent the space</p>
+        <h2>A gallery for your gathering</h2>
+        <p class="lede">900 square feet, 13-foot ceilings, a classic wooden bar, a baby grand piano and a garden. Small weddings, rehearsal dinners, private concerts, shoots and team days in the heart of historic Newburgh.</p>
+        <div class="btn-row">
+          <a class="btn" href="/rent">Rent the space</a>
+          <a class="btn ghost" href="/rent#inquire">Check a date</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit -->
+  <section id="visit">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow orange">Visit</p>
+        <h2>Plan your visit</h2>
+        <ul class="facts">
+          <li><b>Address</b><span>46 Chambers Street, Newburgh, NY 12550<br>Historic District, between Broadway and First Street</span></li>
+          <li><b>Hours</b><span>Saturday &amp; Sunday, 1–5 pm, and by appointment</span></li>
+          <li><b>Admission</b><span>Free</span></li>
+          <li><b>Email</b><span><a href={`mailto:${EMAIL}`} data-contact="visit">{EMAIL}</a></span></li>
+          <li><b>Instagram</b><span><a href="https://www.instagram.com/hollandtunnelnewburgh/">@hollandtunnelnewburgh</a></span></li>
+        </ul>
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=46+Chambers+Street+Newburgh+NY+12550">Get directions</a>
+        <p style="margin-top:16px;">Bringing a class? <a href="/schools">School visits for grades 6–12 →</a></p>
+      </div>
+      <iframe class="map" title="Map showing Holland Tunnel Gallery at 46 Chambers Street, Newburgh" loading="lazy"
+        src="https://maps.google.com/maps?q=46%20Chambers%20Street%2C%20Newburgh%2C%20NY%2012550&amp;z=16&amp;output=embed"></iframe>
+    </div>
+  </section>
+
+  <!-- FAQ: short, factual answers that search engines and AI assistants can quote -->
+  <section class="rule-top">
+    <div class="wrap" style="max-width: 860px;">
+      <h2>Good to know</h2>
+      <div class="faq">
+        <details>
+          <summary>Is Holland Tunnel Gallery open?</summary>
+          <p>Yes. The gallery is open Saturday and Sunday from 1 to 5 pm, and by appointment, at 46 Chambers Street in Newburgh, NY.{ov?.status === 'current' && ` ${show!.title} is on view through ${longDate(ov.end)}.`}{ov?.status === 'upcoming' && ` ${show!.title} opens ${longDate(show!.startDate)}.`}{ov?.status === 'between' && ' The next exhibition will be announced soon; join the mailing list to hear first.'}</p>
+        </details>
+        <details>
+          <summary>Can I rent the gallery for an event?</summary>
+          <p>Yes. The 900 sq ft gallery with a bar, baby grand piano, prep kitchen and garden is available for small weddings, celebrations, meetings, shoots and concerts. Rentals start at four hours. <a href="/rent">See rental details</a>.</p>
+        </details>
+        <details>
+          <summary>Is it the same Holland Tunnel Gallery from Williamsburg?</summary>
+          <p>Yes. Paulien Lethen founded Holland Tunnel in Williamsburg, Brooklyn in 1997, ran a summer gallery on Paros, Greece from 2000, and moved the gallery to Newburgh in 2018.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter wash" id="newsletter">
+    <div class="wrap">
+      <h2>Don't miss an opening</h2>
+      <p class="lede" style="margin-inline:auto;">One email a month: the show on view, films, music nights and openings. No spam.</p>
+      <form class="inline-form" name="newsletter" data-demo="You're on the list. See you at the next opening.">
+        <label class="sr-only" for="nl-email">Email address</label>
+        <input id="nl-email" type="email" name="email" placeholder="Your email" required autocomplete="email">
+        <button class="btn" type="submit">Sign up</button>
+      </form>
+    </div>
+  </section>
+
+
+<script src="/js/site.js" is:inline defer></script>
+</Base>

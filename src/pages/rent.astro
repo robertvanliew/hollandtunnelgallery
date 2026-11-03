@@ -1,0 +1,210 @@
+---
+// Ported from the static demo (rent.html) by scripts/port-demo-pages.py
+import Base from '../layouts/Base.astro';
+import '../styles/pages.css';
+const jsonld = {
+  "@context": "https://schema.org",
+  "@type": "EventVenue",
+  "name": "Holland Tunnel Gallery",
+  "description": "900 sq ft gallery event space with 13 ft ceilings, track lighting, wifi, classic wooden bar, baby grand piano, prep kitchen and exterior garden. Four-hour minimum; full-day and multi-day rentals available.",
+  "url": "https://www.hollandtunnelgallery.com/rent",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "46 Chambers Street",
+    "addressLocality": "Newburgh",
+    "addressRegion": "NY",
+    "postalCode": "12550",
+    "addressCountry": "US"
+  },
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Baby grand piano",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Wooden bar",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Prep kitchen",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Garden",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Wifi",
+      "value": true
+    }
+  ]
+};
+---
+<Base title={"Rent the Space \u00b7 Holland Tunnel Gallery, Newburgh NY"} description={"Rent Holland Tunnel Gallery in Newburgh's Historic District: 900 sq ft, 13 ft ceilings, wooden bar, baby grand piano, prep kitchen and garden. Small weddings, rehearsal dinners, concerts, shoots and meetings."} path="/rent" active="rent" jsonld={jsonld}>
+
+
+  <section class="page-hero">
+    <img src="/img/dark-abyss-of-time-2026-installation.webp" width="1600" height="1008"
+         alt="The white-walled gallery lit by two vintage pendant lamps, with a wall of small painted panels and wall sculptures">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#fff;">Rent the space · Newburgh Historic District</p>
+      <h1>Your event, <span>in a gallery</span></h1>
+      <p class="lede">A 900 sq ft white-wall gallery with a wooden bar, a baby grand piano and a garden, in an 1860 warehouse on Chambers Street.</p>
+      <div class="btn-row">
+        <a class="btn" href="#inquire">Check your date</a>
+        <a class="btn light" href="#photos">See the space</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="specs">
+        <div class="spec"><b>900 sq ft</b><span>open floor plan</span></div>
+        <div class="spec"><b>13 ft</b><span>ceilings with track lighting</span></div>
+        <div class="spec"><b>4 hours</b><span>minimum, full-day &amp; multi-day available</span></div>
+        <div class="spec"><b>1860</b><span>historic warehouse building</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow orange">What's included</p>
+        <h2>Everything you need, nothing you don't</h2>
+        <p class="lede">Hold your event with the current exhibition on the walls, or as a blank white-wall venue you make your own. The garden opens up room for larger groups in fair weather.</p>
+      </div>
+      <ul class="amenities">
+        <li>Classic wooden bar</li>
+        <li>Baby grand piano</li>
+        <li>Prep kitchen with sink &amp; fridge</li>
+        <li>Track lighting</li>
+        <li>Wifi</li>
+        <li>Exterior garden</li>
+        <li>Art on the walls, or blank walls</li>
+        <li>Newburgh Historic District location</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wash">
+    <div class="wrap">
+      <p class="eyebrow orange">Made for</p>
+      <h2>Small, memorable gatherings</h2>
+      <div class="uses">
+        <div class="use"><b>Small weddings</b><span>Ceremonies, receptions and rehearsal dinners among the art.</span></div>
+        <div class="use"><b>Celebrations</b><span>Birthdays, anniversaries, launches and private parties.</span></div>
+        <div class="use"><b>Team days</b><span>Offsites, meetings and workshops somewhere inspiring.</span></div>
+        <div class="use"><b>Film &amp; photo</b><span>Clean white walls, high ceilings and a historic facade.</span></div>
+        <div class="use"><b>Private concerts</b><span>A baby grand and a room with a musical history.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="photos">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow orange">The space</p>
+          <h2>Inside and out</h2>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure class="wide tall"><img src="/img/dark-abyss-of-time-2026-installation.webp" alt="Main gallery wall with pendant lamps and a grid of small painted works" loading="lazy"></figure>
+        <figure class="tall"><img src="/img/reclamation-2025-gibian-gallery-view.webp" alt="Gallery interior with sculpture on a white plinth" loading="lazy"></figure>
+        <figure class="tall"><img src="/img/reclamation-2025-lindell-garden.webp" alt="The gallery garden with a large colorful sculpture on the lawn" loading="lazy"></figure>
+        <figure><img src="/img/gallery-installation-view-1.webp" alt="Textile works and small sculptures on plinths in the gallery" loading="lazy"></figure>
+        <figure><img src="/img/music-night-singer.webp" alt="A singer in a white feather boa performing at a gallery music night" loading="lazy"></figure>
+        <figure class="wide"><img src="/img/gallery-installing-a-show.webp" alt="An artist installing a sculpture in the high-ceilinged gallery" loading="lazy"></figure>
+        <figure class="tall"><img src="/img/reclamation-2025-rutkowski-garden.webp" alt="Tall dark sculptures standing in the garden among trees" loading="lazy"></figure>
+        <figure class="tall"><img src="/img/reclamation-2025-bursztyn-garden-sculpture.webp" alt="Wooden sculpture in the garden with historic Newburgh buildings behind" loading="lazy"></figure>
+        <figure class="wide tall"><img src="/img/music-night-performers.webp" alt="Musicians who have performed at the gallery, including a pianist at the grand piano" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Add-on</p>
+        <h2>Music by DJ DX</h2>
+        <p>Soul, jazz and Latin on vinyl, matched to your crowd. Add DJ DX to any rental for dinners, receptions and parties, or pair him with a live pianist on the baby grand.</p>
+        <p class="muted">Just tick the box on the inquiry form.</p>
+      </div>
+      <img src="/img/music-night-singer.webp" alt="Singer performing at a Holland Tunnel music night" loading="lazy" style="max-height:420px; object-fit:cover; width:100%;">
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow orange">How it works</p>
+      <h2>Simple terms</h2>
+      <div class="terms">
+        <div>
+          <h3>Four-hour minimum</h3>
+          <p>Every rental includes your setup and breakdown time. Full-day and multi-day bookings are available.</p>
+        </div>
+        <div>
+          <h3>Art on, or walls blank</h3>
+          <p>Enjoy the current exhibition as your backdrop, or book the space as a clean white-wall venue.</p>
+        </div>
+        <div>
+          <h3>Garden for more guests</h3>
+          <p>In fair weather the exterior garden opens up extra room for larger groups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wash" id="inquire">
+    <div class="wrap" style="max-width: 860px;">
+      <p class="eyebrow orange">Inquire</p>
+      <h2>Check your date</h2>
+      <p class="lede">Tell us a little about your event. Paulien will reply personally with availability and rates.</p>
+      <form name="rental-inquiry" data-demo="Thank you. Paulien will be in touch about your date soon." style="margin-top: 28px;">
+        <div class="form-grid">
+          <div><label for="r-name">Name</label><input id="r-name" name="name" required autocomplete="name"></div>
+          <div><label for="r-email">Email</label><input id="r-email" type="email" name="email" required autocomplete="email"></div>
+          <div><label for="r-phone">Phone</label><input id="r-phone" type="tel" name="phone" autocomplete="tel"></div>
+          <div>
+            <label for="r-type">Event type</label>
+            <select id="r-type" name="event_type" required>
+              <option value="">Choose one</option>
+              <option>Small wedding or rehearsal dinner</option>
+              <option>Celebration or private party</option>
+              <option>Team meeting or offsite</option>
+              <option>Film or photo shoot</option>
+              <option>Private concert</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div><label for="r-date">Preferred date</label><input id="r-date" type="date" name="date"></div>
+          <div><label for="r-guests">Number of guests</label><input id="r-guests" type="number" min="1" name="guests"></div>
+          <div>
+            <label for="r-hours">Hours needed</label>
+            <select id="r-hours" name="hours">
+              <option>4 hours (minimum)</option>
+              <option>5–8 hours</option>
+              <option>Full day</option>
+              <option>Multiple days</option>
+            </select>
+          </div>
+          <div style="display:flex; align-items:flex-end;">
+            <label class="check"><input type="checkbox" name="dj_dx"> Add music by DJ DX</label>
+          </div>
+          <div class="full"><label for="r-msg">Tell us about your event</label><textarea id="r-msg" name="message"></textarea></div>
+          <div class="full"><button class="btn" type="submit">Send inquiry</button></div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+<script src="/js/site.js" is:inline defer></script>
+</Base>

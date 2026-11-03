@@ -1,0 +1,144 @@
+{
+  "name": "Rumi Tsuda",
+  "slug": "rumi-tsuda",
+  "also_known_as": [
+    "Rumiko Tsuda"
+  ],
+  "kind": "multidisciplinary",
+  "roles": [
+    "painter",
+    "ceramicist",
+    "sculptor",
+    "performance artist",
+    "fashion artist"
+  ],
+  "based_in": "New York (later Walden, NY area)",
+  "origin": "Wakayama City, Japan",
+  "born": "1947",
+  "died": "2022",
+  "education": [
+    {
+      "school": "Los Angeles Trade-Technical College",
+      "degree": "Fashion design studies",
+      "year": ""
+    },
+    {
+      "school": "School of Visual Arts, New York",
+      "degree": "BFA and MFA",
+      "year": ""
+    }
+  ],
+  "bio_short": "Rumi Tsuda (1947-2022) was a Japanese-American artist whose paintings, ceramics, fashion and performances drew on life between two cultures. Her estate has continued to show her work in the Newburgh area, including in Reclamation (2025).",
+  "bio_long": "Rumi Tsuda, also known as Rumiko Tsuda, was born in Wakayama City, Japan, in 1947. She moved to Los Angeles in 1973, where she studied fashion design at Los Angeles Trade-Technical College, and to New York in 1980, where she earned bachelor's and master's degrees in fine art at the School of Visual Arts.\n\nHer practice ranged across painting, drawing, sculpture, collage, ceramics, fashion and performance. She was known for colorful, exuberant portraits of strangers she encountered in New York, which fold everyday scenes into surreal invention, and for work that explored her Japanese and American identities; one body of work dresses classic American fashion dolls in hand-sewn traditional Japanese garments with hand-painted faces. Her estate's archive lists hundreds of ceramics along with painted wood blocks, textiles and skateboard decks. She was an alumna of Franklin Furnace, and in 1992 married the artist Daniel Georges, with whom she often collaborated.\n\nTsuda died in 2022. That autumn an open-house retrospective of her work was held in Walden, near Newburgh. Her work has since appeared in GODZILLA: Echoes from the 1990s Asian American Arts Network at Eric Firestone Gallery (2024) and in PRISMA | Facets of Creativity at ADS Warehouse in Newburgh (2025), where other artists responded to her pieces. Her inclusion in Reclamation at Holland Tunnel Revisited in 2025 is presented through her estate.",
+  "practice": "Painting, drawing, ceramics, sculpture, collage, art fashion and performance; vivid portraits of strangers met in New York and works about bicultural Japanese-American identity.",
+  "career_timeline": [
+    {
+      "year": "1947",
+      "event": "Born in Wakayama City, Japan"
+    },
+    {
+      "year": "1973",
+      "event": "Moves to Los Angeles"
+    },
+    {
+      "year": "1980",
+      "event": "Moves to New York"
+    },
+    {
+      "year": "1992",
+      "event": "Marries artist Daniel Georges, a frequent collaborator"
+    },
+    {
+      "year": "2022",
+      "event": "Dies in New York; open-house retrospective held in Walden, NY (Oct 22)"
+    },
+    {
+      "year": "2024",
+      "event": "Included in GODZILLA: Echoes from the 1990s Asian American Arts Network, Eric Firestone Gallery"
+    },
+    {
+      "year": "2025",
+      "event": "PRISMA | Facets of Creativity, ADS Warehouse, Newburgh; Reclamation, Holland Tunnel Revisited"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2025",
+      "title": "Reclamation: Lost and Found in Newburgh",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2025",
+      "title": "PRISMA | Facets of Creativity",
+      "venue": "ADS Warehouse",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2024",
+      "title": "GODZILLA: Echoes from the 1990s Asian American Arts Network",
+      "venue": "Eric Firestone Gallery",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2022",
+      "title": "Open-house retrospective",
+      "venue": "Artist's studio",
+      "city": "Walden, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [],
+  "teaching": [],
+  "press": [],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Daniel Georges",
+      "relation": "Artist, husband and frequent collaborator; manages the estate"
+    },
+    {
+      "name": "Franklin Furnace",
+      "relation": "Alumna"
+    },
+    {
+      "name": "Godzilla: Asian American Arts Network",
+      "relation": "Included in Eric Firestone's 2024 survey of the network"
+    }
+  ],
+  "links": {
+    "website": "https://rumiartcolony.com/",
+    "instagram": "https://www.instagram.com/rumitsuda/",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.artsy.net/artist/rumi-tsuda",
+      "https://www.artworkarchive.com/profile/rumitsuda/collections",
+      "https://linktr.ee/rumitsuda",
+      "https://bsky.app/profile/rumitsuda.bsky.social"
+    ]
+  },
+  "verification": {
+    "status": "likely",
+    "evidence": "Holland Tunnel lists Rumi Tsuda in Reclamation (2025) without a bio. The only artist found with this name is Rumi (Rumiko) Tsuda, 1947-2022, whose estate is based near Newburgh: Franklin Furnace announced a 2022 retrospective in Walden, NY; she and Daniel Georges appear on a Newburgh Open Studios roster that includes Holland Tunnel; and her work was shown at ADS Warehouse in Newburgh in 2025. No source directly ties the estate to the Reclamation loan, so the work was presumably shown posthumously.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.artsy.net/artist/rumi-tsuda",
+      "https://franklinfurnace.org/goings-on-10-03-2022/",
+      "https://www.adswarehouse.org/events",
+      "https://www.timeshudsonvalley.com/stories/newburgh-open-studios-tour-celebrates-its-10th-year,20460",
+      "https://www.artworkarchive.com/profile/rumitsuda/collections"
+    ]
+  },
+  "open_questions": [
+    "Confirm with the gallery that the Reclamation works came from the Rumi Tsuda estate (Daniel Georges).",
+    "Degree years at SVA not found.",
+    "Which works were shown in Reclamation?"
+  ],
+  "shows": [
+    "reclamation-2025"
+  ]
+}

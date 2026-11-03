@@ -1,0 +1,59 @@
+---
+// Radial wheel: the artist in the middle; co-exhibitors on solid orange lines, directory members
+// from the wider circle on dashed black lines. Max 16 nodes; the viewBox is sized to fit every label.
+import { connections, initials, wheelNodes, type Archive, type Person } from '../../lib/people';
+import { layoutWheel } from '../../lib/layout';
+interface Props { p: Person; a: Archive }
+const { p, a } = Astro.props;
+const c = connections(p, a);
+const nodes = wheelNodes(p, a, c).map((n) => ({ ...n, person: a.bySlug.get(n.slug)! }));
+const geo = layoutWheel(nodes.map((n) => n.person.name));
+const first = p.name.split(/\s+/)[0];
+---
+<section class="block" aria-labelledby="con-h">
+  <h2 id="con-h">Connections</h2>
+  <p class="sub">
+    Who {first} has shown or played with at Holland Tunnel, plus collaborators in the directory.
+    <span class="key"><span><i class="k-show"></i>Shown together</span><span><i class="k-circle"></i>Wider circle</span></span>
+  </p>
+  {nodes.length ? (
+    <svg class="wheel" viewBox={geo.viewBox} role="group" aria-labelledby="wheel-t">
+      <title id="wheel-t">{p.name} and the people connected to them at Holland Tunnel</title>
+      {nodes.map((n, i) => (
+        <line class={`edge ${n.kind}`} x1={geo.cx} y1={geo.cy} x2={geo.pts[i].x} y2={geo.pts[i].y} pathLength="1" style={`--d:${200 + i * 70}ms`} />
+      ))}
+      <circle class="hub" cx={geo.cx} cy={geo.cy} r="46" />
+      <text class="hub-t" x={geo.cx} y={geo.cy + 13} text-anchor="middle" aria-hidden="true">{initials(p.name)}</text>
+      {nodes.map((n, i) => {
+        const pt = geo.pts[i];
+        const inner = (
+          <>
+            <circle class={`node ${n.kind}`} cx={pt.x} cy={pt.y} r="11" style={`--d:${650 + i * 70}ms`} />
+            <text class="node-t" x={pt.tx} y={pt.ty} text-anchor={pt.anchor} style={`--d:${750 + i * 70}ms`}>{n.person.name}</text>
+          </>
+        );
+        return n.person.url
+          ? <a href={n.person.url} aria-label={`${n.person.name}. ${n.label}`}>{inner}</a>
+          : <g aria-label={`${n.person.name} (profile in progress). ${n.label}`}>{inner}</g>;
+      })}
+    </svg>
+  ) : (
+    <p class="empty">Connections will appear as more of the archive is added.</p>
+  )}
+  {c.circle.length > 0 && (
+    <div class="circle-list">
+      <h3>Wider circle</h3>
+      <ul>
+        {c.circle.map((x) => {
+          const o = x.slug ? a.bySlug.get(x.slug) : undefined;
+          return (
+            <li>
+              <strong>{o?.url ? <a href={o.url}>{x.name}</a> : x.name}</strong>
+              {x.relation && <span>{x.relation}</span>}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  )}
+</section>

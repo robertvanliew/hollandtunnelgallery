@@ -1,0 +1,206 @@
+{
+  "name": "Alison McNulty",
+  "slug": "alison-mcnulty",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "interdisciplinary artist",
+    "educator",
+    "curator",
+    "gallery director"
+  ],
+  "based_in": "Newburgh, NY",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [
+    {
+      "school": "Washington University in St. Louis",
+      "degree": "BFA",
+      "year": ""
+    },
+    {
+      "school": "University of Florida",
+      "degree": "MFA (Alumni Fellowship)",
+      "year": ""
+    }
+  ],
+  "bio_short": "Alison McNulty is a Newburgh-based artist, educator and curator whose ephemeral, site-responsive works use reclaimed brick, dust, hair, spider webs and other fragile materials. Since 2023 she has directed Ann Street Gallery in Newburgh.",
+  "bio_long": "Alison McNulty earned her BFA at Washington University in St. Louis and her MFA at the University of Florida, where she held an Alumni Fellowship. In Gainesville she created House Project, a self-made residency inside an abandoned house, and she has since taught at Whitman College, the University of Florida, Brooklyn College and Marist College. She teaches part-time at Parsons School of Design.\n\nMcNulty moved to Newburgh in 2014, and the Hudson Valley's geology and industrial past became central to her work. She builds sculptures, architectural interventions, site-responsive installations, videos and works on paper from ordinary reclaimed materials: historic Hudson Valley bricks, salvaged slate and wood, raw sheep's wool, bone black pigment, her own hair, dust and spider webs. Her Hudson Valley Ghost Columns, Fault Trace (BAU Gallery, Beacon, 2018) and Seismographic Sketching Device (2019) treat these materials as records of long, overlapping stretches of time and of lives beyond the human.\n\nShe received the 2022 Stone & DeGuire Contemporary Art Award from Washington University and an Arts Mid-Hudson Empowered Artist Award for House Project Newburgh, developed with the Newburgh Community Land Bank's Artist in Vacancy program in 2023. Her work has appeared at the Samuel Dorsky Museum, Basilica Hudson, Kube Art Center, Fridman Gallery, WAAM and in Portugal and Colombia. As director of Ann Street Gallery, she runs emerging-artist and artist-researcher programs and co-curated From the Ground UP with Jean-Marc Superville Sovak. In Reclamation (2025) she showed quiet, fragile pieces made from uncovered paint chips and spider webs.",
+  "practice": "Ephemeral and site-responsive sculpture, installation, video and works on paper made from reclaimed and fragile materials (brick, slate, wool, hair, dust, spider webs, paint chips), exploring geological and human time and relationships with other species.",
+  "career_timeline": [
+    {
+      "year": "2014",
+      "event": "Moves to Newburgh, NY"
+    },
+    {
+      "year": "2016",
+      "event": "In the Space Of, Collaborative Concepts Farm Project, Garrison, NY"
+    },
+    {
+      "year": "2018",
+      "event": "Fault Trace, BAU Gallery, Beacon"
+    },
+    {
+      "year": "2019",
+      "event": "Seismographic Sketching Device, Dusklit Interactive Art Festival, Sugar Loaf, NY"
+    },
+    {
+      "year": "2022",
+      "event": "Stone & DeGuire Contemporary Art Award; Arts Mid-Hudson Empowered Artist Award"
+    },
+    {
+      "year": "2023",
+      "event": "House Project Newburgh (Artist in Vacancy, Newburgh Community Land Bank); Saltonstall residency; becomes Gallery Director, Ann Street Gallery"
+    },
+    {
+      "year": "2025",
+      "event": "Reclamation: Lost and Found in Newburgh, Holland Tunnel Revisited"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2025",
+      "title": "Reclamation: Lost and Found in Newburgh",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2018",
+      "title": "Fault Trace",
+      "venue": "BAU Gallery",
+      "city": "Beacon, NY"
+    },
+    {
+      "year": "2016",
+      "title": "In the Space Of (Collaborative Concepts Farm Project)",
+      "venue": "",
+      "city": "Garrison, NY"
+    },
+    {
+      "year": "",
+      "title": "Terrain Biennial",
+      "venue": "",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "",
+      "title": "Group exhibition",
+      "venue": "Samuel Dorsky Museum of Art",
+      "city": "New Paltz, NY"
+    },
+    {
+      "year": "",
+      "title": "Group exhibition",
+      "venue": "Casas Riegner",
+      "city": "Bogota, Colombia"
+    },
+    {
+      "year": "",
+      "title": "Group exhibition",
+      "venue": "International Museum of Contemporary Sculpture",
+      "city": "Santo Tirso, Portugal"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "2023",
+      "name": "Arts Mid-Hudson Individual Artist Commission"
+    },
+    {
+      "year": "2023",
+      "name": "Saltonstall Foundation residency"
+    },
+    {
+      "year": "2023",
+      "name": "Artist in Vacancy, Newburgh Community Land Bank"
+    },
+    {
+      "year": "2022",
+      "name": "Stone & DeGuire Contemporary Art Award, Washington University in St. Louis"
+    },
+    {
+      "year": "2022",
+      "name": "Empowered Artist Award, Arts Mid-Hudson"
+    },
+    {
+      "year": "",
+      "name": "Residencies at Atlantic Center for the Arts and STONELEAF Retreat"
+    }
+  ],
+  "teaching": [
+    "Parsons School of Design (part-time assistant professor)",
+    "Brooklyn College (part-time)",
+    "Marist College (part-time)",
+    "Whitman College (visiting assistant professor)",
+    "University of Florida (visiting assistant professor)"
+  ],
+  "press": [
+    {
+      "year": "",
+      "title": "Artist Alison McNulty Explores Valley's Ecological and Industrial Past (Mazuba Kapambwe)",
+      "outlet": "Scenic Hudson",
+      "url": "https://www.scenichudson.org/viewfinder/artist-alison-mcnulty-explores-valleys-ecological-and-industrial-past/"
+    },
+    {
+      "year": "2019",
+      "title": "Interview with Brainard Carey",
+      "outlet": "Yale University Radio WYBCX / Museum of Non-Visible Art",
+      "url": "https://museumofnonvisibleart.com/interviews/alison-mcnulty/"
+    },
+    {
+      "year": "2025",
+      "title": "Reclamation: Holland Tunnel Revisited in Newburgh",
+      "outlet": "Art Spiel",
+      "url": "https://artspiel.org/reclamation-holland-tunnel-revisited-in-newburgh/"
+    }
+  ],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Jean-Marc Superville Sovak",
+      "relation": "Co-curator, From the Ground UP, Ann Street Gallery (2023-24)"
+    },
+    {
+      "name": "Ann Street Gallery / Safe Harbors of the Hudson",
+      "relation": "Gallery Director since 2023"
+    },
+    {
+      "name": "Newburgh Community Land Bank",
+      "relation": "Partner on House Project Newburgh (2023)"
+    }
+  ],
+  "links": {
+    "website": "https://alisonmcnulty.com/",
+    "instagram": "https://www.instagram.com/mcnulty_alison/",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.saltonstall.org/project/alison-mcnulty-2023/",
+      "https://www.newburghcommunitylandbank.org/2023-aiv-alison-mcnulty"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "Holland Tunnel lists Alison McNulty in Reclamation; Art Spiel's review describes her pieces as made from uncovered paint chips and spider webs. The Newburgh-based Alison McNulty's own site, Saltonstall and the Yale radio interview all describe work from reclaimed materials including spider webs, and she is based in the same city as the gallery.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://artspiel.org/reclamation-holland-tunnel-revisited-in-newburgh/",
+      "https://alisonmcnulty.com/about",
+      "https://museumofnonvisibleart.com/interviews/alison-mcnulty/",
+      "https://www.newburghcommunitylandbank.org/2023-aiv-alison-mcnulty"
+    ]
+  },
+  "open_questions": [
+    "Degree years not stated on pages read (a CV PDF is linked from her About page).",
+    "Titles of works shown in Reclamation.",
+    "Dates for Dorsky, Terrain Biennial and international shows."
+  ],
+  "shows": [
+    "reclamation-2025"
+  ]
+}

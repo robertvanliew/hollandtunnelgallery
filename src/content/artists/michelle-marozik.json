@@ -1,0 +1,134 @@
+{
+  "name": "Michelle Marozik",
+  "slug": "michelle-marozik",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "painter",
+    "draftsperson"
+  ],
+  "based_in": "",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [
+    {
+      "school": "Maryland Institute College of Art",
+      "degree": "BFA",
+      "year": ""
+    },
+    {
+      "school": "Rosary College (graduate program in Florence, Italy)",
+      "degree": "MFA",
+      "year": ""
+    }
+  ],
+  "bio_short": "Michelle Marozik is an artist trained at MICA and in Florence, known for her long-running drawing series Billionaires and Politicians. She is one of the eight painters in Unframed at Holland Tunnel Revisited, Newburgh.",
+  "bio_long": "Michelle Marozik received her BFA from the Maryland Institute College of Art in Baltimore and an MFA through Rosary College's program in Florence, Italy. According to a 2013 Creative Time Reports profile, her work had by then entered private collections in Europe and the United States. In 2011 she began Billionaires and Politicians, an ongoing series of drawings that pairs American elected officials with the wealthy donors who fund their campaigns, as a way of looking at how money shapes public policy. Creative Time Reports published an installment of the series, on Senator Rand Paul, in 2013, and the project continues on Instagram under its own name. Alongside that research-driven drawing, Marozik is part of a group that meets weekly in all seasons to paint together, and in September 2026 she helped install Unframed at Holland Tunnel Revisited in Newburgh, which gathers three years of work from those sessions. She also spoke about the exhibition with fellow participant Paul Chidester in a video interview for NBNY Art Seen.",
+  "practice": "Drawing series investigating campaign finance (Billionaires and Politicians, 2011 to present) alongside painting made in weekly group sessions.",
+  "career_timeline": [
+    {
+      "year": "2011",
+      "event": "Begins drawing series Billionaires and Politicians"
+    },
+    {
+      "year": "2013",
+      "event": "Billionaires and Politicians: Rand Paul published by Creative Time Reports"
+    },
+    {
+      "year": "2026",
+      "event": "Exhibits in and helps install Unframed at Holland Tunnel Revisited, Newburgh, NY"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2026",
+      "title": "Unframed",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2026",
+      "title": "Holland Tunnel Gallery - Unframed (interview with Paul Chidester and Michelle Marozik)",
+      "outlet": "NBNY Art Seen (YouTube)",
+      "url": "https://www.youtube.com/watch?v=gi7GVzJFUI8"
+    }
+  ],
+  "recordings_or_publications": [
+    {
+      "year": "2013",
+      "title": "Billionaires and Politicians: Rand Paul",
+      "label_or_publisher": "Creative Time Reports"
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "Tom Benson",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Paul Chidester",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Emily Hopkins",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Nancy Manter",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Mitch Markowitz",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Kendall Munk",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Itty Neuhaus",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Creative Time Reports",
+      "relation": "published her work (2013)"
+    }
+  ],
+  "links": {
+    "website": "",
+    "instagram": "https://www.instagram.com/mmarozik/",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "https://www.youtube.com/watch?v=gi7GVzJFUI8",
+    "other": [
+      "https://creativetimereports.org/author/michelle-marozik/",
+      "https://www.instagram.com/billionairesandpoliticians/"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "She posted the Unframed install and opening announcement on her Instagram (@mmarozik) and was interviewed about the show; her Instagram bio points to @billionairesandpoliticians, linking her to the Creative Time Reports artist bio.",
+    "sources": [
+      "https://www.instagram.com/mmarozik/p/DdMCRpekc5u/",
+      "https://www.youtube.com/watch?v=gi7GVzJFUI8",
+      "https://creativetimereports.org/author/michelle-marozik/"
+    ]
+  },
+  "open_questions": [
+    "Graduation years for MICA and the Florence MFA.",
+    "Current base (the 2013 bio said Brooklyn).",
+    "Several business directories list a Michelle Marozik as bookshop manager at Dia Art Foundation; confirm before mentioning.",
+    "Prior exhibitions of her painting."
+  ],
+  "shows": [
+    "unframed-2026"
+  ]
+}

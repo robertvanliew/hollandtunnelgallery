@@ -1,0 +1,26 @@
+---
+import { Picture } from 'astro:assets';
+import { htgYears, initials, rolesLine, type Archive, type Person } from '../../lib/people';
+interface Props { p: Person; a: Archive }
+const { p, a } = Astro.props;
+const roles = rolesLine(p);
+const years = htgYears(p, a);
+---
+<li class="card" data-group={p.group} data-shows={p.showIds.join(' ')} data-search={`${p.name} ${p.also_known_as.join(' ')} ${roles}`.toLowerCase()}>
+  <a href={p.url}>
+    <div class="card-media" style={`view-transition-name: art-${p.slug}`}>
+      {p.image ? (
+        <Picture src={p.image} alt={p.imageAlt!} formats={['avif', 'webp']} widths={[280, 440, 640]}
+          sizes="(max-width: 600px) 45vw, 260px" loading="lazy" />
+      ) : (
+        <span class={`mono mono-${p.group}`} aria-hidden="true"><b>{initials(p.name)}</b><small>{roles.split(' · ')[0]}</small></span>
+      )}
+    </div>
+    <div class="card-body">
+      <h3 style={`view-transition-name: name-${p.slug}`}>{p.name}</h3>
+      <p class="card-roles">{roles}</p>
+      {years.length > 0 && <p class="card-years">Holland Tunnel {years.join(', ')}</p>}
+      {p.status === 'likely' && <p class="card-pending">Pending confirmation</p>}
+    </div>
+  </a>
+</li>

@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import { loadArchive, surname } from '../../lib/people';
+import { breadcrumbs } from '../../lib/jsonld';
+import '../../styles/artists.css';
+
+const a = await loadArchive();
+const events = [...a.shows.values()].filter((s) => s.isMusic).sort((x, y) => (x.startDate < y.startDate ? 1 : -1));
+const who = (id: string) =>
+  (a.showPeople.get(id) ?? []).map((slug) => a.bySlug.get(slug)!).sort((x, y) => surname(x.name).localeCompare(surname(y.name)));
+---
+<Base
+  title="Events: Music, Performance & Film | Holland Tunnel Gallery, Newburgh NY"
+  description="Concerts, performances, Cinema Club screenings and music nights at Holland Tunnel Gallery, 46 Chambers Street, Newburgh, NY."
+  path="/events"
+  active="events"
+  jsonld={{ '@context': 'https://schema.org', ...breadcrumbs([['Home', '/'], ['Events', '/events']]) }}
+>
+  <section class="dir-hero">
+    <p class="kicker">Music, performance &amp; film</p>
+    <h1>Events</h1>
+    <p class="lede">Jazz, blues, world music and performance have been part of Holland Tunnel since the garden-shed days. See what's coming up next, or browse past concerts and the musicians who played them.</p>
+    <p style="margin-top:22px"><a class="btn" href="/#next-up">What's coming up</a></p>
+  </section>
+  <section class="block" aria-labelledby="past-h">
+    <h2 id="past-h">Past concerts &amp; performances</h2>
+    <ul class="archive-list">
+      {events.map((s) => (
+        <li>
+          <span class="y">{s.year}</span>
+          <div>
+            <a href={s.url}>{s.title}</a>
+            <p>{s.dates} · {s.type}{who(s.id).length > 0 && <> · with {who(s.id).map((p, i) => <>{i > 0 && ', '}{p.url ? <a href={p.url}>{p.name}</a> : p.name}</>)}</>}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

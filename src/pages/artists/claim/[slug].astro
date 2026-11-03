@@ -1,0 +1,63 @@
+---
+// Claim / update form. /api/forms (a Vercel function) emails submissions, with the photo, to the
+// gallery inbox; nothing is published automatically. Paulien reviews and applies edits in the CMS.
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/artists/Breadcrumb.astro';
+import { linkItems, loadArchive } from '../../../lib/people';
+import '../../../styles/artists.css';
+
+export async function getStaticPaths() {
+  const a = await loadArchive();
+  return a.people.filter((p) => p.published).map((p) => ({ params: { slug: p.slug } }));
+}
+const a = await loadArchive();
+const p = a.bySlug.get(Astro.params.slug!)!;
+const known = linkItems(p).map((l) => l.url).join('\n');
+---
+<Base
+  title={`Claim or update: ${p.name} | Holland Tunnel Gallery`}
+  description={`Update the Holland Tunnel Gallery profile for ${p.name}.`}
+  path={`/artists/claim/${p.slug}`}
+  noindex
+  active="artists"
+>
+  <Breadcrumb items={[{ name: 'Artists & Musicians', href: '/artists' }, { name: p.name, href: p.url! }, { name: 'Claim or update' }]} />
+  <section class="form-page">
+    <p class="kicker">Artist profiles</p>
+    <h1>Claim or update</h1>
+    <p class="lede">Is this your profile, or do you represent the artist or estate? Send new work, links or corrections for <a href={p.url!}>{p.name}</a>. Paulien reviews every change before it goes live.</p>
+
+    <form name="claim-profile" method="POST" action="/api/forms" enctype="multipart/form-data">
+      <input type="hidden" name="form-name" value="claim-profile" />
+      <p class="hp"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
+      <div class="form-grid">
+        <div><label for="c-name">Your name</label><input id="c-name" name="name" required autocomplete="name" /></div>
+        <div><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email" /></div>
+        <div class="full">
+          <label for="c-slug">Profile</label>
+          <input id="c-slug" name="profile" value={p.slug} readonly aria-describedby="c-slug-h" />
+          <p class="hint" id="c-slug-h">{p.name} · hollandtunnelgallery.com{p.url}</p>
+        </div>
+        <div class="full">
+          <label for="c-links">Website and social links</label>
+          <textarea id="c-links" name="links" rows="4" placeholder="One per line" aria-describedby="c-links-h">{known}</textarea>
+          <p class="hint" id="c-links-h">We've filled in the links we have. Edit, remove or add.</p>
+        </div>
+        <div class="full">
+          <label for="c-bio">Bio or corrections</label>
+          <textarea id="c-bio" name="bio" aria-describedby="c-bio-h"></textarea>
+          <p class="hint" id="c-bio-h">A short bio in your words, or tell us what to fix.</p>
+        </div>
+        <div class="full">
+          <label for="c-photo">Photo (optional)</label>
+          <input id="c-photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="c-photo-h" />
+          <p class="hint" id="c-photo-h">A portrait or an image of your work, JPG, PNG or WebP, under 4 MB. Include the photographer's name in the bio box if credit is needed.</p>
+        </div>
+        <div class="full">
+          <label class="check"><input type="checkbox" name="permission" value="yes" required /> I give Holland Tunnel Gallery permission to publish this information and image.</label>
+        </div>
+        <div class="full"><button class="btn" type="submit">Send to the gallery</button></div>
+      </div>
+    </form>
+  </section>
+</Base>

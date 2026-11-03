@@ -1,0 +1,291 @@
+{
+  "name": "Michael Tarbi",
+  "slug": "michael-tarbi",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "painter"
+  ],
+  "based_in": "Hudson Valley, NY",
+  "origin": "Pittsburgh, PA",
+  "born": "1980",
+  "died": "",
+  "education": [
+    {
+      "school": "Pennsylvania Academy of the Fine Arts",
+      "degree": "Studies (1998–2002)",
+      "year": "2002"
+    }
+  ],
+  "bio_short": "Michael Tarbi is a Hudson Valley painter best known for his quarter-scale doormat paintings, which question whether a work can be a painting and an object, abstract and representational, at once. He showed them in The Dark Abyss of Time (2026).",
+  "bio_long": "Michael Tarbi was born in Pittsburgh in 1980 and studied at the Pennsylvania Academy of the Fine Arts from 1998 to 2002, where he won the Angelo Pinto Award for Experimental Work and the J. Henry Schiedt Travel Scholarship. His first solo show, The Human Condition, opened at Thomas Robertello Gallery in Chicago in 2006.\n\nFor more than a decade Tarbi has painted doormats: small, exact paintings of an everyday object people step over without a second look. Made at a fraction of life size, they sit somewhere between painting and sculpture, and between abstraction and a faithful picture of a thing. Some carry words that argue with each other; others are closer to pure pattern. The series has been included in the Pierogi Flat Files and was the focus of a 2019 solo exhibition at mh PROJECT nyc. At Holland Tunnel Revisited, his doormats hung in The Dark Abyss of Time (2026).\n\nHis work has appeared at the Corcoran Gallery of Art, MASS MoCA, the Carnegie Museum of Art, the Institute of Contemporary Art in Philadelphia and the Hyde Park Art Center, and in New American Paintings. He received a New York Foundation for the Arts Fellowship in 2011, as well as grants from the Rauschenberg Foundation's Change Inc., the Mayer Foundation and Artists' Fellowship Inc. He lives and works in the Hudson Valley.",
+  "practice": "Meticulous quarter-scale painted doormats that sit between painting and sculpture and between abstraction and representation, sometimes carrying contradictory text. Earlier series include cells, The Human Condition and Dead Landscapes.",
+  "career_timeline": [
+    {
+      "year": "1998",
+      "event": "American Visions Award, Alliance for Young Artists and Writers; work shown at the Corcoran Gallery of Art"
+    },
+    {
+      "year": "1998–2002",
+      "event": "Studied at the Pennsylvania Academy of the Fine Arts"
+    },
+    {
+      "year": "2006",
+      "event": "First solo exhibition, The Human Condition, Thomas Robertello Gallery, Chicago"
+    },
+    {
+      "year": "2010",
+      "event": "Doormat series enters the Pierogi Flat Files"
+    },
+    {
+      "year": "2011",
+      "event": "New York Foundation for the Arts Fellowship; An Exchange with Sol LeWitt, MASS MoCA"
+    },
+    {
+      "year": "2012",
+      "event": "Robert Rauschenberg Foundation Change Inc. grant"
+    },
+    {
+      "year": "2018",
+      "event": "HOME at Collar Works, Troy, curated by Cara Manes of MoMA"
+    },
+    {
+      "year": "2019",
+      "event": "Solo exhibition Doormat Paintings, mh PROJECT nyc"
+    },
+    {
+      "year": "2023",
+      "event": "No Name | No Slogan, Howland Cultural Center, Beacon"
+    },
+    {
+      "year": "2026",
+      "event": "The Dark Abyss of Time, Holland Tunnel Revisited, Newburgh"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2026",
+      "title": "The Dark Abyss of Time",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2023",
+      "title": "No Name | No Slogan: Avant-Garde Exhibition",
+      "venue": "Howland Cultural Center",
+      "city": "Beacon, NY"
+    },
+    {
+      "year": "2020",
+      "title": "Darkest Before Dawn: Art in a Time of Uncertainty",
+      "venue": "Ethan Cohen Gallery – KuBe",
+      "city": "Beacon, NY"
+    },
+    {
+      "year": "2019",
+      "title": "Doormat Paintings (solo)",
+      "venue": "mh PROJECT nyc",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2019",
+      "title": "Post-Human, 5th International Exhibition on New Media Art",
+      "venue": "CICA Museum",
+      "city": "Gyeonggi-do, South Korea"
+    },
+    {
+      "year": "2018",
+      "title": "Home",
+      "venue": "Collar Works",
+      "city": "Troy, NY"
+    },
+    {
+      "year": "2018",
+      "title": "Exquisite Corpses (with Mark E. Weleski)",
+      "venue": "Gallarus Arts",
+      "city": "Katonah, NY"
+    },
+    {
+      "year": "2013",
+      "title": "Unhinged",
+      "venue": "Pierogi",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2011",
+      "title": "An Exchange with Sol LeWitt",
+      "venue": "MASS MoCA",
+      "city": "North Adams, MA"
+    },
+    {
+      "year": "2009",
+      "title": "Signs of the Apocalypse/Rapture",
+      "venue": "Hyde Park Art Center",
+      "city": "Chicago, IL"
+    },
+    {
+      "year": "2006",
+      "title": "The Human Condition (solo)",
+      "venue": "Thomas Robertello Gallery",
+      "city": "Chicago, IL"
+    },
+    {
+      "year": "2006",
+      "title": "Associated Artists Exhibition",
+      "venue": "Carnegie Museum of Art",
+      "city": "Pittsburgh, PA"
+    },
+    {
+      "year": "2002",
+      "title": "Video Station",
+      "venue": "Institute of Contemporary Art",
+      "city": "Philadelphia, PA"
+    },
+    {
+      "year": "1998",
+      "title": "American Visions",
+      "venue": "Corcoran Gallery of Art",
+      "city": "Washington, DC"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "2013",
+      "name": "Artists' Fellowship Inc. Grant"
+    },
+    {
+      "year": "2013",
+      "name": "Mayer Foundation Grant"
+    },
+    {
+      "year": "2012",
+      "name": "Robert Rauschenberg Foundation – Change Inc. Grant"
+    },
+    {
+      "year": "2011",
+      "name": "New York Foundation for the Arts Fellowship"
+    },
+    {
+      "year": "2006",
+      "name": "Irene Palenski Sailor Award (spelling per CV), Associated Artists of Pittsburgh"
+    },
+    {
+      "year": "2002",
+      "name": "J. Henry Schiedt Travel Scholarship, PAFA"
+    },
+    {
+      "year": "2002",
+      "name": "Women's Board Prize, PAFA"
+    },
+    {
+      "year": "2001",
+      "name": "Angelo Pinto Award for Experimental Work, PAFA"
+    },
+    {
+      "year": "2001",
+      "name": "Figure Painting Prize, PAFA"
+    },
+    {
+      "year": "1999",
+      "name": "Rambourger Prize in Drawing, PAFA"
+    },
+    {
+      "year": "1998",
+      "name": "American Visions Award, Alliance for Young Artists and Writers"
+    }
+  ],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2026",
+      "title": "Holland Tunnel Returns",
+      "outlet": "The Highlands Current (Marc Ferris)",
+      "url": "https://highlandscurrent.org/2026/03/13/holland-tunnel-returns/"
+    },
+    {
+      "year": "2007",
+      "title": "Time Out Chicago, Issue 98",
+      "outlet": "Time Out Chicago",
+      "url": ""
+    }
+  ],
+  "recordings_or_publications": [
+    {
+      "year": "2019",
+      "title": "Post-Human: 5th International Exhibition on New Media Art (catalogue)",
+      "label_or_publisher": "CICA Press"
+    },
+    {
+      "year": "2016",
+      "title": "Draft – The Journal of Process, Spring issue",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "2008",
+      "title": "Signs of the Apocalypse/Rapture",
+      "label_or_publisher": "Front Forty Press"
+    },
+    {
+      "year": "2005",
+      "title": "New American Paintings, Vol. 57",
+      "label_or_publisher": ""
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "Mark E. Weleski",
+      "relation": "Two-person show Exquisite Corpses, Gallarus Arts (2018)"
+    },
+    {
+      "name": "Jill Palermo",
+      "relation": "Two-person show Cellular Structures, American Jewish Museum, Pittsburgh (2005)"
+    },
+    {
+      "name": "Pierogi",
+      "relation": "Flat Files artist; Unhinged (2013)"
+    },
+    {
+      "name": "Cara Manes",
+      "relation": "Curated HOME at Collar Works (2018)"
+    },
+    {
+      "name": "Greg Slick",
+      "relation": "Curator of The Dark Abyss of Time (2026)"
+    }
+  ],
+  "links": {
+    "website": "https://michaeltarbi.com/",
+    "instagram": "",
+    "wikipedia": "https://en.wikipedia.org/wiki/Michael_Tarbi",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://mhprojectnyc.com/Michael-Tarbi",
+      "https://www.newamericanpaintings.com/artists/michael-tarbi",
+      "https://www.artnet.com/artists/michael-tarbi/"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "The press release bio matches his own site bio almost word for word (Corcoran, MASS MoCA, Carnegie, ICA, Hyde Park; NYFA; PAFA). His CV and mh PROJECT nyc say he lives and works in the Hudson Valley, and The Highlands Current describes his painted doormats on the wall at Holland Tunnel Revisited.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/s/The-Dark-Abyss-of-Time-Press-Release-final-rmb7.pdf",
+      "https://highlandscurrent.org/2026/03/13/holland-tunnel-returns/",
+      "https://michaeltarbi.com/page/1-Bio.html",
+      "https://img-cache.oppcdn.com/fixed/9175/assets/GI1G8oa9a66e7GLs.pdf",
+      "https://mhprojectnyc.com/Michael-Tarbi",
+      "https://en.wikipedia.org/wiki/Michael_Tarbi"
+    ]
+  },
+  "open_questions": [
+    "The CV spells the Pittsburgh award 'Irene Palenski Sailor Award' (text-extraction artifacts). Check the exact spelling.",
+    "Wikipedia and the site bio spell the PAFA scholarship 'Henry J. Scheit'; the CV spells it 'J. Henry Schiedt'. Confirm.",
+    "PAFA credential type (certificate or BFA) not stated."
+  ],
+  "shows": [
+    "dark-abyss-of-time-2026"
+  ]
+}

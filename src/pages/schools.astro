@@ -1,0 +1,236 @@
+---
+// School visits: a field-trip program for middle and high schools. Bookings post to /api/forms
+// (form-name "school-visit") and are emailed to the gallery inbox.
+import Base from '../layouts/Base.astro';
+import '../styles/pages.css';
+import { ADDRESS, SITE_URL } from '../lib/site';
+import { breadcrumbs } from '../lib/jsonld';
+
+const faqs = [
+  ['What does a visit cost?', 'Rates depend on group size and the program. Ask us, and tell us how your school plans to pay (school budget, Title IV-A, BOCES, PTA or a grant) so we can send the right paperwork.'],
+  ['Which grades is it for?', 'Grades 6–12. The film, the conversation in the gallery and the hands-on activity are adapted to the age group.'],
+  ['Can the artist be there?', 'When the artist is available, yes: the film leads into a live Q&A. Otherwise students watch the artist film, and sometimes the artist joins by video call.'],
+  ['How many students can come?', 'One class at a time. Larger groups split in two and swap between the screening and the gallery.'],
+  ['What if a student has access needs?', 'Tell us in the booking form and we will plan the visit around them.'],
+] as const;
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      '@id': `${SITE_URL}/schools#service`,
+      name: 'School visits at Holland Tunnel Gallery',
+      serviceType: 'Educational field trip',
+      description:
+        'Guided visits for grades 6–12: a short film about the artist, a guided look at the exhibition and a hands-on activity in the artist’s method, with a lesson plan for teachers.',
+      url: `${SITE_URL}/schools`,
+      provider: { '@type': 'ArtGallery', name: 'Holland Tunnel Gallery', url: `${SITE_URL}/`, address: ADDRESS },
+      areaServed: { '@type': 'Place', name: 'Hudson Valley, New York' },
+      audience: { '@type': 'EducationalAudience', educationalRole: 'student', audienceType: 'Middle and high school students (grades 6–12)' },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+    },
+    breadcrumbs([['Home', '/'], ['School visits', '/schools']]),
+  ],
+};
+---
+<Base
+  title="School Visits · Field Trips for Grades 6–12 | Holland Tunnel Gallery, Newburgh NY"
+  description="Field trips for middle and high schools at Holland Tunnel Gallery in Newburgh, NY: an artist film, a guided look at the show and a hands-on workshop, with a lesson plan."
+  path="/schools"
+  jsonld={jsonld}
+>
+  <section class="page-hero">
+    <img src="/img/gallery-installation-view-1.webp" width="1200" height="1600" alt="Textile works and small sculptures on white plinths in the Holland Tunnel gallery" />
+    <div class="wrap">
+      <p class="eyebrow" style="color:#fff;">School visits · Grades 6–12</p>
+      <h1>Class is in <span>the gallery</span></h1>
+      <p class="lede">A visit to a working contemporary art gallery in Newburgh's Historic District. Students meet the artist on screen, see the work up close, then make something in the artist's own method.</p>
+      <div class="btn-row">
+        <a class="btn" href="#book">Plan a visit</a>
+        <a class="btn light" href="#how">How a visit works</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="specs">
+        <div class="spec"><b>75–90 min</b><span>per visit, in four parts</span></div>
+        <div class="spec"><b>6–12</b><span>grades, adapted to each age group</span></div>
+        <div class="spec"><b>1 class</b><span>at a time, split into two groups</span></div>
+        <div class="spec"><b>Since 1997</b><span>an artist-run gallery</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <p class="eyebrow orange">Why Holland Tunnel</p>
+      <h2>Not just a tour</h2>
+      <div class="uses">
+        <div class="use"><b>A real artist</b><span>Every visit starts with the artist who made the work, on film or in person.</span></div>
+        <div class="use"><b>Students make</b><span>A hands-on workshop in the artist's own method, not just looking.</span></div>
+        <div class="use"><b>Small groups</b><span>One class at a time, in two small groups, so every student gets close to the work.</span></div>
+        <div class="use"><b>In Newburgh</b><span>In the Historic District, a short trip for Newburgh schools.</span></div>
+        <div class="use"><b>Trip-request ready</b><span>Lesson plan, standards and purchasing paperwork in one packet.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <p class="eyebrow orange">How a visit works</p>
+      <h2>Watch, look, make, share</h2>
+      <ol class="steps" data-steps>
+        <li tabindex="0" aria-pressed="false"><b>Meet the artist</b><span class="time">15–20 min · screening</span><p>Students sit down for a short film about the artist: how they work and what they were thinking. When the artist can come, the film leads into a live Q&amp;A.</p></li>
+        <li tabindex="0" aria-pressed="false"><b>In the gallery</b><span class="time">20–25 min · guided</span><p>A guided look at the exhibition. Students find the things the artist talked about and see how the work is made up close.</p></li>
+        <li tabindex="0" aria-pressed="false"><b>Hands-on</b><span class="time">25–30 min · workshop</span><p>An activity in the artist's own method, in the studio space or the garden in fair weather.</p></li>
+        <li tabindex="0" aria-pressed="false"><b>Wrap-up</b><span class="time">5 min · together</span><p>Each student shares one thing they noticed. Teachers leave with a follow-up activity for class.</p></li>
+      </ol>
+      <p class="small muted" style="margin-top:18px;">Larger classes split in two and swap between the screening and the gallery, so everyone gets a closer look.</p>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Meet the artist</p>
+        <h2>On screen, or in person</h2>
+        <p>Every visit opens with a short film made with the artist in their studio: the ideas, the materials and the process behind the work on the walls. The films are captioned.</p>
+        <p class="muted">Each film also lives on the artist's profile, so students can watch again before or after the visit.</p>
+        <div class="btn-row"><a class="btn light" href="/artists">Browse the artists</a></div>
+      </div>
+      <img src="/img/gallery-installing-a-show.webp" alt="An artist installing a sculpture in the high-ceilinged gallery" loading="lazy" style="width:100%;max-height:420px;object-fit:cover;" />
+    </div>
+  </section>
+
+  <section class="wash">
+    <div class="wrap">
+      <p class="eyebrow orange">Workshops</p>
+      <h2>Made in the artist's method</h2>
+      <p class="lede" style="margin-bottom:28px;">The hands-on part changes with each exhibition. A few from recent shows:</p>
+      <div class="workshops">
+        <div class="workshop"><b>Painting outdoors</b><span class="from">From Unframed, 2026</span><p>Eight Hudson Valley painters who work outside in every season. Students sketch from direct observation, the way they do.</p><a href="/exhibitions/unframed-2026">About the show →</a></div>
+        <div class="workshop"><b>Found-object sculpture</b><span class="from">From Reclamation, 2025</span><p>Twenty-four artists building with lost and found materials. Students turn everyday objects into a small sculpture.</p><a href="/exhibitions/reclamation-2025">About the show →</a></div>
+        <div class="workshop"><b>Sound you can see</b><span class="from">From Ken Butler's performances</span><p>Hybrid instruments made from axes, brooms and tennis rackets. Students design an instrument from ordinary objects.</p><a href="/artists/ken-butler">Meet Ken Butler →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow orange">For teachers</p>
+      <h2>Ready for your files</h2>
+      <div class="terms">
+        <div>
+          <h3>Curriculum-linked</h3>
+          <p>Each part of the visit covers one strand of the New York State Learning Standards for the Arts: <strong>Responding</strong> (the film), <strong>Presenting</strong> (the gallery walk), <strong>Creating</strong> (the workshop) and <strong>Connecting</strong> (the wrap-up), with ties to English, science and social studies.</p>
+        </div>
+        <div>
+          <h3>Lesson plan included</h3>
+          <p>A plan for the visit with objectives, standards, vocabulary, a pre-visit activity and a follow-up for class, ready to attach to your trip request.</p>
+          <p><a href="/schools/lessons/painting-outdoors">See a sample lesson plan →</a></p>
+        </div>
+        <div>
+          <h3>Purchasing paperwork</h3>
+          <p>Send us your purchase order and we'll send your business office our W-9 and an invoice that references it. We'll fill out your district's vendor forms if needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rule-top">
+    <div class="wrap" style="max-width: 860px;">
+      <h2>Questions teachers ask</h2>
+      <div class="faq">
+        {faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="wash" id="book">
+    <div class="wrap" style="max-width: 860px;">
+      <p class="eyebrow orange">Book</p>
+      <h2>Plan a class visit</h2>
+      <p class="lede">Tell us about your class. Paulien will reply with available dates, the lesson plan and rates.</p>
+      <form name="school-visit" method="POST" action="/api/forms" style="margin-top: 28px;">
+        <input type="hidden" name="form-name" value="school-visit" />
+        <p style="position:absolute;left:-9999px"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
+        <div class="form-grid">
+          <div><label for="s-name">Your name</label><input id="s-name" name="name" required autocomplete="name" /></div>
+          <div><label for="s-role">Your role</label><input id="s-role" name="role" placeholder="Art teacher, principal…" /></div>
+          <div><label for="s-email">Email</label><input id="s-email" type="email" name="email" required autocomplete="email" /></div>
+          <div><label for="s-phone">Phone</label><input id="s-phone" type="tel" name="phone" autocomplete="tel" /></div>
+          <div class="full"><label for="s-school">School and district</label><input id="s-school" name="school" required placeholder="e.g. Newburgh Free Academy, Newburgh Enlarged City School District" /></div>
+          <div>
+            <label for="s-grade">Grades</label>
+            <select id="s-grade" name="grades" required>
+              <option value="">Choose one</option>
+              <option>Grades 6–8</option>
+              <option>Grades 9–12</option>
+              <option>Mixed grades</option>
+            </select>
+          </div>
+          <div><label for="s-students">Number of students</label><input id="s-students" type="number" min="1" name="students" required /></div>
+          <div class="full"><label for="s-dates">Preferred dates</label><input id="s-dates" name="dates" placeholder="e.g. any Tuesday or Thursday in March" /></div>
+          <div>
+            <label for="s-subject">Class or subject</label>
+            <select id="s-subject" name="subject">
+              <option>Art</option>
+              <option>English</option>
+              <option>Science</option>
+              <option>Social studies</option>
+              <option>Interdisciplinary</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="s-artist">Meet the artist</label>
+            <select id="s-artist" name="artist">
+              <option>Film is fine</option>
+              <option>In person if possible</option>
+              <option>Video call if possible</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="s-funding">How the trip will be funded</label>
+            <select id="s-funding" name="funding">
+              <option>Not sure yet</option>
+              <option>School or department budget</option>
+              <option>Title IV-A</option>
+              <option>BOCES Arts in Education</option>
+              <option>PTA or parent group</option>
+              <option>Grant</option>
+            </select>
+          </div>
+          <div class="full"><label for="s-notes">Anything else (topics, access needs, timing)</label><textarea id="s-notes" name="message"></textarea></div>
+          <div class="full"><button class="btn" type="submit">Request a visit</button></div>
+        </div>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Visit steps: click or press Enter/Space to highlight a step, arrow keys move between them.
+  document.querySelectorAll<HTMLElement>('[data-steps]').forEach((list) => {
+    const items = Array.from(list.querySelectorAll<HTMLElement>('li'));
+    const select = (li: HTMLElement) => {
+      const on = !li.classList.contains('is-active');
+      items.forEach((el) => { el.classList.remove('is-active'); el.setAttribute('aria-pressed', 'false'); });
+      if (on) { li.classList.add('is-active'); li.setAttribute('aria-pressed', 'true'); }
+    };
+    items.forEach((li, i) => {
+      li.addEventListener('click', () => select(li));
+      li.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(li); }
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+      });
+    });
+  });
+</script>

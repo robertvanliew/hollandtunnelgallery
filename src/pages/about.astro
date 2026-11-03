@@ -1,0 +1,194 @@
+---
+// Ported from the static demo (about.html) by scripts/port-demo-pages.py
+import Base from '../layouts/Base.astro';
+import '../styles/pages.css';
+import { onView, longDate } from '../lib/onview';
+const ov = await onView();
+const jsonld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "url": "https://www.hollandtunnelgallery.com/about",
+      "about": {
+        "@id": "https://www.hollandtunnelgallery.com/#gallery"
+      }
+    },
+    {
+      "@type": "ArtGallery",
+      "@id": "https://www.hollandtunnelgallery.com/#gallery",
+      "name": "Holland Tunnel Gallery",
+      "foundingDate": "1997-11",
+      "foundingLocation": "Williamsburg, Brooklyn, New York",
+      "founder": {
+        "@id": "https://www.hollandtunnelgallery.com/about#paulien"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "46 Chambers Street",
+        "addressLocality": "Newburgh",
+        "addressRegion": "NY",
+        "postalCode": "12550",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://en.wikipedia.org/wiki/Holland_Tunnel_Gallery",
+        "https://www.instagram.com/hollandtunnelnewburgh/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.hollandtunnelgallery.com/about#paulien",
+      "name": "Paulien Lethen",
+      "jobTitle": "Founder and director, Holland Tunnel Gallery",
+      "birthPlace": "Utrecht, Netherlands",
+      "nationality": "Dutch",
+      "alumniOf": "Academy of Arts, Arnhem",
+      "url": "https://paulienlethen.com"
+    }
+  ]
+};
+---
+<Base title={"About \u00b7 Holland Tunnel Gallery, Newburgh NY \u00b7 Since 1997"} description={"Holland Tunnel Gallery was founded in 1997 by Dutch artist Paulien Lethen in a garden shed in Williamsburg, Brooklyn. Since 2018 it has been in an 1860 warehouse at 46 Chambers Street, Newburgh, NY."} path="/about" active="about" jsonld={jsonld}>
+
+
+  <section class="hero">
+    <div class="wrap story-grid">
+      <div>
+        <p class="eyebrow">About</p>
+        <p class="since">Since 1997</p>
+        <p class="lede">Holland Tunnel began in a backyard garden shed in Williamsburg, Brooklyn. Nearly three decades later it's a gallery, music room and cinema in an 1860 warehouse in Newburgh's Historic District, still run by its founder, Dutch artist Paulien Lethen.</p>
+        <div class="btn-row">
+          <a class="btn" href="/exhibitions">See what's on</a>
+          <a class="btn ghost" href="#story">Read the story</a>
+        </div>
+      </div>
+      <blockquote style="margin:0;">
+        <p style="font-size: clamp(24px, 2.6vw, 34px);">“One of the quirkiest spaces in Williamsburg … a front-runner for first place as the tiniest gallery in the metropolitan area.”</p>
+        <cite>Roberta Smith, The New York Times, 1998</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- The story -->
+  <section class="wash" id="story">
+    <div class="wrap" style="max-width: 900px;">
+      <p class="eyebrow orange">The story</p>
+      <h2>A shed, an island, a warehouse</h2>
+      <ul class="year-list">
+        <li><b>1997</b><span><strong>The garden shed.</strong> In November 1997, Paulien Lethen put a Home Depot garden shed (the “Chelsea” model, 8 × 10 ft) in her Williamsburg backyard and hung a show in it for a neighborhood art-tour weekend. For the next ten years she ran a new show there every month. Only six people fit inside, so openings spilled into the parking lot next door, with jazz, rock and blues.</span></li>
+        <li><b>2000</b><span><strong>Paros.</strong> Paulien and her sister, Dutch jazz pianist and vocalist Heleen Schuttevaêr, bought an 18th-century Cycladic merchant's house in the old center of Parikia on the Greek island of Paros. Every summer they open it for exhibitions, concerts, poetry readings, artist talks and drawing classes.</span></li>
+        <li><b>2003</b><span><strong>Stairmasters.</strong> A third space in Williamsburg: an art installation up the four-flight staircase of the brownstone next to the gallery, with art from the ground floor to the top.</span></li>
+        <li><b>2018</b><span><strong>Newburgh.</strong> In May 2018, Holland Tunnel Gallery &amp; Studios opened in an 1860 warehouse at 46 Chambers Street, between Broadway and First Street. The Williamsburg gallery closed in 2019, and Newburgh became Holland Tunnel's home.</span></li>
+        <li><b>2023</b><span><strong>A retrospective.</strong> Paulien showed a retrospective of her own work at the gallery.</span></li>
+        <li><b>2025</b><span><strong>Holland Tunnel Revisited.</strong> In August 2025, <em>Reclamation: Lost and Found in Newburgh</em> brought 24 artists to Chambers Street and launched Holland Tunnel Revisited, the gallery's current chapter.</span></li>
+        <li><b>Now</b><span><strong>Open every weekend.</strong> Exhibitions, music nights, Cinema Club films and private events, year-round at 46 Chambers Street.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Paulien -->
+  <section>
+    <div class="wrap split">
+      <figure style="margin:0; max-width: 460px;">
+        <img src="/img/paulien-lethen-portrait.webp" width="712" height="785" loading="lazy"
+             alt="Paulien Lethen, founder of Holland Tunnel Gallery, standing in a white gallery doorway in a black dress">
+      </figure>
+      <div>
+        <p class="eyebrow orange">The founder</p>
+        <h2>Paulien Lethen</h2>
+        <p>Paulien Lethen was born in Utrecht, the Netherlands, and trained in monumental art at the Academy of Arts in Arnhem. She lived on Paros from the late 1960s until 1982, spent time in Kyoto, Japan, and moved to New York in 1982, settling in Williamsburg in 1987.</p>
+        <p>She is a painter whose work draws on the places and cultures she has lived in, and has exhibited in the Netherlands, Greece, Japan and the United States. She still directs and curates Holland Tunnel.</p>
+        <div class="btn-row">
+          <a class="btn ghost" href="https://paulienlethen.com">Paulien's work: paulienlethen.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Press + documentary -->
+  <section class="dark">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Press</p>
+        <h2>In the news</h2>
+        <blockquote>
+          <p>“The smallest gallery of New York.”</p>
+          <cite>The New York Times</cite>
+        </blockquote>
+        <blockquote>
+          <p>“One of the quirkiest spaces in Williamsburg.”</p>
+          <cite>Roberta Smith, The New York Times, 1998</cite>
+        </blockquote>
+        <blockquote>
+          <p>“Holland Tunnel Returns.”</p>
+          <cite>The Highlands Current, March 13, 2026</cite>
+        </blockquote>
+      </div>
+      <div>
+        <p class="eyebrow">On film &amp; in print</p>
+        <h2>Requiem for Williamsburg</h2>
+        <p>A short documentary about Paulien Lethen and Holland Tunnel by Dutch filmmaker Yara Hannema.</p>
+        <p class="muted">In 2014, Paulien and Heleen Schuttevaêr published a book on the gallery's history. The Holland Tunnel Gallery book is available in the shop.</p>
+        <div class="btn-row">
+          <a class="btn light" href="https://www.hollandtunnelgallery.com/publications-and-objects-shop">Get the book</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Today -->
+  <section>
+    <div class="wrap split flip">
+      <div class="duo">
+        <img src="/img/gallery-installing-a-show.webp" alt="An artist installing a sculpture in the Newburgh gallery" loading="lazy">
+        <img src="/img/reclamation-2025-rutkowski-garden.webp" alt="Sculptures standing in the gallery garden" loading="lazy">
+      </div>
+      <div>
+        <p class="eyebrow orange">Today</p>
+        <h2>Art, music &amp; film in Newburgh</h2>
+        <p class="lede">The Newburgh gallery has 900 square feet of white walls, 13-foot ceilings, a classic wooden bar, a baby grand piano and a garden. It's open to visitors every weekend, and you can rent it for your own event.</p>
+        <div class="btn-row">
+          <a class="btn" href="/#visit">Plan your visit</a>
+          <a class="btn ghost" href="/rent">Rent the space</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facts in plain language -->
+  <section class="rule-top">
+    <div class="wrap" style="max-width: 860px;">
+      <h2>Quick facts</h2>
+      <div class="faq">
+        <details>
+          <summary>Who founded Holland Tunnel Gallery?</summary>
+          <p>Dutch artist Paulien Lethen founded Holland Tunnel Gallery in November 1997 in Williamsburg, Brooklyn. She is still its director and curator.</p>
+        </details>
+        <details>
+          <summary>Where is Holland Tunnel Gallery now?</summary>
+          <p>At 46 Chambers Street, Newburgh, NY 12550, in the Historic District between Broadway and First Street. It has been in Newburgh since 2018. It's open Saturday and Sunday 1–5 pm, and by appointment.</p>
+        </details>
+        <details>
+          <summary>Is Holland Tunnel Gallery still open?</summary>
+          <p>Yes. Holland Tunnel Gallery is open Saturday and Sunday 1–5 pm, and by appointment, at 46 Chambers Street in Newburgh, NY. It runs a regular program of exhibitions, music nights and Cinema Club screenings. {ov?.status === 'current' && <><em>{ov.show.title}</em> is on view through {longDate(ov.end)}.</>}{ov?.status === 'upcoming' && <><em>{ov.show.title}</em> opens {longDate(ov.show.startDate)}.</>}{ov?.status === 'between' && 'The next exhibition will be announced soon.'}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter wash" id="newsletter">
+    <div class="wrap">
+      <h2>Stay in the loop</h2>
+      <p class="lede" style="margin-inline:auto;">One email a month with the next show, films and music nights.</p>
+      <form class="inline-form" name="newsletter" data-demo="You're on the list. See you at the next opening.">
+        <label class="sr-only" for="nl-email">Email address</label>
+        <input id="nl-email" type="email" name="email" placeholder="Your email" required autocomplete="email">
+        <button class="btn" type="submit">Sign up</button>
+      </form>
+    </div>
+  </section>
+
+
+<script src="/js/site.js" is:inline defer></script>
+</Base>

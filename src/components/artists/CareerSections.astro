@@ -1,0 +1,62 @@
+---
+// Career timeline, selected exhibitions/performances, recordings or publications, press.
+// Each section is hidden when there is no data.
+import type { Person } from '../../lib/people';
+interface Props { p: Person }
+const { p } = Astro.props;
+const isMusic = p.group === 'music';
+const timeline = p.career_timeline.filter((x) => x.event);
+const exh = p.selected_exhibitions.filter((x) => x.title || x.venue);
+const recs = p.recordings_or_publications.filter((x) => x.title);
+const press = p.press.filter((x) => x.title);
+---
+{timeline.length > 0 && (
+  <section class="block" aria-labelledby="tl-h">
+    <h2 id="tl-h">Career timeline</h2>
+    <ol class="timeline">
+      {timeline.map((x) => <li><span class="tl-y">{x.year}</span><span>{x.event}</span></li>)}
+    </ol>
+  </section>
+)}
+{exh.length > 0 && (
+  <section class="block" aria-labelledby="exh-h">
+    <h2 id="exh-h">Selected {isMusic ? 'performances' : 'exhibitions'}</h2>
+    <div class="table-wrap">
+      <table class="exh">
+        <caption class="vh">Selected {isMusic ? 'performances' : 'exhibitions'} by {p.name}</caption>
+        <tbody>
+          {exh.map((x) => (
+            <tr>
+              <th scope="row">{x.year}</th>
+              <td>{x.title && <em>{x.title}</em>}</td>
+              <td>{x.venue}{x.city && `, ${x.city}`}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+)}
+{recs.length > 0 && (
+  <section class="block" aria-labelledby="recs-h">
+    <h2 id="recs-h">{isMusic ? 'Recordings' : 'Publications'}</h2>
+    <ul class="plain">
+      {recs.map((x) => (
+        <li><span class="tl-y">{x.year}</span><span><em>{x.title}</em>{x.label_or_publisher && ` · ${x.label_or_publisher}`}</span></li>
+      ))}
+    </ul>
+  </section>
+)}
+{press.length > 0 && (
+  <section class="block" aria-labelledby="press-h">
+    <h2 id="press-h">Press</h2>
+    <ul class="plain press">
+      {press.map((x) => (
+        <li>
+          <span class="tl-y">{x.year}</span>
+          <span>{x.url ? <a href={x.url} rel="noopener" target="_blank">{x.title}</a> : x.title} <em>{x.outlet}</em></span>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

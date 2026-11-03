@@ -1,0 +1,109 @@
+---
+// Shared shell for every page: SEO head, header, footer.
+import '@fontsource/bebas-neue/latin-400.css';
+import '@fontsource/montserrat/latin-400.css';
+import '@fontsource/montserrat/latin-400-italic.css';
+import '@fontsource/montserrat/latin-500.css';
+import '@fontsource/montserrat/latin-600.css';
+import '@fontsource/montserrat/latin-700.css';
+import '../styles/chrome.css';
+import '../styles/motion.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactDialog from '../components/ContactDialog.astro';
+import { PUBLIC_SITE, SITE_URL } from '../lib/site';
+// Preload the faces used above the fold so the header doesn't reflow when fonts arrive (CLS).
+import bebas from '@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2?url';
+import mont400 from '@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url';
+import mont500 from '@fontsource/montserrat/files/montserrat-latin-500-normal.woff2?url';
+import mont600 from '@fontsource/montserrat/files/montserrat-latin-600-normal.woff2?url';
+const preloadFonts = [bebas, mont400, mont500, mont600];
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path such as "/artists/ken-butler"; the canonical URL is built from it. */
+  path: string;
+  /** Page-level noindex (e.g. profiles pending confirmation). The demo flag overrides everything. */
+  noindex?: boolean;
+  jsonld?: object;
+  ogType?: 'website' | 'profile' | 'article';
+  ogImage?: string;
+  /** Size and alt text of ogImage, when known (lets Facebook/LinkedIn render the preview on first share). */
+  ogImageMeta?: { width: number; height: number; alt: string };
+  active?: string;
+}
+const { title, description, path, noindex = false, jsonld, ogType = 'website', ogImage, ogImageMeta, active } = Astro.props;
+const canonical = SITE_URL + (path === '/' ? '/' : path.replace(/\/$/, ''));
+const robots = !PUBLIC_SITE ? 'noindex, nofollow' : noindex ? 'noindex, follow' : null;
+const image = ogImage ? new URL(ogImage, SITE_URL).href : `${SITE_URL}/img/og-unframed.jpg`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {preloadFonts.map((href) => <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />)}
+    <script is:inline>
+      // Motion on unless the visitor asked for reduced motion. Set before first paint so nothing flashes.
+      (function (d) {
+        if (!matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+        d.classList.add('motion');
+        setTimeout(function () { if (!d.classList.contains('motion-ok')) d.classList.add('motion-timeout'); }, 3000);
+        addEventListener('pagereveal', function (e) { if (e.viewTransition) d.classList.add('vt-nav'); });
+      })(document.documentElement);
+    </script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {robots && <meta name="robots" content={robots} />}
+    <meta property="og:site_name" content="Holland Tunnel Gallery" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    {ogImageMeta && (
+      <>
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content={String(ogImageMeta.width)} />
+        <meta property="og:image:height" content={String(ogImageMeta.height)} />
+        <meta property="og:image:alt" content={ogImageMeta.alt} />
+      </>
+    )}
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    {ogImageMeta && <meta name="twitter:image:alt" content={ogImageMeta.alt} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld).replace(/</g, '\\u003c')} />}
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    {!PUBLIC_SITE && (
+      <p class="concept">Concept preview prepared for <strong>Paulien Lethen</strong> by Robert Van Liew, Web Designer &amp; Developer. Private and not indexed.</p>
+    )}
+    <Header active={active} />
+    <slot name="before-main" />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <ContactDialog />
+    <script>
+      import '../scripts/motion.ts';
+    </script>
+    <script is:inline>
+      // Anything marked data-until="YYYY-MM-DD" (e.g. "closes Oct 11") hides itself once that day has
+      // passed in Newburgh, even if the site hasn't been rebuilt since.
+      (function () {
+        var today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+        document.querySelectorAll('[data-until]').forEach(function (el) { if (el.getAttribute('data-until') < today) el.hidden = true; });
+      })();
+    </script>
+  </body>
+</html>

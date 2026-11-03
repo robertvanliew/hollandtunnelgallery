@@ -1,0 +1,42 @@
+---
+// Every Holland Tunnel show/performance for this person, newest first, with everyone else in it.
+import { surname, type Archive, type Person } from '../../lib/people';
+interface Props { p: Person; a: Archive }
+const { p, a } = Astro.props;
+const rows = p.showIds.map((id) => {
+  const s = a.shows.get(id)!;
+  const others = (a.showPeople.get(id) ?? [])
+    .filter((o) => o !== p.slug)
+    .map((o) => a.bySlug.get(o)!)
+    .sort((x, y) => surname(x.name).localeCompare(surname(y.name)));
+  return { s, others };
+});
+---
+{rows.length > 0 && (
+  <section class="block" aria-labelledby="rec-h">
+    <h2 id="rec-h">Holland Tunnel record</h2>
+    <p class="sub">Every show and performance at Holland Tunnel, with the artists who were part of it.</p>
+    <ol class="record">
+      {rows.map(({ s, others }) => (
+        <li class="rec">
+          <div class="rec-year">{s.year}</div>
+          <div class="rec-body">
+            <p class="rec-type">{s.type}</p>
+            <h3><a href={s.url}>{s.title}</a></h3>
+            <p class="rec-meta">{s.dates} · {s.venue}</p>
+            {others.length > 0 && (
+              <>
+                <p class="rec-with">With</p>
+                <ul class="chips">
+                  {others.map((o) => (
+                    <li>{o.url ? <a class="chip" href={o.url}>{o.name}</a> : <span class="chip muted">{o.name}</span>}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}

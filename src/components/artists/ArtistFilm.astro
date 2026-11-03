@@ -1,0 +1,50 @@
+---
+// The artist film. YouTube/Vimeo load only when someone presses play (a still image until then),
+// so the profile stays fast and nothing from those sites loads before the visitor chooses.
+// Without JS the play button is a plain link to the film.
+import { Picture, getImage } from 'astro:assets';
+import type { Person } from '../../lib/people';
+import { filmEmbed, readableDuration } from '../../lib/film';
+interface Props { p: Person }
+const { p } = Astro.props;
+const v = p.video!;
+const embed = filmEmbed(v.url);
+const length = v.duration ? readableDuration(v.duration) : '';
+const posterSrc = (await getImage({ src: v.poster, width: 1200, format: 'jpg' })).src;
+---
+<section class="block film" aria-labelledby="film-h">
+  <h2 id="film-h">Artist film</h2>
+  <p class="sub">{v.title}{length && ` · ${length}`}{(embed?.kind ?? 'file') === 'file' && v.captions ? ' · captioned' : ''}</p>
+  {embed ? (
+    <div class="film-frame" data-film={embed.src} data-title={v.title}>
+      <a class="film-play" href={v.url} target="_blank" rel="noopener">
+        <Picture src={v.poster} alt="" formats={['avif', 'webp']} widths={[480, 800, 1200]} sizes="(max-width: 960px) calc(100vw - 32px), 760px" loading="lazy" />
+        <span class="film-btn"><span aria-hidden="true">▶</span> Play film<span class="vh">: {v.title}</span></span>
+      </a>
+    </div>
+  ) : (
+    <div class="film-frame">
+      <video controls preload="none" poster={posterSrc} playsinline>
+        <source src={v.url} />
+        {v.captions && <track kind="captions" src={v.captions} srclang="en" label="English" default />}
+        <a href={v.url}>Watch the film</a>
+      </video>
+    </div>
+  )}
+  {v.description && <p class="film-desc">{v.description}</p>}
+</section>
+
+<script>
+  for (const frame of document.querySelectorAll<HTMLElement>('.film-frame[data-film]')) {
+    frame.querySelector('a')!.addEventListener('click', (e) => {
+      e.preventDefault();
+      const iframe = document.createElement('iframe');
+      iframe.src = frame.dataset.film!;
+      iframe.title = frame.dataset.title || 'Artist film';
+      iframe.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+      iframe.allowFullscreen = true;
+      frame.replaceChildren(iframe);
+      iframe.focus();
+    });
+  }
+</script>

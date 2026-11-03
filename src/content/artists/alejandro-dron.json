@@ -1,0 +1,285 @@
+{
+  "name": "Alejandro Dron",
+  "slug": "alejandro-dron",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "sculptor",
+    "digital artist",
+    "cartoonist",
+    "educator"
+  ],
+  "based_in": "New York region",
+  "origin": "La Plata, Argentina",
+  "born": "1962",
+  "died": "",
+  "education": [
+    {
+      "school": "School of Visual Arts, New York",
+      "degree": "MFA, Computer Art (Fulbright grantee)",
+      "year": "1998"
+    },
+    {
+      "school": "Universidad Nacional de La Plata (UNLP)",
+      "degree": "Architecture studies",
+      "year": "1978"
+    },
+    {
+      "school": "Private study with Gyula Kosice, Buenos Aires",
+      "degree": "",
+      "year": "1995-96"
+    },
+    {
+      "school": "Private study with Enrique Sobisch, Buenos Aires",
+      "degree": "",
+      "year": "1976-77, 1981"
+    },
+    {
+      "school": "Sculpture study with Oscar Zarate, La Plata",
+      "degree": "",
+      "year": "1973-75"
+    }
+  ],
+  "bio_short": "Argentine-born sculptor Alejandro Dron makes abstract, hinged and foldable structures he calls liminal sculpture, shaped by the Madi movement and by his long study of Jewish mysticism. He has lived and worked in New York since 1996 and has shown repeatedly in Newburgh and Beacon.",
+  "bio_long": "Alejandro Dron was born in Argentina in 1962 and grew up in La Plata, where he began studying sculpture as a child with Oscar Zarate. He later studied architecture at the national university in La Plata and trained with the painter Enrique Sobisch and with Gyula Kosice, a founder of the Madi movement, whose geometric, open-form approach remains a touchstone for his work. Through the late 1980s and 1990s he exhibited widely in Buenos Aires and La Plata, collecting numerous prizes, and in 1997 he was included in an Arte Madi exhibition at the Museo Reina Sofia in Madrid.\n\nA Fulbright grant brought him to New York in 1996, where he earned an MFA in Computer Art at the School of Visual Arts in 1998. He went on to teach at SVA, Parsons and NYU's Interactive Telecommunications Program, and worked as a 3D modeler for sculptor Alice Aycock. His sculptures in wood, metal, cement, paper and Plexiglas fold on hinges and lean on the diagonal, forms he describes as sitting on both sides of a threshold.\n\nDron has a long history in the Hudson Valley: he took part in the first and second Newburgh Sculpture Projects (2004, 2006), showed at Ann Street Gallery in Newburgh and BAU Gallery in Beacon, and was part of the 2007 Kingston Sculpture Biennial. In 2021 Holland Tunnel Newburgh paired him with Johan Wahlstrom in Limit / Less, and he returned for Reclamation in 2025. He also draws Zohar, a series of political cartoons.",
+  "practice": "Abstract, non-figurative sculpture built from hinged, folding planes and diagonals, in wood, metal, cement, paper and Plexiglas; earlier work included kinetic and interactive digital sculpture. Sources he cites include the Madi movement, Kabbalah and pre-Columbian art.",
+  "career_timeline": [
+    {
+      "year": "1973",
+      "event": "Begins studying sculpture with Oscar Zarate in La Plata"
+    },
+    {
+      "year": "1995",
+      "event": "Solo exhibition, Centro Cultural Recoleta, Buenos Aires"
+    },
+    {
+      "year": "1996",
+      "event": "Moves to New York on a Fulbright grant"
+    },
+    {
+      "year": "1997",
+      "event": "Included in Arte Madi, Museo Reina Sofia, Madrid"
+    },
+    {
+      "year": "1998",
+      "event": "MFA in Computer Art, School of Visual Arts"
+    },
+    {
+      "year": "1998-2003",
+      "event": "Teaches at SVA, Parsons and NYU ITP"
+    },
+    {
+      "year": "2001",
+      "event": "Works as assistant and 3D modeler for Alice Aycock"
+    },
+    {
+      "year": "2004",
+      "event": "First Newburgh Sculpture Project"
+    },
+    {
+      "year": "2006",
+      "event": "Second Newburgh Sculpture Project"
+    },
+    {
+      "year": "2014",
+      "event": "Open-studio solo presentation at Mana Contemporary, Jersey City"
+    },
+    {
+      "year": "2021",
+      "event": "Limit / Less, two-person show with Johan Wahlstrom, Holland Tunnel Newburgh"
+    },
+    {
+      "year": "2025",
+      "event": "Reclamation: Lost and Found in Newburgh, Holland Tunnel Revisited"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2025",
+      "title": "Reclamation: Lost and Found in Newburgh",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2021",
+      "title": "Limit / Less (with Johan Wahlstrom)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2014",
+      "title": "Open Studio (solo)",
+      "venue": "Mana Contemporary",
+      "city": "Jersey City, NJ"
+    },
+    {
+      "year": "2008",
+      "title": "Current 2008",
+      "venue": "Garrison Art Center / Boscobel",
+      "city": "Garrison, NY"
+    },
+    {
+      "year": "2007",
+      "title": "Kingston Sculpture Biennial",
+      "venue": "",
+      "city": "Kingston, NY"
+    },
+    {
+      "year": "2007",
+      "title": "Chi; In the Mix",
+      "venue": "Ann Street Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2006",
+      "title": "II Newburgh Sculpture Project",
+      "venue": "",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2005",
+      "title": "Beacon-Newburgh Bridge",
+      "venue": "BAU Gallery",
+      "city": "Beacon, NY"
+    },
+    {
+      "year": "2005",
+      "title": "This is not an archive",
+      "venue": "Center for Curatorial Studies, Bard College",
+      "city": "Annandale-on-Hudson, NY"
+    },
+    {
+      "year": "2004",
+      "title": "I Newburgh Sculpture Project",
+      "venue": "",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2002",
+      "title": "TET (solo)",
+      "venue": "Centro Cultural Recoleta",
+      "city": "Buenos Aires"
+    },
+    {
+      "year": "1999",
+      "title": "Solo exhibition",
+      "venue": "Argentine Consulate",
+      "city": "New York, NY"
+    },
+    {
+      "year": "1997",
+      "title": "Arte Madi",
+      "venue": "Museo Nacional Centro de Arte Reina Sofia",
+      "city": "Madrid"
+    },
+    {
+      "year": "1997",
+      "title": "Solo exhibition",
+      "venue": "Fundacion Provincial de Cultura, Sala Rivadavia",
+      "city": "Cadiz, Spain"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "2006",
+      "name": "Adolph Gottlieb Grant in Sculpture (per artist's about.me profile)"
+    },
+    {
+      "year": "2002",
+      "name": "Rockefeller Foundation New Media Fellowship nomination (Cornell eCommons lists 2003)"
+    },
+    {
+      "year": "1996",
+      "name": "Jerusalem Award, 3rd Prize Sculpture, ICAI"
+    },
+    {
+      "year": "1995",
+      "name": "Fulbright grant, visual arts"
+    }
+  ],
+  "teaching": [
+    "School of Visual Arts, New York (1998-2003)",
+    "Parsons School of Design / The New School (1998-2003)",
+    "Interactive Telecommunications Program, Tisch School of the Arts, NYU (1998-2003)"
+  ],
+  "press": [
+    {
+      "year": "2022",
+      "title": "Alejandro Dron: The Liminal Artist (interview by Carol Real)",
+      "outlet": "Art Summit",
+      "url": "https://www.art-summit.com/alejandro-dron/"
+    }
+  ],
+  "recordings_or_publications": [
+    {
+      "year": "1999",
+      "title": "Dron, Kinetic Interactive Sculptures (solo catalog, text by James Seawright)",
+      "label_or_publisher": "Argentine Consulate, New York"
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "Johan Wahlstrom",
+      "relation": "Co-exhibitor, Limit / Less, Holland Tunnel Newburgh (2021)"
+    },
+    {
+      "name": "Gyula Kosice",
+      "relation": "Teacher and mentor; founder of the Madi movement"
+    },
+    {
+      "name": "Enrique Sobisch",
+      "relation": "Teacher (1976-77, 1981)"
+    },
+    {
+      "name": "Oscar Zarate",
+      "relation": "Early sculpture teacher (1973-75)"
+    },
+    {
+      "name": "Alice Aycock",
+      "relation": "Worked as her assistant and 3D modeler (2001)"
+    },
+    {
+      "name": "Paulien Lethen",
+      "relation": "Holland Tunnel founder; exhibited him in 2021 and 2025"
+    }
+  ],
+  "links": {
+    "website": "https://alejandrodron.wixsite.com/dron",
+    "instagram": "https://www.instagram.com/alejandrodron/",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.artsy.net/artist/alejandro-dron",
+      "https://about.me/alejandro_dron",
+      "https://ecommons.cornell.edu/collections/6208d233-41e1-42b6-8b43-26066a56fcbc"
+    ]
+  },
+  "verification": {
+    "status": "likely",
+    "evidence": "Holland Tunnel lists Alejandro Dron in Limit / Less (2021) and Reclamation (2025). The only artist found with this distinctive name is the Argentine-born, New York-based sculptor whose own CV documents repeated Newburgh-area activity (Newburgh Sculpture Project 2004 and 2006, Ann Street Gallery 2007, BAU Beacon 2005), matching the gallery's description of complex layered structures. No source found in which the artist himself names Holland Tunnel.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://artspiel.org/reclamation-holland-tunnel-revisited-in-newburgh/",
+      "https://alejandrodron.wixsite.com/dron/cv",
+      "https://about.me/alejandro_dron",
+      "https://www.artsy.net/artist/alejandro-dron",
+      "https://www.art-summit.com/alejandro-dron/"
+    ]
+  },
+  "open_questions": [
+    "Current residence: about.me says New York since 1996, Artsy lists Argentina; confirm where he is based now.",
+    "Rockefeller nomination year: CV says 2002, Cornell record says 2003.",
+    "Which works were shown in Reclamation 2025?",
+    "Artsy lists Mana Contemporary as gallery; confirm current representation."
+  ],
+  "shows": [
+    "reclamation-2025",
+    "limit-less-2021"
+  ],
+  "image": "../../assets/artists/alejandro-dron-in-reclamation-2025.jpg",
+  "imageAlt": "Alejandro Dron in Reclamation, 2025"
+}

@@ -1,0 +1,123 @@
+---
+import Base from '../../layouts/Base.astro';
+import NetworkGraph from '../../components/artists/NetworkGraph.astro';
+import ArtistCard from '../../components/artists/ArtistCard.astro';
+import { loadArchive, networkEdges } from '../../lib/people';
+import { directoryGraph } from '../../lib/jsonld';
+import { EMAIL } from '../../lib/site';
+import '../../styles/artists.css';
+
+const a = await loadArchive();
+const published = a.people.filter((p) => p.published);
+const pending = a.people.filter((p) => !p.published);
+const nVisual = published.filter((p) => p.group === 'visual').length;
+const nMusic = published.filter((p) => p.group === 'music').length;
+const nEdges = networkEdges(a).length;
+
+// Shows that anyone in the directory took part in, newest first, for the filter.
+const showsUsed = [...new Set(a.people.flatMap((p) => p.showIds))]
+  .map((id) => a.shows.get(id)!)
+  .sort((x, y) => (x.startDate < y.startDate ? 1 : -1));
+
+// "Profiles in progress", grouped by the show(s) they were in: "Tom Benson, … (Unframed, 2026)"
+const pendingByShow = new Map<string, string[]>();
+for (const p of pending) {
+  const key = p.showIds.map((id) => `${a.shows.get(id)!.title}, ${a.shows.get(id)!.year}`).join('; ') || '';
+  pendingByShow.set(key, [...(pendingByShow.get(key) ?? []), p.name]);
+}
+const listNames = (n: string[]) => (n.length < 2 ? n.join('') : `${n.slice(0, -1).join(', ')} and ${n[n.length - 1]}`);
+---
+<Base
+  title="Artists & Musicians | Holland Tunnel Gallery, Newburgh NY"
+  description="Profiles of the artists and musicians who have shown and performed at Holland Tunnel Gallery since 1997, with their Holland Tunnel history and connections."
+  path="/artists"
+  active="artists"
+  jsonld={directoryGraph(published)}
+>
+  <section class="dir-hero">
+    <p class="kicker">The Holland Tunnel archive · 1997 to today</p>
+    <h1>Artists &amp; Musicians</h1>
+    <p class="lede">Since 1997, more than 700 artists and musicians have shown and played at Holland Tunnel: in a garden shed in Williamsburg, a merchant house on Paros, and now an 1860 warehouse in Newburgh. These are their stories, and the connections between them.</p>
+    <ul class="stats">
+      <li><strong data-count>740+</strong><span>artists &amp; musicians since 1997</span></li>
+      <li><strong data-count>{nVisual}</strong><span>visual artist profiles</span></li>
+      <li><strong data-count>{nMusic}</strong><span>musician &amp; performer profiles</span></li>
+      <li><strong data-count>{nEdges}</strong><span>connections mapped</span></li>
+    </ul>
+  </section>
+
+  <NetworkGraph a={a} />
+
+  <section class="dir" aria-labelledby="dir-h">
+    <h2 id="dir-h" class="vh">Directory</h2>
+    <div class="filters" role="search" aria-label="Filter the directory">
+      <div class="seg" role="group" aria-label="Type">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="visual" aria-pressed="false">Visual artists</button>
+        <button type="button" data-f="music" aria-pressed="false">Musicians &amp; performers</button>
+      </div>
+      <label class="vh" for="show">Filter by show</label>
+      <select id="show">
+        <option value="">Every show</option>
+        {showsUsed.map((s) => <option value={s.id}>{s.year} · {s.title}</option>)}
+      </select>
+      <label class="vh" for="q">Search names or practice</label>
+      <input id="q" type="search" placeholder="Search names or practice" autocomplete="off" />
+    </div>
+    <p id="count" class="count" aria-live="polite">{published.length} profiles</p>
+    <ul class="cards">
+      {published.map((p) => <ArtistCard p={p} a={a} />)}
+    </ul>
+    <p id="none" class="no-results" hidden>No profiles match. Try another show or a shorter search.</p>
+
+    <div class="more">
+      {pending.length > 0 && (
+        <>
+          <h2>Profiles in progress</h2>
+          <p>
+            {[...pendingByShow].map(([show, names], i) => (
+              <>{i > 0 && '; '}{listNames(names)}{show && ` (${show})`}</>
+            ))}. The gallery is confirming details with these artists before their profiles go live.
+          </p>
+        </>
+      )}
+      <h2>The full archive</h2>
+      <p>The remaining artists and musicians from 1997 onward are being added from the gallery's records. Showed or played at Holland Tunnel? <a href={`mailto:${EMAIL}?subject=Add%20my%20artist%20profile`} data-contact="archive">Send us your details</a> to be added.</p>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const cards = [...document.querySelectorAll<HTMLElement>('.card')];
+  const q = document.getElementById('q') as HTMLInputElement;
+  const sel = document.getElementById('show') as HTMLSelectElement;
+  const count = document.getElementById('count')!;
+  const none = document.getElementById('none')!;
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('.seg button')];
+  let group = 'all';
+  const run = () => {
+    const t = q.value.trim().toLowerCase();
+    const s = sel.value;
+    let n = 0;
+    for (const c of cards) {
+      const ok =
+        (group === 'all' || c.dataset.group === group) &&
+        (!s || (c.dataset.shows || '').split(' ').includes(s)) &&
+        (!t || (c.dataset.search || '').includes(t));
+      c.hidden = !ok;
+      if (ok) n++;
+    }
+    count.textContent = `${n} profile${n === 1 ? '' : 's'}`;
+    none.hidden = n > 0;
+  };
+  buttons.forEach((b) =>
+    b.addEventListener('click', () => {
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      group = b.dataset.f!;
+      run();
+    }),
+  );
+  q.addEventListener('input', run);
+  sel.addEventListener('change', run);
+  run();
+</script>

@@ -1,0 +1,262 @@
+{
+  "name": "Mark Gibian",
+  "slug": "mark-gibian",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "sculptor",
+    "public artist",
+    "printmaker"
+  ],
+  "based_in": "Brooklyn, NY",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [
+    {
+      "school": "Cornell University",
+      "degree": "BFA Sculpture / BA Art History",
+      "year": "1979"
+    },
+    {
+      "school": "Universidad de Barcelona (Bellas Artes San Jorge)",
+      "degree": "study abroad",
+      "year": "1978"
+    },
+    {
+      "school": "Brown University",
+      "degree": "attended",
+      "year": "1974"
+    }
+  ],
+  "bio_short": "Mark Gibian is a New York sculptor known for public works in bent and fabricated steel, including 'Cable Crossing' in the Brooklyn Bridge/City Hall subway station and the 'Serpentine Structures' in Hudson River Park. He has shown at Holland Tunnel in Newburgh since 2021.",
+  "bio_long": "Mark Gibian studied sculpture and art history at Cornell University, graduating in 1979, after time at Brown University and a year of study in Barcelona on a Cornell fellowship. He fabricates his own work, heating, bending, cutting, hammering and grinding industrial materials until they take on curving, organic forms. The results are abstract but suggest growth, motion and the body.\n\nMuch of his career has been in public art. His commissions include 'S' (1982) at SUNY Cortland; 'Cable Crossing' (1997), a cable installation for the MTA in the Brooklyn Bridge/City Hall subway station; 'Shelter' (1993–94) for the Center for Fine Arts in Miami; 'Crescendo' (2008), stainless steel structures on the North Fifth Street pier in Williamsburg; the vine-covered 'Serpentine Structures' in Hudson River Park; and 'Vortex' (2016) in Anchorage, Alaska. He has held residencies at Sculpture Space in Utica, Altos de Chavon in the Dominican Republic, and the National Foundation for Advancement in the Arts in Miami, and received a Barnett and Annalee Newman Foundation grant in 2004.\n\nHis work is in the collections of the Jewish Museum in New York, the Johnson Museum at Cornell and Vanderbilt University, among others. He has exhibited regularly with the Anita Shapolsky Gallery and internationally in Spain, the Netherlands and the Dominican Republic. At Holland Tunnel Newburgh he showed in a 2021 exhibition with Joel Carreiro and Sarah Walker, and in 2025 contributed rusted-steel works including 'Kabuki' to 'Reclamation.'",
+  "practice": "Abstract, organic sculpture fabricated by hand from steel, stainless steel, cable, glass and wood, from monumental public commissions to kinetic and functional pieces; also watercolors, monoprints and drawings.",
+  "career_timeline": [
+    {
+      "year": "1979",
+      "event": "BFA Sculpture / BA Art History, Cornell University"
+    },
+    {
+      "year": "1982",
+      "event": "'S' outdoor sculpture, SUNY Cortland"
+    },
+    {
+      "year": "1984",
+      "event": "Residency, Sculpture Space, Utica"
+    },
+    {
+      "year": "1987",
+      "event": "Artist in residence, Altos de Chavon, Dominican Republic"
+    },
+    {
+      "year": "1997",
+      "event": "'Cable Crossing', MTA Arts for Transit, Brooklyn Bridge/City Hall station"
+    },
+    {
+      "year": "2004",
+      "event": "Barnett and Annalee Newman Foundation Grant"
+    },
+    {
+      "year": "2008",
+      "event": "'Crescendo' (Williamsburg) and 'Serpentine Structures' (Hudson River Park)"
+    },
+    {
+      "year": "2016",
+      "event": "'Vortex', Anchorage, Alaska"
+    },
+    {
+      "year": "2021",
+      "event": "Exhibition with Joel Carreiro and Sarah Walker, Holland Tunnel Gallery, Newburgh"
+    },
+    {
+      "year": "2023",
+      "event": "'Corona' enters the Jewish Museum collection after 'After the Wild'"
+    },
+    {
+      "year": "2025",
+      "event": "'Reclamation', Holland Tunnel Revisited"
+    },
+    {
+      "year": "2026",
+      "event": "'Interconnections' with Marcos Lora Read, Museo de Arte Moderno, Santo Domingo (announced as upcoming)"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "1989",
+      "title": "Intersections: Sculpture of Mark Gibian",
+      "venue": "BACA Downtown",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "1995",
+      "title": "Constructions",
+      "venue": "Anita Shapolsky Gallery",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2009",
+      "title": "Curvilinear",
+      "venue": "Hartell Gallery, Cornell University",
+      "city": "Ithaca, NY"
+    },
+    {
+      "year": "2014",
+      "title": "4D",
+      "venue": "Galeria Saro Leon",
+      "city": "Canary Islands, Spain"
+    },
+    {
+      "year": "2017",
+      "title": "Undercurrents",
+      "venue": "Samuel Dorsky Museum of Art, SUNY New Paltz",
+      "city": "New Paltz, NY"
+    },
+    {
+      "year": "2018",
+      "title": "4D-Holland",
+      "venue": "",
+      "city": "Amsterdam, Netherlands"
+    },
+    {
+      "year": "2021",
+      "title": "Horror Vacui (with Joel Carreiro and Sarah Walker)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2022",
+      "title": "Structural Prototypes",
+      "venue": "Barley Sandwich Gallery",
+      "city": "Saranac Lake, NY"
+    },
+    {
+      "year": "2023",
+      "title": "After the Wild",
+      "venue": "The Jewish Museum",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2025",
+      "title": "Reclamation: Lost and Found in Newburgh",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    }
+  ],
+  "collections": [
+    "The Jewish Museum, New York",
+    "Herbert F. Johnson Museum of Art, Cornell University",
+    "Vanderbilt University",
+    "Miami Dade College",
+    "MTA Arts & Design (permanent commission)",
+    "Hudson River Park Trust (permanent commission)"
+  ],
+  "awards_residencies": [
+    {
+      "year": "1978",
+      "name": "Bean Scholarship, Cornell Fine Art Study Abroad Fellowship (Spain)"
+    },
+    {
+      "year": "1984",
+      "name": "Sculpture Space, Utica, NY"
+    },
+    {
+      "year": "1987",
+      "name": "Altos de Chavon, Dominican Republic"
+    },
+    {
+      "year": "1993",
+      "name": "NFAA Resident Fellowship, Miami Beach"
+    },
+    {
+      "year": "2004",
+      "name": "Barnett and Annalee Newman Foundation Grant"
+    }
+  ],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2025",
+      "title": "Reclamation: Holland Tunnel Revisited in Newburgh",
+      "outlet": "Art Spiel",
+      "url": "https://artspiel.org/reclamation-holland-tunnel-revisited-in-newburgh/"
+    }
+  ],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Marcos Lora Read",
+      "relation": "Frequent co-exhibitor (4D, Interconnections)"
+    },
+    {
+      "name": "Harald Vlugt",
+      "relation": "Co-exhibitor, 4D and 4D-Holland"
+    },
+    {
+      "name": "Manolo Gonzales",
+      "relation": "Co-exhibitor, 4D and 4D-Holland"
+    },
+    {
+      "name": "Joel Carreiro",
+      "relation": "Co-exhibitor, Holland Tunnel Newburgh (2021)"
+    },
+    {
+      "name": "Sarah Walker",
+      "relation": "Co-exhibitor, Holland Tunnel Newburgh (2021)"
+    },
+    {
+      "name": "Anita Shapolsky Gallery",
+      "relation": "Long-time exhibiting gallery"
+    },
+    {
+      "name": "Sandra Bloodworth",
+      "relation": "MTA Arts for Transit chief on 'Cable Crossing'"
+    },
+    {
+      "name": "Dan Kaplan / FXFowle",
+      "relation": "Architects for 'Crescendo'"
+    },
+    {
+      "name": "Paulien Lethen",
+      "relation": "Founder of Holland Tunnel Gallery"
+    }
+  ],
+  "links": {
+    "website": "http://www.markgibian.com",
+    "instagram": "https://www.instagram.com/markgibian/",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.artsy.net/artist/mark-gibian",
+      "https://anitashapolskygallery.com/newsite/mark-gibian/",
+      "https://ocaatlanta.com/archives/artists/mark-gibian"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "His own resume lists a 2021 exhibition at Holland Tunnel Gallery, Newburgh; Art Spiel credits his rusted-steel 'Kabuki' and 'Bill-Board' in Reclamation; Wikipedia's Holland Tunnel Gallery article names him among notable exhibitors.",
+    "sources": [
+      "http://www.markgibian.com/Resume.html",
+      "http://www.markgibian.com/Statement.html",
+      "https://artspiel.org/reclamation-holland-tunnel-revisited-in-newburgh/",
+      "https://en.wikipedia.org/wiki/Holland_Tunnel_Gallery",
+      "https://www.hollandtunnelgallery.com/htgartists"
+    ]
+  },
+  "open_questions": [
+    "Brief calls the 2021 show 'Subjective Logic'; his resume titles it 'Horror Vacui' with Joel Carreiro and Sarah Walker; reconcile",
+    "Birth year and birthplace not found",
+    "Whether he has moved to the Hudson Valley (sources point to Brooklyn)",
+    "Atlanta Office of Cultural Affairs lists him; specific Atlanta work not checked"
+  ],
+  "shows": [
+    "reclamation-2025",
+    "subjective-logic-2021"
+  ],
+  "image": "../../assets/artists/mark-gibian-in-reclamation-2025.jpg",
+  "imageAlt": "Mark Gibian in Reclamation, 2025"
+}

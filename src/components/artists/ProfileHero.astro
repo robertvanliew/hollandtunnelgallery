@@ -1,0 +1,34 @@
+---
+import { Picture } from 'astro:assets';
+import ShareProfile from './ShareProfile.astro';
+import { STATUS, heroImage, htgYears, initials, lifeYears, rolesLine, sourceList, type Archive, type Person } from '../../lib/people';
+interface Props { p: Person; a: Archive }
+const { p, a } = Astro.props;
+const img = heroImage(p, a);
+const years = htgYears(p, a);
+const life = lifeYears(p);
+const st = STATUS[p.status];
+const nSources = sourceList(p).length;
+---
+<section class="hero">
+  <div class="hero-text">
+    <p class="kicker">{p.group === 'music' ? 'Musician & performer' : 'Artist'}{years.length ? ` · Holland Tunnel ${years.join(', ')}` : ''}</p>
+    <h1 style={`view-transition-name: name-${p.slug}`}>{p.name}</h1>
+    {p.also_known_as.length > 0 && <p class="aka">Also known as {p.also_known_as.join(', ')}</p>}
+    <p class="roles">{rolesLine(p)}{life && ` · ${life}`}</p>
+    <p class="lede">{p.bio_short}</p>
+    <p class={`badge badge-${p.status}`} title={st.desc}>
+      <span class="dot" aria-hidden="true"></span>{st.label} · {nSources} {nSources === 1 ? 'source' : 'sources'}
+    </p>
+    <ShareProfile p={p} />
+  </div>
+  {img ? (
+    <figure class="hero-fig" style={`view-transition-name: art-${p.slug}`}>
+      <Picture src={img.src} alt={img.alt} formats={['avif', 'webp']} widths={[480, 800, 1200]}
+        sizes="(max-width: 960px) calc(100vw - 32px), 460px" loading="eager" fetchpriority="high" />
+      <figcaption>{img.alt}</figcaption>
+    </figure>
+  ) : (
+    <div class="hero-mono" aria-hidden="true" style={`view-transition-name: art-${p.slug}`}>{initials(p.name)}</div>
+  )}
+</section>

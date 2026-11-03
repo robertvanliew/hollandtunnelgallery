@@ -1,0 +1,285 @@
+{
+  "name": "Paul Chidester",
+  "slug": "paul-chidester",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "painter",
+    "artist's book maker",
+    "educator"
+  ],
+  "based_in": "",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [
+    {
+      "school": "School of the Art Institute of Chicago",
+      "degree": "MFA, Painting and Drawing",
+      "year": "1988"
+    },
+    {
+      "school": "University of Colorado, Boulder",
+      "degree": "BFA, Painting and Drawing",
+      "year": "1985"
+    }
+  ],
+  "bio_short": "Paul Chidester is a landscape painter and Professor Emeritus of Studio Art at Penn State whose work questions how nature and place are represented. He is one of the eight painters in Unframed at Holland Tunnel Revisited, Newburgh.",
+  "bio_long": "Paul Chidester trained in painting and drawing at the University of Colorado, Boulder (BFA, 1985) and the School of the Art Institute of Chicago (MFA, 1988). He began exhibiting in Chicago, including a solo show, CORN, at the Chicago Cultural Center in 1991, and later taught for many years at Penn State's School of Visual Arts, where he is now Professor Emeritus in Studio Art. His paintings deal with landscape as a cultural construction: early projects included an allegorical prairie-grass museum in a disused Chicago firehouse, an illustrated Martian travel guide and a lunar calendar, while his paintings, often in tempera or Flashe, depict ordinary suburban and edge-of-town spaces in states of change. A long connection with Ireland began with a Ballinglen Foundation fellowship in County Mayo in 1997, followed by awards from the Heinrich Boll Foundation and the Tyrone Guthrie Centre, and two artist's books made with Helen O'Leary, Silage (2003) and New Potatoes (2005). He received a Pollock-Krasner Foundation award in 2003 and has held residencies in Italy, Iceland and, in 2022, at Catwalk in Catskill, New York. In 2026 he exhibited in Unframed at Holland Tunnel Revisited in Newburgh, work drawn from three years of weekly group painting sessions, and discussed the show in a video interview with fellow participant Michelle Marozik.",
+  "practice": "Landscape painting in tempera and Flashe, developed from walks, photographs and drawings of urban edges, brownfields and suburban spaces; also artist's books and site-based interventions.",
+  "career_timeline": [
+    {
+      "year": "1985",
+      "event": "BFA, University of Colorado, Boulder; Maria Elkin Memorial Prize"
+    },
+    {
+      "year": "1988",
+      "event": "MFA, School of the Art Institute of Chicago"
+    },
+    {
+      "year": "1991",
+      "event": "Solo exhibition CORN, Chicago Cultural Center"
+    },
+    {
+      "year": "1997",
+      "event": "Ballinglen Foundation fellowship, Ballycastle, County Mayo, Ireland"
+    },
+    {
+      "year": "2003",
+      "event": "Pollock-Krasner Foundation award; artist's book Silage with Helen O'Leary"
+    },
+    {
+      "year": "2005",
+      "event": "New Potatoes, collaborative photo book with Helen O'Leary (Coracle Press)"
+    },
+    {
+      "year": "2016",
+      "event": "Solo exhibition Psychotopia, Juniata College Museum of Art"
+    },
+    {
+      "year": "2022",
+      "event": "Catwalk Artist Residency, Catskill, NY"
+    },
+    {
+      "year": "2026",
+      "event": "Exhibits in Unframed at Holland Tunnel Revisited, Newburgh, NY"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2026",
+      "title": "Unframed",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2022",
+      "title": "HOME/STUDIO",
+      "venue": "Palmer Museum of Art",
+      "city": "University Park, PA"
+    },
+    {
+      "year": "2020",
+      "title": "Antic",
+      "venue": "John Sloan Art Center, Lock Haven University",
+      "city": "Lock Haven, PA"
+    },
+    {
+      "year": "2016",
+      "title": "Psychotopia",
+      "venue": "Juniata College Museum of Art",
+      "city": "Huntingdon, PA"
+    },
+    {
+      "year": "2015",
+      "title": "Late Harvest (with Rudy Shepherd)",
+      "venue": "Unsmoke Systems Artspace",
+      "city": "Braddock, PA"
+    },
+    {
+      "year": "2014",
+      "title": "Tectonica",
+      "venue": "Future Tenant",
+      "city": "Pittsburgh, PA"
+    },
+    {
+      "year": "2003",
+      "title": "Selected Works",
+      "venue": "Zg Gallery",
+      "city": "Chicago, IL"
+    },
+    {
+      "year": "2001",
+      "title": "Recent Works",
+      "venue": "Scott Pfaffman",
+      "city": "New York, NY"
+    },
+    {
+      "year": "1997",
+      "title": "Landscape & Recollection: The Ballinglen Experience",
+      "venue": "Royal Hibernian Academy",
+      "city": "Dublin, Ireland"
+    },
+    {
+      "year": "1991",
+      "title": "CORN",
+      "venue": "Chicago Cultural Center",
+      "city": "Chicago, IL"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "2022",
+      "name": "Catwalk Artist Residency, Catskill, NY"
+    },
+    {
+      "year": "2019",
+      "name": "Skaftfell Center for Visual Art residency, Seydisfjordur, Iceland"
+    },
+    {
+      "year": "2018",
+      "name": "SACI Artist-in-Residence, Florence, Italy"
+    },
+    {
+      "year": "2013",
+      "name": "SACI Consortium Residency, San Giovanni Valdarno, Italy"
+    },
+    {
+      "year": "2003",
+      "name": "Pollock-Krasner Foundation Award"
+    },
+    {
+      "year": "2000",
+      "name": "Tyrone Guthrie Centre Award, Annaghmakerrig, Ireland"
+    },
+    {
+      "year": "1999",
+      "name": "Heinrich Boll Foundation Award, Achill Island, Ireland"
+    },
+    {
+      "year": "1997",
+      "name": "Ballinglen Foundation Award, Ballycastle, Ireland"
+    },
+    {
+      "year": "1991",
+      "name": "CAAP Grant, Chicago Department of Cultural Affairs"
+    }
+  ],
+  "teaching": [
+    "Penn State University, School of Visual Arts, College of Arts and Architecture (Professor Emeritus in Studio Art)"
+  ],
+  "press": [
+    {
+      "year": "2026",
+      "title": "Holland Tunnel Gallery - Unframed (interview with Paul Chidester and Michelle Marozik)",
+      "outlet": "NBNY Art Seen (YouTube)",
+      "url": "https://www.youtube.com/watch?v=gi7GVzJFUI8"
+    },
+    {
+      "year": "",
+      "title": "Paul Chidester",
+      "outlet": "Maake Magazine",
+      "url": "https://www.maakemagazine.com/paul-chidester"
+    },
+    {
+      "year": "",
+      "title": "Psychotopia paintings by Paul Chidester on display at Juniata College",
+      "outlet": "Penn State News",
+      "url": "https://www.psu.edu/news/arts-and-entertainment/story/psychotopia-paintings-paul-chidester-display-juniata-college"
+    }
+  ],
+  "recordings_or_publications": [
+    {
+      "year": "2003",
+      "title": "Silage (artist's book, with Helen O'Leary)",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "2005",
+      "title": "New Potatoes (with Helen O'Leary)",
+      "label_or_publisher": "Coracle Press"
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "Tom Benson",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Emily Hopkins",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Nancy Manter",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Mitch Markowitz",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Michelle Marozik",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Kendall Munk",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Itty Neuhaus",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Helen O'Leary",
+      "relation": "collaborator on artist's books Silage and New Potatoes"
+    },
+    {
+      "name": "Rudy Shepherd",
+      "relation": "two-person exhibition Late Harvest (2015)"
+    },
+    {
+      "name": "Rolf Roscher",
+      "relation": "collaborator on Cow Chapel intervention"
+    },
+    {
+      "name": "Zg Gallery, Chicago",
+      "relation": "exhibiting gallery"
+    },
+    {
+      "name": "Ballinglen Arts Foundation",
+      "relation": "fellowship (1997)"
+    }
+  ],
+  "links": {
+    "website": "https://www.paulchidester.com/",
+    "instagram": "https://www.instagram.com/paulchidester/",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "https://www.youtube.com/watch?v=gi7GVzJFUI8",
+    "other": [
+      "https://arts.psu.edu/directory/paul-chidester",
+      "http://www.zggallery.com/chidester_bio.htm",
+      "https://www.ballinglenartsfoundation.org/artists/95-paul-chidester/works/"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "Interviewed about Unframed at Holland Tunnel in a 2026 NBNY Art Seen video, and tagged as @paulchidester (the handle linked from paulchidester.com) in the exhibition's install post.",
+    "sources": [
+      "https://www.youtube.com/watch?v=gi7GVzJFUI8",
+      "https://www.instagram.com/mmarozik/p/DdMCRpekc5u/",
+      "https://www.paulchidester.com/about",
+      "https://arts.psu.edu/directory/paul-chidester"
+    ]
+  },
+  "open_questions": [
+    "Current Hudson Valley base (town) to state in based_in.",
+    "Media used in the Unframed works (oil, gouache, tempera?) and whether they were painted on site."
+  ],
+  "shows": [
+    "unframed-2026"
+  ]
+}

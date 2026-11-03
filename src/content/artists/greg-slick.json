@@ -1,0 +1,299 @@
+{
+  "name": "Greg Slick",
+  "slug": "greg-slick",
+  "also_known_as": [
+    "Gregory Slick"
+  ],
+  "kind": "visual artist",
+  "roles": [
+    "painter",
+    "sculptor",
+    "independent curator",
+    "museum docent"
+  ],
+  "based_in": "Beacon and Newburgh, NY",
+  "origin": "Jersey City, NJ",
+  "born": "1961",
+  "died": "",
+  "education": [
+    {
+      "school": "Chinese Information and Culture Center, New York",
+      "degree": "Studies in Chinese calligraphy and painting",
+      "year": ""
+    }
+  ],
+  "bio_short": "Greg Slick is a painter and independent curator based in Beacon and Newburgh whose work draws on archaeology, prehistoric monuments, quarries and eroded landscapes. He curated The Dark Abyss of Time at Holland Tunnel Revisited in 2026 and has a studio in the gallery's building.",
+  "bio_long": "Greg Slick was born in Jersey City in 1961 and has long been part of the Beacon art community. From 2006 to 2009 he co-ran Go North, a contemporary art space in Beacon, and he later founded The Artist's Statement Picture Show film series. Before turning fully to art he spent some three decades in advertising and communications. His paintings and small stone sculptures take their cues from Neolithic and Iron Age sites, especially standing stones and megalithic structures in Ireland, Britain and Spain. A 2013 residency at the Burren College of Art in County Clare deepened that interest, and he was a Saltonstall fellow in 2017. Solo exhibitions include The Fertile Rock at the Woodstock Artists Association and Museum (2016), shows at Matteawan Gallery and No. 3 Reading Room in Beacon, Opened Ground at the Seligmann Center, and Depth Perception at the Garrison Art Center (2025). He founded the artists' collective The International Society of Antiquaries; its third exhibition, The Longue Durée, was shown at Holland Tunnel Newburgh in 2021. In 2026 he curated The Dark Abyss of Time there, a group show on time and material memory named after the archaeologist Laurent Olivier's book. He also serves as chief docent at Magazzino Italian Art and has organized exhibitions for the Dorsky Museum and the Garrison Art Center.",
+  "practice": "Paintings on wood panel, works on paper and pecked-stone sculpture that borrow the look of archaeological stratigraphic drawings to place stone, manufactured and biological shapes in abstract pictorial space. Recurring subjects are monumentality, legacy, and the meeting of the built and natural worlds.",
+  "career_timeline": [
+    {
+      "year": "2006–2009",
+      "event": "Co-owner and director of Go North, a contemporary art space in Beacon, NY"
+    },
+    {
+      "year": "2010",
+      "event": "Founded The Artist's Statement Picture Show film series"
+    },
+    {
+      "year": "2013",
+      "event": "Artist in residence, Burren College of Art, Ballyvaughan, Ireland"
+    },
+    {
+      "year": "2016",
+      "event": "Solo exhibition The Fertile Rock, Woodstock Artists Association and Museum"
+    },
+    {
+      "year": "2017",
+      "event": "Fellow, Saltonstall Foundation for the Arts, Ithaca, NY"
+    },
+    {
+      "year": "2019–2020",
+      "event": "Collective Expeditions with the ISA at SUNY Ulster and BSB Gallery, Trenton"
+    },
+    {
+      "year": "2020",
+      "event": "Co-curated Look Back in Wonder (virtual), Arts Mid-Hudson, with Elisa Pritzker"
+    },
+    {
+      "year": "2021",
+      "event": "The Longue Durée, ISA exhibition at Holland Tunnel Newburgh"
+    },
+    {
+      "year": "2025",
+      "event": "Solo exhibition Depth Perception, Garrison Art Center"
+    },
+    {
+      "year": "2026",
+      "event": "Curated and exhibited in The Dark Abyss of Time, Holland Tunnel Revisited, Newburgh"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2026",
+      "title": "The Dark Abyss of Time (curator and artist)",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2025",
+      "title": "Depth Perception (solo)",
+      "venue": "Garrison Art Center",
+      "city": "Garrison, NY"
+    },
+    {
+      "year": "2021",
+      "title": "The Longue Durée (ISA)",
+      "venue": "Holland Tunnel Newburgh",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2020",
+      "title": "Collective Expeditions (ISA)",
+      "venue": "BSB Gallery",
+      "city": "Trenton, NJ"
+    },
+    {
+      "year": "2019",
+      "title": "Collective Expeditions (ISA)",
+      "venue": "Muroff-Kotler Gallery, SUNY Ulster",
+      "city": "Stone Ridge, NY"
+    },
+    {
+      "year": "2016",
+      "title": "The Fertile Rock (solo)",
+      "venue": "Woodstock Artists Association and Museum",
+      "city": "Woodstock, NY"
+    },
+    {
+      "year": "2015",
+      "title": "Strange Geometries (solo)",
+      "venue": "Matteawan Gallery",
+      "city": "Beacon, NY"
+    },
+    {
+      "year": "2015",
+      "title": "Plus Ultra",
+      "venue": "KMOCA",
+      "city": "Kingston, NY"
+    },
+    {
+      "year": "",
+      "title": "Old Bones and Broken Stones (solo)",
+      "venue": "No. 3 Reading Room & Photo Book Works",
+      "city": "Beacon, NY"
+    },
+    {
+      "year": "",
+      "title": "Opened Ground (solo)",
+      "venue": "Seligmann Center",
+      "city": "Sugar Loaf, NY"
+    },
+    {
+      "year": "",
+      "title": "Time Travelers",
+      "venue": "Samuel Dorsky Museum of Art, SUNY New Paltz",
+      "city": "New Paltz, NY"
+    },
+    {
+      "year": "",
+      "title": "Take Back the Walls",
+      "venue": "Rochester Contemporary Art Center",
+      "city": "Rochester, NY"
+    },
+    {
+      "year": "",
+      "title": "One Thing Leads to Another",
+      "venue": "The Lockwood Gallery",
+      "city": "Kingston, NY"
+    },
+    {
+      "year": "",
+      "title": "Painting in the 21st Century",
+      "venue": "Site:Brooklyn",
+      "city": "Brooklyn, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "2013",
+      "name": "Artist residency, Burren College of Art, Ireland"
+    },
+    {
+      "year": "2017",
+      "name": "Fellowship, Saltonstall Foundation for the Arts"
+    }
+  ],
+  "teaching": [
+    "Chief Docent, Magazzino Italian Art, Cold Spring, NY (tours and docent training program)"
+  ],
+  "press": [
+    {
+      "year": "2026",
+      "title": "Holland Tunnel Returns",
+      "outlet": "The Highlands Current (Marc Ferris)",
+      "url": "https://highlandscurrent.org/2026/03/13/holland-tunnel-returns/"
+    },
+    {
+      "year": "2025",
+      "title": "Greg Slick | 'Depth Perception' Exhibition at Garrison Art Center",
+      "outlet": "Times Hudson Valley",
+      "url": "https://www.timeshudsonvalley.com/stories/greg-slick-depth-perception-exhibition-at-garrison-art-center-february-8-march-9-2025,155687"
+    },
+    {
+      "year": "2023",
+      "title": "Art, archeology, and the 'neolithic package,' with Greg Slick",
+      "outlet": "Beaconites!",
+      "url": "https://beaconites.com/2023/12/09/art-archeology-and-the-neolithic-package-with-greg-slick/"
+    },
+    {
+      "year": "2020",
+      "title": "BSB Gallery & Trenton Downtown Association Present Collective Expeditions",
+      "outlet": "New Jersey Stage",
+      "url": "https://www.newjerseystage.com/articles/getarticle.php?titlelink=bsb-gallery-and-trenton-downtown-association-present-collective-expeditions"
+    },
+    {
+      "year": "2019",
+      "title": "10 Must-See Hudson Valley Art Exhibits for December 2019",
+      "outlet": "Chronogram",
+      "url": "https://www.chronogram.com/arts/10-must-see-hudson-valley-art-exhibits-for-december-2019-9499422"
+    }
+  ],
+  "recordings_or_publications": [
+    {
+      "year": "",
+      "title": "UNI-VERSE: Poetry-Prints-Proofs by Visionary Humans (work included)",
+      "label_or_publisher": ""
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "Paulien Lethen",
+      "relation": "Holland Tunnel founder; Slick curated The Dark Abyss of Time at her gallery and has studios in the building"
+    },
+    {
+      "name": "The International Society of Antiquaries",
+      "relation": "Artists' collective he founded and co-curates"
+    },
+    {
+      "name": "Jeffrey L. Benjamin",
+      "relation": "Fellow ISA exhibitor in The Longue Durée (2021); artist in The Dark Abyss of Time"
+    },
+    {
+      "name": "Elisa Pritzker",
+      "relation": "ISA member; co-curated Look Back in Wonder (2020)"
+    },
+    {
+      "name": "Olivia Baldwin",
+      "relation": "ISA member; exhibited together in Collective Expeditions and The Longue Durée"
+    },
+    {
+      "name": "Kyle Cottier",
+      "relation": "ISA member; exhibited together in Collective Expeditions and The Longue Durée"
+    },
+    {
+      "name": "Sarah Potter",
+      "relation": "ISA member in Collective Expeditions at SUNY Ulster (2019)"
+    },
+    {
+      "name": "Susan Walsh",
+      "relation": "Beacon artist he included in Look Back in Wonder (2020) and The Dark Abyss of Time (2026)"
+    },
+    {
+      "name": "Corinne Beardsley, Alison Owen, Michael Tarbi",
+      "relation": "Artists he selected for The Dark Abyss of Time (2026)"
+    },
+    {
+      "name": "Magazzino Italian Art",
+      "relation": "Chief docent"
+    },
+    {
+      "name": "Go North (Beacon)",
+      "relation": "Co-owner and director, 2006–2009"
+    }
+  ],
+  "links": {
+    "website": "http://www.gregslickart.com/",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.magazzino.art/about/our-team/our-team/greg-slick",
+      "https://www.thelockwoodgallery.com/greg-slick",
+      "https://museumofnonvisibleart.com/interviews/greg-slick/",
+      "https://www.artspace.com/artist/greg-slick"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "The gallery press release names him as curator and exhibitor and gives a Beacon/Newburgh base and his ISA role; The Highlands Current describes him as a Beacon resident with studios upstairs at Holland Tunnel. Magazzino, Saltonstall, Museum of Nonvisible Art and Chronogram/New Jersey Stage pages all describe the same Beacon-based painter of archaeology and megalithic subjects and founder of the ISA. Columbia's Center for Archaeology lists him among the artists in The Longue Durée at Holland Tunnel Newburgh (2021).",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/s/The-Dark-Abyss-of-Time-Press-Release-final-rmb7.pdf",
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://highlandscurrent.org/2026/03/13/holland-tunnel-returns/",
+      "https://www.magazzino.art/about/our-team/our-team/greg-slick",
+      "https://museumofnonvisibleart.com/praxis/greg-slick/",
+      "https://www.saltonstall.org/project/greg-slick-2017/",
+      "https://www.woodstockart.org/gregory-slick-the-fertile-rock/",
+      "https://beaconites.com/2023/12/09/art-archeology-and-the-neolithic-package-with-greg-slick/",
+      "https://www.newjerseystage.com/articles/getarticle.php?titlelink=bsb-gallery-and-trenton-downtown-association-present-collective-expeditions",
+      "https://archaeology.columbia.edu/news/page/3/",
+      "https://www.putnamcountyny.gov/tourism/tourism-calendar/garrison-art-center-presents-depth-perception-by-greg-slick"
+    ]
+  },
+  "open_questions": [
+    "Birth year 1961 and Jersey City birthplace come from a single source (Museum of Nonvisible Art); confirm with the artist.",
+    "gregslickart.com did not resolve during research; confirm the current URL and pull the full CV.",
+    "Years missing for the Seligmann Center, No. 3 Reading Room, Dorsky, RoCo and Lockwood shows.",
+    "Gallery calendar spells the 2021 show 'The long durée'; Columbia spells it 'The Longue Durée'. Pick one for the site."
+  ],
+  "shows": [
+    "dark-abyss-of-time-2026",
+    "long-duree-2021"
+  ],
+  "image": "../../assets/artists/greg-slick-ghost-story-3-2025.jpg",
+  "imageAlt": "Greg Slick, Ghost Story 3, 2025"
+}

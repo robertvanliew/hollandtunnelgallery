@@ -1,0 +1,163 @@
+---
+// Ported from the static demo (exhibitions.html) by scripts/port-demo-pages.py
+import Base from '../../layouts/Base.astro';
+import '../../styles/pages.css';
+import { loadArchive } from '../../lib/people';
+import { Picture } from 'astro:assets';
+import { onView, shortDate, longDate } from '../../lib/onview';
+import { eventNode } from '../../lib/jsonld';
+const ov = await onView();
+const show = ov?.show;
+const kicker = ov?.status === 'current' ? 'Exhibitions · On view now' : ov?.status === 'upcoming' ? 'Exhibitions · Coming up' : 'Exhibitions · Recently on view';
+const badge = !ov ? '' :
+  ov.status === 'current' ? (ov.lastWeekend ? `Last weekend · closes ${longDate(ov.end)}` : `Closes ${longDate(ov.end)}`) :
+  ov.status === 'upcoming' ? `Opens ${longDate(show!.startDate)}` : 'Next exhibition announced soon';
+const pageTitle = show && ov!.status !== 'between' ? `${show.title} · Holland Tunnel Gallery, Newburgh NY` : 'Exhibitions · Holland Tunnel Gallery, Newburgh NY';
+const pageDescription = show && ov!.status !== 'between'
+  ? `${show.title}, ${show.dates}${show.description ? ': ' + show.description.split('. ')[0] : ''}. Open Sat & Sun 1–5 pm at 46 Chambers Street, Newburgh, NY.`.slice(0, 158)
+  : 'Exhibitions at Holland Tunnel Gallery, 46 Chambers Street, Newburgh, NY: the most recent show and the archive since 1997.';
+const archive = await loadArchive();
+const exhibitions = [...archive.shows.values()].filter((s) => !s.isMusic).sort((a, b) => (a.startDate < b.startDate ? 1 : -1));
+const byYear = new Map<number, typeof exhibitions>();
+for (const s of exhibitions) byYear.set(s.year, [...(byYear.get(s.year) ?? []), s]);
+const years = [...byYear];
+const jsonld = show ? { "@context": "https://schema.org", ...eventNode(show, { performers: ov!.people }) } : undefined;
+---
+<Base title={pageTitle} description={pageDescription} path="/exhibitions" active="exhibitions" jsonld={jsonld}>
+
+
+  {ov && show && (
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">{kicker}</p>
+      <div class="show-hero">
+        <figure style="margin:0;">
+          {show.image && <Picture src={show.image} alt={show.imageAlt!} formats={['avif', 'webp']} widths={[480, 800, 1200, 1600]}
+            sizes="(max-width: 860px) calc(100vw - 32px), 680px" loading="eager" fetchpriority="high" />}
+          {show.imageAlt && <figcaption>{show.imageAlt}</figcaption>}
+        </figure>
+        <div>
+          <p class="urgency" data-until={ov.status === 'current' ? ov.end : undefined}>{badge}</p>
+          <h1>{show.title}</h1>
+          <p class="hero-meta">{show.dates}</p>
+          <ul class="facts">
+            {ov.status !== 'between' && <li><b>Hours</b><span>Sat &amp; Sun 1–5 pm, and by appointment</span></li>}
+            {show.reception && <li><b>Opening</b><span>{show.reception}</span></li>}
+            <li><b>Where</b><span>46 Chambers Street, Newburgh, NY</span></li>
+            <li><b>Admission</b><span>Free</span></li>
+          </ul>
+          {ov.people.length > 0 && (
+            <>
+              <p class="eyebrow">Artists</p>
+              <ul class="artist-list">
+                {ov.people.map((p) => <li>{p.url ? <a href={p.url}>{p.name}</a> : p.name}</li>)}
+              </ul>
+            </>
+          )}
+          <p style="margin-top:14px"><a href={show.url}>Show page, with every artist's profile →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  )}
+
+  {show && (show.about?.length || show.description) && (
+  <section class="rule-top">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow orange">About the show</p>
+        <h2>{show.aboutTitle ?? show.title}</h2>
+      </div>
+      <div>
+        {(show.about ?? [show.description!]).map((t, i) => i === 0 ? <p class="lede">{t}</p> : <p>{t}</p>)}
+        <div class="btn-row">
+          {ov!.status === 'between'
+            ? <a class="btn" href="#newsletter">Hear about the next opening</a>
+            : <a class="btn" href="/#visit">Plan your visit</a>}
+          <a class="btn ghost" href={show.url}>Meet the artists</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  )}
+
+  <section class="wash">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow orange">Recently</p>
+          <h2>Past exhibitions</h2>
+        </div>
+        <a class="link-arrow" href="#archive">Full archive →</a>
+      </div>
+      <div class="past">
+        <article>
+          <div class="img"><img src="/img/jacques-roch-fishing.webp" alt="Jacques Roch painting of colorful fishing boats and fishermen on a bright blue sea" loading="lazy"></div>
+          <p class="when">May 9 – Jun 21, 2026</p>
+          <h3>Le Monde Fantastique de Jacques</h3>
+          <p>The comic-strip worlds of French painter Jacques Roch, whose rebellious drawings ran in Paris underground papers before he settled in Williamsburg.</p>
+        </article>
+        <article>
+          <div class="img"><img src="/img/dark-abyss-of-time-2026-slick-slippage.webp" alt="Greg Slick, Slippage, 2025: a rusted iron wheel fragment among drawn stones and branches" loading="lazy"></div>
+          <p class="when">Mar 7 – Apr 12, 2026</p>
+          <h3>The Dark Abyss of Time</h3>
+          <p>Curated by Greg Slick. Corinne Beardsley, Jeffrey Benjamin &amp; University of Maine students, Alison Owen, Greg Slick, Michael Tarbi and Susan Walsh on time and material memory.</p>
+        </article>
+        <article>
+          <div class="img"><img src="/img/reclamation-2025-poster.webp" alt="Poster for Reclamation: Lost and Found in Newburgh, Holland Tunnel Revisited, 2025" loading="lazy"></div>
+          <p class="when">Aug 23 – Oct 26, 2025</p>
+          <h3>Reclamation: Lost and Found in Newburgh</h3>
+          <p>Curated by Janet Rutkowski and Alexandra Limpert. The show that brought Holland Tunnel back, with 24 artists indoors and in the garden.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow orange">Reclamation, 2025</p>
+      <h2>Sculpture in the garden</h2>
+      <div class="gallery">
+        <figure class="tall"><img src="/img/reclamation-2025-bursztyn-garden-sculpture.webp" alt="Alberto Marcos Bursztyn, wooden sculpture in the garden" loading="lazy"><figcaption class="sr-only">Alberto Marcos Bursztyn</figcaption></figure>
+        <figure class="tall"><img src="/img/reclamation-2025-limpert-figure.webp" alt="Alexandra Limpert, welded metal figure against a brick wall" loading="lazy"></figure>
+        <figure class="wide"><img src="/img/reclamation-2025-thomas-wall-piece.webp" alt="Judy Thomas, neon-colored wire wall piece on brick" loading="lazy"></figure>
+        <figure class="wide"><img src="/img/reclamation-2025-lindell-garden.webp" alt="Julie Lindell, large assemblage sculpture on the lawn" loading="lazy"></figure>
+        <figure class="tall"><img src="/img/reclamation-2025-dron-sculpture.webp" alt="Alejandro Dron, white stone sculpture on the grass" loading="lazy"></figure>
+        <figure class="tall"><img src="/img/reclamation-2025-butler-guitar.webp" alt="Ken Butler, Black and Red Guitar, 2019" loading="lazy"></figure>
+        <figure class="wide"><img src="/img/reclamation-2025-gerberich-garden.webp" alt="Steve Gerberich, found-object figure on a green platform in the garden" loading="lazy"></figure>
+        <figure class="wide"><img src="/img/reclamation-2025-levenson-sculpture.webp" alt="Conrad Levenson, steel sculpture on a wooden post" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="rule-top" id="archive">
+    <div class="wrap" style="max-width: 900px;">
+      <p class="eyebrow orange">Archive</p>
+      <h2>Since 1997</h2>
+      <ul class="year-list">
+        {years.map(([y, list]) => (
+          <li><b>{y}</b><span>{list.map((s, i) => <>{i > 0 && ' · '}<a href={s.url}>{s.title}</a></>)}</span></li>
+        ))}
+        <li><b>2018</b><span>Holland Tunnel opens at 46 Chambers Street, Newburgh</span></li>
+        <li><b>2000–</b><span>Paros, Greece, summer gallery with Heleen Schuttevaêr</span></li>
+        <li><b>1997–</b><span>Williamsburg, Brooklyn, the garden shed</span></li>
+      </ul>
+      <p class="small muted" style="margin-top:20px;">Every artist and musician in these shows has a profile in <a href="/artists">Artists &amp; Musicians</a>. Concerts and performances are under <a href="/events">Events</a>. Earlier shows are being added from the gallery's records.</p>
+    </div>
+  </section>
+
+  <section class="newsletter wash" id="newsletter">
+    <div class="wrap">
+      <h2>Be first to the next opening</h2>
+      <p class="lede" style="margin-inline:auto;">One email a month with the next show, films and music nights.</p>
+      <form class="inline-form" name="newsletter" data-demo="You're on the list. See you at the next opening.">
+        <label class="sr-only" for="nl-email">Email address</label>
+        <input id="nl-email" type="email" name="email" placeholder="Your email" required autocomplete="email">
+        <button class="btn" type="submit">Sign up</button>
+      </form>
+    </div>
+  </section>
+
+
+<script src="/js/site.js" is:inline defer></script>
+</Base>

@@ -1,0 +1,64 @@
+---
+// One page per show (/exhibitions/<id>) or concert/performance (/events/<id>).
+// Lists and links everyone in it, so profiles and shows link both ways.
+import { Picture, getImage } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Breadcrumb from './artists/Breadcrumb.astro';
+import ArtistCard from './artists/ArtistCard.astro';
+import { loadArchive, truncate, type Show } from '../lib/people';
+import { breadcrumbs, eventNode } from '../lib/jsonld';
+import '../styles/artists.css';
+
+interface Props { show: Show }
+const { show: s } = Astro.props;
+const a = await loadArchive();
+const people = (a.showPeople.get(s.id) ?? []).map((slug) => a.bySlug.get(slug)!);
+const published = people.filter((p) => p.published);
+const pending = people.filter((p) => !p.published);
+const section = s.isMusic ? { name: 'Events', href: '/events' } : { name: 'Exhibitions', href: '/exhibitions' };
+const share = s.image ? await getImage({ src: s.image, width: 1200, format: 'jpg' }) : null;
+const today = new Date().toISOString().slice(0, 10);
+const onNow = (s.endDate ?? s.startDate) >= today;
+const names = people.map((p) => p.name);
+const desc = truncate(
+  `${s.title} (${s.dates}), ${s.type.toLowerCase()} at Holland Tunnel Gallery, Newburgh NY.${names.length ? ' With ' + names.join(', ') + '.' : ''}`,
+);
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    eventNode(s, { image: share?.src, performers: people }),
+    breadcrumbs([['Home', '/'], [section.name, section.href], [s.title, s.url]]),
+  ],
+};
+---
+<Base title={`${s.title} · ${s.year} | Holland Tunnel Gallery`} description={desc} path={s.url}
+  active={s.isMusic ? 'events' : 'exhibitions'} ogImage={share?.src} jsonld={jsonld}>
+  <Breadcrumb items={[section, { name: s.title }]} />
+  <section class="show-hero">
+    <div>
+      <p class="kicker">{s.type}</p>
+      <h1>{s.title}</h1>
+      <p class="show-meta">{s.dates}</p>
+      <p class="rec-meta">{s.venue}</p>
+      {onNow && <p style="margin-top:18px"><a class="btn" href="/#visit">Plan your visit</a></p>}
+    </div>
+    {s.image && (
+      <figure class="hero-fig">
+        <Picture src={s.image} alt={s.imageAlt!} formats={['avif', 'webp']} widths={[480, 800, 1200]}
+          sizes="(max-width: 960px) calc(100vw - 32px), 560px" loading="eager" fetchpriority="high" />
+        <figcaption>{s.imageAlt}</figcaption>
+      </figure>
+    )}
+  </section>
+  {people.length > 0 && (
+    <section class="show-people" aria-labelledby="sp-h">
+      <h2 id="sp-h" class="block-h" style="font:400 30px/1 var(--display);letter-spacing:.05em;margin:0 0 18px">
+        {s.isMusic ? 'Musicians & performers' : 'Artists in this show'}
+      </h2>
+      <ul class="cards">{published.map((p) => <ArtistCard p={p} a={a} />)}</ul>
+      {pending.length > 0 && (
+        <p class="sub" style="margin-top:22px">Also in this show, profiles in progress: {pending.map((p) => p.name).join(', ')}.</p>
+      )}
+    </section>
+  )}
+</Base>

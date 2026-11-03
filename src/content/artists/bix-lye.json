@@ -1,0 +1,187 @@
+{
+  "name": "Bix Lye",
+  "slug": "bix-lye",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "sculptor",
+    "printmaker"
+  ],
+  "based_in": "Newburgh, NY (long-time Brooklyn resident)",
+  "origin": "London, England",
+  "born": "1937-02-19",
+  "died": "2023-01-10",
+  "education": [
+    {
+      "school": "Boston University",
+      "degree": "",
+      "year": ""
+    },
+    {
+      "school": "Rhode Island School of Design",
+      "degree": "Studied sculpture",
+      "year": ""
+    }
+  ],
+  "bio_short": "Bix Lye (1937–2023) was a British-born American sculptor known for small, precisely built table-top works in bright industrial materials. He was the son of the New Zealand-born artist and filmmaker Len Lye and exhibited often at Holland Tunnel Gallery.",
+  "bio_long": "Bix Lye was born in London in 1937, the son of the kinetic artist and filmmaker Len Lye. He was named after the jazz cornetist Bix Beiderbecke. The family moved to New York in 1945. He studied at Boston University and at the Rhode Island School of Design, where he concentrated on sculpture. For years he shared a studio with his father on Greenwich Street, and he worked as a specialized carpenter to support his practice. His compact, minimalist sculptures, built in separate sections from epoxy, Masonite and Lucite, drew notice early. He was included in the Whitney Museum of American Art's Annual Exhibition of Contemporary American Sculpture in 1964 and again in 1968. After many years in Brooklyn he became a regular presence at Holland Tunnel Gallery. He showed with the Dutch painter Jan Mulder in Double Feature (2006), which The Brooklyn Rail's Shane McAdams reviewed, and with the abstract painter Thornton Willis in Matter of Fact (2022) in Newburgh. His work was also in the gallery's 2014 Framed project, its 2018 Newburgh opening and its 25th-anniversary show. He died in Newburgh in January 2023, and the gallery described him as an integral part of the Holland Tunnel family.",
+  "practice": "Small, table-top sculptures assembled from modular sections of industrial materials (epoxy, Masonite, Lucite), combining crisp geometry with saturated color and a sense of play. The Brooklyn Rail wrote that his work 'simultaneously reads as a contained, solid object and a construction of modular components' (Shane McAdams, 2006).",
+  "career_timeline": [
+    {
+      "year": "1937",
+      "event": "Born in London to Len and Jane Lye"
+    },
+    {
+      "year": "1945",
+      "event": "Family joins Len Lye in New York"
+    },
+    {
+      "year": "1964",
+      "event": "Included in the Whitney Annual Exhibition of Contemporary American Sculpture"
+    },
+    {
+      "year": "1968",
+      "event": "Included again in the Whitney Annual Exhibition of Contemporary American Sculpture"
+    },
+    {
+      "year": "2006",
+      "event": "Double Feature with Jan Mulder at Holland Tunnel and Sideshow galleries, Williamsburg"
+    },
+    {
+      "year": "2014",
+      "event": "Framed at Holland Tunnel Gallery, Williamsburg"
+    },
+    {
+      "year": "2018",
+      "event": "Grand Opening of Holland Tunnel Newburgh"
+    },
+    {
+      "year": "2022",
+      "event": "Holland Tunnel 25 Years show; Matter of Fact with Thornton Willis"
+    },
+    {
+      "year": "2023",
+      "event": "Dies in Newburgh, NY, January 10"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "1964",
+      "title": "Annual Exhibition of Contemporary American Sculpture",
+      "venue": "Whitney Museum of American Art",
+      "city": "New York, NY"
+    },
+    {
+      "year": "1968",
+      "title": "Annual Exhibition: Contemporary American Sculpture",
+      "venue": "Whitney Museum of American Art",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2006",
+      "title": "Double Feature (with Jan Mulder)",
+      "venue": "Holland Tunnel Gallery and Sideshow Gallery",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2014",
+      "title": "Framed (group)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2018",
+      "title": "Grand Opening HTG Newburgh (group)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2022",
+      "title": "Holland Tunnel Gallery Celebrates 25 Years (group)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2022",
+      "title": "Matter of Fact: Thornton Willis & Bix Lye",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2006",
+      "title": "Bix Lye & Jan Mulder: Double Feature (Shane McAdams)",
+      "outlet": "The Brooklyn Rail",
+      "url": "https://brooklynrail.org/2006/12/artseen/double-feature-holland"
+    },
+    {
+      "year": "2022",
+      "title": "Matter of Fact: Thornton Willis and Bix Lye",
+      "outlet": "My Hudson Valley (Times Hudson Valley)",
+      "url": "https://www.timeshudsonvalley.com/stories/matter-of-fact-thornton-willis-and-bix-lye,45515"
+    }
+  ],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Len Lye",
+      "relation": "Father; New Zealand-born kinetic sculptor and experimental filmmaker; they shared a studio on Greenwich Street"
+    },
+    {
+      "name": "Paulien Lethen",
+      "relation": "Founder of Holland Tunnel Gallery, who showed his work often"
+    },
+    {
+      "name": "Thornton Willis",
+      "relation": "Two-person exhibition Matter of Fact (2022)"
+    },
+    {
+      "name": "Jan Mulder",
+      "relation": "Two-person exhibition Double Feature (2006)"
+    }
+  ],
+  "links": {
+    "website": "",
+    "instagram": "",
+    "wikipedia": "https://en.wikipedia.org/wiki/Bix_Lye",
+    "wikidata": "https://www.wikidata.org/wiki/Q124804904",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://whitney.org/artists/t4094",
+      "https://en.wikipedia.org/wiki/Len_Lye"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "Wikipedia names him as Len Lye's son and cites his Holland Tunnel shows, including Matter of Fact with Thornton Willis. The gallery calls him Lethen's partner and says he died in early January 2023. The Whitney lists him in its 1964 and 1968 annuals.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Bix_Lye",
+      "https://whitney.org/artists/t4094",
+      "https://brooklynrail.org/2006/12/artseen/double-feature-holland",
+      "https://www.hollandtunnelgallery.com/htcalendar2023/2022/10/1/thornton-willis-amp-byx-lye-exhibtion",
+      "https://www.hollandtunnelgallery.com/events",
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.hollandtunnelgallery.com/htcalendar2023/2023/9/29/opening-reception-for-paulien-lethen-finale-and-beyond",
+      "https://www.hollandtunnelgallery.com/htcalendar2023/2022/5/21/25-years-of-holland-tunnel-gallery-exhibition",
+      "https://newburghrestoration.com/blog/2018/05/15/new-art-venue-the-holland-tunnel-art-gallery-comes-to-newburgh1/",
+      "https://www.hollandtunnelgallery.com/stairmasters"
+    ]
+  },
+  "open_questions": [
+    "Birth and death dates come from Wikipedia, which cites Roger Horrocks, Len Lye: A Biography (2001), for his early life. The gallery confirms only 'early January 2023'.",
+    "The gallery says the 2022 show ran Oct 1–Nov 20; My Hudson Valley gives Oct 1–Nov 6. Use the gallery's dates.",
+    "Sinjin Lye and S.J. Lye also show at Holland Tunnel. Relationship not confirmed, so not listed.",
+    "No museum collection holdings confirmed. Whitney records show exhibition history only."
+  ],
+  "shows": [
+    "matter-of-fact-2022",
+    "25-years-2022",
+    "grand-opening-2018"
+  ]
+}

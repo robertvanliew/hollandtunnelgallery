@@ -1,0 +1,143 @@
+{
+  "name": "Frans Bloem",
+  "slug": "frans-bloem",
+  "also_known_as": [
+    "Maxime (stage persona)"
+  ],
+  "kind": "performer",
+  "roles": [
+    "cabaret vocalist",
+    "chansonnier"
+  ],
+  "based_in": "New York City",
+  "origin": "The Netherlands (grew up in Amsterdam)",
+  "born": "",
+  "died": "",
+  "education": [],
+  "bio_short": "Dutch-born, New York-based cabaret singer and chansonnier, known for his Charles Aznavour repertoire, who sang as a guest at Holland Tunnel's Final Blast.",
+  "bio_long": "Frans Bloem is a cabaret singer and chansonnier who grew up in Amsterdam. As a young man he moved to Paris, where he started out singing on the street in Montmartre, and he later made New York his home. He sings in French, English, German, Dutch and other languages, and much of his work centers on the songs of Charles Aznavour. In 2002 he brought his show \"Aznavour in Bloem\" back to Danny's Skylight Room in the Theater District, with musical direction by Sterling Price-McKinney and songs in English, French and Russian. At the Metropolitan Room, which inducted him into its Hall of Fame, he presented \"Beyond Borders\" with pianist and music director Steve Sandberg; the show included his alter ego, Maxime. Reviewers called it \"a true New York story.\" He has also performed in the Netherlands and in San Miguel de Allende, Mexico, and sings often at benefit concerts. At Holland Tunnel Newburgh he joined Heleen Schuttevaêr and the house band as a guest vocalist at Final Blast, the closing party, on November 19, 2023.",
+  "practice": "Vocals; French chanson and cabaret, especially the Charles Aznavour songbook, performed in several languages.",
+  "career_timeline": [
+    {
+      "year": "2002",
+      "event": "\"Aznavour in Bloem\" return engagement, Danny's Skylight Room, New York (Oct 16–27)"
+    },
+    {
+      "year": "2016",
+      "event": "\"Beyond Borders\" at the Metropolitan Room, New York; inducted into the Metropolitan Room Hall of Fame (per Theater Pizzazz)"
+    },
+    {
+      "year": "2017",
+      "event": "\"Beyond Borders\" reviewed at the Metropolitan Room with Steve Sandberg"
+    },
+    {
+      "year": "2023",
+      "event": "Guest vocalist at Final Blast, Holland Tunnel Newburgh (Nov 19)"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2002",
+      "title": "Aznavour in Bloem",
+      "venue": "Danny's Skylight Room",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2016",
+      "title": "Beyond Borders",
+      "venue": "The Metropolitan Room",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2023",
+      "title": "Final Blast (guest)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "2016",
+      "name": "Metropolitan Room Hall of Fame (inductee)"
+    }
+  ],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2002",
+      "title": "Frans Bloem (Aznavour in Bloem) listing",
+      "outlet": "TheaterMania",
+      "url": "https://www.theatermania.com/shows/new-york-city-theater/frans-bloem_18297/"
+    },
+    {
+      "year": "2002",
+      "title": "Cabaret \"Aznavour in Bloem\" Frans Bloem performs",
+      "outlet": "Our Town Downtown",
+      "url": "https://www.otdowntown.com/news/stage-wednesday-1023-cabaret-quotaznavour-in-bloemquot-frans-bloem-performs-LVNP1220021029310299983"
+    },
+    {
+      "year": "2016",
+      "title": "Frans Bloem Beyond Borders",
+      "outlet": "Theater Pizzazz (Joe Regan Jr.)",
+      "url": "https://www.theaterpizzazz.com/frans-bloem-beyond-borders/"
+    },
+    {
+      "year": "2017",
+      "title": "Frans Bloem at the Metropolitan Room",
+      "outlet": "Applause! Applause! (Christopher M. Struck)",
+      "url": "https://www.struckchris.com/the-new-blog/2017/frans-bloem"
+    }
+  ],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Steve Sandberg",
+      "relation": "Pianist and music director, Beyond Borders"
+    },
+    {
+      "name": "Sterling Price-McKinney",
+      "relation": "Music director, Aznavour in Bloem (2002)"
+    },
+    {
+      "name": "Heleen Schuttevaêr",
+      "relation": "Guest with her house band at Final Blast (2023)"
+    },
+    {
+      "name": "Julie Schatz",
+      "relation": "Fellow guest performer at Final Blast (2023)"
+    }
+  ],
+  "links": {
+    "website": "http://fransbloem.com/",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "https://www.youtube.com/watch?v=9r1ltntZyE0",
+    "other": [
+      "https://www.linkedin.com/in/frans-bloem-63276834/"
+    ]
+  },
+  "verification": {
+    "status": "likely",
+    "evidence": "Frans Bloem the Dutch-born, New York-based cabaret singer matches the gallery's Dutch-connected guest vocalist billing, and the name is rare; however no source opened directly ties this singer to the Holland Tunnel event.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htcalendar2023",
+      "https://www.theaterpizzazz.com/frans-bloem-beyond-borders/",
+      "https://www.struckchris.com/the-new-blog/2017/frans-bloem",
+      "https://www.theatermania.com/shows/new-york-city-theater/frans-bloem_18297/",
+      "https://www.otdowntown.com/news/stage-wednesday-1023-cabaret-quotaznavour-in-bloemquot-frans-bloem-performs-LVNP1220021029310299983"
+    ]
+  },
+  "open_questions": [
+    "Confirm with gallery that the Final Blast guest is the cabaret singer",
+    "Sources disagree on age he moved to Paris (17 vs 19); omitted",
+    "fransbloem.com album page did not load content; discography unknown",
+    "No acting credits verified despite 'singer/actor' brief"
+  ],
+  "shows": [
+    "final-blast-2023"
+  ]
+}

@@ -1,0 +1,75 @@
+---
+import { STATUS, linkItems, sourceList, type Archive, type Person } from '../../lib/people';
+import { LAST_REVIEWED } from '../../lib/site';
+interface Props { p: Person; a: Archive }
+const { p, a } = Astro.props;
+const first = p.showIds.length ? Math.min(...p.showIds.map((s) => a.shows.get(s)!.year)) : null;
+const edu = p.education.filter((x) => x.school).map((x) => [x.school, x.degree, x.year].filter(Boolean).join(' · '));
+const facts: [string, string | string[]][] = (
+  [
+    ['Born', p.born],
+    ['Died', p.died],
+    ['Origin', p.origin],
+    ['Based in', p.based_in],
+    ['Practice', p.roles.slice(0, 6).join(', ')],
+    ['Education', edu],
+    ['First at Holland Tunnel', first ? String(first) : ''],
+    ['Holland Tunnel appearances', p.showIds.length ? String(p.showIds.length) : ''],
+  ] as [string, string | string[]][]
+).filter(([, v]) => (Array.isArray(v) ? v.length : v));
+const awards = p.awards_residencies.filter((x) => x.name);
+const links = linkItems(p);
+const sources = sourceList(p);
+const st = STATUS[p.status];
+const reviewed = new Date(LAST_REVIEWED + 'T12:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<aside class="side-col" aria-label={`About ${p.name}`}>
+  <section class="facts">
+    <h2>Facts</h2>
+    <dl>
+      {facts.map(([k, v]) => (
+        <div><dt>{k}</dt><dd>{Array.isArray(v) ? v.map((x, i) => <>{i > 0 && <br />}{x}</>) : v}</dd></div>
+      ))}
+    </dl>
+  </section>
+  {p.collections.length > 0 && (
+    <section><h2>Collections</h2><ul class="plain">{p.collections.map((x) => <li class="no-y">{x}</li>)}</ul></section>
+  )}
+  {awards.length > 0 && (
+    <section>
+      <h2>Awards &amp; residencies</h2>
+      <ul class="plain">
+        {awards.map((x) => x.year
+          ? <li><span class="tl-y">{x.year}</span><span>{x.name}</span></li>
+          : <li class="no-y">{x.name}</li>)}
+      </ul>
+    </section>
+  )}
+  {p.teaching.length > 0 && (
+    <section><h2>Teaching</h2><ul class="plain">{p.teaching.map((x) => <li class="no-y">{x}</li>)}</ul></section>
+  )}
+  {links.length > 0 && (
+    <section>
+      <h2>Links</h2>
+      <ul class="links">
+        {links.map((l) => <li><a href={l.url} rel="noopener" target="_blank">{l.label}<span class="vh"> (opens in a new tab)</span></a></li>)}
+      </ul>
+    </section>
+  )}
+  <section class={`verify verify-${p.status}`}>
+    <h2>Sources &amp; verification</h2>
+    <p class="v-status"><span class="dot" aria-hidden="true"></span>{st.label}</p>
+    {p.verification.evidence && <p>{p.verification.evidence}</p>}
+    {sources.length > 0 && (
+      <ol class="sources">
+        {sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.text}</a></li>)}
+      </ol>
+    )}
+    <p class="updated">Last reviewed {reviewed}</p>
+  </section>
+  <section class="claim">
+    <h2>Is this you?</h2>
+    <p>Claim this profile to add your photo, new work and links, or to correct anything.</p>
+    <a class="btn" href={`/artists/claim/${p.slug}`}>Claim or update profile</a>
+  </section>
+</aside>

@@ -1,0 +1,360 @@
+{
+  "name": "Jacques Roch",
+  "slug": "jacques-roch",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "painter",
+    "illustrator",
+    "cartoonist",
+    "muralist",
+    "mosaicist"
+  ],
+  "based_in": "Williamsburg, Brooklyn, NY",
+  "origin": "France",
+  "born": "1934",
+  "died": "2015",
+  "education": [
+    {
+      "school": "École des Beaux-Arts de Lyon",
+      "degree": "",
+      "year": ""
+    },
+    {
+      "school": "École des Beaux-Arts de Paris",
+      "degree": "",
+      "year": ""
+    }
+  ],
+  "bio_short": "Jacques Roch (1934–2015) was a French painter and illustrator whose brightly colored canvases are filled with comic-strip figures acting out small stories. Based in Williamsburg for decades, he showed at Holland Tunnel from its early Brooklyn years through posthumous exhibitions of his estate in Newburgh.",
+  "bio_long": "Jacques Roch trained at the Beaux-Arts schools of Lyon and Paris. In France in the 1960s and 70s he made public mosaics, murals and painted sculpture for schools and civic buildings, and in 1971 the Paris publisher A. Balland issued a book of his drawings. His irreverent, often erotic cartoons appeared in the Paris magazines Pilote, Charlie Mensuel and Hara-Kiri. According to the gallery, he lived in Greece and then England, where Drian Galleries in London gave him a show in 1976, before settling in New York. By 1978–80 his comics were running in Playboy, Heavy Metal and The New York Times. In New York he showed at Exit Art, including the 1990 survey Ten Years of Painting in New York City, and from 1996 regularly at Kim Foster Gallery in Chelsea. He became a fixture of the Williamsburg scene, with shows at Side Show Gallery, 101 Grand and Holland Tunnel. Critics including Robert C. Morgan, Dominique Nahas, Denise Carvalho and Lilly Wei wrote about him, and he was reviewed in Art in America, ARTnews and Art Press. His paintings bring back the human figure as semi-abstract, cartoonish signs that pop out of fields of color. Holland Tunnel's Holland Tunnel Art Project published his cookbook Good Heavens! in 2001. He showed with the gallery in Brooklyn and on Paros, Greece, and after his death in 2015 his estate lent work to the Newburgh shows Esperanza (2018–19), the 25th anniversary exhibition (2022), Three of a Kind (2023) and Le Monde Fantastique de Jacques (2026).",
+  "practice": "Brightly colored paintings in which cartoon-like, semi-abstract figures play out small stories against fields of color, rooted in his work as a satirical cartoonist and book illustrator. Earlier work in France also included mosaics, murals and painted sculpture.",
+  "career_timeline": [
+    {
+      "year": "1965",
+      "event": "Exhibited at a Paris salon"
+    },
+    {
+      "year": "1966–1976",
+      "event": "Public mosaics, murals and painted sculpture for schools and civic buildings in France (Aulnay-sous-Bois, Charleville, Tours, Brive, Belfort)"
+    },
+    {
+      "year": "1971",
+      "event": "Book of drawings Paris Ville Peige [sic, per CV] published by A. Balland, Paris"
+    },
+    {
+      "year": "1973–1977",
+      "event": "Comics and drawings in Pilote, Charlie Mensuel, Hara-Kiri and Pourquoi, Paris"
+    },
+    {
+      "year": "1976",
+      "event": "Solo exhibition, Drian Galleries, London"
+    },
+    {
+      "year": "1978–1980",
+      "event": "Comics published in Playboy, Heavy Metal and The New York Times"
+    },
+    {
+      "year": "1985",
+      "event": "Five French Artists Living in New York, French Embassy; solo shows at Exit Art and Facchetti-Burk Gallery"
+    },
+    {
+      "year": "1990",
+      "event": "Ten Years of Painting in New York City, Exit Art"
+    },
+    {
+      "year": "1993",
+      "event": "Art Omi colony, Omi, NY"
+    },
+    {
+      "year": "1996–2019",
+      "event": "Nine solo exhibitions at Kim Foster Gallery, New York"
+    },
+    {
+      "year": "1999",
+      "event": "Book of drawings with text The Dream of the Unicorn"
+    },
+    {
+      "year": "2001",
+      "event": "Good Heavens! cookbook published by Holland Tunnel Art Project"
+    },
+    {
+      "year": "2003–2006",
+      "event": "Group shows with Holland Tunnel Gallery in Brooklyn and on Paros, Greece"
+    },
+    {
+      "year": "2010",
+      "event": "Solo exhibition, Galerie Carla Magna, Paris"
+    },
+    {
+      "year": "2015",
+      "event": "Died, aged 80 per the gallery"
+    },
+    {
+      "year": "2018–2019",
+      "event": "Esperanza, Holland Tunnel Newburgh (estate)"
+    },
+    {
+      "year": "2026",
+      "event": "Le Monde Fantastique de Jacques, Holland Tunnel Revisited, Newburgh"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2026",
+      "title": "Le Monde Fantastique de Jacques",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2023",
+      "title": "Three of a Kind (with Gemma Kahng and Julie Lindell)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2022",
+      "title": "Holland Tunnel Gallery Celebrates 25 Years",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2019",
+      "title": "Solo exhibition",
+      "venue": "Kim Foster Gallery",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2018–2019",
+      "title": "Esperanza",
+      "venue": "Holland Tunnel Newburgh",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2018",
+      "title": "Grand Opening, HTG Newburgh",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2013",
+      "title": "Solo exhibition",
+      "venue": "Art 101",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2010",
+      "title": "Solo exhibition",
+      "venue": "Galerie Carla Magna",
+      "city": "Paris, France"
+    },
+    {
+      "year": "2009",
+      "title": "Dream of Flying (with Tony Roch)",
+      "venue": "Side Show Gallery",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2006",
+      "title": "Menage a Trois",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2005",
+      "title": "The Labyrinth",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Paros, Greece"
+    },
+    {
+      "year": "2003",
+      "title": "clear intentions (curated by Robert C. Morgan)",
+      "venue": "The Rotunda Gallery",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2001",
+      "title": "718 Brooklyn! (curated by Michael Rush and Dominique Nahas)",
+      "venue": "Palm Beach Institute of Contemporary Art",
+      "city": "FL"
+    },
+    {
+      "year": "2000",
+      "title": "The Figure: Another Side of Modernism (curated by Lilly Wei)",
+      "venue": "Snug Harbor Cultural Center",
+      "city": "Staten Island, NY"
+    },
+    {
+      "year": "1990",
+      "title": "Ten Years of Painting in New York City (solo)",
+      "venue": "Exit Art",
+      "city": "New York, NY"
+    },
+    {
+      "year": "1985",
+      "title": "Selections (Kay Larson)",
+      "venue": "Artists Space",
+      "city": "New York, NY"
+    },
+    {
+      "year": "1976",
+      "title": "Solo exhibition",
+      "venue": "Drian Galleries",
+      "city": "London, UK"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "1993",
+      "name": "Art Omi colony, Omi, NY"
+    }
+  ],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2019",
+      "title": "Jacques Roch: Ma Jolie",
+      "outlet": "Arteidolia (Ron Morosan)",
+      "url": ""
+    },
+    {
+      "year": "2019",
+      "title": "The Rich Imagination of Jacques Roch: Sensuousness and Impertinent Play",
+      "outlet": "Essay by Dominique Nahas",
+      "url": ""
+    },
+    {
+      "year": "2008",
+      "title": "Jacques Roch",
+      "outlet": "Art in America (Denise Carvalho)",
+      "url": ""
+    },
+    {
+      "year": "1999",
+      "title": "Jacques Roch",
+      "outlet": "Art in America (Jane Harris)",
+      "url": ""
+    },
+    {
+      "year": "1997",
+      "title": "Jacques Roch",
+      "outlet": "Art Press (Robert C. Morgan)",
+      "url": ""
+    },
+    {
+      "year": "1996",
+      "title": "Jacques Roch",
+      "outlet": "ARTnews (Ann Landi)",
+      "url": ""
+    },
+    {
+      "year": "1990",
+      "title": "Goings On About Town",
+      "outlet": "The New Yorker",
+      "url": ""
+    },
+    {
+      "year": "2009",
+      "title": "Dream of Flying (essay)",
+      "outlet": "Denise Carvalho, via jacquesroch.com",
+      "url": "https://www.jacquesroch.com/new-page-3"
+    }
+  ],
+  "recordings_or_publications": [
+    {
+      "year": "1971",
+      "title": "Paris Ville Peige [sic, per CV] (book of drawings)",
+      "label_or_publisher": "A. Balland, Paris"
+    },
+    {
+      "year": "1999",
+      "title": "The Dream of the Unicorn (drawings with text)",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "2001",
+      "title": "Good Heavens! erotic pasta & fruity salad cookbook",
+      "label_or_publisher": "Holland Tunnel Art Project"
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "Paulien Lethen",
+      "relation": "Holland Tunnel founder; showed him for decades and now presents his estate's work"
+    },
+    {
+      "name": "Holland Tunnel Art Project",
+      "relation": "Publisher of his cookbook Good Heavens! (2001)"
+    },
+    {
+      "name": "Kim Foster Gallery",
+      "relation": "New York dealer; nine solo shows, 1996–2019"
+    },
+    {
+      "name": "Robert C. Morgan",
+      "relation": "Critic and curator who wrote on him repeatedly (1992–2005)"
+    },
+    {
+      "name": "Dominique Nahas",
+      "relation": "Critic; essays 1996, 2005, 2019"
+    },
+    {
+      "name": "Denise Carvalho",
+      "relation": "Critic; essays 1999, 2008, 2009, 2019"
+    },
+    {
+      "name": "Gemma Kahng and Julie Lindell",
+      "relation": "Co-exhibitors in Three of a Kind (2023)"
+    },
+    {
+      "name": "Tony Roch",
+      "relation": "Two-person show at Side Show Gallery (2009)"
+    },
+    {
+      "name": "Bix Lye, Jan Mulder, Alexandra Limpert, Larry Lee Webb, Susan Daboll",
+      "relation": "Co-exhibitors in Holland Tunnel's 25th anniversary show (2022)"
+    }
+  ],
+  "links": {
+    "website": "https://www.jacquesroch.com/",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://kimfostergallery.com/jacques-roch/",
+      "https://www.artnet.com/artists/jacques-roch/",
+      "https://www.saatchiart.com/jacquesroch"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "The Holland Tunnel site describes the same French painter (Paris underground drawings, cookbooks, Williamsburg, died 2015 at 80). Kim Foster Gallery's CV lists Holland Tunnel shows in Brooklyn and Paros and the cookbook Good Heavens! published by Holland Tunnel Art Project. Artnet gives 1934–2015, consistent with the gallery. Saatchi lists him as a Brooklyn-based French artist who trained at the Beaux-Arts schools of Lyon and Paris, with Holland Tunnel among his venues.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://kimfostergallery.com/jacques-roch/",
+      "https://www.artnet.com/artists/jacques-roch/",
+      "https://www.saatchiart.com/jacquesroch",
+      "https://www.jacquesroch.com/new-page-3"
+    ]
+  },
+  "open_questions": [
+    "The gallery says he moved from Paris to Greece in the sixties, but his CV shows French commissions and Paris magazine work through 1977 and a London show in 1976. Confirm the timeline with the estate.",
+    "The gallery mentions four cookbooks; only Good Heavens! (2001) is documented. Get the other titles from the estate.",
+    "The CV lists a 1990 'International Prints Show, Holland Tunnel, Paris traveled to Greece', which predates the gallery's 1997 founding. Clarify.",
+    "The Kim Foster CV spells the 1971 book 'Paris Ville Peige'; 'Piège' is assumed. Verify.",
+    "Birth year 1934 is from artnet only; confirm."
+  ],
+  "shows": [
+    "le-monde-fantastique-2026",
+    "three-of-a-kind-2023",
+    "25-years-2022",
+    "esperanza-2018",
+    "grand-opening-2018"
+  ],
+  "image": "../../assets/artists/jacques-roch-le-monde-fantastique-de-jacques-2026.jpg",
+  "imageAlt": "Jacques Roch, Le Monde Fantastique de Jacques, 2026"
+}

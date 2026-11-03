@@ -1,0 +1,295 @@
+{
+  "name": "Vivien Collens",
+  "slug": "vivien-collens",
+  "also_known_as": [
+    "Vivien Abrams Collens",
+    "Vivien Abrams"
+  ],
+  "kind": "visual artist",
+  "roles": [
+    "sculptor",
+    "painter",
+    "public artist"
+  ],
+  "based_in": "Cornwall, NY (Hudson Valley)",
+  "origin": "Cleveland, Ohio",
+  "born": "",
+  "died": "",
+  "education": [
+    {
+      "school": "Carnegie Mellon University",
+      "degree": "BFA",
+      "year": "1968"
+    },
+    {
+      "school": "Instituto Allende, San Miguel de Allende, Mexico",
+      "degree": "MFA",
+      "year": "1971"
+    }
+  ],
+  "bio_short": "Vivien Collens spent decades making geometric paintings and wall constructions before learning to weld at 70 and turning to large public sculpture. Born in Cleveland and working in Cornwall, NY, she has had two solo shows at Holland Tunnel Newburgh.",
+  "bio_long": "Vivien Collens was born in Cleveland, Ohio, earned a BFA at Carnegie Mellon in 1968 and an MFA at the Instituto Allende in San Miguel de Allende, Mexico, in 1971. She began her career in Cleveland in the 1970s with wall-mounted geometric structures, receiving recognition in the Cleveland Museum of Art's May Show, and moved to New York in 1977. Fellowships at Yaddo and MacDowell followed; a book read at Yaddo in 1979 sparked the energized series The Romance of Electricity and Networks. In the 1980s she exhibited with Luise Ross and Marilyn Pearl galleries and at the Aldrich Museum.\n\nIn 1985 she moved to the Hudson Valley, raising a family while her painted forms pushed further off the wall. Small painted wood City Blocks, made for a 2015 Urban Studies show at Gensler's Rockefeller Center gallery, convinced her to commit to sculpture. In 2017, at Salem Art Works, she learned to weld, and she now fabricates large welded, riveted and bent metal works in her Cornwall studio.\n\nHer outdoor sculpture has been installed in New Orleans and Kenner, Louisiana, Bennington, Salem, Beacon and the Newburgh Sculpture Project, and in Collens in Cornwall, a year-long public exhibition (2024-25). She founded the Storm King Decision project, a 2025 Orange County Arts Council featured commission. Holland Tunnel Newburgh showed her New Sculpture in 2019 and 2023, and she returned for Reclamation in 2025. Her work is in collections including the Cleveland Museum of Art and Currier Museum of Art.",
+  "practice": "Geometric abstraction that moved from shaped paintings and wall installations to welded, riveted and bent metal sculpture scaled for outdoor public sites, recently extending into environmental art and wearable sculpture.",
+  "career_timeline": [
+    {
+      "year": "1968",
+      "event": "BFA, Carnegie Mellon University"
+    },
+    {
+      "year": "1971",
+      "event": "MFA, Instituto Allende, San Miguel de Allende"
+    },
+    {
+      "year": "1976",
+      "event": "Solo exhibition, Akron Art Institute"
+    },
+    {
+      "year": "1977",
+      "event": "Moves to New York City"
+    },
+    {
+      "year": "1979",
+      "event": "Yaddo and MacDowell fellowships"
+    },
+    {
+      "year": "1981",
+      "event": "1st Prize in Painting, Cleveland Museum of Art May Show"
+    },
+    {
+      "year": "1984",
+      "event": "Solo show, Luise Ross Gallery, New York"
+    },
+    {
+      "year": "1985",
+      "event": "Moves to the Hudson Valley; MacDowell fellowship"
+    },
+    {
+      "year": "2015",
+      "event": "Urban Studies & City Blocks, Gensler at Rockefeller Center"
+    },
+    {
+      "year": "2017",
+      "event": "Learns to weld at Salem Art Works; begins public sculpture"
+    },
+    {
+      "year": "2019",
+      "event": "New Sculpture, solo, Holland Tunnel Newburgh; Newburgh Sculpture Project"
+    },
+    {
+      "year": "2023",
+      "event": "New Sculpture, solo, Holland Tunnel Newburgh (Aug-Sep); Salem2Salem fellowship, Schloss Salem, Germany"
+    },
+    {
+      "year": "2024",
+      "event": "Collens in Cornwall, year-long outdoor exhibition"
+    },
+    {
+      "year": "2025",
+      "event": "Storm King Decision commission; Reclamation, Holland Tunnel Revisited"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2025",
+      "title": "Reclamation: Lost and Found in Newburgh",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2024-25",
+      "title": "Collens in Cornwall (outdoor solo)",
+      "venue": "Public sites",
+      "city": "Cornwall, NY"
+    },
+    {
+      "year": "2023",
+      "title": "New Sculpture (solo)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2021",
+      "title": "New sculpture (solo)",
+      "venue": "Maria Neil Art Project",
+      "city": "Cleveland, OH"
+    },
+    {
+      "year": "2020",
+      "title": "Group exhibition",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2019",
+      "title": "New Sculpture (solo)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2019",
+      "title": "Newburgh Sculpture Project",
+      "venue": "Safe Harbors Green",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2018",
+      "title": "Signal",
+      "venue": "Katonah Museum of Art",
+      "city": "Katonah, NY"
+    },
+    {
+      "year": "2017-20",
+      "title": "Poydras Corridor Sculpture Exhibition",
+      "venue": "",
+      "city": "New Orleans, LA"
+    },
+    {
+      "year": "2015",
+      "title": "Urban Studies & City Blocks (solo)",
+      "venue": "Gensler at Rockefeller Center",
+      "city": "New York, NY"
+    },
+    {
+      "year": "1984",
+      "title": "Solo exhibition",
+      "venue": "Luise Ross Gallery",
+      "city": "New York, NY"
+    },
+    {
+      "year": "1979",
+      "title": "New York Now",
+      "venue": "Phoenix Museum of Art",
+      "city": "Phoenix, AZ"
+    }
+  ],
+  "collections": [
+    "Cleveland Museum of Art",
+    "Currier Museum of Art",
+    "Columbus Museum of Arts and Sciences",
+    "Borough of Manhattan Community College",
+    "Kenner Sculpture Garden, Kenner, LA",
+    "Case Western Reserve University",
+    "J.P. Morgan & Co."
+  ],
+  "awards_residencies": [
+    {
+      "year": "2025",
+      "name": "Featured Artist Commission, Orange County Arts Council (Storm King Decision)"
+    },
+    {
+      "year": "2025",
+      "name": "Arts Mid-Hudson Arts & Culture Grant"
+    },
+    {
+      "year": "2023",
+      "name": "Salem2Salem Fellowship residency, Schloss Salem, Germany"
+    },
+    {
+      "year": "2018",
+      "name": "Salem Art Works fellowship residency"
+    },
+    {
+      "year": "2017",
+      "name": "Salem Art Works residency"
+    },
+    {
+      "year": "1985",
+      "name": "MacDowell Colony fellowship"
+    },
+    {
+      "year": "1983",
+      "name": "Hand Hollow Foundation fellowship"
+    },
+    {
+      "year": "1982",
+      "name": "Yaddo fellowship"
+    },
+    {
+      "year": "1981",
+      "name": "Cleveland Museum of Art May Show, 1st Prize in Painting"
+    },
+    {
+      "year": "1981",
+      "name": "MacDowell Colony fellowship"
+    },
+    {
+      "year": "1980",
+      "name": "Artist-in-residence, Bennington College"
+    },
+    {
+      "year": "1979",
+      "name": "Yaddo and MacDowell fellowships"
+    }
+  ],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2019",
+      "title": "Serious Play (Jared Rankin)",
+      "outlet": "Women's Art Journal",
+      "url": ""
+    },
+    {
+      "year": "2008",
+      "title": "Piecing Things Together (Benjamin Genocchio)",
+      "outlet": "The New York Times",
+      "url": ""
+    },
+    {
+      "year": "1984",
+      "title": "Review by Stephen Westfall",
+      "outlet": "Arts Magazine",
+      "url": ""
+    }
+  ],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Paulien Lethen",
+      "relation": "Holland Tunnel founder; gave her solo shows in 2019 and 2023"
+    },
+    {
+      "name": "Salem Art Works",
+      "relation": "Residency where she learned to weld (2017)"
+    },
+    {
+      "name": "Chris Davison",
+      "relation": "Gallerist; included her in Newburgh group shows (2016, 2017)"
+    }
+  ],
+  "links": {
+    "website": "https://www.viviencollens.com/",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "https://www.wikidata.org/wiki/Q109887351",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.sculpture.org/portfolio/sculptorPage.php?sculptor_id=1009228",
+      "https://artists-studios.com/vivien-collens"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "The Holland Tunnel bio (Cleveland birth, Carnegie Mellon BFA, Instituto Allende MFA, 1977 move to NYC, Yaddo/MacDowell, welding at Salem Art Works in 2017) matches her own website resume, which lists solo shows at Holland Tunnel Gallery Newburgh and a 2020 group show there. Wikidata Q109887351 (Cleveland birthplace, Carnegie Mellon) matches.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://viviencollens.com/bio.html",
+      "https://www.viviencollens.com/resume.html",
+      "https://www.wikidata.org/wiki/Q109887351"
+    ]
+  },
+  "open_questions": [
+    "Her resume dates the second Holland Tunnel solo to 2024; the gallery archive says Aug 26 - Sep 24, 2023.",
+    "Birth date: Wikidata gives 1946-07-26; her site implies about 1947 (began public sculpture in 2017 at 70). Left blank pending confirmation.",
+    "Gallery archive says the first New Sculpture show ran May-Jun 2019; the brief also mentions it."
+  ],
+  "shows": [
+    "reclamation-2025",
+    "new-sculpture-2023",
+    "new-sculpture-2019"
+  ],
+  "image": "../../assets/artists/vivien-collens-new-sculpture-2023.png",
+  "imageAlt": "Vivien Collens, New Sculpture, 2023"
+}

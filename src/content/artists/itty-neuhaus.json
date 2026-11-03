@@ -1,0 +1,335 @@
+{
+  "name": "Itty Neuhaus",
+  "slug": "itty-neuhaus",
+  "also_known_as": [
+    "Itty S. Neuhaus",
+    "Susanna Margaret Neuhaus-Schuck"
+  ],
+  "kind": "multidisciplinary",
+  "roles": [
+    "sculptor",
+    "installation artist",
+    "video artist",
+    "draftsperson",
+    "painter",
+    "educator"
+  ],
+  "based_in": "Hudson Valley, NY",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [
+    {
+      "school": "Tyler School of Art, Temple University",
+      "degree": "MFA, Sculpture",
+      "year": "1991"
+    },
+    {
+      "school": "Skowhegan School of Painting and Sculpture",
+      "degree": "Residency (scholarship)",
+      "year": "1989"
+    },
+    {
+      "school": "Pratt Institute",
+      "degree": "BFA, Painting",
+      "year": "1985"
+    }
+  ],
+  "bio_short": "Itty Neuhaus is a multimedia artist and Associate Professor of Art at SUNY New Paltz whose drawings, sculpture, video and installations examine the relationship between people and the natural world, especially Arctic ice.",
+  "bio_long": "Itty Neuhaus earned a BFA in painting from Pratt Institute (1985), attended Skowhegan (1989) and received an MFA in sculpture from Tyler School of Art (1991). Through the 1990s she showed large installations in New York at the Sculpture Center, Socrates Sculpture Park, Artists Space, Exit Art and PS1, and she has had solo exhibitions at Hallwalls in Buffalo, Black and White Gallery and Kentler International Drawing Space in Brooklyn, the Stadthaus in Ulm, Germany, and the University of Oulu, Finland. Much of her work begins with direct study of natural phenomena at the edges of the world. She has made more than a dozen trips to Arctic regions, held Fulbright awards in Newfoundland and Labrador (2011) and through the Fulbright Arctic Initiative (2015-16), and developed projects such as Icylla: The Last Iceberg's Story. She has held more than twenty residencies, including MacDowell, Yaddo, the Fine Arts Work Center in Provincetown and Tao Hua Tan in China, and received a Pollock-Krasner Foundation grant in 1994. Neuhaus has taught at SUNY New Paltz since 2000. Closer to home she has exhibited at Holland Tunnel Gallery and Ann Street Gallery in Newburgh (2020) and The Re Institute in Millerton (2024). In Unframed (2026) she showed work from three years of weekly painting sessions with the group.",
+  "practice": "Drawing, sculpture, video, photo-based work and installation rooted in field study of ice, water and landscape; recent work includes Chinese brush painting, monoprints and video performances.",
+  "career_timeline": [
+    {
+      "year": "1985",
+      "event": "BFA, Pratt Institute; Ida B. Haskell Travelling Fellowship to China"
+    },
+    {
+      "year": "1991",
+      "event": "MFA, Tyler School of Art"
+    },
+    {
+      "year": "1993",
+      "event": "PS1 National Studio Program"
+    },
+    {
+      "year": "1997",
+      "event": "Solo show A Bigger Container, The Sculpture Center, New York"
+    },
+    {
+      "year": "2000",
+      "event": "Joins SUNY New Paltz Art Department faculty"
+    },
+    {
+      "year": "2007",
+      "event": "Home for Haus, Stadthaus, Ulm, Germany"
+    },
+    {
+      "year": "2011",
+      "event": "Fulbright Scholar Award, Newfoundland and Labrador"
+    },
+    {
+      "year": "2015",
+      "event": "Fulbright Arctic Initiative scholar (2015-16)"
+    },
+    {
+      "year": "2018",
+      "event": "Sublimation: An Iceberg's Story, Kentler International Drawing Space"
+    },
+    {
+      "year": "2020",
+      "event": "Group show at Holland Tunnel Gallery, Newburgh"
+    },
+    {
+      "year": "2026",
+      "event": "Exhibits in Unframed at Holland Tunnel Revisited, Newburgh"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2026",
+      "title": "Unframed",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2024",
+      "title": "Itty Neuhaus, Bill Schuck",
+      "venue": "The Re Institute",
+      "city": "Millerton, NY"
+    },
+    {
+      "year": "2021",
+      "title": "Collective Consciousness: New Work by SUNY New Paltz Art Faculty",
+      "venue": "Samuel Dorsky Museum of Art",
+      "city": "New Paltz, NY"
+    },
+    {
+      "year": "2020",
+      "title": "Brush Painting: One Hand Knows What the Other Wants (group)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2020",
+      "title": "In-Touch",
+      "venue": "Ann Street Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2018",
+      "title": "Sublimation: An Iceberg's Story",
+      "venue": "Kentler International Drawing Space",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2016",
+      "title": "Ice See Level",
+      "venue": "University of Oulu",
+      "city": "Oulu, Finland"
+    },
+    {
+      "year": "2015",
+      "title": "I C LVL: 1st Monument to an Iceberg",
+      "venue": "Hudson Beach Glass Gallery",
+      "city": "Beacon, NY"
+    },
+    {
+      "year": "2007",
+      "title": "Home for Haus",
+      "venue": "Stadthaus Ulm",
+      "city": "Ulm, Germany"
+    },
+    {
+      "year": "2005",
+      "title": "Strata",
+      "venue": "Black and White Gallery",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2001",
+      "title": "Squeeze",
+      "venue": "Hallwalls Contemporary Arts Center",
+      "city": "Buffalo, NY"
+    },
+    {
+      "year": "1997",
+      "title": "A Bigger Container",
+      "venue": "The Sculpture Center",
+      "city": "New York, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "2019",
+      "name": "Tao Hua Tan International Artists' Residency, Anhui, China"
+    },
+    {
+      "year": "2018",
+      "name": "Skaftfell Center for Visual Art residency, Iceland"
+    },
+    {
+      "year": "2018-2019",
+      "name": "MacDowell"
+    },
+    {
+      "year": "2015-2016",
+      "name": "Fulbright Arctic Initiative"
+    },
+    {
+      "year": "2013",
+      "name": "Yaddo"
+    },
+    {
+      "year": "2011",
+      "name": "Fulbright Scholar Award, Newfoundland and Labrador"
+    },
+    {
+      "year": "2011",
+      "name": "Parks Canada artist in residence, Gros Morne National Park"
+    },
+    {
+      "year": "2003",
+      "name": "NYFA Special Opportunity Stipend"
+    },
+    {
+      "year": "1994",
+      "name": "Pollock-Krasner Foundation Grant"
+    },
+    {
+      "year": "1993",
+      "name": "PS1 National Studio Program"
+    },
+    {
+      "year": "1991-1992",
+      "name": "Fine Arts Work Center, Provincetown"
+    },
+    {
+      "year": "1985",
+      "name": "Ida B. Haskell Travelling Fellowship, Pratt Institute"
+    }
+  ],
+  "teaching": [
+    "SUNY New Paltz, Art Department (Assistant Professor 2000-06; Associate Professor 2006-present; Foundation Art Coordinator 2012-14)",
+    "Rochester Institute of Technology (Visiting Assistant Professor, 1999-2000)",
+    "Rhode Island School of Design (Visiting Adjunct, 1998)",
+    "New York University (Visiting Adjunct, 1997-99)"
+  ],
+  "press": [
+    {
+      "year": "1997",
+      "title": "A Bigger Container (review by Grace Glueck)",
+      "outlet": "The New York Times",
+      "url": ""
+    },
+    {
+      "year": "2003",
+      "title": "Landslide: Smack Mellon (review by John Hawke)",
+      "outlet": "The Brooklyn Rail",
+      "url": ""
+    },
+    {
+      "year": "2004",
+      "title": "Beautiful and No Water Required (review by Helen A. Harrison)",
+      "outlet": "The New York Times",
+      "url": ""
+    },
+    {
+      "year": "2005",
+      "title": "Itty Neuhaus, Black and White Gallery (review by Jill Conner)",
+      "outlet": "Sculpture Magazine",
+      "url": ""
+    },
+    {
+      "year": "2008",
+      "title": "Itty Neuhaus on her Work (Beth Wilson)",
+      "outlet": "Chronogram",
+      "url": ""
+    }
+  ],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Tom Benson",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Paul Chidester",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Emily Hopkins",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Nancy Manter",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Mitch Markowitz",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Michelle Marozik",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Kendall Munk",
+      "relation": "co-exhibited in Unframed (2026) and fellow member of the weekly outdoor painting group"
+    },
+    {
+      "name": "Bill Schuck",
+      "relation": "two-person exhibition, The Re Institute (2024)"
+    },
+    {
+      "name": "Karlyn Benson",
+      "relation": "curator, Collective Consciousness at the Dorsky (2021)"
+    },
+    {
+      "name": "Amy Lipton",
+      "relation": "curator, .edu: Art Faculty of the Hudson Valley (2020); Hudson Valley MOCA talkback"
+    },
+    {
+      "name": "Holland Tunnel Gallery",
+      "relation": "exhibited 2020 and 2026"
+    },
+    {
+      "name": "SUNY New Paltz",
+      "relation": "faculty"
+    }
+  ],
+  "links": {
+    "website": "https://www.ittyneuhaus.com/",
+    "instagram": "https://www.instagram.com/ittys.neuhaus/",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://webapps.newpaltz.edu/directory/cv/ittysneuhaus",
+      "https://www.macdowell.org/artists/itty-neuhaus",
+      "https://fawc.org/itty-neuhaus-stephen-pace-artist-in-residence/",
+      "https://www.hudsonvalleymoca.org/special-event/talkback-with-itty-neuhaus-and-amy-lipton"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "SUNY New Paltz faculty CV describes her Hudson Valley home and lists a 2020 group show at Holland Tunnel Gallery Newburgh; she is tagged as @ittys.neuhaus in the Unframed install post.",
+    "sources": [
+      "https://webapps.newpaltz.edu/directory/cv/ittysneuhaus",
+      "https://www.instagram.com/mmarozik/p/DdMCRpekc5u/",
+      "https://twocoatsofpaint.com/2026/09/hudson-valley-vicinity-september-2026.html",
+      "https://twocoatsofpaint.com/2024/05/hudson-valley-and-vicinity-selected-gallery-guide-june-2024.html"
+    ]
+  },
+  "open_questions": [
+    "Confirm current title (the CV lists Associate Professor; the CV may be dated).",
+    "Confirm preferred credit name (Itty Neuhaus vs Itty S. Neuhaus).",
+    "FAWC page references a Stephen Pace artist residency; date not confirmed."
+  ],
+  "shows": [
+    "unframed-2026",
+    "brush-painting-2020"
+  ]
+}

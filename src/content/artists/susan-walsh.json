@@ -1,0 +1,298 @@
+{
+  "name": "Susan Walsh",
+  "slug": "susan-walsh",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "photographer",
+    "painter",
+    "sculptor",
+    "video artist",
+    "draftsperson"
+  ],
+  "based_in": "Beacon, NY",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [
+    {
+      "school": "University of Illinois Chicago",
+      "degree": "MFA, Photography",
+      "year": "1993"
+    },
+    {
+      "school": "School of the Art Institute of Chicago",
+      "degree": "Studies",
+      "year": "1990–1991"
+    },
+    {
+      "school": "Northern Illinois University",
+      "degree": "BA, Television and Film",
+      "year": "1982"
+    }
+  ],
+  "bio_short": "Susan Walsh is a Beacon artist who records the passage of time through sun, wind, rain and waves, working across photography, drawing, painting, sculpture and video. In The Dark Abyss of Time she showed the photograph Time Story #13 and stones gathered on Mount Beacon.",
+  "bio_long": "Susan Walsh earned a BA in television and film from Northern Illinois University, studied at the School of the Art Institute of Chicago, and received an MFA in photography from the University of Illinois Chicago in 1993. After exhibiting in Chicago and New Mexico in the 1990s, she settled in Beacon, where she has a studio. Her work takes calendars, clocks and other human ways of measuring time and sets them against natural processes such as sunlight moving across a surface, wind, rain and sea waves. She often lets those forces make the marks, as in her wind drawings and sun drawings. Solo exhibitions include Only The Sun Can Prove That I Am Useful (2014) and Only Mark the Bright Hours (2017) at Matteawan Gallery, Vibrant Traces at the Garrison Art Center (2019), and I Could Save Time at Hudson Beach Glass Gallery in Beacon (2024). Internationally she has shown in When the Wind Blows at Kunst Haus Wien in Vienna (2022), with an accompanying De Gruyter book, and in Signs of Impermanence in Tokyo (2023). She made a site-specific installation during a 2013 residency at DRAWinternational in Caylus, France, and was a Saltonstall fellow in 2018. For The Dark Abyss of Time she showed Time Story #13, a sun-drawing photograph made on the spring equinox, along with gneiss stones from Mount Beacon fitted with clay bases and small crucibles, and her Strata works.",
+  "practice": "Photography, drawing, painting, sculpture and video that let sun, wind, rain and waves leave marks. These natural traces are set against human systems of timekeeping, and the work explores the tension between control and entropy.",
+  "career_timeline": [
+    {
+      "year": "1982",
+      "event": "BA in television and film, Northern Illinois University"
+    },
+    {
+      "year": "1991–1992",
+      "event": "Member of the Chicago multimedia performance group The Loofah Method"
+    },
+    {
+      "year": "1993",
+      "event": "MFA in photography, University of Illinois Chicago"
+    },
+    {
+      "year": "1999",
+      "event": "OUTWEST, Plan B Evolving Arts, Santa Fe, curated by Harmony Hammond"
+    },
+    {
+      "year": "2010",
+      "event": "Habitat for Artists residency, Garrison, NY"
+    },
+    {
+      "year": "2013",
+      "event": "DRAWinternational residency and site-specific installation, Caylus, France"
+    },
+    {
+      "year": "2014",
+      "event": "Solo exhibition Only The Sun Can Prove That I Am Useful, Matteawan Gallery, Beacon"
+    },
+    {
+      "year": "2015",
+      "event": "Honorable mention, Line Describing a Cone, Katonah Museum of Art (juror Eva Respini)"
+    },
+    {
+      "year": "2017",
+      "event": "Solo exhibition Only Mark the Bright Hours, Matteawan Gallery"
+    },
+    {
+      "year": "2018",
+      "event": "Fellow, Constance Saltonstall Artist Residency; wind drawings for the Beacon Bus Shelter Project"
+    },
+    {
+      "year": "2019",
+      "event": "Solo exhibition Vibrant Traces, Garrison Art Center"
+    },
+    {
+      "year": "2022",
+      "event": "When the Wind Blows, Kunst Haus Wien / Museum Hundertwasser, Vienna"
+    },
+    {
+      "year": "2023",
+      "event": "Signs of Impermanence, Tokyo; Fresh 2023, Klompching Gallery"
+    },
+    {
+      "year": "2024",
+      "event": "Solo exhibition I Could Save Time, Hudson Beach Glass Gallery, Beacon"
+    },
+    {
+      "year": "2026",
+      "event": "The Dark Abyss of Time, Holland Tunnel Revisited, Newburgh"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2026",
+      "title": "The Dark Abyss of Time",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2024",
+      "title": "I Could Save Time (solo)",
+      "venue": "Hudson Beach Glass Gallery",
+      "city": "Beacon, NY"
+    },
+    {
+      "year": "2023",
+      "title": "Signs of Impermanence",
+      "venue": "Jinny Street Gallery",
+      "city": "Tokyo, Japan"
+    },
+    {
+      "year": "2023",
+      "title": "Fresh 2023",
+      "venue": "Klompching Gallery",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2023",
+      "title": "Listening to the Land",
+      "venue": "Ann Street Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2023",
+      "title": "Volume Up: Artists Respond to Music and Sound",
+      "venue": "The Painting Center",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2022",
+      "title": "When the Wind Blows (Wenn der Wind weht)",
+      "venue": "Kunst Haus Wien, Museum Hundertwasser",
+      "city": "Vienna, Austria"
+    },
+    {
+      "year": "2020",
+      "title": "Look Back in Wonder (virtual)",
+      "venue": "Arts Mid-Hudson",
+      "city": "Poughkeepsie, NY"
+    },
+    {
+      "year": "2019",
+      "title": "Vibrant Traces (solo)",
+      "venue": "Garrison Art Center",
+      "city": "Garrison, NY"
+    },
+    {
+      "year": "2017",
+      "title": "Only Mark the Bright Hours (solo)",
+      "venue": "Matteawan Gallery",
+      "city": "Beacon, NY"
+    },
+    {
+      "year": "2015",
+      "title": "From this Vantage Point (solo)",
+      "venue": "Center for Digital Arts",
+      "city": "Peekskill, NY"
+    },
+    {
+      "year": "2015",
+      "title": "Line Describing a Cone",
+      "venue": "Katonah Museum of Art",
+      "city": "Katonah, NY"
+    },
+    {
+      "year": "2014",
+      "title": "Only The Sun Can Prove That I Am Useful (solo)",
+      "venue": "Matteawan Gallery",
+      "city": "Beacon, NY"
+    },
+    {
+      "year": "1999",
+      "title": "OUTWEST",
+      "venue": "Plan B Evolving Arts",
+      "city": "Santa Fe, NM"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "2018",
+      "name": "Fellow, Constance Saltonstall Artist Residency, Ithaca, NY"
+    },
+    {
+      "year": "2015",
+      "name": "Honorable mention, Line Describing a Cone, Katonah Museum of Art"
+    },
+    {
+      "year": "2013",
+      "name": "DRAWinternational residency, Caylus, France"
+    },
+    {
+      "year": "2010",
+      "name": "Habitat for Artists residency, Garrison, NY"
+    }
+  ],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2026",
+      "title": "Holland Tunnel Returns",
+      "outlet": "The Highlands Current (Marc Ferris)",
+      "url": "https://highlandscurrent.org/2026/03/13/holland-tunnel-returns/"
+    },
+    {
+      "year": "2024",
+      "title": "Susan Walsh interview: Artist marks time on paper, sculpture",
+      "outlet": "Times Union",
+      "url": "https://www.timesunion.com/hudsonvalley/culture/article/susan-walsh-artist-interview-i-could-save-time-19885634.php"
+    }
+  ],
+  "recordings_or_publications": [
+    {
+      "year": "2022",
+      "title": "When the Wind Blows: Air, Wind and Breath in Contemporary Art (eds. Liddy Scheffknecht and Ernst Strouhal)",
+      "label_or_publisher": "De Gruyter"
+    },
+    {
+      "year": "2023",
+      "title": "Signs of Impermanence (exhibition catalogue)",
+      "label_or_publisher": "Zerofeedback"
+    },
+    {
+      "year": "2023",
+      "title": "Fresh 2023 (exhibition catalogue)",
+      "label_or_publisher": "Klompching Gallery"
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "Greg Slick",
+      "relation": "Curated her into Look Back in Wonder (2020) and The Dark Abyss of Time (2026); fellow Beacon artist, both shown at Matteawan Gallery and Garrison Art Center"
+    },
+    {
+      "name": "Elisa Pritzker",
+      "relation": "Co-curator of Look Back in Wonder (2020)"
+    },
+    {
+      "name": "Alison McNulty",
+      "relation": "Curated Listening to the Land, Ann Street Gallery, Newburgh (2023)"
+    },
+    {
+      "name": "Liddy Scheffknecht and Verena Kaspar-Eisert",
+      "relation": "Curators of When the Wind Blows, Vienna (2022)"
+    },
+    {
+      "name": "Debra and Darren Klompching",
+      "relation": "Curators of Fresh 2023"
+    },
+    {
+      "name": "Harmony Hammond",
+      "relation": "Curated OUTWEST, Santa Fe (1999)"
+    },
+    {
+      "name": "The Loofah Method",
+      "relation": "Chicago multimedia performance group, 1991–92"
+    }
+  ],
+  "links": {
+    "website": "https://www.susanwalshstudio.com/",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.susanwalshstudio.com/biocv",
+      "https://www.susanwalshstudio.com/statements"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "Her own CV at susanwalshstudio.com lists 'The Dark Abyss of Time, curated by Greg Slick, Newburgh, New York' (2026) and says she lives in Beacon. The Highlands Current photographed her with Time Story #13 at Holland Tunnel Revisited. The education and exhibitions in the press release match her CV.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/s/The-Dark-Abyss-of-Time-Press-Release-final-rmb7.pdf",
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://highlandscurrent.org/2026/03/13/holland-tunnel-returns/",
+      "https://www.susanwalshstudio.com/biocv"
+    ]
+  },
+  "open_questions": [
+    "The Times Union interview was seen in search results only (robots-blocked); confirm its date and author.",
+    "Instagram handle not confirmed."
+  ],
+  "shows": [
+    "dark-abyss-of-time-2026"
+  ],
+  "image": "../../assets/artists/susan-walsh-time-story-13-sun-drawing-march-21-9-21-am-2022.jpg",
+  "imageAlt": "Susan Walsh, Time Story #13, Sun Drawing, March 21, 9:21 am, 2022"
+}

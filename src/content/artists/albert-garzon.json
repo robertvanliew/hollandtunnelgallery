@@ -1,0 +1,79 @@
+{
+  "name": "Albert Garzon",
+  "slug": "albert-garzon",
+  "also_known_as": [],
+  "kind": "musician",
+  "roles": [
+    "pianist",
+    "producer"
+  ],
+  "based_in": "",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [],
+  "bio_short": "Albert Garzon is a pianist who plays ragtime, standards and blues, and who accompanied Lex Grey in \"The Return of the Down and Dirty Lounge\" at Holland Tunnel Gallery in 2022.",
+  "bio_long": "Albert Garzon is a pianist whose repertoire centers on piano rags, standards and blues. On May 22, 2022 he joined singer Lex Grey at Holland Tunnel Gallery in Newburgh for \"The Return of the Down and Dirty Lounge,\" two sets of rags, standards and blues that revived Grey's long-running Down and Dirty Lounge revue. His YouTube channel, published under the handle AlbertGarzonProducer, carries ragtime piano performances such as Tom Turpin's \"Ragtime Nightmare\" as well as a video of Lex Grey singing \"Do You Know What It Means to Miss New Orleans,\" which documents their ongoing collaboration. Further biographical details, such as training and recordings, could not be confirmed from sources that clearly refer to the same person.",
+  "practice": "Solo and accompanying piano: classic ragtime, jazz standards and blues.",
+  "career_timeline": [
+    {
+      "year": "2022",
+      "event": "\"The Return of the Down and Dirty Lounge\" with Lex Grey, Holland Tunnel Gallery, May 22"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2022",
+      "title": "The Return of the Down and Dirty Lounge (with Lex Grey)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2022",
+      "title": "Albert Garzon Performs at Holland Tunnel Gallery May 22nd",
+      "outlet": "Times Hudson Valley",
+      "url": "https://www.timeshudsonvalley.com/stories/albert-garzon-performs-at-holland-tunnel-gallery-may-22nd,40053"
+    }
+  ],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Lex Grey",
+      "relation": "accompanist, Down and Dirty Lounge (2022); YouTube performance video"
+    }
+  ],
+  "links": {
+    "website": "",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "https://www.youtube.com/user/garzonalbert",
+    "other": [
+      "https://www.youtube.com/watch?v=RXwQ-OBZ27Q",
+      "https://www.youtube.com/watch?v=SYMMONwz28s"
+    ]
+  },
+  "verification": {
+    "status": "likely",
+    "evidence": "YouTube channel garzonalbert (named in gallery context) posts ragtime piano and a Lex Grey performance, matching the gallery listing. No independent biography found.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.youtube.com/user/garzonalbert",
+      "https://www.youtube.com/watch?v=RXwQ-OBZ27Q"
+    ]
+  },
+  "open_questions": [
+    "Discogs lists an Albert Garzon (producer/engineer; drummer, keyboardist and producer of the 1981 Fredonia student album Evening in Torpor with Natalie Merchant and Rob Buck of 10,000 Maniacs; also Kings of Wyoming). The YouTube handle 'AlbertGarzonProducer' hints this may be the same person, but it is unconfirmed; ask him before using",
+    "Times Hudson Valley article (403) not read"
+  ],
+  "shows": [
+    "down-dirty-lounge-2022"
+  ]
+}

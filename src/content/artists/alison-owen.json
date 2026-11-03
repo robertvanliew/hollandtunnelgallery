@@ -1,0 +1,309 @@
+{
+  "name": "Alison Owen",
+  "slug": "alison-owen",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "ceramicist",
+    "collage artist",
+    "painter",
+    "installation artist"
+  ],
+  "based_in": "Poughkeepsie, NY",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [],
+  "bio_short": "Alison Owen is a Poughkeepsie-based artist who works in ceramics, collage and installation, looking at how art and artifacts are displayed and re-displayed over time. She showed Still Life with Arches (2025) in The Dark Abyss of Time.",
+  "bio_long": "Alison Owen makes ceramics, collages, paintings and site-specific installations about how objects are presented, and presented again, over time. Her source material is outdated printed matter, such as old art books, travel guides and home-decorating manuals, and her installations borrow the conventions of museum archives and display cases, often folding in debris found on site. The core of her studio practice is the vessel. She cuts slab-rolled clay like a dressmaker's pattern into flat-ish vases that sit between two and three dimensions, and she mends cracks openly with bright polymer clay or painter's tape. Over two decades she has shown at Smack Mellon and A.I.R. Gallery in Brooklyn, the DeCordova Museum, the Bronx Museum, the Providence Museum of Natural History, The Soap Factory in Minneapolis, Brown University's Bell Gallery, and Boise State University. Her 2018 project Daily Vase involved making one vase every day for a year. She was an Artists in the Marketplace participant at the Bronx Museum (2006), an A.I.R. Gallery fellow (2016), and received a Rhode Island State Council for the Arts New Genres Fellowship (2010) and a Belle Foundation grant (2020). Residencies include the Joan Mitchell Center, Hambidge, Wave Hill, LMCC Process Space on Governors Island, Women's Studio Workshop, the James Castle House, and id11 in Delft.",
+  "practice": "Slab-built ceramic vessels that hover between flat image and object, collages cut from vintage printed ephemera, and shifting installations that use the language of museum display. Visible repairs mark the passage of time.",
+  "career_timeline": [
+    {
+      "year": "2002",
+      "event": "Artist grant, Washington State Council for the Arts"
+    },
+    {
+      "year": "2006",
+      "event": "Artists in the Marketplace, Bronx Museum of the Arts"
+    },
+    {
+      "year": "2009",
+      "event": "Flatlands residency, id11, Delft, the Netherlands"
+    },
+    {
+      "year": "2010",
+      "event": "New Genres Fellowship, Rhode Island State Council for the Arts; Divisibility at Bell Gallery, Brown University"
+    },
+    {
+      "year": "2014",
+      "event": "Species of Spaces, Smack Mellon, Brooklyn"
+    },
+    {
+      "year": "2016",
+      "event": "A.I.R. Gallery fellowship; Joan Mitchell Center residency"
+    },
+    {
+      "year": "2017",
+      "event": "LMCC Process Space residency on Governors Island; The Center for Morale, Welfare, and Recreation with Mia Rovegno"
+    },
+    {
+      "year": "2018",
+      "event": "Daily Vase, a vase made each day for a year"
+    },
+    {
+      "year": "2020",
+      "event": "Belle Foundation grant; Staying With The Trouble prompt project for A.I.R. Gallery"
+    },
+    {
+      "year": "2025",
+      "event": "James Castle House residency and Transliteration exhibition, Boise State University"
+    },
+    {
+      "year": "2026",
+      "event": "The Dark Abyss of Time, Holland Tunnel Revisited, Newburgh"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2026",
+      "title": "The Dark Abyss of Time",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2025",
+      "title": "Transliteration",
+      "venue": "Boise State University",
+      "city": "Boise, ID"
+    },
+    {
+      "year": "2025",
+      "title": "Object Lessons",
+      "venue": "Concord Art Association",
+      "city": "Concord, MA"
+    },
+    {
+      "year": "2024",
+      "title": "Object Memory",
+      "venue": "Available Items",
+      "city": "Tivoli, NY"
+    },
+    {
+      "year": "2021",
+      "title": "Pollinator (three-person)",
+      "venue": "Gold/Scopophilia",
+      "city": "Montclair, NJ"
+    },
+    {
+      "year": "2018",
+      "title": "Daily Vase",
+      "venue": "Greenpoint Hill",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2017",
+      "title": "Only Connect",
+      "venue": "A.I.R. Gallery",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2017",
+      "title": "Still Life",
+      "venue": "Staple Goods",
+      "city": "New Orleans, LA"
+    },
+    {
+      "year": "2014",
+      "title": "Species of Spaces",
+      "venue": "Smack Mellon",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2011",
+      "title": "Wallworks",
+      "venue": "DeCordova Museum",
+      "city": "Lincoln, MA"
+    },
+    {
+      "year": "2010",
+      "title": "Curiouser",
+      "venue": "Providence Museum of Natural History",
+      "city": "Providence, RI"
+    },
+    {
+      "year": "2010",
+      "title": "Divisibility",
+      "venue": "Bell Gallery, Brown University",
+      "city": "Providence, RI"
+    },
+    {
+      "year": "2009",
+      "title": "The Austerity Cookbook",
+      "venue": "The Soap Factory",
+      "city": "Minneapolis, MN"
+    },
+    {
+      "year": "2007",
+      "title": "Here and Elsewhere",
+      "venue": "Bronx Museum of the Arts",
+      "city": "Bronx, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "2026",
+      "name": "Siena Art Institute residency (upcoming)"
+    },
+    {
+      "year": "2026",
+      "name": "Ellis-Beauregard Foundation residency, Rockland, ME"
+    },
+    {
+      "year": "2025",
+      "name": "James Castle House residency, Boise, ID"
+    },
+    {
+      "year": "2020",
+      "name": "Grant, The Belle Foundation"
+    },
+    {
+      "year": "2018",
+      "name": "Women's Studio Workshop residency"
+    },
+    {
+      "year": "2017",
+      "name": "Joan Mitchell Center residency (also 2016)"
+    },
+    {
+      "year": "2017",
+      "name": "LMCC Process Space residency, Governors Island"
+    },
+    {
+      "year": "2017",
+      "name": "Winter Workspace residency, Wave Hill"
+    },
+    {
+      "year": "2016",
+      "name": "A.I.R. Gallery fellowship"
+    },
+    {
+      "year": "2016",
+      "name": "Artists Alliance Inc. Lower East Side studio residency"
+    },
+    {
+      "year": "2015",
+      "name": "Hambidge Center residency"
+    },
+    {
+      "year": "2010",
+      "name": "New Genres Fellowship, Rhode Island State Council for the Arts"
+    },
+    {
+      "year": "2009",
+      "name": "Flatlands residency, id11, Delft"
+    },
+    {
+      "year": "2006",
+      "name": "Artists in the Marketplace (AIM), Bronx Museum of the Arts"
+    }
+  ],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2020",
+      "title": "Susan Klein Visits Alison Owen",
+      "outlet": "The Coastal Post",
+      "url": ""
+    },
+    {
+      "year": "2018",
+      "title": "Alison Owen, Ceramics",
+      "outlet": "Architectural Digest",
+      "url": ""
+    },
+    {
+      "year": "2011",
+      "title": "Curiouser",
+      "outlet": "The Boston Globe (Cate McQuaid)",
+      "url": ""
+    },
+    {
+      "year": "2009",
+      "title": "Critics' Picks: The Austerity Cookbook",
+      "outlet": "Artforum.com",
+      "url": ""
+    },
+    {
+      "year": "2004",
+      "title": "The Value of Having Some Space",
+      "outlet": "Los Angeles Times (Holly Myers)",
+      "url": ""
+    },
+    {
+      "year": "",
+      "title": "Alison Owen",
+      "outlet": "Maake Magazine",
+      "url": "https://www.maakemagazine.com/alison-owen"
+    }
+  ],
+  "recordings_or_publications": [
+    {
+      "year": "2003",
+      "title": "New American Paintings, Vol. 49 (featured)",
+      "label_or_publisher": ""
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "Mia Rovegno",
+      "relation": "Collaborator on The Center for Morale, Welfare, and Recreation, Governors Island (2017)"
+    },
+    {
+      "name": "A.I.R. Gallery",
+      "relation": "Fellow (2016); exhibitions in 2017 and 2020"
+    },
+    {
+      "name": "Smack Mellon",
+      "relation": "Exhibited in 2009 and 2014; Hot Picks 2011"
+    },
+    {
+      "name": "Greg Slick",
+      "relation": "Curator of The Dark Abyss of Time (2026)"
+    }
+  ],
+  "links": {
+    "website": "https://www.alisonowen.com/",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.alisonowen.com/news",
+      "https://www.airgallery.org/artists/alison-owen",
+      "https://www.smackmellon.org/exhibition/selin-balci-tracey-goodman-alison-owen/",
+      "https://www.artistsallianceinc.org/alison-owen-shelf-life/"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "Her own CV at alisonowen.com lists 'The Dark Abyss of Time, Holland Tunnel Revisited, Newburgh, NY' (2026), and her artist statement matches the press release's description of her practice. She is based in Poughkeepsie.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/s/The-Dark-Abyss-of-Time-Press-Release-final-rmb7.pdf",
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.alisonowen.com/news",
+      "https://www.airgallery.org/artists/alison-owen"
+    ]
+  },
+  "open_questions": [
+    "Education is not on her site. The CV lists a 2003 'Claremont Graduate University: A Selection' show, which may point to a Claremont degree; confirm before using.",
+    "Press URLs come from her CV bibliography and were not opened individually."
+  ],
+  "shows": [
+    "dark-abyss-of-time-2026"
+  ],
+  "image": "../../assets/artists/alison-owen-still-life-with-arches-2025.jpg",
+  "imageAlt": "Alison Owen, Still Life with Arches, 2025"
+}

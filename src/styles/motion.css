@@ -1,0 +1,49 @@
+/* Motion layer. Adds movement only: no colors, sizes or layout change.
+   Everything here is off for people who ask for reduced motion.
+   `html.motion` is set in <head> before first paint (see Base.astro); elements that start hidden
+   are revealed by src/scripts/motion.ts, with a CSS failsafe (`html.motion-timeout`) if it never runs. */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* ---- 1. Page-to-page transitions (Chrome, Edge, Safari 18.2+; others just load normally) */
+  @view-transition { navigation: auto; }
+  ::view-transition-group(*) { animation-duration: .5s; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .3s; }
+  .site-head { view-transition-name: site-head; }
+  .concept { view-transition-name: concept; }
+  /* Arriving by transition: the hero is already moving into place, so skip its entrance animation. */
+  .vt-nav .hero h1, .vt-nav .hero .roles, .vt-nav .hero .lede, .vt-nav .hero-fig, .vt-nav .hero-mono,
+  .vt-nav .dir-hero h1, .vt-nav .dir-hero .lede, .vt-nav .stats { animation: none !important; }
+
+  /* ---- 2. The Holland Tunnel web draws itself */
+  html.motion .web .w-edge { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1s cubic-bezier(.3, .7, .2, 1) var(--d, 0ms), stroke .15s, opacity .15s; }
+  html.motion .web.in .w-edge { stroke-dashoffset: 0; }
+  html.motion .web .w-node { transform-box: fill-box; transform-origin: center; transform: scale(0); transition: transform .55s cubic-bezier(.3, 1.6, .5, 1) var(--d, 0ms); }
+  html.motion .web.in .w-node { transform: scale(1); }
+  html.motion .web:not(.in) .w-label.big { opacity: 0; }
+  html.motion .web.in .w-label.big { transition: opacity .6s 1.3s; }
+  .w-pulse { fill: var(--orange); pointer-events: none; }
+
+  /* ---- 3. Connections wheel: lines shoot out from the artist, then each connection lands */
+  html.motion .wheel .edge { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .6s cubic-bezier(.3, .7, .2, 1) var(--d, 0ms); }
+  html.motion .wheel.in .edge { stroke-dashoffset: 0; }
+  html.motion .wheel .node, html.motion .wheel .hub { transform-box: fill-box; transform-origin: center; transform: scale(0); transition: transform .5s cubic-bezier(.3, 1.6, .5, 1) var(--d, 0ms), fill .15s; }
+  html.motion .wheel.in .node, html.motion .wheel.in .hub { transform: scale(1); }
+  html.motion .wheel .node-t, html.motion .wheel .hub-t { opacity: 0; transition: opacity .4s var(--d, 0ms); }
+  html.motion .wheel.in .node-t, html.motion .wheel.in .hub-t { opacity: 1; }
+
+  /* ---- 4. Holland Tunnel record: the line draws down and each year lands as you scroll */
+  html.motion .record { border-left-color: transparent; }
+  html.motion .rec::after { content: ""; position: absolute; left: -2px; top: 0; bottom: 0; width: 2px; background: var(--ink); transform: scaleY(0); transform-origin: top; transition: transform .6s cubic-bezier(.3, .7, .2, 1); }
+  html.motion .rec::before { transform: scale(0); transition: transform .45s cubic-bezier(.3, 1.6, .5, 1) .3s; z-index: 1; }
+  html.motion .rec > div { opacity: 0; transform: translateY(12px); transition: opacity .6s .15s, transform .6s cubic-bezier(.2, .7, .2, 1) .15s; }
+  html.motion .rec.in::after { transform: scaleY(1); }
+  html.motion .rec.in::before { transform: scale(1); }
+  html.motion .rec.in > div { opacity: 1; transform: none; }
+
+  /* Failsafe: if the motion script never runs, show everything after a moment. */
+  html.motion-timeout .web .w-edge, html.motion-timeout .wheel .edge { stroke-dashoffset: 0 !important; }
+  html.motion-timeout .w-node, html.motion-timeout .wheel .node, html.motion-timeout .wheel .hub,
+  html.motion-timeout .rec::before, html.motion-timeout .rec::after { transform: none !important; }
+  html.motion-timeout .rec > div, html.motion-timeout .wheel .node-t, html.motion-timeout .wheel .hub-t,
+  html.motion-timeout .web .w-label.big { opacity: 1 !important; transform: none !important; }
+}

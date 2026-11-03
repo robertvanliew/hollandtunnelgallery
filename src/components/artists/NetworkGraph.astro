@@ -1,0 +1,104 @@
+---
+// "The Holland Tunnel web": layout is computed at build time (src/lib/layout.ts), so the SVG is
+// complete without JS. The small script adds highlighting for mouse, touch and keyboard.
+import { networkEdges, type Archive } from '../../lib/people';
+import { layoutWeb, WEB_H, WEB_W } from '../../lib/layout';
+interface Props { a: Archive }
+const { a } = Astro.props;
+const edges = networkEdges(a);
+const { nodes, edges: E } = layoutWeb(
+  a.people.map((p) => ({ id: p.slug, name: p.name, g: p.group, pending: !p.published })),
+  edges,
+);
+const byIdx = nodes;
+// Draw-in order: ripple out from the center of the web (delays in ms, used by motion.css).
+const cx = WEB_W / 2, cy = WEB_H / 2;
+const maxD = Math.max(...nodes.map((n) => Math.hypot(n.x - cx, n.y - cy)), 1);
+const delay = (x: number, y: number) => Math.round((Math.hypot(x - cx, y - cy) / maxD) * 1100);
+---
+<section class="web-wrap" aria-labelledby="web-h">
+  <div class="web-head">
+    <h2 id="web-h">The Holland Tunnel web</h2>
+    <p>Every line is a show or concert two people were part of. Hover or tab to trace a person's connections; click to open their profile.</p>
+  </div>
+  <svg id="web" class="web" viewBox={`0 0 ${WEB_W} ${WEB_H}`} role="group" aria-labelledby="web-h" data-edges={JSON.stringify(E.map((e) => [e.a, e.b]))}>
+    <g class="w-edges" aria-hidden="true">
+      {E.map((e) => (
+        <line class="w-edge" x1={byIdx[e.a].x} y1={byIdx[e.a].y} x2={byIdx[e.b].x} y2={byIdx[e.b].y} pathLength="1"
+          style={`stroke-width:${e.width};--d:${delay((byIdx[e.a].x + byIdx[e.b].x) / 2, (byIdx[e.a].y + byIdx[e.b].y) / 2)}ms`} />
+      ))}
+    </g>
+    <g class="w-nodes">
+      {nodes.map((n) => {
+        const body = (
+          <>
+            <circle class={`w-node ${n.g}${n.pending ? ' pend' : ''}`} cx={n.x} cy={n.y} r={n.r} style={`--d:${delay(n.x, n.y) + 150}ms`} />
+            <text class={`w-label${n.big ? ' big' : ''}`} x={n.x} y={n.y - n.r - 5} text-anchor="middle" aria-hidden="true">{n.name}</text>
+          </>
+        );
+        return n.pending ? (
+          <g class="w-n" data-i={n.i} aria-label={`${n.name} (profile in progress)`} role="img">{body}</g>
+        ) : (
+          <a class="w-n" data-i={n.i} href={`/artists/${n.id}`} aria-label={n.name}>{body}</a>
+        );
+      })}
+    </g>
+  </svg>
+  <p class="web-legend">
+    <span><i class="lg-v"></i>Visual artists</span>
+    <span><i class="lg-m"></i>Musicians &amp; performers</span>
+    <span><i class="lg-p"></i>Profile in progress</span>
+  </p>
+  <p class="web-hint">On a touchscreen, tap once to see connections and again to open the profile.</p>
+</section>
+
+<script>
+  const svg = document.getElementById('web') as unknown as SVGSVGElement | null;
+  if (svg) {
+    const pairs: [number, number][] = JSON.parse(svg.dataset.edges || '[]');
+    const lines = [...svg.querySelectorAll<SVGLineElement>('.w-edge')];
+    const nodes = [...svg.querySelectorAll<SVGElement>('.w-n')];
+    let current = -1;
+    const clear = () => {
+      svg.classList.remove('focus');
+      lines.forEach((l) => l.classList.remove('hot'));
+      nodes.forEach((n) => n.classList.remove('near', 'on'));
+      current = -1;
+    };
+    const show = (i: number) => {
+      clear();
+      current = i;
+      svg.classList.add('focus');
+      nodes[i].classList.add('near', 'on');
+      pairs.forEach(([a, b], j) => {
+        if (a === i || b === i) {
+          lines[j].classList.add('hot');
+          nodes[a].classList.add('near');
+          nodes[b].classList.add('near');
+        }
+      });
+    };
+    nodes.forEach((n, i) => {
+      n.addEventListener('mouseenter', () => show(i));
+      n.addEventListener('mouseleave', clear);
+      n.addEventListener('focus', () => show(i));
+      n.addEventListener('blur', clear);
+      // Touch: first tap highlights, second tap follows the link.
+      n.addEventListener('pointerup', (ev) => {
+        if ((ev as PointerEvent).pointerType !== 'mouse' && current !== i) {
+          n.dataset.armed = '1';
+          show(i);
+        }
+      });
+      n.addEventListener('click', (ev) => {
+        if (n.dataset.armed) {
+          ev.preventDefault();
+          delete n.dataset.armed;
+        }
+      });
+    });
+    document.addEventListener('pointerdown', (ev) => {
+      if (!svg.contains(ev.target as Node)) clear();
+    });
+  }
+</script>

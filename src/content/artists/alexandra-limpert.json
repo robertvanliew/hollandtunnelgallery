@@ -1,0 +1,191 @@
+{
+  "name": "Alexandra Limpert",
+  "slug": "alexandra-limpert",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "sculptor",
+    "kinetic sculptor",
+    "animatronics fabricator",
+    "curator"
+  ],
+  "based_in": "Brooklyn, NY (Bedford-Stuyvesant, per 2018 press)",
+  "origin": "New York City",
+  "born": "",
+  "died": "",
+  "education": [
+    {
+      "school": "Parsons School of Design (The New School)",
+      "degree": "BFA",
+      "year": ""
+    },
+    {
+      "school": "Yale School of Art",
+      "degree": "attended",
+      "year": ""
+    }
+  ],
+  "bio_short": "Alexandra Limpert is a New York City sculptor who makes figurative and kinetic works in steel, often with hand cranks or motors that let viewers set them in motion. She co-curated Holland Tunnel's 2025 exhibition 'Reclamation' with Janet Rutkowski.",
+  "bio_long": "Alexandra Limpert grew up in New York City, and she describes the city's traffic, subways, construction and restless crowds as the root of her work. She earned a BFA at Parsons and also studied at the Yale School of Art. Her steel sculptures turn the human body into lines, grids and compartments, an approach that gives her large figures an architectural quality, and she draws on the contrapposto poses of Greek and Roman sculpture.\n\nMany pieces move. In 'Oracle' (2011–12) a hand crank opens and closes a face's metal eyelids; 'Dragonfly' (2007) spreads its wings by means of a steel rod. That mechanical fluency comes from a parallel career in the display industry: she spent years as an animation coordinator at Spaeth Design, building animated figures for department store holiday windows, and her commissions include a golden dragon for Bergdorf Goodman and mesh suitcases for a Yoko Ono installation at the Venice Biennale. Earlier she did bronze finishing for William Tucker and Ben Shahn.\n\nLimpert has shown in New York, Greece and China, and a steel work, 'Monument II', stands at the Andres Institute of Art sculpture park. Her long relationship with Holland Tunnel includes a 2018 exhibition of kinetic flowers, figures and animals at the original Williamsburg shed, and she later invited Janet Rutkowski to co-curate 'Reclamation' in honor of founder Paulien Lethen.",
+  "practice": "Figurative and kinetic sculpture in steel, often rusted, with cranks, rods and motors that invite viewers to animate the work; she translates the human form into metal lines, grids and compartments.",
+  "career_timeline": [
+    {
+      "year": "",
+      "event": "BFA, Parsons School of Design; attended Yale School of Art"
+    },
+    {
+      "year": "c. 2001–2012",
+      "event": "Animation coordinator at Spaeth Design, fabricating animated department-store window figures (eleven years as of 2012)"
+    },
+    {
+      "year": "2012",
+      "event": "Two-person show with Patrick Whalen at ART 101, Brooklyn"
+    },
+    {
+      "year": "2015",
+      "event": "Included in 'Old Tech New Tech' at Central Booking, New York"
+    },
+    {
+      "year": "2018",
+      "event": "'Reverie' at Holland Tunnel Gallery, Williamsburg"
+    },
+    {
+      "year": "2025",
+      "event": "Co-curates 'Reclamation: Lost and Found in Newburgh' with Janet Rutkowski at Holland Tunnel Revisited"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2012",
+      "title": "Expanding the Landscape (with Patrick Whalen)",
+      "venue": "ART 101",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2015",
+      "title": "Old Tech New Tech",
+      "venue": "Central Booking",
+      "city": "New York, NY"
+    },
+    {
+      "year": "2018",
+      "title": "Reverie",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2019",
+      "title": "Figures",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2022",
+      "title": "Holland Tunnel 25 Years",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2025",
+      "title": "Reclamation: Lost and Found in Newburgh",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    }
+  ],
+  "collections": [
+    "Andres Institute of Art sculpture park ('Monument II')"
+  ],
+  "awards_residencies": [],
+  "teaching": [
+    "Teaches children to make kinetic work with Rush Philanthropic Arts Foundation (per artist site)"
+  ],
+  "press": [
+    {
+      "year": "2012",
+      "title": "Alexandra Limpert and Patrick Whalen at ART 101",
+      "outlet": "New York Arts",
+      "url": "https://newyorkarts.net/2012/01/alexandra-limpert-sculpture-art-101-brooklyn/"
+    },
+    {
+      "year": "2015",
+      "title": "Something Old, Something New: An Exhibition Weds Technologies of Yesterday and Today",
+      "outlet": "Hyperallergic",
+      "url": "https://hyperallergic.com/something-old-something-new-an-exhibition-weds-technologies-of-yesterday-and-today/"
+    },
+    {
+      "year": "2018",
+      "title": "Iron plant: Natural, moving sculptures on display in Williamsburg",
+      "outlet": "Brooklyn Paper",
+      "url": "https://www.brooklynpaper.com/iron-plant-natural-moving-sculptures-on-display-in-williamsburg/"
+    },
+    {
+      "year": "2025",
+      "title": "Reclamation: Holland Tunnel Revisited in Newburgh",
+      "outlet": "Art Spiel",
+      "url": "https://artspiel.org/reclamation-holland-tunnel-revisited-in-newburgh/"
+    }
+  ],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Janet Rutkowski",
+      "relation": "Co-curator of 'Reclamation' (2025)"
+    },
+    {
+      "name": "Paulien Lethen",
+      "relation": "Founder of Holland Tunnel Gallery"
+    },
+    {
+      "name": "Patrick Whalen",
+      "relation": "Two-person exhibition, ART 101 (2012)"
+    },
+    {
+      "name": "Yoko Ono",
+      "relation": "Fabricated mesh suitcases for her Venice Biennale installation"
+    },
+    {
+      "name": "William Tucker",
+      "relation": "Did bronze finishing for the sculptor"
+    },
+    {
+      "name": "Spaeth Design",
+      "relation": "Long-time employer, animated display fabrication"
+    }
+  ],
+  "links": {
+    "website": "http://alexlimpert.com",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://andresinstitute.org/artist-biographical-information/alexandra-limpert-new-york-usa/"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "Art Spiel names Limpert as the artist who invited Rutkowski to co-curate Reclamation and cites her rusted steel work; Holland Tunnel's artists page lists her; Brooklyn Paper (2018) documents her solo show at the Williamsburg Holland Tunnel. Her steel figurative practice matches the gallery's description of large architectural metal figures.",
+    "sources": [
+      "https://artspiel.org/reclamation-holland-tunnel-revisited-in-newburgh/",
+      "https://www.hollandtunnelgallery.com/htgartists",
+      "https://www.brooklynpaper.com/iron-plant-natural-moving-sculptures-on-display-in-williamsburg/",
+      "http://alexlimpert.com/bio.html",
+      "https://andresinstitute.org/artist-biographical-information/alexandra-limpert-new-york-usa/"
+    ]
+  },
+  "open_questions": [
+    "'Figures' (2019) and '25 Years' (2022) come from the brief; not independently confirmed online",
+    "Year of Andres Institute installation",
+    "Artist site says she worked for Ben Shahn; Shahn died in 1969, so this may refer to his estate or foundry work; confirm with artist",
+    "Current base: Brooklyn per 2018; any Hudson Valley studio unconfirmed"
+  ],
+  "shows": [
+    "reclamation-2025",
+    "25-years-2022",
+    "figures-2019"
+  ],
+  "image": "../../assets/artists/alexandra-limpert-in-reclamation-2025.jpg",
+  "imageAlt": "Alexandra Limpert in Reclamation, 2025"
+}

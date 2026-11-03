@@ -1,0 +1,120 @@
+{
+  "name": "Victor Deyglio",
+  "slug": "victor-deyglio",
+  "also_known_as": [
+    "Vic Mix",
+    "Vic \"Mix\" Deyglio",
+    "Vic Deyglio",
+    "Slick Vic Deyglio"
+  ],
+  "kind": "musician",
+  "roles": [
+    "guitarist",
+    "producer",
+    "recording engineer"
+  ],
+  "based_in": "Catskills, NY (with the Urban Pioneers, per American Blues Scene)",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [],
+  "bio_short": "Victor \"Vic Mix\" Deyglio is a guitarist, producer and recording engineer who co-founded Lex Grey and the Urban Pioneers after a studio career that includes credits with Guns N' Roses and the Rolling Stones.",
+  "bio_long": "Victor Deyglio, known on stage as Vic Mix, works on both sides of the studio glass. As a recording engineer he came out of New York's Power Station studios, and his credits, according to the Urban Pioneers' own biography and to press coverage, include work with the Rolling Stones, Lena Horne, Guns N' Roses and the Spin Doctors. Discogs lists more than a hundred technical and production credits under variants of his name, and associates him with Guns N' Roses' debut Appetite for Destruction. At Power Station he met singer Lex Grey, and the two founded Lex Grey and the Urban Pioneers, a blues and rock band that grew out of informal jams in a Williamsburg bar. In the band he plays guitar and serves as producer and engineer, and he has been part of its lineup across its eight albums, including How Many Roads? (2023). The group later settled in the Catskills, where it operates the studio Bigger Pink. At Holland Tunnel Gallery he accompanied Lex Grey on guitar for \"The Rock Diva & Favorite Goodbye Songs\" on November 18, 2023.",
+  "practice": "Electric and acoustic guitar in a blues-rock setting; record production, mixing and audio engineering.",
+  "career_timeline": [
+    {
+      "year": "",
+      "event": "Recording engineer at Power Station studios, New York"
+    },
+    {
+      "year": "",
+      "event": "Co-founded Lex Grey and the Urban Pioneers with Lex Grey"
+    },
+    {
+      "year": "2023",
+      "event": "\"The Rock Diva & Favorite Goodbye Songs\" with Lex Grey, Holland Tunnel Gallery, Nov 18"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2023",
+      "title": "The Rock Diva & Favorite Goodbye Songs (with Lex Grey)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2022",
+      "title": "Listen: New Single From Lex Grey and the Urban Pioneers, 'I Believe in You'",
+      "outlet": "American Blues Scene",
+      "url": "https://www.americanbluesscene.com/2022/11/listen-new-single-from-lex-grey-and-the-urban-pioneers-i-believe-in-you/"
+    }
+  ],
+  "recordings_or_publications": [
+    {
+      "year": "",
+      "title": "Appetite for Destruction (Guns N' Roses), engineering credit per Discogs",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "2023",
+      "title": "How Many Roads? (Lex Grey and the Urban Pioneers), producer/guitar",
+      "label_or_publisher": ""
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "Lex Grey",
+      "relation": "co-founder and bandmate, Lex Grey and the Urban Pioneers"
+    },
+    {
+      "name": "Guns N' Roses",
+      "relation": "engineering credits"
+    },
+    {
+      "name": "Rolling Stones",
+      "relation": "engineering credits (per band bio)"
+    },
+    {
+      "name": "Lena Horne",
+      "relation": "engineering credits (per band bio and press)"
+    },
+    {
+      "name": "Spin Doctors",
+      "relation": "engineering credits (per American Blues Scene)"
+    }
+  ],
+  "links": {
+    "website": "https://www.lexgreymusic.com/",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.discogs.com/artist/387512-Victor-Deyglio"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "Band bio and American Blues Scene both identify Vic 'Mix' Deyglio as Urban Pioneers co-founder, guitarist and engineer with Guns N' Roses/Lena Horne credits, matching the Discogs engineer profile; gallery lists 'Vic Mix' as Lex Grey's guitarist.",
+    "sources": [
+      "https://www.lexgreymusic.com/lex-grey-bio/",
+      "https://www.americanbluesscene.com/2022/11/listen-new-single-from-lex-grey-and-the-urban-pioneers-i-believe-in-you/",
+      "https://www.discogs.com/artist/387512-Victor-Deyglio",
+      "https://www.hollandtunnelgallery.com/htrevisisted"
+    ]
+  },
+  "open_questions": [
+    "Specific album years for engineering credits not confirmed from opened pages",
+    "A Toronto-based logistics executive named Victor Deyglio is a different person; do not conflate"
+  ],
+  "shows": [
+    "rock-diva-2023"
+  ]
+}

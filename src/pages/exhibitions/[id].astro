@@ -1,0 +1,11 @@
+---
+import ShowPage from '../../components/ShowPage.astro';
+import { loadArchive } from '../../lib/people';
+
+export async function getStaticPaths() {
+  const a = await loadArchive();
+  return [...a.shows.values()].filter((s) => !s.isMusic).map((show) => ({ params: { id: show.id }, props: { show } }));
+}
+const { show } = Astro.props;
+---
+<ShowPage show={show} />

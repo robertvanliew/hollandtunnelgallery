@@ -1,0 +1,140 @@
+{
+  "name": "Conrad Levenson",
+  "slug": "conrad-levenson",
+  "also_known_as": [
+    "Conrad Levinson (gallery variant spelling)"
+  ],
+  "kind": "visual artist",
+  "roles": [
+    "assemblage sculptor",
+    "architect"
+  ],
+  "based_in": "Stanfordville (Town of Stanford), Dutchess County, NY",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [],
+  "bio_short": "Conrad Levenson is an architect turned assemblage sculptor who builds works from farm, industrial and household scrap at his studio and sculpture garden in Stanfordville, in the Hudson Valley. He showed in 'Reclamation' (2025) at Holland Tunnel Revisited.",
+  "bio_long": "Conrad Levenson calls himself an artist, architect, collector and recycler. Trained as an architect, he has described reclamation, the restoring of worn-out buildings and landscapes for present-day use, as the thread connecting his two careers. He has worked in assemblage for more than forty-five years.\n\nHis sculptures come from the remnants of agriculture, industry and rural life: old tools, machine parts and weathered utilitarian objects. 'Insight Out', for example, joins two antique ice saws, an automobile leaf spring and a wok. He lets rust and weather do some of the work, often placing pieces outdoors, and speaks of letting the materials 'speak to me, in their own voices and at their own pace.' He links the practice to what he calls the synergy between art and ecology, and to a Zen saying about seeking what the masters sought rather than following their footsteps. His pieces range from small works to installations close to fifteen feet tall.\n\nLevenson's studio sits in rural Stanford, NY, with a workshop and a two-acre sculpture garden. He has shown with the Sculptors Guild, at galleries in Red Hook and Hudson, at Studio 80 + Sculpture Grounds in Old Lyme, Connecticut, at the Ice House on the Hudson in Poughkeepsie, and in the Meredith SculptureWalk in New Hampshire. He belongs to the International Sculpture Center, the Sculptors Guild, Arts Mid-Hudson, the Barrett Art Center and the Red Hook Community Arts Network.",
+  "practice": "Assemblage sculpture from reclaimed agricultural, industrial and domestic scrap, often left to weather outdoors; he frames the work as a meeting of art and ecology.",
+  "career_timeline": [
+    {
+      "year": "",
+      "event": "Trains and practices as an architect in New York"
+    },
+    {
+      "year": "2015",
+      "event": "Exhibits 'Insight Out' in the Meredith SculptureWalk, New Hampshire"
+    },
+    {
+      "year": "2025",
+      "event": "'Reclamation', Holland Tunnel Revisited, Newburgh"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2015",
+      "title": "Meredith SculptureWalk",
+      "venue": "",
+      "city": "Meredith, NH"
+    },
+    {
+      "year": "",
+      "title": "",
+      "venue": "Studio 80 + Sculpture Grounds",
+      "city": "Old Lyme, CT"
+    },
+    {
+      "year": "",
+      "title": "",
+      "venue": "Ice House on the Hudson",
+      "city": "Poughkeepsie, NY"
+    },
+    {
+      "year": "2025",
+      "title": "Reclamation: Lost and Found in Newburgh",
+      "venue": "Holland Tunnel Revisited",
+      "city": "Newburgh, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [],
+  "teaching": [],
+  "press": [
+    {
+      "year": "2015",
+      "title": "Get To Know Artists: Conrad Levenson",
+      "outlet": "Around Concord",
+      "url": "https://www.aroundconcord.com/2015/07/02/get-to-know-artists-conrad-levenson/"
+    },
+    {
+      "year": "",
+      "title": "Reclaiming The Past With Sculptor Conrad Levenson",
+      "outlet": "The Gritty Hour (podcast)",
+      "url": "https://www.audible.com/pd/Reclaiming-The-Past-With-Sculptor-Conrad-Levenson-Podcast/B09XP58N3T"
+    }
+  ],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Sculptors Guild",
+      "relation": "Member (with Janet Rutkowski, Alberto Marcos Bursztyn, Julie Lindell)"
+    },
+    {
+      "name": "Studio 80 + Sculpture Grounds",
+      "relation": "Exhibiting venue (also shows Janet Rutkowski)"
+    },
+    {
+      "name": "International Sculpture Center",
+      "relation": "Member"
+    },
+    {
+      "name": "Arts Mid-Hudson",
+      "relation": "Member"
+    },
+    {
+      "name": "Red Hook Community Arts Network",
+      "relation": "Member"
+    },
+    {
+      "name": "Paulien Lethen",
+      "relation": "Founder of Holland Tunnel Gallery"
+    }
+  ],
+  "links": {
+    "website": "http://www.conradlevenson.com",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.sculptorsguild.org/conrad-levenson",
+      "https://www.sculpturegrounds.com/copy-of-sarah-haviland",
+      "https://www.facebook.com/conradlevensonsculptor/"
+    ]
+  },
+  "verification": {
+    "status": "likely",
+    "evidence": "Holland Tunnel lists 'Conrad Levenson' in Reclamation, a found-materials show; the only artist of that name found online is a Hudson Valley assemblage sculptor working with reclaimed materials, a Sculptors Guild member like co-curator Rutkowski. No source directly ties him to the Newburgh show beyond the gallery listing, and Art Spiel does not mention him.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.sculptorsguild.org/conrad-levenson",
+      "https://www.sculpturegrounds.com/copy-of-sarah-haviland",
+      "http://www.conradlevenson.com/",
+      "https://www.aroundconcord.com/2015/07/02/get-to-know-artists-conrad-levenson/"
+    ]
+  },
+  "open_questions": [
+    "A Columbia Center for Oral History interview (2015) records an architect Conrad Levenson with a Brooklyn background who was in-house architect for a New York nonprofit (1991–2008); probably the same person but not confirmed, so omitted from the bio",
+    "Architecture school and dates",
+    "Which work(s) he showed in Reclamation",
+    "Former NYC/Brooklyn base not confirmed"
+  ],
+  "shows": [
+    "reclamation-2025"
+  ],
+  "image": "../../assets/artists/conrad-levenson-in-reclamation-2025.jpg",
+  "imageAlt": "Conrad Levenson in Reclamation, 2025"
+}

@@ -1,0 +1,168 @@
+---
+// Share panel for a profile. Works without JS (plain links in a <details>); JS adds the native share
+// sheet, Instagram Story sharing (image file + link copied for the Link sticker) and copy-to-clipboard.
+import { SITE_URL } from '../../lib/site';
+import type { Person } from '../../lib/people';
+interface Props { p: Person }
+const { p } = Astro.props;
+
+const url = SITE_URL + p.url;
+const tagged = (source: string, medium = 'social') =>
+  `${url}?utm_source=${source}&utm_medium=${medium}&utm_campaign=artist_profile`;
+const title = `${p.name} at Holland Tunnel Gallery`;
+const text = `${p.name} · Holland Tunnel Gallery, Newburgh NY`;
+const story = `/share/story/${p.slug}.jpg`;
+const enc = encodeURIComponent;
+
+const networks = [
+  { name: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${enc(tagged('facebook'))}` },
+  { name: 'X', href: `https://twitter.com/intent/tweet?url=${enc(tagged('x'))}&text=${enc(text)}` },
+  { name: 'Threads', href: `https://www.threads.net/intent/post?text=${enc(`${text} ${tagged('threads')}`)}` },
+  { name: 'Bluesky', href: `https://bsky.app/intent/compose?text=${enc(`${text} ${tagged('bluesky')}`)}` },
+  { name: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${enc(tagged('linkedin'))}` },
+  { name: 'WhatsApp', href: `https://wa.me/?text=${enc(`${text} ${tagged('whatsapp', 'messaging')}`)}` },
+  { name: 'Pinterest', href: `https://pinterest.com/pin/create/button/?url=${enc(tagged('pinterest'))}&media=${enc(SITE_URL + story)}&description=${enc(text)}` },
+  { name: 'Email', href: `mailto:?subject=${enc(title)}&body=${enc(`${p.bio_short}\n\n${tagged('email', 'email')}`)}` },
+];
+---
+<div class="share" data-share data-url={url} data-title={title} data-text={text}
+  data-ig-url={tagged('instagram', 'story')} data-story={story} data-file={`${p.slug}-holland-tunnel-story.jpg`}>
+  <details class="share-more">
+    <summary class="share-btn share-main">Share…</summary>
+    <ul class="share-list" aria-label={`Share ${p.name}'s profile`}>
+      {networks.map((n) => (
+        <li>{n.name === 'Email'
+          ? <a href={n.href} data-net={n.name}>{n.name}</a>
+          : <a href={n.href} target="_blank" rel="noopener" data-net={n.name}>{n.name}<span class="vh"> (opens in a new tab)</span></a>}</li>
+      ))}
+      <li><a href={story} download={`${p.slug}-holland-tunnel-story.jpg`}>Story image (JPG)</a></li>
+      <li><button type="button" class="share-os" data-os hidden>More options…</button></li>
+    </ul>
+  </details>
+  <a class="share-btn share-ig" href={story} download={`${p.slug}-holland-tunnel-story.jpg`} data-ig>Instagram Story</a>
+  <button type="button" class="share-btn share-copy" data-copy hidden>Copy link</button>
+  <p class="share-status" role="status" aria-live="polite"></p>
+</div>
+
+<script>
+  for (const box of document.querySelectorAll<HTMLElement>('[data-share]')) {
+    const { url = '', title = '', text = '', igUrl = '', story = '', file: fileName = 'story.jpg' } = box.dataset;
+    const status = box.querySelector<HTMLElement>('.share-status')!;
+    const say = (msg: string) => {
+      status.textContent = msg;
+      clearTimeout(Number(status.dataset.t));
+      status.dataset.t = String(setTimeout(() => (status.textContent = ''), 9000));
+    };
+    const copy = async (value: string) => {
+      try {
+        await navigator.clipboard.writeText(value);
+        return true;
+      } catch {
+        // Older browsers: select-and-copy fallback.
+        const t = Object.assign(document.createElement('textarea'), { value, readOnly: true });
+        t.style.cssText = 'position:fixed;opacity:0';
+        document.body.append(t);
+        t.select();
+        const ok = document.execCommand('copy');
+        t.remove();
+        return ok;
+      }
+    };
+
+    // Copy link
+    const copyBtn = box.querySelector<HTMLButtonElement>('[data-copy]')!;
+    copyBtn.hidden = false;
+    copyBtn.addEventListener('click', async () => say((await copy(url)) ? 'Link copied.' : `Copy this link: ${url}`));
+
+    const details = box.querySelector<HTMLDetailsElement>('details')!;
+    const summary = box.querySelector<HTMLElement>('.share-main')!;
+    const nativeShare = async () => {
+      try {
+        await navigator.share({ title, text, url });
+        return true;
+      } catch (err) {
+        return (err as DOMException).name === 'AbortError';
+      }
+    };
+    // Phones/tablets: "Share…" opens the native share sheet (it lists every installed app).
+    // Computers: the system sheet only offers Mail/Messages/AirDrop, so "Share…" opens the platform
+    // list, with the system sheet available as "More options…" at the bottom.
+    const touch = matchMedia('(pointer: coarse)').matches;
+    if (navigator.share && touch) {
+      summary.addEventListener('click', async (e) => {
+        e.preventDefault();
+        if (!(await nativeShare())) details.open = true;
+      });
+    } else if (navigator.share) {
+      const os = box.querySelector<HTMLButtonElement>('[data-os]')!;
+      os.hidden = false;
+      os.addEventListener('click', async () => {
+        details.open = false;
+        await nativeShare();
+      });
+    }
+
+    // Computers: open social sites in a centered share window rather than a full tab.
+    if (!touch) {
+      for (const a of box.querySelectorAll<HTMLAnchorElement>('a[data-net]:not([data-net="Email"])')) {
+        a.addEventListener('click', (e) => {
+          const w = 620, h = 680;
+          const left = Math.round(screenX + (outerWidth - w) / 2), top = Math.round(screenY + (outerHeight - h) / 2);
+          const win = window.open(a.href, 'htg-share', `popup,width=${w},height=${h},left=${left},top=${top}`);
+          if (win) {
+            e.preventDefault();
+            win.opener = null;
+            details.open = false;
+          } // if the popup was blocked, the link's normal new-tab behavior runs instead
+        });
+      }
+    }
+
+    // Close the list with Esc or a click elsewhere; return focus to the button.
+    document.addEventListener('click', (e) => {
+      if (details.open && !details.contains(e.target as Node)) details.open = false;
+    });
+    details.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && details.open) {
+        details.open = false;
+        summary.focus();
+      }
+    });
+
+    // Instagram Story: share the 1080×1920 image as a file, which is what makes Instagram offer
+    // "Story" in the share sheet. The profile link is copied first so it can go in a Link sticker.
+    // Prefetch the image so the share call stays inside the tap (iOS requires that).
+    const ig = box.querySelector<HTMLAnchorElement>('[data-ig]')!;
+    let storyFile: File | null = null;
+    const canShareFiles = !!navigator.canShare && navigator.canShare({ files: [new File([''], 'x.jpg', { type: 'image/jpeg' })] });
+    if (canShareFiles) {
+      const load = () =>
+        fetch(story)
+          .then((r) => r.blob())
+          .then((b) => (storyFile = new File([b], fileName, { type: 'image/jpeg' })))
+          .catch(() => null);
+      'requestIdleCallback' in window ? requestIdleCallback(load) : setTimeout(load, 1500);
+    }
+    const download = () => Object.assign(document.createElement('a'), { href: story, download: fileName }).click();
+    ig.addEventListener('click', async (e) => {
+      // Start the clipboard write and the share in the same tap: iOS only allows share() during the gesture.
+      const copied = copy(igUrl);
+      if (storyFile && navigator.canShare({ files: [storyFile] })) {
+        e.preventDefault();
+        const shared = navigator.share({ files: [storyFile] });
+        try {
+          await shared;
+          say((await copied) ? 'Link copied. In Instagram, add a Link sticker and paste it.' : `Add a Link sticker with: ${url}`);
+        } catch (err) {
+          if ((err as DOMException).name !== 'AbortError') {
+            say('Sharing didn’t open, so the image was downloaded instead.');
+            download();
+          }
+        }
+      } else {
+        // Desktop / no file sharing: the link itself downloads the image.
+        say(`Story image saved. Post it to your Story from your phone and add a Link sticker${(await copied) ? ' (link copied)' : `: ${url}`}.`);
+      }
+    });
+  }
+</script>

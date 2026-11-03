@@ -1,0 +1,14 @@
+---
+import { NAV } from '../lib/site';
+interface Props { active?: string }
+const { active } = Astro.props;
+---
+<header class="site-head">
+  <a class="wordmark" href="/">Holland Tunnel Gallery</a>
+  <p class="tagline">Contemporary arts, music &amp; events · Newburgh, NY · Since 1997</p>
+  <nav class="main-nav" aria-label="Main">
+    {NAV.map((n) => (
+      <a href={n.href} aria-current={n.key === active ? 'page' : undefined}>{n.label}</a>
+    ))}
+  </nav>
+</header>

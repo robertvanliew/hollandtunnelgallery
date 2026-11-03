@@ -1,0 +1,42 @@
+---
+import { EMAIL, PUBLIC_SITE } from '../lib/site';
+---
+<footer class="site-foot">
+  <div class="foot-grid">
+    <div>
+      <p class="foot-mark">Holland Tunnel Gallery</p>
+      <p>46 Chambers Street<br />Newburgh, NY 12550</p>
+      <p style="margin-top:10px">Founded in Williamsburg, Brooklyn, 1997.<br />In Newburgh since 2018.</p>
+    </div>
+    <div>
+      <p class="foot-h">Gallery hours</p>
+      <p>Saturday &amp; Sunday, 1–5 pm<br />and by appointment</p>
+      <p style="margin-top:10px"><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+    </div>
+    <div>
+      <p class="foot-h">Explore</p>
+      <ul>
+        <li><a href="/exhibitions">Exhibitions</a></li>
+        <li><a href="/artists">Artists &amp; Musicians</a></li>
+        <li><a href="/rent">Rent the Space</a></li>
+        <li><a href="/schools">School Visits</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="https://www.instagram.com/hollandtunnelnewburgh/">Instagram</a></li>
+      </ul>
+    </div>
+    <form class="foot-news" name="newsletter" method="POST" action="/api/forms">
+      <input type="hidden" name="form-name" value="newsletter" />
+      <p class="vh"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
+      <label class="foot-h" for="nl">Newsletter</label>
+      <div class="nl-row">
+        <input id="nl" name="email" type="email" placeholder="you@email.com" autocomplete="email" required />
+        <button type="submit">Sign up</button>
+      </div>
+    </form>
+  </div>
+  <div class="foot-note">
+    <p>© {new Date().getFullYear()} Holland Tunnel Gallery</p>
+    <p>Website design &amp; development: Robert Van Liew</p>
+    {!PUBLIC_SITE && <p>Concept preview. Not a public page.</p>}
+  </div>
+</footer>

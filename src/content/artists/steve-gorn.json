@@ -1,0 +1,233 @@
+{
+  "name": "Steve Gorn",
+  "slug": "steve-gorn",
+  "also_known_as": [],
+  "kind": "musician",
+  "roles": [
+    "bansuri flutist",
+    "soprano saxophonist",
+    "clarinetist",
+    "composer",
+    "teacher"
+  ],
+  "based_in": "",
+  "origin": "New York City",
+  "born": "1944",
+  "died": "",
+  "education": [
+    {
+      "school": "Pennsylvania State University",
+      "degree": "Studied composition",
+      "year": ""
+    }
+  ],
+  "bio_short": "Steve Gorn is a Grammy-winning bansuri player and saxophonist, a longtime disciple of Sri Gour Goswami, who works across Indian classical music, jazz and new American music.",
+  "bio_long": "Steve Gorn was born in New York City in 1944 and trained first as a jazz musician and studied composition at Penn State. A 1969 trip to Benares, where he studied with classical musicians including sarangi player Gopal Misra, turned him toward Indian music. He became a disciple of the bansuri master Sri Gour Goswami in Calcutta, and later studied with Pandit Raghunath Seth and Ustad Z. M. Dagar. Gorn plays the bamboo bansuri, soprano saxophone and clarinet, performing Indian classical ragas as well as improvised and composed new music. His recordings include Asian Journal (1985) with Nana Vasconcelos and Badal Roy, Steel and Bamboo (1993) with flutist Robert Dick, Luminous Ragas (1994), Pampara (1996), Colors of the Mind (2002), Rasika, Pranam and Illuminations. He has recorded or toured with Paul Simon, Jack DeJohnette, Paul Winter, Glen Velez, Richie Havens, Krishna Das and Jai Uttal, and appears on the Grammy-winning Miho: Journey to the Mountain with the Paul Winter Consort. He has scored work for film, theater, dance and television, including the Academy Award-winning documentary Born into Brothels, and in 2013 received the Pandit Jasraj Rotary Club of Hyderabad award for cross-cultural achievement. At Holland Tunnel Gallery he joined percussionist Hearn Gadbois, with whom he had recorded on Ghost Notation, for \"World Rhythms and Music for the Mind\" on November 11, 2023.",
+  "practice": "North Indian classical ragas on bansuri, including jugalbandi duets; improvised and composed new American music and jazz on soprano saxophone and clarinet.",
+  "career_timeline": [
+    {
+      "year": "1944",
+      "event": "Born in New York City"
+    },
+    {
+      "year": "1969",
+      "event": "Traveled to Benares to study Indian classical music"
+    },
+    {
+      "year": "1985",
+      "event": "Asian Journal with Nana Vasconcelos and Badal Roy"
+    },
+    {
+      "year": "1995",
+      "event": "Toured Europe and Africa with Jack DeJohnette"
+    },
+    {
+      "year": "2011",
+      "event": "On Paul Simon's So Beautiful or So What"
+    },
+    {
+      "year": "2013",
+      "event": "Pandit Jasraj Rotary Club of Hyderabad Award for Cross Cultural Achievement"
+    },
+    {
+      "year": "2023",
+      "event": "\"World Rhythms and Music for the Mind\" with Hearn Gadbois, Holland Tunnel Gallery, Nov 11"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2023",
+      "title": "World Rhythms and Music for the Mind (with Hearn Gadbois)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2019",
+      "title": "Bansuri Concert",
+      "venue": "Chhandayan Center for Indian Music",
+      "city": "New York, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [
+    {
+      "year": "",
+      "name": "Grammy winner (Miho: Journey to the Mountain, Paul Winter Consort); five-time Grammy nominee"
+    },
+    {
+      "year": "2013",
+      "name": "Pandit Jasraj Rotary Club of Hyderabad Award for Cross Cultural Achievement"
+    }
+  ],
+  "teaching": [],
+  "press": [],
+  "recordings_or_publications": [
+    {
+      "year": "1983",
+      "title": "Yantra (with Badal Roy)",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "1985",
+      "title": "Asian Journal (with Nana Vasconcelos, Badal Roy)",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "1993",
+      "title": "Steel and Bamboo (with Robert Dick)",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "1994",
+      "title": "Luminous Ragas",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "1996",
+      "title": "Dancing with Nature Spirits (Jack DeJohnette)",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "1997",
+      "title": "From the Caves of the Iron Mountain (with Tony Levin)",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "1996",
+      "title": "Pampara: In Memory of Gour Goswami",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "2002",
+      "title": "Colors of the Mind",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "2011",
+      "title": "So Beautiful or So What (Paul Simon)",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "",
+      "title": "Miho: Journey to the Mountain (Paul Winter Consort, Grammy winner)",
+      "label_or_publisher": ""
+    },
+    {
+      "year": "2020",
+      "title": "Ghost Notation (Hearn Gadbois), bansuri",
+      "label_or_publisher": "self-released"
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "Sri Gour Goswami",
+      "relation": "guru"
+    },
+    {
+      "name": "Pandit Raghunath Seth",
+      "relation": "teacher"
+    },
+    {
+      "name": "Paul Simon",
+      "relation": "recorded with"
+    },
+    {
+      "name": "Jack DeJohnette",
+      "relation": "recorded and toured with"
+    },
+    {
+      "name": "Paul Winter Consort",
+      "relation": "Grammy-winning recording"
+    },
+    {
+      "name": "Badal Roy",
+      "relation": "recording partner"
+    },
+    {
+      "name": "Nana Vasconcelos",
+      "relation": "Asian Journal"
+    },
+    {
+      "name": "Tony Levin",
+      "relation": "recording partner"
+    },
+    {
+      "name": "Robert Dick",
+      "relation": "Steel and Bamboo"
+    },
+    {
+      "name": "Glen Velez",
+      "relation": "collaborator"
+    },
+    {
+      "name": "Samir Chatterjee",
+      "relation": "tabla on Rasika and Pranam"
+    },
+    {
+      "name": "Krishna Das",
+      "relation": "collaborator"
+    },
+    {
+      "name": "Jai Uttal",
+      "relation": "collaborator"
+    },
+    {
+      "name": "Hearn Gadbois",
+      "relation": "guest on Ghost Notation; duo concert at Holland Tunnel Gallery"
+    }
+  ],
+  "links": {
+    "website": "https://stevegorn.com/",
+    "instagram": "",
+    "wikipedia": "https://en.wikipedia.org/wiki/Steve_Gorn",
+    "wikidata": "https://www.wikidata.org/wiki/Q2346994",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "https://music.youtube.com/channel/UCZrhu2DBB9EUyJfsbOHg9BA",
+    "other": [
+      "https://www.allmusic.com/artist/steve-gorn-mn0000032152/biography"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "Gallery describes bansuri/soprano sax/clarinet, Indian classical and new American music, site stevegorn.com; all match his official site, Wikipedia and AllMusic. Hearn Gadbois' Ghost Notation credits him.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://stevegorn.com/bio/",
+      "https://stevegorn.com/extended-artist-bio/",
+      "https://en.wikipedia.org/wiki/Steve_Gorn",
+      "https://www.allmusic.com/artist/steve-gorn-mn0000032152/biography",
+      "https://hearngadbois1.bandcamp.com/album/ghost-notation"
+    ]
+  },
+  "open_questions": [
+    "Labels and years for Rasika, Pranam, Illuminations, Wings and Shadows not confirmed",
+    "Year of Miho Grammy (site says 2011-era; confirm)",
+    "Current home base not confirmed"
+  ],
+  "shows": [
+    "world-rhythms-2023"
+  ],
+  "image": "../../assets/artists/steve-gorn.png",
+  "imageAlt": "Steve Gorn"
+}

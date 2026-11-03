@@ -1,0 +1,13 @@
+---
+import { bioParagraphs, type Person } from '../../lib/people';
+interface Props { p: Person }
+const { p } = Astro.props;
+const paras = bioParagraphs(p.bio_long);
+---
+{(paras.length > 0 || p.practice) && (
+  <section class="block bio" aria-labelledby="bio-h">
+    <h2 id="bio-h">Biography</h2>
+    {paras.map((t) => <p>{t}</p>)}
+    {p.practice && <p class="practice"><strong>Practice.</strong> {p.practice}</p>}
+  </section>
+)}

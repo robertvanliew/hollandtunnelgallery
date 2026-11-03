@@ -1,0 +1,142 @@
+{
+  "name": "Kent Peterson",
+  "slug": "kent-peterson",
+  "also_known_as": [],
+  "kind": "visual artist",
+  "roles": [
+    "painter",
+    "printmaker",
+    "film programmer (Holland Tunnel Cinema Club)"
+  ],
+  "based_in": "Newburgh, NY",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [],
+  "bio_short": "Kent Peterson is a Newburgh-based painter and printmaker whose abstracted works draw on geology and anthropology. He is a longtime participant in Holland Tunnel Gallery exhibitions and programs its Cinema Club.",
+  "bio_long": "Kent Peterson is a painter and printmaker who lives and works in Newburgh, New York. According to Holland Tunnel Gallery, his abstracted paintings and prints draw on geology and anthropology, and his work is held in private and public collections in the New York area. He has been part of the gallery's circle since its Williamsburg years: he was one of 110 artists in Framed (2014), the Stairmasters project that marked the gallery's 17th year in Brooklyn. He showed in the Grand Opening of Holland Tunnel Newburgh in May 2018 and in that year's holiday art sale. In 2019 he took part in the 9th Annual Newburgh Open Studios. In fall 2020 he showed with Marieken Cochius and Romina Gonzales in Terra / Derma, and in summer 2023 he appeared with Gerda van Leeuwen and Peter Yamaoka in Down To Earth, which the gallery described as a show by a trio of masters of color, texture and abstraction. His painting Untitled (1986) was featured in the announcement. Peterson is also the film programmer for the gallery's Cinema Club, choosing the classic films screened at 46 Chambers Street.",
+  "practice": "Abstracted paintings and prints inspired by geology and anthropology, with close attention to surface, texture and process (per Holland Tunnel Gallery).",
+  "career_timeline": [
+    {
+      "year": "2014",
+      "event": "Framed (Stairmasters), Holland Tunnel Gallery, Williamsburg"
+    },
+    {
+      "year": "2018",
+      "event": "Grand Opening of Holland Tunnel Newburgh; holiday art sale"
+    },
+    {
+      "year": "2019",
+      "event": "9th Annual Newburgh Open Studios"
+    },
+    {
+      "year": "2020",
+      "event": "Terra / Derma with Marieken Cochius and Romina Gonzales"
+    },
+    {
+      "year": "2023",
+      "event": "Down To Earth with Gerda van Leeuwen and Peter Yamaoka"
+    },
+    {
+      "year": "",
+      "event": "Film programmer for the Holland Tunnel Cinema Club"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2014",
+      "title": "Stairmasters / Framed (group)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Brooklyn, NY"
+    },
+    {
+      "year": "2018",
+      "title": "Grand Opening HTG Newburgh (group)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2019",
+      "title": "9th Annual Newburgh Open Studios",
+      "venue": "Citywide tour",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2020",
+      "title": "Terra / Derma (with Marieken Cochius, Romina Gonzales)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "2023",
+      "title": "Down To Earth (with Gerda van Leeuwen, Peter Yamaoka)",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [],
+  "teaching": [],
+  "press": [],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Gerda van Leeuwen",
+      "relation": "Co-exhibitor, Down To Earth (2023)"
+    },
+    {
+      "name": "Peter Yamaoka",
+      "relation": "Co-exhibitor, Down To Earth (2023)"
+    },
+    {
+      "name": "Marieken Cochius",
+      "relation": "Co-exhibitor, Terra / Derma (2020)"
+    },
+    {
+      "name": "Romina Gonzales",
+      "relation": "Co-exhibitor, Terra / Derma (2020)"
+    },
+    {
+      "name": "Paulien Lethen",
+      "relation": "Gallery founder; hosts the Cinema Club screenings he programs"
+    }
+  ],
+  "links": {
+    "website": "",
+    "instagram": "",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.hollandtunnelgallery.com/cinema-club"
+    ]
+  },
+  "verification": {
+    "status": "likely",
+    "evidence": "Holland Tunnel sources are consistent: he is a Newburgh painter and printmaker, is in the artist list, and appears in Framed 2014, the 2018 opening, Terra/Derma, Down To Earth and the Cinema Club. NewburghNY.org lists him in the 2019 Newburgh Open Studios. I found no independent bio, website or birth details, and the name is shared with others (e.g. a California muralist), so the bio stays within what the gallery says.",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.hollandtunnelgallery.com/events",
+      "https://www.hollandtunnelgallery.com/htcalendar2023/2023/6/10/opening-reception-down-to-earth-kent-peterson-gerda-van-leeuwen-and-peter-yamaoka-cdblg",
+      "https://www.hollandtunnelgallery.com/cinema-club",
+      "https://www.hollandtunnelgallery.com/stairmasters",
+      "https://www.hollandtunnelgallery.com/htgartists",
+      "https://newburghrestoration.com/blog/2018/05/15/new-art-venue-the-holland-tunnel-art-gallery-comes-to-newburgh1/",
+      "https://www.newburghny.org/9th-annual-newburgh-open-studios/"
+    ]
+  },
+  "open_questions": [
+    "No personal website, CV, education or birth year found. Ask the artist.",
+    "The gallery mentions 'many private and public collections in the New York area' but names none.",
+    "Terra / Derma dates are Oct 17–Nov 22. The year (2020) comes from the archive's placement, not an explicit date.",
+    "Don't confuse him with Kent Peterson, muralist (Rocklin, CA), or others on MutualArt/Wikidata."
+  ],
+  "shows": [
+    "down-to-earth-2023",
+    "terra-derma-2020",
+    "grand-opening-2018"
+  ]
+}

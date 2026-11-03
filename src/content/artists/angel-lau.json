@@ -1,0 +1,123 @@
+{
+  "name": "Angel Lau",
+  "slug": "angel-lau",
+  "also_known_as": [],
+  "kind": "musician",
+  "roles": [
+    "percussionist",
+    "dance accompanist",
+    "teaching artist"
+  ],
+  "based_in": "Newburgh, NY",
+  "origin": "",
+  "born": "",
+  "died": "",
+  "education": [
+    {
+      "school": "Purchase College (SUNY)",
+      "degree": "classical percussion studies",
+      "year": ""
+    }
+  ],
+  "bio_short": "Angel Lau is a Newburgh-based percussionist trained in classical percussion at Purchase College who plays Afro-Peruvian, Brazilian and other folkloric styles with bands, jazz orchestras and dance companies.",
+  "bio_long": "Angel Lau is a percussionist based in Newburgh, New York. He studied classical percussion at Purchase College and has since widened his practice into Afro-Peruvian and Brazilian music and other folkloric and modern hand-percussion traditions. He has performed and recorded with the hip-hop group Kala and the Lost Tribe, Wallace Roney Jr., DreHall, Anaïs Maviel, Neil \"Nail\" Alexander, Kelly Quigley and the Birdland Latin Jazz Orchestra. Much of his work is with dance: he is a percussionist for Odeon by Bessie Award winner Ephrat Asherie, which has toured to Spoleto Festival, Vail Dance Festival and Fall for Dance, and he has collaborated on a work in progress by Burkina Faso-born choreographer Souleymane Badolo. He is a faculty accompanist at Bard College and a teaching artist at Berkshire Pulse. At Holland Tunnel Gallery he played \"Helena's Latin Grooves\" with Heleen Schuttevaêr during the gallery's 25th-anniversary celebration on May 28, 2022, part of an evening of music marking the gallery's history since its 1997 founding in Williamsburg.",
+  "practice": "Hand and orchestral percussion rooted in classical training, with Afro-Peruvian, Brazilian and other folkloric styles; accompaniment for dance.",
+  "career_timeline": [
+    {
+      "year": "2022",
+      "event": "\"Helena's Latin Grooves\" with Heleen Schuttevaêr, Holland Tunnel Gallery 25th anniversary, May 28"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2022",
+      "title": "Helena's Latin Grooves (with Heleen Schuttevaêr), Holland Tunnel Gallery Celebrates 25 Years",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    },
+    {
+      "year": "",
+      "title": "Odeon (Ephrat Asherie Dance), percussionist on tour",
+      "venue": "Spoleto Festival; Vail Dance Festival; Fall for Dance",
+      "city": ""
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [],
+  "teaching": [
+    "Faculty accompanist, Bard College",
+    "Teaching artist, Berkshire Pulse"
+  ],
+  "press": [],
+  "recordings_or_publications": [],
+  "collaborators_and_connections": [
+    {
+      "name": "Kala and the Lost Tribe",
+      "relation": "performed and recorded with"
+    },
+    {
+      "name": "Birdland Latin Jazz Orchestra",
+      "relation": "performed with"
+    },
+    {
+      "name": "Wallace Roney Jr.",
+      "relation": "performed/recorded with"
+    },
+    {
+      "name": "DreHall",
+      "relation": "performed/recorded with"
+    },
+    {
+      "name": "Anaïs Maviel",
+      "relation": "performed/recorded with"
+    },
+    {
+      "name": "Neil \"Nail\" Alexander",
+      "relation": "performed/recorded with"
+    },
+    {
+      "name": "Kelly Quigley",
+      "relation": "performed/recorded with"
+    },
+    {
+      "name": "Ephrat Asherie",
+      "relation": "percussionist for her work Odeon"
+    },
+    {
+      "name": "Souleymane Badolo",
+      "relation": "collaborator on work in progress"
+    },
+    {
+      "name": "Heleen Schuttevaêr",
+      "relation": "duo partner at Holland Tunnel Gallery (2022)"
+    }
+  ],
+  "links": {
+    "website": "",
+    "instagram": "https://www.instagram.com/alauperc/",
+    "wikipedia": "",
+    "wikidata": "",
+    "bandcamp": "",
+    "spotify": "",
+    "youtube": "",
+    "other": [
+      "https://berkshirepulse.org/team/angel-lau/"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "Berkshire Pulse profile: Newburgh-based, classical percussion at Purchase, Afro-Peruvian/Brazilian, Kala and the Lost Tribe and Birdland jazz orchestra, matching the gallery text nearly word for word.",
+    "sources": [
+      "https://berkshirepulse.org/team/angel-lau/",
+      "https://www.hollandtunnelgallery.com/htrevisisted"
+    ]
+  },
+  "open_questions": [
+    "Gallery says 'Birdland Jazz Orchestra'; Berkshire Pulse says 'Birdland Latin Jazz Orchestra'",
+    "No discography with titles/years found",
+    "Instagram @alauperc taken from gallery context, not opened"
+  ],
+  "shows": [
+    "latin-grooves-2022"
+  ]
+}

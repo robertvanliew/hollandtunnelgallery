@@ -1,0 +1,194 @@
+---
+// Sample lesson plan for a school visit, built on the Unframed exhibition (2026).
+// Printable: teachers can print it or save it as a PDF to attach to a trip request.
+// DRAFT: Paulien (or an art teacher she trusts) should review before it goes to schools.
+import Base from '../../../layouts/Base.astro';
+import '../../../styles/pages.css';
+import { breadcrumbs } from '../../../lib/jsonld';
+import { EMAIL, SITE_URL } from '../../../lib/site';
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LearningResource',
+      name: 'Painting Outdoors: seeing the Hudson Valley like a plein air painter',
+      learningResourceType: 'Lesson plan',
+      educationalLevel: 'Grades 6–12',
+      timeRequired: 'PT2H20M',
+      inLanguage: 'en',
+      url: `${SITE_URL}/schools/lessons/painting-outdoors`,
+      about: ['Plein air painting', 'Observational drawing', 'Hudson River School'],
+      provider: { '@type': 'ArtGallery', name: 'Holland Tunnel Gallery', url: `${SITE_URL}/` },
+    },
+    breadcrumbs([['Home', '/'], ['School visits', '/schools'], ['Painting Outdoors', '/schools/lessons/painting-outdoors']]),
+  ],
+};
+---
+<Base
+  title="Painting Outdoors · Sample Lesson Plan, Grades 6–12 | Holland Tunnel Gallery"
+  description="A sample lesson plan for a Holland Tunnel Gallery school visit: plein air painting, Hudson Valley landscape and the NYS arts standards, with pre- and post-visit activities."
+  path="/schools/lessons/painting-outdoors"
+  jsonld={jsonld}
+>
+  <article class="lesson">
+    <div class="wrap">
+      <p class="lesson-crumbs"><a href="/schools">School visits</a> / Sample lesson plan</p>
+      <header class="lesson-head">
+        <p class="eyebrow orange">Sample lesson plan · Grades 6–12</p>
+        <h1>Painting Outdoors</h1>
+        <p class="lede">Seeing the Hudson Valley like a plein air painter. Built on <a href="/exhibitions/unframed-2026"><em>Unframed</em></a> (2026), eight painters who meet every week to work outdoors in every season.</p>
+        <ul class="lesson-facts">
+          <li><b>Time</b><span>20 min before · 75–90 min visit · 30 min after</span></li>
+          <li><b>Subjects</b><span>Art, with English, science and social studies</span></li>
+          <li><b>Group</b><span>One class, in two groups</span></li>
+        </ul>
+        <button type="button" class="btn ghost lesson-print" onclick="window.print()">Print or save as PDF</button>
+      </header>
+
+      <section>
+        <h2>Objectives</h2>
+        <p>Students will be able to:</p>
+        <ol>
+          <li>Describe how working from direct observation, outdoors and over time, shapes an artist's choices.</li>
+          <li>Make two quick observational studies of the same view, each with a different focus.</li>
+          <li>Compare a contemporary plein air approach with the 19th-century Hudson River School.</li>
+          <li>Explain an artistic choice in writing, using evidence from a work of art.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Standards</h2>
+        <p>New York State Learning Standards for the Arts (Visual Arts), by artistic process and anchor standard:</p>
+        <table class="lesson-table">
+          <thead><tr><th scope="col">Part of the visit</th><th scope="col">Artistic process</th><th scope="col">Anchor standards</th></tr></thead>
+          <tbody>
+            <tr><td>Artist film and discussion</td><td>Responding</td><td>7 Perceive and analyze · 8 Interpret intent and meaning</td></tr>
+            <tr><td>Gallery walk</td><td>Presenting</td><td>6 Convey meaning through the presentation of work</td></tr>
+            <tr><td>Hands-on studies</td><td>Creating</td><td>1 Generate ideas · 2 Organize and develop · 3 Refine and complete</td></tr>
+            <tr><td>Wrap-up and follow-up</td><td>Connecting</td><td>10 Relate to personal experience · 11 Relate to cultural and historical context</td></tr>
+          </tbody>
+        </table>
+        <p class="lesson-note"><strong>Across subjects.</strong> English: a written claim backed by evidence from an artwork. Science: observing how light and weather change a scene over time. Social studies: the Hudson River School and the 19th-century idea of mastering nature, in the valley where it began.</p>
+      </section>
+
+      <section>
+        <h2>Vocabulary</h2>
+        <dl class="lesson-vocab">
+          <div><dt>Plein air</dt><dd>French for "open air": painting outdoors, from direct observation.</dd></div>
+          <div><dt>Study</dt><dd>A quick, small work made to explore an idea, not to finish it.</dd></div>
+          <div><dt>Value</dt><dd>How light or dark a color or area is.</dd></div>
+          <div><dt>Composition</dt><dd>How the parts of an image are arranged.</dd></div>
+          <div><dt>Limited palette</dt><dd>Working with only a few colors.</dd></div>
+          <div><dt>Hudson River School</dt><dd>A 19th-century group of American landscape painters who worked in and around the Hudson Valley.</dd></div>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Before the visit <span>(20 min, in class)</span></h2>
+        <ol>
+          <li>Show Thomas Cole's <em>View from Mount Holyoke, Northampton, Massachusetts, after a Thunderstorm (The Oxbow)</em>, 1836 (The Metropolitan Museum of Art).</li>
+          <li>Students list five things they notice and one question. Ask: <em>Where do you think the painter was standing? Was it painted outside?</em></li>
+          <li>Introduce <em>plein air</em>. Students predict one thing that would be hard about painting outdoors, and one thing that might be better.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>At the gallery <span>(75–90 min)</span></h2>
+        <div class="lesson-steps">
+          <div>
+            <h3>1 · Meet the artist <span>15–20 min · Responding</span></h3>
+            <p>Watch the artist film. Discuss: <em>What changes when you paint the same place every week? What does working outdoors give an artist that a photo can't?</em></p>
+          </div>
+          <div>
+            <h3>2 · Gallery walk <span>20–25 min · Presenting</span></h3>
+            <p>In pairs, students find (1) a work that shows a particular time of day or season, and the clues that tell them; (2) two works that seem to show the same kind of place painted differently; (3) the work they would hang in their own room, and why. Ask how the way the works are hung together changes what we notice.</p>
+          </div>
+          <div>
+            <h3>3 · Two studies <span>25–30 min · Creating</span></h3>
+            <p>From the same view (the garden in fair weather, or a window), students make two 10-minute studies: first <strong>shapes and composition only</strong> in pencil, then <strong>light and value</strong> with a limited palette. Materials: drawing boards, paper, pencils and small watercolor sets.</p>
+          </div>
+          <div>
+            <h3>4 · Wrap-up <span>5 min · Connecting</span></h3>
+            <p>Studies on the floor, side by side. Each student names one thing the second study shows that the first doesn't.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>After the visit <span>(30 min, in class)</span></h2>
+        <ol>
+          <li><strong>Write (English).</strong> Claim, evidence, reasoning: "One choice a plein air painter makes that a studio painter might not is… I know because in the work I saw…"</li>
+          <li><strong>Return to the view (science).</strong> Students repeat a study of one view at school at a different time of day and compare how the light changed.</li>
+          <li><strong>Then and now (social studies).</strong> Compare Cole's idea of the landscape with the <em>Unframed</em> painters' approach. What changed in 190 years?</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Adapting by grade</h2>
+        <div class="lesson-grades">
+          <div><h3>Grades 6–8</h3><p>Pencil value studies before color. Sentence starters for the written response. Gallery walk with a picture checklist.</p></div>
+          <div><h3>Grades 9–12</h3><p>Color studies from the start. A short essay comparing the Hudson River School's ideas of progress with a contemporary approach, citing specific works.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Checking understanding</h2>
+        <ul>
+          <li>Two studies completed, each with the requested focus.</li>
+          <li>Student names a specific visual clue in a work (light, color, weather, season).</li>
+          <li>Written response makes a claim and supports it with evidence from an artwork.</li>
+        </ul>
+        <p class="lesson-note"><strong>Access.</strong> Seated stations are available throughout, prompts can be printed large, and the outdoor study can move indoors. Tell us about any access needs when you book.</p>
+      </section>
+
+      <footer class="lesson-foot">
+        <p>Holland Tunnel Gallery · 46 Chambers Street, Newburgh, NY 12550 · {EMAIL}</p>
+        <p><a class="btn" href="/schools#book">Plan a class visit</a></p>
+      </footer>
+    </div>
+  </article>
+</Base>
+
+<style is:global>
+  .lesson { padding-block: 24px 64px; }
+  .lesson .wrap { max-width: 900px; }
+  .lesson-crumbs { font-size: 14px; color: var(--htg-muted); margin: 0 0 18px; }
+  .lesson-head { border-bottom: 2px solid var(--htg-ink); padding-bottom: 24px; margin-bottom: 8px; }
+  .lesson-facts { list-style: none; padding: 0; margin: 18px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .lesson-facts li { border-top: 3px solid var(--htg-orange); padding-top: 8px; font-size: 15px; }
+  .lesson-facts b { display: block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--htg-muted); }
+  .lesson section { padding-block: 26px 4px; }
+  .lesson h2 { font-size: clamp(30px, 4vw, 40px); margin-bottom: 12px; }
+  .lesson h2 span, .lesson h3 span { font-family: var(--body); font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--htg-muted); }
+  .lesson ol, .lesson ul { padding-left: 22px; }
+  .lesson li { margin-bottom: 8px; }
+  .lesson-table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 8px 0 16px; }
+  .lesson-table th, .lesson-table td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--htg-rule); vertical-align: top; }
+  .lesson-table th { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--htg-muted); font-weight: 700; }
+  .lesson-note { font-size: 16px; background: var(--htg-wash); padding: 14px 16px; border-left: 3px solid var(--htg-orange); }
+  .lesson-vocab { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; margin: 0; }
+  .lesson-vocab div { padding: 10px 0; border-bottom: 1px solid var(--htg-rule); }
+  .lesson-vocab dt { font-weight: 700; color: var(--htg-ink); }
+  .lesson-vocab dd { margin: 2px 0 0; font-size: 15px; }
+  .lesson-steps { display: grid; gap: 14px; }
+  .lesson-steps > div, .lesson-grades > div { border: 1px solid var(--htg-rule); padding: 16px 18px; }
+  .lesson-steps h3, .lesson-grades h3 { margin-bottom: 6px; }
+  .lesson-steps p, .lesson-grades p { margin: 0; font-size: 16px; }
+  .lesson-grades { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .lesson-foot { margin-top: 36px; padding-top: 18px; border-top: 2px solid var(--htg-ink); font-size: 14px; color: var(--htg-muted); }
+  @media (max-width: 640px) {
+    .lesson-facts, .lesson-vocab, .lesson-grades { grid-template-columns: 1fr; }
+  }
+  @media print {
+    .concept, .site-head, .site-foot, .lesson-print, .lesson-foot .btn, .lesson-crumbs, .cd, .skip { display: none !important; }
+    body { font-size: 11pt; }
+    .lesson { padding: 0; }
+    .lesson .wrap { max-width: none; padding: 0; }
+    .lesson h1 { font-size: 36pt; }
+    .lesson h2 { font-size: 18pt; break-after: avoid; }
+    .lesson-steps > div, .lesson-grades > div, .lesson-table tr, .lesson-vocab div { break-inside: avoid; }
+    .lesson a { color: inherit; text-decoration: none; }
+    .lesson-note { background: none; }
+  }
+</style>

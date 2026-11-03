@@ -1,0 +1,140 @@
+---
+// One contact pop-up per page. Any link to the gallery's email address opens it instead of the mail
+// app, with a form suited to where the visitor is: a link's own data-contact wins, then the nearest
+// [data-contact] section, then the page's section of the site. Without JS the links stay mailto links.
+// Submissions go to /api/forms (form-name "contact") and are emailed to the gallery inbox.
+import { EMAIL } from '../lib/site';
+
+/** Each topic: heading, intro, and which optional fields to show. */
+const TOPICS = {
+  general: { title: 'Get in touch', intro: 'Questions about the gallery, a show or an event? Send Paulien a note.', fields: [] },
+  visit: { title: 'Plan a visit', intro: 'Open Saturday & Sunday, 1–5 pm, and by appointment. Tell us when you’d like to come.', fields: ['date', 'guests'] },
+  rent: { title: 'Renting the space', intro: 'Ask about dates, rates or what the space can do for your event.', fields: ['date', 'guests', 'phone'] },
+  exhibitions: { title: 'Exhibitions', intro: 'Questions about a show, a work on view, or proposing an exhibition.', fields: [] },
+  events: { title: 'Events & music', intro: 'Questions about concerts, Cinema Club or music nights, or playing at the gallery.', fields: [] },
+  artists: { title: 'Artists & Musicians', intro: 'Questions or corrections about the artist and musician profiles.', fields: ['website'] },
+  schools: { title: 'School visits', intro: 'Questions about bringing a class? The full booking form is on this page; quick questions are welcome here.', fields: ['school', 'grades', 'students'] },
+  archive: { title: 'Add me to the archive', intro: 'Showed or played at Holland Tunnel since 1997? Tell us about it and we’ll add your profile.', fields: ['discipline', 'history', 'website'] },
+} as const;
+---
+<dialog class="cd" id="contact-dialog" aria-labelledby="cd-title" data-topics={JSON.stringify(TOPICS)}>
+  <form class="cd-form" method="POST" action="/api/forms">
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="topic" value="General question" />
+    <input type="hidden" name="page" value="" />
+    <p class="cd-hp"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
+    <button type="button" class="cd-close" aria-label="Close" data-close>×</button>
+    <p class="cd-kicker">Holland Tunnel Gallery</p>
+    <h2 class="cd-title" id="cd-title">Get in touch</h2>
+    <p class="cd-intro"></p>
+    <div class="cd-grid">
+      <div><label for="cd-name">Name</label><input id="cd-name" name="name" required autocomplete="name" /></div>
+      <div><label for="cd-email">Email</label><input id="cd-email" name="email" type="email" required autocomplete="email" /></div>
+      <div data-field="phone"><label for="cd-phone">Phone <span>(optional)</span></label><input id="cd-phone" name="phone" type="tel" autocomplete="tel" /></div>
+      <div class="cd-full" data-field="school"><label for="cd-school">School and district</label><input id="cd-school" name="school" /></div>
+      <div data-field="grades"><label for="cd-grades">Grades <span>(optional)</span></label><input id="cd-grades" name="grades" placeholder="e.g. 9–12" /></div>
+      <div data-field="students"><label for="cd-students">Number of students <span>(optional)</span></label><input id="cd-students" name="students" type="number" min="1" /></div>
+      <div data-field="date"><label for="cd-date">Date <span>(optional)</span></label><input id="cd-date" name="date" type="date" /></div>
+      <div data-field="guests"><label for="cd-guests">Number of people <span>(optional)</span></label><input id="cd-guests" name="guests" type="number" min="1" /></div>
+      <div data-field="discipline">
+        <label for="cd-discipline">You are</label>
+        <select id="cd-discipline" name="discipline">
+          <option>A visual artist</option>
+          <option>A musician or performer</option>
+          <option>Representing an artist or estate</option>
+        </select>
+      </div>
+      <div class="cd-full" data-field="website"><label for="cd-website">Website or Instagram <span>(optional)</span></label><input id="cd-website" name="website" placeholder="https://" /></div>
+      <div class="cd-full" data-field="history"><label for="cd-history">What you showed or played at Holland Tunnel, and when</label><textarea id="cd-history" name="history" rows="3"></textarea></div>
+      <div class="cd-full"><label for="cd-message">Message</label><textarea id="cd-message" name="message" rows="5" required></textarea></div>
+    </div>
+    <div class="cd-actions">
+      <button type="submit" class="cd-send">Send</button>
+      <p class="cd-alt">Or write to <span class="cd-addr">{EMAIL}</span></p>
+    </div>
+    <p class="cd-status" role="status" aria-live="polite"></p>
+  </form>
+  <div class="cd-done" hidden>
+    <button type="button" class="cd-close" aria-label="Close" data-close>×</button>
+    <p class="cd-kicker">Holland Tunnel Gallery</p>
+    <h2 class="cd-title">Thank you</h2>
+    <p class="cd-intro">Your message is on its way. Paulien reads every one and will reply by email.</p>
+    <button type="button" class="cd-send" data-close>Close</button>
+  </div>
+</dialog>
+
+<script>
+  const dlg = document.getElementById('contact-dialog') as HTMLDialogElement | null;
+  if (dlg && typeof dlg.showModal === 'function') {
+    const topics = JSON.parse(dlg.dataset.topics!) as Record<string, { title: string; intro: string; fields: string[] }>;
+    const form = dlg.querySelector('form')!;
+    const done = dlg.querySelector<HTMLElement>('.cd-done')!;
+    const status = dlg.querySelector<HTMLElement>('.cd-status')!;
+    const send = form.querySelector<HTMLButtonElement>('.cd-send')!;
+    let opener: HTMLElement | null = null;
+
+    // The page's section of the site decides the default topic.
+    const fromPath = () => {
+      const p = location.pathname;
+      if (p.startsWith('/artists')) return 'artists';
+      if (p.startsWith('/rent')) return 'rent';
+      if (p.startsWith('/exhibitions')) return 'exhibitions';
+      if (p.startsWith('/events')) return 'events';
+      if (p.startsWith('/schools')) return 'schools';
+      return 'general';
+    };
+
+    const open = (topic: string, link: HTMLElement) => {
+      const t = topics[topic] ?? topics.general;
+      opener = link;
+      form.hidden = false;
+      done.hidden = true;
+      status.textContent = '';
+      dlg.querySelector('#cd-title')!.textContent = t.title;
+      form.querySelector('.cd-intro')!.textContent = t.intro;
+      (form.elements.namedItem('topic') as HTMLInputElement).value = t.title;
+      (form.elements.namedItem('page') as HTMLInputElement).value = location.pathname;
+      for (const el of form.querySelectorAll<HTMLElement>('[data-field]')) {
+        const on = t.fields.includes(el.dataset.field!);
+        el.hidden = !on;
+        el.querySelectorAll<HTMLInputElement>('input, select, textarea').forEach((i) => (i.disabled = !on));
+      }
+      (form.querySelector('#cd-history') as HTMLTextAreaElement).required = t.fields.includes('history');
+      dlg.showModal();
+      (form.querySelector('#cd-name') as HTMLInputElement).focus();
+    };
+
+    // Any link to the gallery's address opens the form (the share menu's "Email a friend" link has no
+    // address, so it's unaffected).
+    document.addEventListener('click', (e) => {
+      const a = (e.target as Element | null)?.closest?.('a[href^="mailto:"]') as HTMLAnchorElement | null;
+      if (!a || !/^mailto:[^?]*@/.test(a.getAttribute('href')!) || a.closest('dialog')) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // modifier-click: let the mail app open
+      e.preventDefault();
+      const topic = a.dataset.contact ?? a.closest<HTMLElement>('[data-contact]')?.dataset.contact ?? fromPath();
+      open(topic, a);
+    });
+
+    dlg.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => dlg.close()));
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); }); // click on the backdrop
+    dlg.addEventListener('close', () => opener?.focus());
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      send.disabled = true;
+      status.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+        if (!res.ok) throw new Error((await res.text()) || 'Something went wrong.');
+        form.reset();
+        form.hidden = true;
+        done.hidden = false;
+        done.querySelector<HTMLButtonElement>('.cd-send')!.focus();
+      } catch (err) {
+        status.textContent = `${(err as Error).message} You can also write to info@hollandtunnelgallery.com.`;
+      } finally {
+        send.disabled = false;
+      }
+    });
+  }
+</script>

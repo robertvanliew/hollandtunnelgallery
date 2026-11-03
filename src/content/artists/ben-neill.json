@@ -1,0 +1,215 @@
+{
+  "name": "Ben Neill",
+  "slug": "ben-neill",
+  "also_known_as": [],
+  "kind": "musician",
+  "roles": [
+    "composer",
+    "trumpeter",
+    "instrument inventor",
+    "author",
+    "professor"
+  ],
+  "based_in": "New York area",
+  "origin": "Winston-Salem, North Carolina",
+  "born": "1957-11-14",
+  "died": "",
+  "education": [
+    {
+      "school": "North Carolina School of the Arts",
+      "degree": "",
+      "year": ""
+    },
+    {
+      "school": "Dana School of Music, Youngstown State University",
+      "degree": "BM and MM",
+      "year": ""
+    },
+    {
+      "school": "Manhattan School of Music",
+      "degree": "DMA",
+      "year": "1983"
+    }
+  ],
+  "bio_short": "Ben Neill is a composer, trumpeter and inventor of the Mutantrumpet, an electro-acoustic hybrid instrument, whose work spans electronic, jazz and minimalist music.",
+  "bio_long": "Ben Neill was born in Winston-Salem, North Carolina, in 1957 and studied at the North Carolina School of the Arts, Youngstown State University's Dana School of Music and the Manhattan School of Music, where he earned a doctorate. He studied privately with La Monte Young and was mentored by Jon Hassell. In 1981 he built the first Mutantrumpet, a trumpet with extra bells and valves and a trombone slide, with analog processing custom built by Robert Moog; later versions developed with David Behrman at Amsterdam's STEIM added MIDI and computer control. Based in New York since the early 1980s, he was music curator at The Kitchen through the 1990s and has worked with John Cage, Pauline Oliveros, Rhys Chatham, John Cale, David Wojnarowicz, DJ Spooky, King Britt and singer Mimi Goese. His albums, released on labels including Verve, Astralwerks, Thirsty Ear, Blue Math Music and Six Degrees, include Night Science (2009), Life You Are with Mimi Goese (2020), Trove and Prana Cantos (2023). He taught at NJIT and, from 2008, at Ramapo College of New Jersey, where he founded an MFA in Creative Music Technology and was named professor emeritus in 2025. His book Diffusing Music: Trajectories of Sonic Democratization appeared from Bloomsbury in 2024. At Holland Tunnel Gallery he gave a performance and artist talk with the exhibition \"Otherness\" on September 18, 2022.",
+  "practice": "Live electro-acoustic performance on the Mutantrumpet, blending trumpet with real-time electronics; compositions drawing on electronic dance music, jazz and minimalism, plus installations.",
+  "career_timeline": [
+    {
+      "year": "1957",
+      "event": "Born in Winston-Salem, NC"
+    },
+    {
+      "year": "1980",
+      "event": "Formed new wave band The B-Minors"
+    },
+    {
+      "year": "1981",
+      "event": "Built first Mutantrumpet with electronics by Robert Moog"
+    },
+    {
+      "year": "1983",
+      "event": "DMA, Manhattan School of Music"
+    },
+    {
+      "year": "1992",
+      "event": "Became music curator at The Kitchen (through late 1990s)"
+    },
+    {
+      "year": "2008",
+      "event": "Joined Ramapo College faculty"
+    },
+    {
+      "year": "2009",
+      "event": "Night Science (Thirsty Ear)"
+    },
+    {
+      "year": "2022",
+      "event": "Performance and talk, 'Otherness', Holland Tunnel Gallery, Sep 18"
+    },
+    {
+      "year": "2023",
+      "event": "Prana Cantos (Six Degrees)"
+    },
+    {
+      "year": "2024",
+      "event": "Published Diffusing Music (Bloomsbury)"
+    },
+    {
+      "year": "2025",
+      "event": "Named Emeritus Professor, Ramapo College"
+    }
+  ],
+  "selected_exhibitions": [
+    {
+      "year": "2022",
+      "title": "Performance + art talk, 'Otherness'",
+      "venue": "Holland Tunnel Gallery",
+      "city": "Newburgh, NY"
+    }
+  ],
+  "collections": [],
+  "awards_residencies": [],
+  "teaching": [
+    "Ramapo College of New Jersey, professor of music (from 2008); founder, MFA in Creative Music Technology; emeritus 2025",
+    "New Jersey Institute of Technology"
+  ],
+  "press": [],
+  "recordings_or_publications": [
+    {
+      "year": "2009",
+      "title": "Night Science",
+      "label_or_publisher": "Thirsty Ear Recordings"
+    },
+    {
+      "year": "2018",
+      "title": "Souvenir and Transition Dub",
+      "label_or_publisher": "Blue Math Music"
+    },
+    {
+      "year": "2020",
+      "title": "Life You Are (with Mimi Goese)",
+      "label_or_publisher": "Blue Math Music"
+    },
+    {
+      "year": "2020",
+      "title": "Trove",
+      "label_or_publisher": "Blue Math Music"
+    },
+    {
+      "year": "2023",
+      "title": "Prana Cantos",
+      "label_or_publisher": "Six Degrees Records"
+    },
+    {
+      "year": "2024",
+      "title": "Diffusing Music: Trajectories of Sonic Democratization (book)",
+      "label_or_publisher": "Bloomsbury Academic"
+    }
+  ],
+  "collaborators_and_connections": [
+    {
+      "name": "La Monte Young",
+      "relation": "teacher and longtime associate"
+    },
+    {
+      "name": "Jon Hassell",
+      "relation": "mentor"
+    },
+    {
+      "name": "Robert Moog",
+      "relation": "built original Mutantrumpet electronics"
+    },
+    {
+      "name": "David Behrman",
+      "relation": "Mutantrumpet development at STEIM"
+    },
+    {
+      "name": "John Cage",
+      "relation": "collaborator"
+    },
+    {
+      "name": "Pauline Oliveros",
+      "relation": "collaborator"
+    },
+    {
+      "name": "Rhys Chatham",
+      "relation": "collaborator"
+    },
+    {
+      "name": "John Cale",
+      "relation": "collaborator"
+    },
+    {
+      "name": "David Wojnarowicz",
+      "relation": "collaborator"
+    },
+    {
+      "name": "DJ Spooky",
+      "relation": "collaborator"
+    },
+    {
+      "name": "Mimi Goese",
+      "relation": "duo album Life You Are"
+    },
+    {
+      "name": "King Britt",
+      "relation": "collaborator"
+    },
+    {
+      "name": "Nicolas Collins",
+      "relation": "collaborator"
+    }
+  ],
+  "links": {
+    "website": "https://benneill.com/",
+    "instagram": "",
+    "wikipedia": "https://en.wikipedia.org/wiki/Ben_Neill",
+    "wikidata": "https://www.wikidata.org/wiki/Q4886213",
+    "bandcamp": "https://benneillmusic.bandcamp.com/",
+    "spotify": "",
+    "youtube": "https://www.youtube.com/user/mutantrumpet",
+    "other": [
+      "https://www.facebook.com/Mutantrumpet/",
+      "https://benneill.com/mutantrumpet/"
+    ]
+  },
+  "verification": {
+    "status": "verified",
+    "evidence": "Gallery names him as composer and inventor of the Mutantrumpet; only one person matches (official site, Wikipedia).",
+    "sources": [
+      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://benneill.com/biography/",
+      "https://en.wikipedia.org/wiki/Ben_Neill"
+    ]
+  },
+  "open_questions": [
+    "Titles/years of Verve, Astralwerks and New Tone era albums not captured",
+    "Awards/fellowships not captured"
+  ],
+  "shows": [
+    "otherness-2022"
+  ],
+  "image": "../../assets/artists/ben-neill-playing-the-mutantrumpet.png",
+  "imageAlt": "Ben Neill playing the Mutantrumpet"
+}
