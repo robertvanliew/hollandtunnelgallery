@@ -7,8 +7,8 @@
   "startDate": "2026-10-16",
   "reception": "Opened Friday, Oct 16, 2026, with live music",
   "description": "New work by Julie Lindell, Bix Lye and Paulien Lethen. The opening on Friday, Oct 16 had live music by Duo Laroo/Byrd: Saskia Laroo (trumpet, saxophone, bass, vocals) and Warren Byrd (piano, vocals, bongos).",
-  "image": "../../assets/shows/alone-together-2026-0463.jpg",
-  "imageAlt": "Visitors at the opening of Alone Together, Oct 16, 2026, in the gallery's main room",
+  "image": "../../assets/shows/alone-together-2026-0460.jpg",
+  "imageAlt": "A drawing of two ornate thrones, from Alone Together",
   "video": {
     "src": "/media/alone-together-opening-2026.mp4",
     "poster": "../../assets/shows/alone-together-2026-video-poster.jpg",
@@ -18,10 +18,6 @@
     {
       "image": "../../assets/shows/alone-together-2026-0272.jpg",
       "alt": "Two large prints by Paulien Lethen in Alone Together: layered black, yellow and pink forms, and coral and grey forms"
-    },
-    {
-      "image": "../../assets/shows/alone-together-2026-0460.jpg",
-      "alt": "A drawing of two ornate thrones, from Alone Together"
     },
     {
       "image": "../../assets/shows/alone-together-2026-0271.jpg",
@@ -34,6 +30,10 @@
     {
       "image": "../../assets/shows/alone-together-2026-0466.jpg",
       "alt": "Getting ready to play: an upright bass beside the grand piano, with bongos in front"
+    },
+    {
+      "image": "../../assets/shows/alone-together-2026-0463.jpg",
+      "alt": "Visitors at the opening of Alone Together, Oct 16, 2026, in the gallery's main room"
     },
     {
       "image": "../../assets/shows/alone-together-2026-0464.jpg",
