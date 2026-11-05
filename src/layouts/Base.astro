@@ -1,11 +1,9 @@
 ---
 // Shared shell for every page: SEO head, header, footer.
 import '@fontsource/bebas-neue/latin-400.css';
-import '@fontsource/montserrat/latin-400.css';
-import '@fontsource/montserrat/latin-400-italic.css';
-import '@fontsource/montserrat/latin-500.css';
-import '@fontsource/montserrat/latin-600.css';
-import '@fontsource/montserrat/latin-700.css';
+// Montserrat as one variable font: a single ~38 KB file covers every weight (was five files, ~95 KB).
+// Italic is synthesized from the upright font: italics are rare here and a true italic file costs ~40 KB.
+import '@fontsource-variable/montserrat/wght.css';
 import '../styles/chrome.css';
 import '../styles/motion.css';
 import Header from '../components/Header.astro';
@@ -14,10 +12,8 @@ import ContactDialog from '../components/ContactDialog.astro';
 import { PUBLIC_SITE, SITE_URL } from '../lib/site';
 // Preload the faces used above the fold so the header doesn't reflow when fonts arrive (CLS).
 import bebas from '@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2?url';
-import mont400 from '@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url';
-import mont500 from '@fontsource/montserrat/files/montserrat-latin-500-normal.woff2?url';
-import mont600 from '@fontsource/montserrat/files/montserrat-latin-600-normal.woff2?url';
-const preloadFonts = [bebas, mont400, mont500, mont600];
+import montserrat from '@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url';
+const preloadFonts = [bebas, montserrat];
 
 interface Props {
   title: string;
@@ -78,6 +74,7 @@ const image = ogImage ? new URL(ogImage, SITE_URL).href : `${SITE_URL}/img/og-un
     <meta name="twitter:image" content={image} />
     {ogImageMeta && <meta name="twitter:image:alt" content={ogImageMeta.alt} />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/brand/htg-mark-180.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld).replace(/</g, '\\u003c')} />}
     <slot name="head" />

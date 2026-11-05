@@ -1,14 +1,56 @@
 ---
+// Status bar (hours + what's on, from the show dates) and the left-aligned masthead.
 import { NAV } from '../lib/site';
+import HtgMark from './HtgMark.astro';
+import { onView, shortDate, longDate } from '../lib/onview';
 interface Props { active?: string }
 const { active } = Astro.props;
+const ov = await onView();
+const whatsOn = !ov ? null
+  : ov.status === 'current' ? { text: `Now on view: ${ov.show.title} · closes ${shortDate(ov.end)}`, href: ov.show.url, until: ov.end }
+  : ov.status === 'upcoming' ? { text: `${ov.show.title} opens ${longDate(ov.show.startDate)}`, href: ov.show.url }
+  : { text: 'Next exhibition announced soon', href: '/#newsletter', cta: 'Hear first' };
 ---
+<div class="status-bar">
+  <div class="status-in">
+    <p><span class="dot" aria-hidden="true"></span>Open Saturday &amp; Sunday, 1–5 pm<span class="sb-more"> · 46 Chambers Street, Newburgh</span> · Free</p>
+    {whatsOn && (
+      <p class="sb-on" data-until={whatsOn.until}>
+        {whatsOn.cta ? <>{whatsOn.text}{' · '}<a href={whatsOn.href}>{whatsOn.cta}</a></> :<a href={whatsOn.href}>{whatsOn.text}</a>}
+      </p>
+    )}
+  </div>
+</div>
 <header class="site-head">
-  <a class="wordmark" href="/">Holland Tunnel Gallery</a>
-  <p class="tagline">Contemporary arts, music &amp; events · Newburgh, NY · Since 1997</p>
-  <nav class="main-nav" aria-label="Main">
-    {NAV.map((n) => (
-      <a href={n.href} aria-current={n.key === active ? 'page' : undefined}>{n.label}</a>
-    ))}
-  </nav>
+  <div class="head-in">
+    <a class="wordmark" href="/" aria-label="Holland Tunnel Gallery, home">
+      <HtgMark class="wm-mark" size={40} />
+      <span class="wm-name">Holland Tunnel</span>
+      <span class="wm-sub">Gallery · Est. 1997</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" hidden>
+      <span class="vh">Menu</span>
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path class="mb-open" d="M4 7h16M4 12h16M4 17h16" /><path class="mb-close" d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      {NAV.map((n) => (
+        <a href={n.href} aria-current={n.key === active ? 'page' : undefined}>{n.label}</a>
+      ))}
+      <a class="nav-visit" href="/#visit" aria-current={active === 'visit' ? 'page' : undefined}>Visit</a>
+    </nav>
+  </div>
 </header>
+<script is:inline>
+  // Phone menu: without JavaScript the nav simply stays visible and wraps.
+  (function () {
+    var h = document.querySelector('.site-head'), b = h && h.querySelector('.menu-btn');
+    if (!b) return;
+    h.classList.add('has-menu');
+    b.hidden = false;
+    b.addEventListener('click', function () {
+      var open = b.getAttribute('aria-expanded') !== 'true';
+      b.setAttribute('aria-expanded', String(open));
+      h.classList.toggle('menu-open', open);
+    });
+  })();
+</script>

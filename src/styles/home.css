@@ -1,0 +1,213 @@
+/* Home page (redesign). Tokens come from chrome.css. Orange text only at 24px and up (3.5:1 on white);
+   the orange band uses ink text. Square corners, no shadows: white walls and printed posters. */
+.h-wrap { max-width: var(--wide); margin: 0 auto; padding-inline: var(--gutter); }
+.h-section { padding-block: clamp(64px, 8vw, 96px); }
+.h-ruled { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.h-ruled + .h-ruled { border-top: 0; }
+
+/* type */
+.h-h2 { margin: 0 0 18px; font: 400 clamp(48px, 6vw, 84px)/.9 var(--display); letter-spacing: .01em; color: var(--ink); text-wrap: balance; }
+.h-h2--sm { font-size: clamp(40px, 4vw, 52px); line-height: .95; margin-top: 12px; }
+.h-kicker, .h-label, .h-tag { margin: 0 0 10px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--label); }
+.h-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 40px; margin-bottom: 36px; }
+.h-head .h-h2 { margin: 0; }
+.h-more { font-size: 15px; font-weight: 600; color: var(--ink); }
+
+/* buttons */
+.h-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.h-btn { display: inline-block; font: 400 24px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; padding: 15px 26px 12px; background: var(--orange); color: #fff; border: 2px solid var(--orange); transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .16s var(--ease-out); }
+.h-btn:active { transform: scale(.97); }
+.h-btn--ink { background: var(--ink); border-color: var(--ink); }
+.h-btn--line { background: transparent; color: var(--ink); border-color: var(--ink); }
+/* Hover always moves AWAY from the background it sits on: orange -> ink, ink -> white (visible on paper
+   and on the orange band), outline -> filled ink. Only for real pointers, so taps never stick. */
+@media (hover: hover) and (pointer: fine) {
+  .h-btn:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .h-btn--ink:hover { background: #fff; border-color: var(--ink); color: var(--ink); }
+  .h-btn--line:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+}
+
+/* hero */
+.h-hero { padding-block: clamp(40px, 6vw, 72px) clamp(56px, 7vw, 88px); }
+.h-hero-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px clamp(32px, 4vw, 56px); align-items: stretch; }
+.h-hero-text { min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+.h-hero-fig { min-width: 0; margin: 0; }
+.h-hero-fig picture { display: block; } /* a full-size box, so the curtain reveal clips the whole photo */
+.h-hero-fig img { width: 100%; height: clamp(360px, 44vw, 640px); object-fit: cover; }
+@media (max-width: 900px) {
+  /* tablets and phones: title and description, then the photo, then artists and buttons */
+  .h-hero-in { display: flex; flex-direction: column; gap: 28px; }
+  .h-hero-text { display: contents; }
+  .h-hero-text > div:first-child { order: 1; }
+  .h-hero-fig { order: 2; }
+  .h-hero-text > div:last-child { order: 3; }
+  .h-hero-fig img { height: auto; aspect-ratio: 4 / 3; }
+}
+.h-hero-fig figcaption { margin-top: 10px; font-size: 13px; color: var(--label); }
+.h-intro { margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--label); line-height: 1.5; }
+.h-intro b { color: var(--ink); font-weight: 700; }
+.h-badge { display: inline-flex; align-items: center; margin: 0 0 22px; padding: 7px 14px; border: 1.5px solid var(--ink); font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.h-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); margin-right: 10px; }
+/* The title block is a size container, and --tw (longest word, in letters) is set from the show title,
+   so the longest word always fits its column on one line: no "UNFRAME/D" breaks at any width. */
+.h-hero-text > div:first-child { container-type: inline-size; }
+.h-title { margin: 0; font: 400 clamp(56px, calc(232cqi / var(--tw, 8)), 168px)/.84 var(--display); letter-spacing: .005em; color: var(--ink); text-wrap: balance; }
+.h-lede { margin: 26px 0 0; max-width: 32ch; font-size: clamp(19px, 1.6vw, 21px); line-height: 1.5; color: #2B2727; }
+.h-note { margin: 14px 0 0; max-width: 46ch; font-size: 16px; color: var(--text); }
+.h-names { margin: 0 0 26px; font-size: 16px; line-height: 1.7; color: var(--ink); }
+.h-names a { color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .h-names a:hover { color: var(--orange); } }
+
+/* program (dark band) */
+.h-dark { background: var(--ink); color: #D9D5D2; padding-block: clamp(64px, 8vw, 96px); }
+.h-dark .h-h2 { color: #fff; }
+.h-dark .h-kicker { color: var(--orange-light); }
+.h-dark .h-more { color: #fff; }
+.h-program { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid #3A3636; }
+.h-program li { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 40px; padding: 28px 0; border-top: 1px solid #3A3636; position: relative; }
+.h-when { flex: 0 0 180px; margin: 0; font: 400 30px/1 var(--display); color: #fff; }
+.h-what { flex: 1 1 360px; min-width: 0; }
+.h-what .h-tag { color: #B9B2AC; margin-bottom: 4px; }
+.h-what h3 { margin: 0 0 6px; font: 400 clamp(32px, 3vw, 40px)/1 var(--display); color: #fff; }
+.h-what h3 a { color: inherit; text-decoration: none; }
+.h-what h3 a::after { content: ""; position: absolute; inset: 0; } /* whole row is the link */
+.h-what h3 { transition: color .2s ease; }
+@media (hover: hover) and (pointer: fine) { .h-program li:hover h3 { color: var(--orange-light); } }
+.h-what p { margin: 0; max-width: 62ch; font-size: 16px; }
+.h-program picture { flex: 0 0 240px; }
+.h-program img { display: block; width: 100%; height: 150px; object-fit: cover; }
+@media (max-width: 700px) {
+  .h-when { flex-basis: 100%; font-size: 22px; }
+  .h-program picture { order: -1; flex: 1 1 100%; }
+  .h-program img { height: 180px; }
+}
+
+/* recent shows */
+.h-shows { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 24px; }
+@media (max-width: 1100px) { .h-shows { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.h-shows a { display: flex; flex-direction: column; gap: 12px; text-decoration: none; }
+.h-shows img { width: 100%; aspect-ratio: 1; object-fit: contain; background: #fff; border: 1px solid var(--border); padding: 10px; transition: border-color .2s ease; }
+@media (hover: hover) and (pointer: fine) { .h-shows a:hover img { border-color: var(--ink); } .h-show-t { transition: color .2s ease; } }
+.h-shows .h-label { margin: 4px 0 0; }
+.h-show-t { font: 400 32px/1 var(--display); color: var(--ink); }
+.h-shows a:hover .h-show-t { color: var(--orange); }
+@media (max-width: 600px) {
+  .h-shows { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin-right: calc(-1 * var(--gutter)); padding-right: var(--gutter); }
+  .h-shows li { flex: 0 0 72%; scroll-snap-align: start; }
+}
+
+/* artists */
+.h-artists { display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center; }
+.h-artists > div:first-child { flex: 1 1 340px; min-width: 0; }
+.h-artists > div:last-child { flex: 1.4 1 480px; min-width: 0; }
+.h-artists > div:first-child > p:not(.h-big) { max-width: 42ch; margin: 0 0 24px; }
+.h-big { margin: 0; font: 400 clamp(120px, 14vw, 220px)/.8 var(--display); color: var(--orange); }
+.h-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.h-chips a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 14px; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; background: #fff; border: 1px solid #CFC8C2; }
+.h-chips a.is-music { background: var(--ink); border-color: var(--ink); color: #fff; }
+.h-chips a { transition: border-color .2s ease, box-shadow .2s ease, transform .16s var(--ease-out); }
+.h-chips a:active { transform: scale(.97); }
+@media (hover: hover) and (pointer: fine) { .h-chips a:hover { border-color: var(--orange); box-shadow: inset 0 -3px 0 var(--orange); } }
+.h-chips .h-chips-more { background: none; border-color: transparent; font-weight: 600; }
+.h-key { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 16px 0 0; font-size: 13px; color: var(--label); }
+.h-key span { display: inline-flex; align-items: center; gap: 8px; }
+.h-key i { width: 14px; height: 14px; background: #fff; border: 1px solid #CFC8C2; }
+.h-key i.is-music { background: var(--ink); border-color: var(--ink); }
+
+/* story */
+.h-story { display: flex; flex-wrap: wrap; gap: 48px 72px; }
+.h-story > div { flex: 1 1 420px; min-width: 0; }
+.h-story p { max-width: 60ch; }
+.h-story-side { display: flex; flex-direction: column; justify-content: center; gap: 48px; }
+.h-founder { display: flex; align-items: center; gap: 18px; margin-top: 28px; }
+.h-founder picture { flex: none; }
+.h-founder img { display: block; width: 84px; height: 92px; object-fit: cover; }
+.h-founder p { margin: 0; font-size: 14px; color: var(--label); }
+.h-quote { margin: 0; padding: 0; border: 0; }
+.h-quote p { margin: 0 0 16px; font: 400 clamp(36px, 3.8vw, 54px)/1 var(--display); color: var(--ink); max-width: none; }
+.h-quote cite { font-style: normal; font-size: 14px; font-weight: 600; color: var(--ink); }
+.h-timeline { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 3px solid var(--ink); }
+.h-timeline li { padding: 14px 12px 0 0; font-size: 13px; line-height: 1.45; }
+.h-timeline b { display: block; font: 400 40px/1 var(--display); color: var(--orange); margin-bottom: 4px; }
+@media (max-width: 520px) { .h-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 16px; } }
+
+/* rent (orange band, ink text) */
+.h-rent { background: var(--orange); color: var(--ink); }
+.h-rent-in { display: flex; flex-wrap: wrap; align-items: center; gap: 0 64px; }
+.h-rent-text { flex: 1 1 400px; min-width: 0; padding-block: clamp(56px, 7vw, 80px) clamp(24px, 4vw, 80px); }
+.h-rent .h-kicker, .h-rent .h-h2 { color: var(--ink); }
+.h-rent p:not(.h-kicker) { max-width: 46ch; margin: 0 0 28px; font-size: 18px; }
+.h-rent-pics { flex: 1.2 1 460px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding-block: 40px; }
+.h-rent-pics img { display: block; width: 100%; height: clamp(260px, 30vw, 420px); object-fit: cover; }
+.h-rent-pics picture + picture { margin-top: 48px; }
+.h-rent :focus-visible { outline-color: var(--ink); }
+
+/* visit */
+.h-visit { display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: stretch; }
+.h-visit > div { flex: 1 1 400px; min-width: 0; }
+.h-facts { display: grid; grid-template-columns: 130px 1fr; gap: 16px 20px; margin: 10px 0 32px; font-size: 16px; }
+.h-facts dt { padding-top: 3px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--label); }
+.h-facts dd { margin: 0; color: var(--ink); overflow-wrap: anywhere; }
+.h-facts dd span { color: var(--label); }
+.h-aside { margin: 20px 0 0; font-size: 16px; }
+/* This weekend's forecast (src/scripts/weekend-weather.ts) */
+.h-wx-list { list-style: none; margin: 0 0 6px; padding: 0; display: grid; gap: 6px; }
+.h-wx-list li { display: grid; grid-template-columns: 22px auto 1fr; align-items: center; gap: 4px 10px; }
+.h-wx-list svg { color: var(--ink); }
+.h-wx-list b { font: 400 22px/1 var(--display); letter-spacing: .04em; color: var(--ink); padding-top: 3px; }
+.h-wx-list span { color: var(--text); font-size: 15px; }
+.h-wx-more { font-size: 13px; color: var(--label); }
+@media (max-width: 520px) { .h-wx-list li { grid-template-columns: 22px auto; } .h-wx-list span { grid-column: 2; } }
+@media (prefers-reduced-motion: no-preference) { dd[data-wx]:not([hidden]) { animation: h-wx-in .3s var(--ease-out); } }
+@keyframes h-wx-in { from { opacity: 0; transform: translateY(4px); } }
+/* Map: the painted map (components/PaintedMap.astro) in an ink frame, with the location card attached below it. */
+.h-map { flex: 1.2 1 460px; min-width: 0; margin: 0; display: flex; flex-direction: column; border: 1px solid var(--ink); background: var(--paper); }
+.h-map-card { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 24px; padding: 20px 22px 22px; border-top: 1px solid var(--ink); }
+.h-map-card .h-kicker { margin-bottom: 6px; }
+.h-map-addr { margin: 0 0 10px; font: 400 30px/1 var(--display); color: var(--ink); }
+.h-map-addr a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 3px; text-underline-offset: 5px; }
+@media (hover: hover) and (pointer: fine) { .h-map-addr a:hover { color: var(--orange); } }
+.h-map-addr span { display: block; margin-top: 6px; font: 500 14px/1.4 var(--body); color: var(--text); }
+.h-map-open { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.h-map-open .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex: none; }
+.h-map-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.h-map-links .h-btn { font-size: 20px; padding: 12px 16px 9px; }
+@media (max-width: 520px) { .h-facts { grid-template-columns: 1fr; gap: 2px; } .h-facts dd { margin-bottom: 12px; } }
+
+/* FAQ */
+.h-faq-wrap > * { max-width: 900px; }
+.h-faq details { border-bottom: 1px solid var(--border); padding: 18px 0; }
+.h-faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: var(--ink); }
+.h-faq summary::-webkit-details-marker { display: none; }
+.h-faq summary::after { content: "+"; font: 400 28px/1 var(--display); color: var(--ink); }
+.h-faq details[open] summary::after { content: "–"; }
+.h-faq details p { margin: 12px 0 0; max-width: 64ch; }
+
+/* newsletter */
+.h-join { background: var(--ink); color: #D9D5D2; padding-block: clamp(56px, 7vw, 80px); border-bottom: 1px solid #2c2c2c; }
+.h-join-in { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 64px; }
+.h-join-in > * { flex: 1 1 400px; min-width: 0; }
+.h-join .h-h2 { color: #fff; margin-bottom: 12px; }
+.h-join p { margin: 0; max-width: 46ch; }
+.h-join-form label { display: block; margin-bottom: 8px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #D9D5D2; }
+.h-join-form > div { display: flex; flex-wrap: wrap; }
+.h-join-form input { flex: 1 1 220px; min-width: 0; padding: 16px; border: 0; border-radius: 0; font: 500 17px var(--body); color: var(--ink); background: #fff; }
+.h-join-form button { padding: 13px 28px 10px; border: 0; font: 400 26px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--orange); cursor: pointer; }
+.h-join-form button:hover { background: #fff; color: var(--ink); }
+.h-join .form-thanks { color: #fff; font-weight: 600; }
+main:has(> .h-join:last-child) + .site-foot { margin-top: 0; }
+
+/* ---- Motion: starting states for src/scripts/home-motion.ts ("exhibition opening").
+   Only when motion is allowed (html.motion, set before first paint) and until the failsafe fires.
+   The show title is the page's largest paint, so it is never hidden: it only starts slightly low. */
+html.motion:not(.hm-timeout) :is(.h-intro, .h-badge, .h-lede, .h-note, .h-hero-text > div:last-child, .h-head,
+  .h-program li, .h-shows li, .h-artists > div:first-child, .h-chips li, .h-key, .h-story > div:first-child, .h-quote,
+  .h-timeline li, .h-rent-text, .h-visit > div:first-child, .h-map, .h-faq-wrap > *, .h-join-in > *) { opacity: 0; transform: translateY(18px); }
+html.motion:not(.hm-timeout) :is(.h-hero-fig picture, .h-hero-fig > img, .h-rent-pics picture) { clip-path: inset(100% 0 0 0); }
+html.motion:not(.hm-timeout) .h-title { transform: translateY(.16em); }
+
+/* Program rows: an arrow slides in on hover, showing the whole row is the link */
+.h-go { display: inline-block; margin-left: .3em; color: var(--orange-light); opacity: 0; transform: translateX(-10px);
+  transition: opacity .2s ease, transform .25s var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .h-program li:hover .h-go { opacity: 1; transform: translateX(0); } }
+.h-what h3 a:focus-visible .h-go { opacity: 1; transform: none; }

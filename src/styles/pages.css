@@ -17,7 +17,7 @@
   --htg-wash:          #F6F4F3;
 
   --display: "Bebas Neue", "Oswald", "Arial Narrow", Impact, sans-serif;
-  --body: "Montserrat", "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
+  --body: "Montserrat Variable", "Montserrat", "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
 
   --wrap: 1200px;
   --gutter: clamp(16px, 4vw, 40px);
@@ -76,6 +76,7 @@ h3 {
   margin: 0 0 12px;
 }
 .eyebrow.orange { color: var(--htg-orange); }
+h1.eyebrow { font-family: var(--body); line-height: 1.4; letter-spacing: .16em; } /* a page's H1 can wear the small label style */
 .lede { font-size: clamp(18px, 1.6vw, 21px); color: var(--htg-text); max-width: 60ch; }
 .muted { color: var(--htg-muted); }
 .small { font-size: 15px; }

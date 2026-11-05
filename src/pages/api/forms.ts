@@ -4,6 +4,7 @@ import type { APIRoute } from 'astro';
 import { FORMS_FROM, FORMS_TO, RESEND_API_KEY } from 'astro:env/server';
 import { Resend } from 'resend';
 import { EMAIL, PUBLIC_SITE } from '../../lib/site';
+import { getProduct, money, MAX_QTY } from '../../lib/shop';
 
 export const prerender = false;
 
@@ -63,6 +64,13 @@ const FORMS = {
     ],
     skipEmpty: true,
   },
+  // Shop order request: no payment here; the gallery replies to arrange payment and delivery.
+  // Subject and body are built from the product data below (prices are never taken from the form).
+  'shop-order': {
+    subject: () => 'Shop order request',
+    required: ['name', 'email', 'product', 'quantity', 'delivery'],
+    fields: [],
+  },
   newsletter: {
     subject: (f: FormData) => `Newsletter signup: ${f.get('email')}`,
     required: ['email'],
@@ -73,6 +81,14 @@ const FORMS = {
 type FormName = keyof typeof FORMS;
 const text = (f: FormData, k: string) => String(f.get(k) ?? '').trim();
 const back = (req: Request, path: string) => Response.redirect(new URL(path, req.url), 303);
+// The shop's order form asks for JSON so it can show the order summary in place; everything else redirects.
+const wantsJson = (req: Request) => (req.headers.get('accept') ?? '').includes('application/json');
+const done = (req: Request, extra: Record<string, unknown> = {}) =>
+  wantsJson(req) ? Response.json({ ok: true, ...extra }) : back(req, '/thanks');
+const orderRef = () => {
+  const d = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' }).replace(/-/g, '').slice(2);
+  return `HT-${d}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+};
 
 export const POST: APIRoute = async ({ request }) => {
   let form: FormData;
@@ -99,16 +115,48 @@ export const POST: APIRoute = async ({ request }) => {
     attachments.push({ filename: photo.name.replace(/[^\w.\-]+/g, '_'), content: Buffer.from(await photo.arrayBuffer()) });
   }
 
-  const body = spec.fields
+  let body = spec.fields
     .filter(([, key]) => !('skipEmpty' in spec) || text(form, key))
     .map(([label, key]) => `${label}:\n${text(form, key) || '(none)'}`)
     .join('\n\n');
+  let subject: string = spec.subject(form);
+  let ref: string | undefined;
+
+  if (name === 'shop-order') {
+    // Check everything against the shop data; the price comes from src/lib/shop.ts, never from the form.
+    const product = getProduct(text(form, 'product'));
+    const qty = Number(text(form, 'quantity'));
+    const option = text(form, 'option');
+    const delivery = text(form, 'delivery');
+    const address = text(form, 'address');
+    if (!product) return new Response('That item is no longer in the shop.', { status: 422 });
+    if (!Number.isInteger(qty) || qty < 1 || qty > MAX_QTY)
+      return new Response(`Please choose a quantity from 1 to ${MAX_QTY}.`, { status: 422 });
+    if (product.options && !product.options.values.includes(option))
+      return new Response(`Please choose a ${product.options.label.toLowerCase()}.`, { status: 422 });
+    if (delivery !== 'ship' && delivery !== 'pickup') return new Response('Please choose shipping or pickup.', { status: 422 });
+    if (delivery === 'ship' && !address) return new Response('Please add a shipping address.', { status: 422 });
+    ref = orderRef();
+    const item = `${product.title}${product.options ? ` (${product.options.label}: ${option})` : ''}`;
+    subject = `Shop order request ${ref}: ${qty} × ${product.title} (${text(form, 'name')})`;
+    body = [
+      `Order request ${ref}`,
+      `Item:\n${item}`,
+      `Quantity:\n${qty} × ${money(product.price)} = ${money(qty * product.price)}${delivery === 'ship' ? ' + shipping' : ''}`,
+      `Delivery:\n${delivery === 'ship' ? `Ship to:\n${address}` : 'Pick up at the gallery'}`,
+      `Name:\n${text(form, 'name')}`,
+      `Email:\n${email}`,
+      `Phone:\n${text(form, 'phone') || '(none)'}`,
+      `Note:\n${text(form, 'note') || '(none)'}`,
+      'No payment has been taken. Reply to this email to arrange payment and delivery.',
+    ].join('\n\n');
+  }
 
   if (!RESEND_API_KEY) {
     // Private demo without email configured: accept and log so the flow can be tried end to end.
     if (!PUBLIC_SITE) {
       console.warn(`[forms] RESEND_API_KEY not set; ${name} submission not emailed:\n${body}`);
-      return back(request, '/thanks');
+      return done(request, { ref });
     }
     return new Response(`Form delivery is not configured yet. Please email ${EMAIL}.`, { status: 503 });
   }
@@ -117,7 +165,7 @@ export const POST: APIRoute = async ({ request }) => {
     from: FORMS_FROM,
     to: FORMS_TO,
     replyTo: email,
-    subject: spec.subject(form),
+    subject,
     text: `${body}\n\n(Sent from the ${name} form on hollandtunnelgallery.com)`,
     attachments,
   });
@@ -125,5 +173,5 @@ export const POST: APIRoute = async ({ request }) => {
     console.error('[forms] Resend error', error);
     return new Response(`Sorry, that did not send. Please email ${EMAIL}.`, { status: 502 });
   }
-  return back(request, '/thanks');
+  return done(request, { ref });
 };

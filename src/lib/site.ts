@@ -29,9 +29,9 @@ export const NAV = [
   { href: '/exhibitions', label: 'Exhibitions', key: 'exhibitions' },
   { href: '/events', label: 'Events', key: 'events' },
   { href: '/artists', label: 'Artists', key: 'artists' },
-  { href: '/#next-up', label: 'Cinema Club', key: 'cinema-club' },
-  { href: '/rent', label: 'Rent the Space', key: 'rent' },
-  { href: 'https://www.hollandtunnelgallery.com/publications-and-objects-shop', label: 'Shop', key: 'shop' },
+  { href: '/rent', label: 'Rent', key: 'rent' },
+  { href: '/schools', label: 'Schools', key: 'schools' },
+  { href: '/shop', label: 'Shop', key: 'shop' },
   { href: '/about', label: 'About', key: 'about' },
-  { href: '/#visit', label: 'Visit', key: 'visit' },
 ] as const;
+// "Visit" is drawn by the header as a separate button; Cinema Club lives in the home page program.

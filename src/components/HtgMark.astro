@@ -1,0 +1,16 @@
+---
+// The HTG monogram: one connected mark. The H's right leg is also the T's stem, and the T's top bar
+// runs on as a single orange stroke that curls round into the G. Letters use currentColor (ink in the
+// header, white in the footer); the connecting stroke is always Tunnel orange. No background.
+interface Props { class?: string; title?: string; size?: number }
+const { class: cls, title, size = 48 } = Astro.props;
+const w = Math.round((size * 340) / 200);
+---
+<svg class={cls} width={w} height={size} viewBox="0 0 340 200" role={title ? 'img' : undefined} aria-hidden={title ? undefined : 'true'}
+  aria-label={title} fill="none" stroke-linejoin="miter">
+  {title && <title>{title}</title>}
+  <!-- H: left leg, crossbar, and the shared stem (H's right leg = T's stem) -->
+  <path d="M26 26 V184 M26 108 H118 M118 26 V184" stroke="currentColor" stroke-width="28" stroke-linecap="butt" />
+  <!-- T's bar, running on into the G in one stroke -->
+  <path d="M76 26 H248 A76 76 0 1 0 324 108 H262" stroke="#E75D18" stroke-width="28" stroke-linecap="butt" />
+</svg>

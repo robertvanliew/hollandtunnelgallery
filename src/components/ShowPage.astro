@@ -21,7 +21,7 @@ const today = new Date().toISOString().slice(0, 10);
 const onNow = (s.endDate ?? s.startDate) >= today;
 const names = people.map((p) => p.name);
 const desc = truncate(
-  `${s.title} (${s.dates}), ${s.type.toLowerCase()} at Holland Tunnel Gallery, Newburgh NY.${names.length ? ' With ' + names.join(', ') + '.' : ''}`,
+  s.description ? `${s.title}, ${s.dates}, at Holland Tunnel Gallery, Newburgh NY. ${s.description}` : `${s.title} (${s.dates}), ${s.type.toLowerCase()} at Holland Tunnel Gallery, Newburgh NY.${names.length ? ' With ' + names.join(', ') + '.' : ''}`,
 );
 const jsonld = {
   '@context': 'https://schema.org',
@@ -38,8 +38,9 @@ const jsonld = {
     <div>
       <p class="kicker">{s.type}</p>
       <h1>{s.title}</h1>
-      <p class="show-meta">{s.dates}</p>
+      <p class="show-meta">{s.reception ?? s.dates}</p>
       <p class="rec-meta">{s.venue}</p>
+      {s.description && <p class="show-desc">{s.description}</p>}
       {onNow && <p style="margin-top:18px"><a class="btn" href="/#visit">Plan your visit</a></p>}
     </div>
     {s.image && (

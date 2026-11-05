@@ -1,0 +1,210 @@
+---
+// One product with its order request form. Sending it emails the gallery (api/forms.ts, "shop-order");
+// the visitor then sees an order summary with a reference number. No payment is taken online.
+import Base from '../../layouts/Base.astro';
+import '../../styles/shop.css';
+import { Picture, getImage } from 'astro:assets';
+import { PRODUCTS, getProduct, money, MAX_QTY } from '../../lib/shop';
+import { SITE_URL } from '../../lib/site';
+
+export function getStaticPaths() {
+  return PRODUCTS.map((p) => ({ params: { slug: p.slug } }));
+}
+const p = getProduct(Astro.params.slug!)!;
+const url = `${SITE_URL}/shop/${p.slug}`;
+const jpgs = await Promise.all(p.images.map((im) => getImage({ src: im.src, format: 'jpeg', width: 1200 })));
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Product',
+      name: p.title,
+      description: p.summary,
+      image: jpgs.map((j) => SITE_URL + j.src),
+      url,
+      brand: { '@type': 'Brand', name: 'Holland Tunnel Gallery' },
+      offers: {
+        '@type': 'Offer',
+        price: p.price.toFixed(2),
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        url,
+        seller: { '@id': `${SITE_URL}/#gallery` },
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Shop', item: `${SITE_URL}/shop` },
+        { '@type': 'ListItem', position: 3, name: p.title, item: url },
+      ],
+    },
+  ],
+};
+---
+<Base
+  title={`${p.title} | Holland Tunnel Gallery Shop`.length <= 62 ? `${p.title} | Holland Tunnel Gallery Shop` : `${p.title} | Holland Tunnel Gallery`}
+  description={`${p.summary} ${money(p.price)}. Ships within the USA, or pick up at Holland Tunnel Gallery, 46 Chambers Street, Newburgh, NY.`}
+  path={`/shop/${p.slug}`}
+  active="shop"
+  jsonld={jsonld}
+  ogImage={jpgs[0].src}
+>
+  <section class="s-section">
+    <div class="s-wrap">
+      <p class="s-crumb"><a href="/shop">Shop</a> / {p.kind}</p>
+      <div class="s-product">
+        <div class="s-pics">
+          {p.images.map((im, i) => (
+            <Picture src={im.src} alt={im.alt} formats={['avif', 'webp']} widths={[480, 800, 1200]}
+              sizes="(max-width: 900px) 100vw, 680px" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
+          ))}
+        </div>
+
+        <div>
+          <p class="s-kicker">{p.kind}</p>
+          <h1 class="s-h1">{p.title}</h1>
+          <p class="s-price">{money(p.price)}<span>+ shipping, or free pickup</span></p>
+          <p class="s-lede">{p.summary}</p>
+          {p.artist && <p>Illustration by <a href={p.artist.url}>{p.artist.name}</a>.</p>}
+          <ul class="s-details">{p.details.map((d) => <li>{d}</li>)}</ul>
+
+          <form class="s-order" method="POST" action="/api/forms" data-shop-order data-price={p.price} data-title={p.title}>
+            <input type="hidden" name="form-name" value="shop-order" />
+            <input type="hidden" name="product" value={p.slug} />
+            <p class="vh"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
+
+            <fieldset>
+              <legend>Your order</legend>
+              <div class="s-row">
+                {p.options && (
+                  <div class="s-field">
+                    <label for="o-option">{p.options.label}</label>
+                    <select id="o-option" name="option" required>
+                      <option value="">Choose…</option>
+                      {p.options.values.map((v) => <option value={v}>{v}</option>)}
+                    </select>
+                  </div>
+                )}
+                <div class="s-field">
+                  <label for="o-qty">Quantity</label>
+                  <input id="o-qty" type="number" name="quantity" min="1" max={MAX_QTY} value="1" inputmode="numeric" required />
+                </div>
+              </div>
+              <div>
+                <span class="s-choice-t" id="o-delivery">Delivery</span>
+                <div class="s-choices" role="radiogroup" aria-labelledby="o-delivery">
+                  <label class="s-choice"><input type="radio" name="delivery" value="ship" checked /> Ship within the USA <small>shipping added</small></label>
+                  <label class="s-choice"><input type="radio" name="delivery" value="pickup" /> Pick up at the gallery <small>free</small></label>
+                </div>
+              </div>
+              <div class="s-field" data-address>
+                <label for="o-address">Shipping address</label>
+                <textarea id="o-address" name="address" rows="3" autocomplete="shipping street-address" required></textarea>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Your details</legend>
+              <div class="s-row">
+                <div class="s-field"><label for="o-name">Name</label><input id="o-name" name="name" autocomplete="name" required /></div>
+                <div class="s-field"><label for="o-email">Email</label><input id="o-email" type="email" name="email" autocomplete="email" required /></div>
+              </div>
+              <div class="s-field"><label for="o-phone">Phone <span>(optional)</span></label><input id="o-phone" type="tel" name="phone" autocomplete="tel" /></div>
+              <div class="s-field"><label for="o-note">Note <span>(optional)</span></label><textarea id="o-note" name="note" rows="2"></textarea></div>
+            </fieldset>
+
+            <p class="s-total" aria-live="polite"><b data-total>{money(p.price)}</b><span data-ship>+ shipping</span></p>
+            <button class="s-btn" type="submit">Send order request</button>
+            <p class="s-fine">No payment now. The gallery will email you to confirm the total and arrange payment and delivery.</p>
+            <p class="s-status" role="alert" data-status></p>
+          </form>
+
+          <div class="s-receipt" data-receipt hidden tabindex="-1" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Order form: live total, address only when shipping, and sending without leaving the page so the
+  // visitor gets an order summary with its reference number. Without JavaScript the form still posts.
+  const form = document.querySelector<HTMLFormElement>('[data-shop-order]');
+  const receipt = document.querySelector<HTMLElement>('[data-receipt]');
+  if (form && receipt) {
+    const price = Number(form.dataset.price);
+    const money = (n: number) => `$${n % 1 ? n.toFixed(2) : n}`;
+    const qty = form.elements.namedItem('quantity') as HTMLInputElement;
+    const address = form.querySelector('[data-address]') as HTMLElement;
+    const addressInput = form.elements.namedItem('address') as HTMLTextAreaElement;
+    const status = form.querySelector('[data-status]') as HTMLElement;
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const delivery = () => (form.querySelector('input[name="delivery"]:checked') as HTMLInputElement).value;
+
+    const update = () => {
+      const n = Math.min(10, Math.max(1, Math.floor(Number(qty.value) || 1)));
+      (form.querySelector('[data-total]') as HTMLElement).textContent = money(n * price);
+      const ship = delivery() === 'ship';
+      (form.querySelector('[data-ship]') as HTMLElement).textContent = ship ? '+ shipping' : 'pickup at the gallery, free';
+      address.hidden = !ship;
+      addressInput.required = ship;
+    };
+    form.addEventListener('input', update);
+    form.addEventListener('change', update);
+    update();
+
+    // Text only (textContent), so nothing a visitor types can become markup.
+    const row = (dl: HTMLElement, k: string, v: string) => {
+      const dt = document.createElement('dt'); dt.textContent = k;
+      const dd = document.createElement('dd'); dd.textContent = v;
+      dl.append(dt, dd);
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      status.textContent = '';
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!res.ok) {
+          const msg = (await res.text()).trim();
+          throw new Error(msg && msg.length < 200 && !msg.startsWith('<') ? msg : '');
+        }
+        const { ref } = await res.json();
+        const n = Number(data.get('quantity'));
+        const option = data.get('option');
+        const ship = data.get('delivery') === 'ship';
+        receipt.replaceChildren();
+        const h = document.createElement('h2'); h.textContent = 'Order request sent';
+        const r = document.createElement('p'); r.className = 's-ref'; r.textContent = `Reference ${ref ?? ''}`.trim();
+        const dl = document.createElement('dl');
+        row(dl, 'Item', `${form.dataset.title}${option ? ` (${option})` : ''}`);
+        row(dl, 'Quantity', `${n} × ${money(price)}`);
+        row(dl, 'Total', `${money(n * price)}${ship ? ' + shipping' : ''}`);
+        row(dl, 'Delivery', ship ? `Ship to:\n${data.get('address')}` : 'Pick up at the gallery');
+        row(dl, 'Name', String(data.get('name')));
+        row(dl, 'Email', String(data.get('email')));
+        const p = document.createElement('p');
+        p.textContent = `This is a request, not a receipt: no payment has been taken. The gallery will email you at ${data.get('email')} to confirm the total and arrange payment and ${ship ? 'shipping' : 'pickup'}.`;
+        const actions = document.createElement('div'); actions.className = 's-actions';
+        const print = document.createElement('button'); print.type = 'button'; print.className = 's-btn s-btn--line'; print.textContent = 'Print or save';
+        print.addEventListener('click', () => window.print());
+        const back = document.createElement('a'); back.className = 's-btn s-btn--line'; back.href = '/shop'; back.textContent = 'Back to the shop';
+        actions.append(print, back);
+        receipt.append(h, r, dl, p, actions);
+        form.hidden = true;
+        receipt.hidden = false;
+        receipt.focus();
+      } catch (err) {
+        status.textContent = (err as Error).message || 'Sorry, that did not send. Please try again or email the gallery.';
+        button.disabled = false;
+        button.textContent = 'Send order request';
+      }
+    });
+  }
+</script>

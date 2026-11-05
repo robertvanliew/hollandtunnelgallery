@@ -1,0 +1,88 @@
+/* Shop (/shop and /shop/<item>). Tokens come from chrome.css. Same language as the home page:
+   Bebas headings, square corners, ink/paper/orange, buttons that move away from their background on hover. */
+.s-wrap { max-width: var(--wide); margin: 0 auto; padding-inline: var(--gutter); }
+.s-section { padding-block: clamp(40px, 6vw, 72px) clamp(64px, 8vw, 96px); }
+.s-kicker { margin: 0 0 10px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--label); }
+.s-h1 { margin: 0 0 14px; font: 400 clamp(52px, 7vw, 96px)/.9 var(--display); color: var(--ink); text-wrap: balance; }
+.s-lede { margin: 0 0 8px; max-width: 58ch; font-size: clamp(17px, 1.5vw, 19px); color: #2B2727; }
+.s-crumb { margin: 0 0 18px; font-size: 14px; color: var(--label); }
+.s-crumb a { color: var(--ink); }
+
+.s-btn { display: inline-block; padding: 15px 26px 12px; font: 400 24px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+  color: #fff; background: var(--orange); border: 2px solid var(--orange); cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .16s var(--ease-out); }
+.s-btn:active { transform: scale(.97); }
+.s-btn[disabled] { opacity: .6; cursor: progress; }
+.s-btn--line { background: transparent; color: var(--ink); border-color: var(--ink); }
+@media (hover: hover) and (pointer: fine) {
+  .s-btn:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .s-btn--line:hover { background: var(--ink); color: #fff; }
+}
+
+/* listing */
+.s-grid { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 24px; }
+@media (max-width: 1100px) { .s-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .s-grid { grid-template-columns: 1fr; } }
+.s-card a { display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit; }
+.s-card img { width: 100%; aspect-ratio: 1; object-fit: contain; background: #fff; border: 1px solid var(--border); padding: 12px; transition: border-color .2s ease; }
+.s-card .s-kicker { margin: 4px 0 0; }
+.s-card-t { font: 400 28px/1 var(--display); color: var(--ink); transition: color .2s ease; }
+.s-card-p { font-size: 16px; font-weight: 600; color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .s-card a:hover img { border-color: var(--ink); } .s-card a:hover .s-card-t { color: var(--orange); } }
+.s-how { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.s-how b { display: block; margin-bottom: 4px; font: 400 26px/1 var(--display); color: var(--ink); }
+.s-how p { margin: 0; font-size: 15px; }
+@media (max-width: 760px) { .s-how { grid-template-columns: 1fr; } }
+
+/* product */
+.s-product { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 40px clamp(32px, 5vw, 72px); align-items: start; }
+@media (max-width: 900px) { .s-product { grid-template-columns: 1fr; } }
+.s-pics { display: grid; gap: 12px; }
+.s-pics img { width: 100%; height: auto; max-height: 720px; object-fit: contain; background: #fff; border: 1px solid var(--border); padding: 12px; }
+.s-pics:has(> :nth-child(2)) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.s-pics:has(> :nth-child(2)) > :first-child { grid-column: 1 / -1; }
+.s-price { margin: 0 0 18px; font: 400 34px/1 var(--display); color: var(--ink); }
+.s-price span { font: 500 15px/1 var(--body); color: var(--label); margin-left: 8px; }
+.s-details { margin: 14px 0 0; padding-left: 18px; font-size: 15px; }
+.s-details li { margin-bottom: 4px; }
+
+/* order form */
+.s-order { margin-top: 28px; padding-top: 24px; border-top: 3px solid var(--ink); }
+.s-order fieldset { margin: 0 0 22px; padding: 0; border: 0; display: grid; gap: 14px; }
+.s-order legend { margin-bottom: 12px; padding: 0; font: 400 28px/1 var(--display); color: var(--ink); }
+.s-field label, .s-choice-t { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.s-field label span { font-weight: 500; letter-spacing: .04em; text-transform: none; color: var(--label); }
+.s-field input, .s-field select, .s-field textarea { width: 100%; padding: 12px 14px; font: 400 17px var(--body); color: var(--ink); background: #fff; border: 1px solid var(--muted); border-radius: 0; }
+.s-field textarea { resize: vertical; }
+.s-field input:focus-visible, .s-field select:focus-visible, .s-field textarea:focus-visible { outline: 3px solid var(--orange); outline-offset: 1px; }
+.s-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 520px) { .s-row { grid-template-columns: 1fr; } }
+.s-choices { display: grid; gap: 8px; }
+.s-choice { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 10px 14px; border: 1px solid var(--muted); background: #fff; cursor: pointer; font-size: 16px; color: var(--ink);
+  transition: border-color .2s ease, box-shadow .2s ease; }
+.s-choice input { width: 18px; height: 18px; margin: 0; accent-color: var(--ink); }
+.s-choice:has(input:checked) { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--orange); }
+.s-choice small { margin-left: auto; color: var(--label); font-size: 14px; }
+.s-total { margin: 4px 0 16px; font-size: 16px; color: var(--ink); }
+.s-total b { font: 400 30px/1 var(--display); margin-right: 6px; }
+.s-fine { margin: 12px 0 0; font-size: 14px; color: var(--label); }
+.s-status { margin: 10px 0 0; min-height: 1.2em; font-size: 15px; font-weight: 600; color: #8A2A0A; }
+
+/* the order summary shown after sending */
+.s-receipt { margin-top: 28px; padding: 26px 26px 24px; border: 2px solid var(--ink); background: #fff; }
+.s-receipt:focus { outline: none; }
+.s-receipt h2 { margin: 0 0 4px; font: 400 40px/1 var(--display); color: var(--ink); }
+.s-receipt .s-ref { margin: 0 0 18px; font-size: 14px; font-weight: 600; letter-spacing: .1em; color: var(--label); }
+.s-receipt dl { display: grid; grid-template-columns: 110px 1fr; gap: 10px 16px; margin: 0 0 18px; padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); font-size: 16px; }
+.s-receipt dt { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--label); padding-top: 3px; }
+.s-receipt dd { margin: 0; color: var(--ink); white-space: pre-line; overflow-wrap: anywhere; }
+.s-receipt p { margin: 0 0 16px; }
+.s-receipt .s-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+@media (prefers-reduced-motion: no-preference) { .s-receipt:not([hidden]) { animation: s-in .3s var(--ease-out); } }
+@keyframes s-in { from { opacity: 0; transform: translateY(8px); } }
+@media print {
+  body * { visibility: hidden; }
+  .s-receipt, .s-receipt * { visibility: visible; }
+  .s-receipt { position: absolute; inset: 0 auto auto 0; width: 100%; border: 0; }
+  .s-receipt .s-actions { display: none; }
+}

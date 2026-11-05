@@ -28,7 +28,7 @@ const role = rolesLine(p).split(' · ')[0];
 const filmThumb = p.video ? (await getImage({ src: p.video.poster, width: 1280, format: 'jpg' })).src : undefined;
 ---
 <Base
-  title={`${p.name} · ${role} | Holland Tunnel Gallery`}
+  title={`${p.name} · ${role} | Holland Tunnel Gallery`.length <= 62 ? `${p.name} · ${role} | Holland Tunnel Gallery` : `${p.name} | Holland Tunnel Gallery`}
   description={truncate(p.bio_short)}
   path={p.url!}
   noindex={p.status !== 'verified'}

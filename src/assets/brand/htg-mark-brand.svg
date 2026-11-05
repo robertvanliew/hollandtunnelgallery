@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="htg-t">
+  <title id="htg-t">Holland Tunnel Gallery: HTG monogram in the style of Paulien Lethen's monoprints, in the site's colors</title>
+  <defs>
+    <!-- printed, slightly torn edges: every shape goes through this -->
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- grain inside the color, like ink pulled through a screen -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.05"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="600" fill="#FAF8F6"/>
+
+  <g filter="url(#ink)" style="mix-blend-mode:multiply">
+    <!-- yellow swipe behind the top, like the brush pull in her prints -->
+    <path d="M70 92 C190 64 380 70 540 98 L536 138 C380 116 200 112 74 134 Z" fill="#F16F1E" opacity=".85"/>
+
+    <!-- H: two black slabs, joined by a pink half-round instead of a bar -->
+    <path d="M78 128 H158 V512 H78 Z" fill="#111111"/>
+    <path d="M214 128 H292 V512 H214 Z" fill="#111111"/>
+    <path d="M92 300 C92 236 278 236 278 300 L278 338 C278 300 92 300 92 338 Z" fill="#E75D18" opacity=".95"/>
+
+    <!-- T: a grey slab under an oxblood lintel -->
+    <path d="M268 116 H452 V178 H268 Z" fill="#111111" opacity=".92"/>
+    <path d="M326 150 H396 V520 H326 Z" fill="#474343" opacity=".85"/>
+
+    <!-- G: a pink arch over black, cut open on the right with a notch -->
+    <path d="M556 300 A118 118 0 1 0 556 420 L556 372 H470 V336 H556 Z" fill="#E75D18" opacity=".92"/>
+    <path fill-rule="evenodd" d="M532 330 A92 92 0 1 0 532 400 L532 386 H492 V350 H532 Z M410 365 a34 40 0 1 0 68 0 a34 40 0 1 0 -68 0 Z" fill="#111111"/>
+  </g>
+
+  <!-- scratches and grain: the hand of the print -->
+  <g stroke="#FAF8F6" stroke-linecap="round" fill="none" opacity=".75">
+    <path d="M96 180 L140 470" stroke-width="1.6"/>
+    <path d="M232 150 L270 420" stroke-width="1.2"/>
+    <path d="M410 420 L488 300" stroke-width="1.4"/>
+    <path d="M300 460 L560 452" stroke-width="1"/>
+  </g>
+  <rect width="600" height="600" filter="url(#grain)" fill="#000" opacity=".1" style="mix-blend-mode:multiply"/>
+</svg>

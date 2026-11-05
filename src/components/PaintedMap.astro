@@ -1,0 +1,189 @@
+---
+// Painted map of the gallery's neighborhood: our own SVG, drawn by scripts/build-map.py from U.S. Census
+// TIGER/Line streets and water (public domain, so no credit line or logo is needed). A fixed view, no map
+// library and no outside service: about 7 KB compressed, instant, and it works without JavaScript.
+// Visitors who want to explore use the Google Maps / Apple Maps buttons beside it.
+// The SVG is centered on the gallery and shown with "slice", so the pin is always in the middle and the
+// "Holland Tunnel" tag can sit just right of center at any frame size.
+// A photo bubble sits on the pin (like Snap Map); tapping it opens the photo full size, so visitors
+// can see what the place looks like before they arrive. The big image only loads when it's opened.
+import { Picture } from 'astro:assets';
+import mapSvg from '../assets/map/gallery-map.svg?raw';
+interface Photo { src: ImageMetadata; alt: string; tab: string; caption: string; focus?: string }
+interface Props {
+  label: string; mapsUrl: string; appleUrl: string; directionsGoogle: string; directionsApple: string;
+  /** First photo is the bubble's; with more than one, the viewer shows tabs to switch. */
+  photos: Photo[];
+}
+const { label, mapsUrl, appleUrl, directionsGoogle, directionsApple, photos } = Astro.props;
+const [first] = photos;
+---
+<div class="pmap">
+  <div class="pmap-art" set:html={mapSvg} />
+  <div class="pmap-grain" aria-hidden="true"></div>
+  <span class="pmap-pulse" aria-hidden="true"></span>
+  <span class="pmap-tag" aria-hidden="true">{label}</span>
+  <button class="pmap-bubble" type="button" aria-haspopup="dialog" aria-controls="pmap-photo" aria-label="See photos of the building at 46 Chambers Street">
+    <Picture src={first.src} alt="" formats={['avif', 'webp']} widths={[84, 168]} sizes="84px" loading="lazy" decoding="async"
+      style={first.focus ? `object-position:${first.focus}` : undefined} />
+    <span class="pmap-bubble-zoom" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" /></svg></span>
+  </button>
+  <a class="pmap-open" href={mapsUrl} data-addr-link data-apple={appleUrl}>
+    Open in Maps
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8" /></svg>
+  </a>
+</div>
+
+<dialog class="pmap-dlg" id="pmap-photo" aria-labelledby="pmap-photo-t">
+  <form method="dialog" class="pmap-dlg-close-f"><button class="pmap-dlg-close" aria-label="Close photo"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg></button></form>
+  <figure>
+    <div class="pmap-dlg-stage">
+      {photos.map((ph, i) => (
+        <div class="pmap-dlg-shot" data-shot={i} hidden={i > 0}>
+          <Picture src={ph.src} alt={ph.alt} formats={['avif', 'webp']} widths={[640, 1000, 1400]} sizes="(max-width: 900px) 100vw, 900px" loading="lazy" decoding="async" />
+        </div>
+      ))}
+      {photos.length > 1 && (
+        <>
+          <button class="pmap-dlg-arrow pmap-dlg-prev" type="button" data-step="-1" aria-label="Previous photo"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7" /></svg></button>
+          <button class="pmap-dlg-arrow pmap-dlg-next" type="button" data-step="1" aria-label="Next photo"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7" /></svg></button>
+          <p class="pmap-dlg-count" aria-live="polite"><span>1</span> / {photos.length}</p>
+        </>
+      )}
+    </div>
+    <figcaption>
+      <div>
+        <p class="pmap-dlg-k">Holland Tunnel Gallery · 46 Chambers Street</p>
+        {photos.map((ph, i) => <p class="pmap-dlg-t" id={i === 0 ? 'pmap-photo-t' : undefined} data-shot={i} hidden={i > 0}>{ph.caption}</p>)}
+        {photos.length > 1 && (
+          <div class="pmap-dlg-tabs" role="group" aria-label="Choose a photo">
+            {photos.map((ph, i) => <button type="button" data-tab={i} aria-pressed={i === 0 ? 'true' : 'false'}>{ph.tab}</button>)}
+          </div>
+        )}
+      </div>
+      <div class="pmap-dlg-links">
+        <a class="pmap-dlg-btn" href={directionsGoogle}>Google Maps</a>
+        <a class="pmap-dlg-btn pmap-dlg-btn--line" href={directionsApple}>Apple Maps</a>
+      </div>
+    </figcaption>
+  </figure>
+</dialog>
+
+<script is:inline>
+  // Photo bubble: open the photo full size; ✕, Esc (native) or a click outside the photo closes it.
+  (function () {
+    var b = document.querySelector('.pmap-bubble'), d = document.getElementById('pmap-photo');
+    if (!b || !d || !d.showModal) return;
+    b.addEventListener('click', function () { d.showModal(); });
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+    // switching photos: tabs, the ← → arrows, the arrow keys, and a swipe on touch screens
+    var total = d.querySelectorAll('.pmap-dlg-shot').length, cur = 0, count = d.querySelector('.pmap-dlg-count span');
+    function show(n) {
+      cur = (n + total) % total;
+      d.querySelectorAll('[data-shot]').forEach(function (el) { el.hidden = Number(el.getAttribute('data-shot')) !== cur; });
+      d.querySelectorAll('[data-tab]').forEach(function (o) { o.setAttribute('aria-pressed', String(Number(o.getAttribute('data-tab')) === cur)); });
+      if (count) count.textContent = String(cur + 1);
+    }
+    d.querySelectorAll('[data-tab]').forEach(function (t) { t.addEventListener('click', function () { show(Number(t.getAttribute('data-tab'))); }); });
+    d.querySelectorAll('[data-step]').forEach(function (a) { a.addEventListener('click', function () { show(cur + Number(a.getAttribute('data-step'))); }); });
+    d.addEventListener('keydown', function (e) {
+      if (total < 2) return;
+      if (e.key === 'ArrowRight') { show(cur + 1); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { show(cur - 1); e.preventDefault(); }
+    });
+    var stage = d.querySelector('.pmap-dlg-stage'), x0 = null;
+    stage.addEventListener('pointerdown', function (e) { if (e.pointerType === 'touch') x0 = e.clientX; });
+    stage.addEventListener('pointerup', function (e) {
+      if (x0 === null) return;
+      var dx = e.clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40 && total > 1) show(cur + (dx < 0 ? 1 : -1));
+    });
+  })();
+</script>
+
+<style is:global>
+  .pmap { position: relative; flex: 1 1 auto; min-height: 340px; overflow: hidden; isolation: isolate; background: #9DC47E; }
+  .pmap-art, .pmap-art svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  /* street names in the site's own type: spaced capitals with a paper halo, like Apple Maps */
+  .pmap .pm-l { font: 700 17px/1 var(--body); letter-spacing: .08em; fill: #2E2A26; paint-order: stroke; stroke: #F7F2E8; stroke-width: 4px; stroke-linejoin: round; }
+  .pmap .pm-major { font-size: 19px; }
+  .pmap .pm-w { font: italic 600 18px/1 var(--body); letter-spacing: .2em; fill: #EAF1FA; text-anchor: middle; }
+  /* paper grain over everything: what turns a map into a painting */
+  .pmap-grain { position: absolute; inset: 0; z-index: 2; pointer-events: none; mix-blend-mode: multiply; opacity: .7;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .5 0 0 0 0 .42 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+      radial-gradient(140% 120% at 50% 50%, transparent 55%, rgba(60, 45, 20, .18) 100%); }
+  /* a ring that pulses out from the pin twice when the map comes into view (home-motion.ts) */
+  .pmap-pulse { position: absolute; z-index: 1; left: 50%; top: 50%; width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--orange);
+    transform: translate(-50%, -50%); opacity: 0; pointer-events: none; }
+  /* the gallery's tag, beside the orange pin drawn at the center of the SVG */
+  .pmap-tag { position: absolute; z-index: 3; left: calc(50% + 18px); top: 50%; transform: translateY(-50%); padding: 6px 10px 4px;
+    font: 400 18px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--ink); white-space: nowrap; pointer-events: none; }
+  /* the photo bubble on the pin: a small framed photo with a pointer down to the pin */
+  .pmap-bubble { position: absolute; z-index: 4; left: 50%; bottom: calc(50% + 22px); transform: translateX(-50%); padding: 3px; border: 2px solid var(--ink);
+    background: var(--paper); cursor: zoom-in; transition: transform .25s var(--ease-out); }
+  .pmap-bubble::after { content: ""; position: absolute; left: 50%; top: 100%; width: 12px; height: 12px; margin: -5px 0 0 -6px;
+    background: var(--paper); border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: rotate(45deg); }
+  .pmap-bubble img { display: block; width: 78px; height: 78px; object-fit: cover; }
+  .pmap-bubble-zoom { position: absolute; right: -9px; top: -9px; width: 26px; height: 26px; display: grid; place-items: center; background: var(--orange); color: var(--ink); border: 2px solid var(--ink); }
+  .pmap-bubble:active { transform: translateX(-50%) scale(.96); }
+  @media (hover: hover) and (pointer: fine) { .pmap-bubble:hover { transform: translateX(-50%) translateY(-3px); } }
+  .pmap-bubble:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  @media (max-width: 600px) { .pmap-bubble img { width: 62px; height: 62px; } }
+
+  /* the photo viewer: centered, square, ink-framed; enters with a short fade and lift */
+  /* the viewer sizes itself to each photo: no bars, no cropping; the caption bar matches the photo's width */
+  .pmap-dlg { width: fit-content; max-width: calc(100vw - 32px); max-height: calc(100dvh - 32px); padding: 0; border: 2px solid var(--ink); background: var(--paper); color: var(--text); overflow: auto; }
+  .pmap-dlg::backdrop { background: rgba(17, 17, 17, .72); }
+  .pmap-dlg figure { margin: 0; display: grid; }
+  .pmap-dlg figcaption { width: 0; min-width: 100%; box-sizing: border-box; }
+  .pmap-dlg-stage { position: relative; background: var(--ink); touch-action: pan-y; }
+  /* controls that sit on the photo: one family (translucent ink, white icons), so they recede into the picture */
+  .pmap-dlg-arrow, .pmap-dlg-close { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0;
+    background: rgba(17, 17, 17, .62); color: #fff; cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    transition: background-color .2s ease, color .2s ease, transform .16s var(--ease-out); }
+  .pmap-dlg-arrow { position: absolute; top: 50%; z-index: 1; margin-top: -22px; }
+  .pmap-dlg-prev { left: 10px; }
+  .pmap-dlg-next { right: 10px; }
+  .pmap-dlg-arrow:active, .pmap-dlg-close:active { transform: scale(.94); }
+  @media (hover: hover) and (pointer: fine) { .pmap-dlg-arrow:hover, .pmap-dlg-close:hover { background: var(--orange); color: var(--ink); } }
+  .pmap-dlg-arrow:focus-visible, .pmap-dlg-close:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+  .pmap-dlg-count { position: absolute; left: 10px; bottom: 10px; z-index: 1; margin: 0; padding: 6px 10px 4px; font: 400 16px/1 var(--display); letter-spacing: .1em;
+    color: #fff; background: rgba(17, 17, 17, .62); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  /* a short fade when the photo changes, so the swap isn't a hard cut */
+  @media (prefers-reduced-motion: no-preference) { .pmap-dlg-shot:not([hidden]) img { animation: pmap-shot .18s var(--ease-out); } }
+  @keyframes pmap-shot { from { opacity: 0; } }
+  /* the whole photo, never cropped: portrait shots sit on an ink mat */
+  .pmap-dlg-shot picture { display: block; }
+  .pmap-dlg-shot img { display: block; width: auto; height: auto; max-width: calc(100vw - 36px); max-height: min(70dvh, 640px); }
+  .pmap-dlg-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .pmap-dlg-tabs button { min-height: 40px; padding: 8px 14px 6px; font: 400 18px/1 var(--display); letter-spacing: .06em; text-transform: uppercase;
+    color: var(--ink); background: transparent; border: 2px solid var(--ink); cursor: pointer; transition: background-color .2s ease, color .2s ease; }
+  .pmap-dlg-tabs button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  @media (hover: hover) and (pointer: fine) { .pmap-dlg-tabs button[aria-pressed="false"]:hover { background: var(--orange); } }
+  .pmap-dlg figcaption { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px 24px; padding: 18px 22px 22px; border-top: 2px solid var(--ink); }
+  .pmap-dlg-k { margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--label); }
+  .pmap-dlg-t { margin: 0; font: 400 30px/1 var(--display); color: var(--ink); }
+  .pmap-dlg-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pmap-dlg-btn { display: inline-block; padding: 12px 16px 9px; font: 400 20px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+    background: var(--ink); color: #fff; border: 2px solid var(--ink); transition: background-color .2s ease, color .2s ease, transform .16s var(--ease-out); }
+  .pmap-dlg-btn--line { background: transparent; color: var(--ink); }
+  .pmap-dlg-btn:active { transform: scale(.97); }
+  @media (hover: hover) and (pointer: fine) { .pmap-dlg-btn:hover { background: #fff; color: var(--ink); } .pmap-dlg-btn--line:hover { background: var(--ink); color: #fff; } }
+  .pmap-dlg-close-f { position: absolute; top: 10px; right: 10px; z-index: 2; margin: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .pmap-dlg[open] { animation: pmap-in .26s var(--ease-out); }
+    .pmap-dlg[open]::backdrop { animation: pmap-fade .26s ease-out; }
+  }
+  @keyframes pmap-in { from { opacity: 0; transform: translateY(12px) scale(.98); } }
+  @keyframes pmap-fade { from { opacity: 0; } }
+
+  .pmap-open { position: absolute; z-index: 3; top: 14px; left: 14px; display: inline-flex; align-items: center; gap: 8px; padding: 11px 16px 8px;
+    font: 400 20px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+    background: var(--orange); color: var(--ink); border: 2px solid var(--ink);
+    transition: background-color .2s ease, color .2s ease, transform .16s var(--ease-out); }
+  .pmap-open svg { margin-top: -3px; }
+  .pmap-open:active { transform: scale(.97); }
+  @media (hover: hover) and (pointer: fine) { .pmap-open:hover { background: var(--ink); color: #fff; } }
+  .pmap .pmap-open:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+  @media (max-width: 600px) { .pmap { min-height: 300px; } .pmap-tag { font-size: 16px; } }
+</style>

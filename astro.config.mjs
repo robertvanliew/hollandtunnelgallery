@@ -20,9 +20,17 @@ const notVerified = new Set(
 
 /** Old Squarespace URLs -> new pages, as permanent (301) redirects (project brief §6, step 7). */
 const moved = (/** @type {string} */ destination) => ({ status: /** @type {301} */ (301), destination });
+// Every other old Squarespace URL Google knows (old event pages, /locations, /cinema-club, ...): redirects.json
+const oldUrls = Object.fromEntries(
+  Object.entries(JSON.parse(fs.readFileSync(new URL('./redirects.json', import.meta.url), 'utf8')))
+    .filter(([from]) => from.startsWith('/'))
+    .map(([from, to]) => [from, moved(/** @type {string} */ (to))]),
+);
 
 export default defineConfig({
   site: SITE,
+  // Inline each page's CSS (about 6 KB compressed) so the first paint never waits on a stylesheet request.
+  build: { inlineStylesheets: 'always' },
   trailingSlash: 'never',
   // Pages are prerendered (static). Only src/pages/api/forms.ts runs on demand, as a Vercel function.
   adapter: vercel(),
@@ -38,6 +46,7 @@ export default defineConfig({
     },
   },
   redirects: {
+    ...oldUrls,
     '/htgartists': moved('/artists'),
     '/htrevisisted': moved('/exhibitions'),
     '/rental': moved('/rent'),

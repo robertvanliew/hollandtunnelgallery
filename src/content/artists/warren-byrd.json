@@ -1,0 +1,32 @@
+{
+  "name": "Warren Byrd",
+  "slug": "warren-byrd",
+  "kind": "musician",
+  "roles": [
+    "keyboardist",
+    "vocalist",
+    "percussionist"
+  ],
+  "bio_short": "Warren Byrd plays keys and bongos and sings. With trumpeter Saskia Laroo he performs as Duo Laroo/Byrd, and the duo played two Halloween-weekend concerts at Holland Tunnel Revisited in 2026.",
+  "collaborators_and_connections": [
+    {
+      "name": "Saskia Laroo",
+      "relation": "Duo Laroo/Byrd"
+    }
+  ],
+  "verification": {
+    "status": "likely",
+    "evidence": "Duo Laroo/Byrd's Halloween-weekend concerts at Holland Tunnel Revisited (Oct 30 and Nov 1, 2026) were announced in a post shared by Saskia Laroo and the gallery's Instagram, listing the line-up and instruments. Not yet confirmed by the gallery for this profile.",
+    "sources": [
+      "https://www.instagram.com/saskialaroo/",
+      "https://www.instagram.com/hollandtunnelnewburgh/"
+    ]
+  },
+  "open_questions": [
+    "Confirm the profile details, links and a photo with the gallery or the artist."
+  ],
+  "shows": [
+    "laroo-byrd-halloween-eve-2026",
+    "laroo-byrd-after-halloween-2026"
+  ]
+}

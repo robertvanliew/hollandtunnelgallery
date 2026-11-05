@@ -112,6 +112,7 @@ h1, h2, h3 { color: var(--ink); }
 .rec h3 { font: 600 19px/1.3 var(--body); margin: 2px 0 2px; }
 .rec h3 a { text-decoration-thickness: 2px; }
 .rec-meta { margin: 0; font-size: 14px; color: var(--muted); }
+.show-desc { margin: 18px 0 0; max-width: 60ch; font-size: 17px; line-height: 1.6; color: var(--text); }
 .rec-with { margin: 10px 0 6px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
 .chip { display: inline-block; font-size: 13px; padding: 5px 10px; border: 1px solid var(--rule); text-decoration: none; color: var(--ink); background: #fff; }

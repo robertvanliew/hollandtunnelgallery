@@ -1,0 +1,36 @@
+{
+  "name": "Saskia Laroo",
+  "slug": "saskia-laroo",
+  "kind": "musician",
+  "roles": [
+    "trumpeter",
+    "saxophonist",
+    "bassist",
+    "vocalist"
+  ],
+  "bio_short": "Saskia Laroo plays trumpet, saxophone and bass and sings. With keyboardist Warren Byrd she performs as Duo Laroo/Byrd, playing jazz, funk, soul and improvised music in the USA and the Netherlands. The duo played two Halloween-weekend concerts at Holland Tunnel Revisited in 2026.",
+  "collaborators_and_connections": [
+    {
+      "name": "Warren Byrd",
+      "relation": "Duo Laroo/Byrd"
+    }
+  ],
+  "links": {
+    "instagram": "https://www.instagram.com/saskialaroo/"
+  },
+  "verification": {
+    "status": "likely",
+    "evidence": "Duo Laroo/Byrd's Halloween-weekend concerts at Holland Tunnel Revisited (Oct 30 and Nov 1, 2026) were announced in a post shared by Saskia Laroo and the gallery's Instagram, listing the line-up and instruments. Not yet confirmed by the gallery for this profile.",
+    "sources": [
+      "https://www.instagram.com/saskialaroo/",
+      "https://www.instagram.com/hollandtunnelnewburgh/"
+    ]
+  },
+  "open_questions": [
+    "Confirm the profile details and a photo with the gallery or the artist."
+  ],
+  "shows": [
+    "laroo-byrd-halloween-eve-2026",
+    "laroo-byrd-after-halloween-2026"
+  ]
+}

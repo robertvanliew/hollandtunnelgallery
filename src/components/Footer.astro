@@ -1,8 +1,10 @@
 ---
 import { EMAIL, PUBLIC_SITE } from '../lib/site';
+import HtgMark from './HtgMark.astro';
 ---
 <footer class="site-foot">
   <div class="foot-grid">
+    <a class="foot-logo" href="/" aria-label="Holland Tunnel Gallery, home"><HtgMark size={84} /></a>
     <div>
       <p class="foot-mark">Holland Tunnel Gallery</p>
       <p>46 Chambers Street<br />Newburgh, NY 12550</p>
@@ -20,6 +22,7 @@ import { EMAIL, PUBLIC_SITE } from '../lib/site';
         <li><a href="/artists">Artists &amp; Musicians</a></li>
         <li><a href="/rent">Rent the Space</a></li>
         <li><a href="/schools">School Visits</a></li>
+        <li><a href="/shop">Shop</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="https://www.instagram.com/hollandtunnelnewburgh/">Instagram</a></li>
       </ul>
