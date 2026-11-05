@@ -24,6 +24,10 @@ const shows = defineCollection({
       about: z.array(z.string()).optional(), // Exhibitions page "About the show" paragraphs
       image: image().optional(),
       imageAlt: z.string().optional(),
+      // More photos for the show's page; each needs alt text (also used as the caption).
+      gallery: z.array(z.object({ image: image(), alt: z.string() })).optional(),
+      // A short clip from the show (an .mp4 in /public), with a still to show before it plays.
+      video: z.object({ src: z.string(), poster: image(), caption: z.string() }).optional(),
     }),
 });
 

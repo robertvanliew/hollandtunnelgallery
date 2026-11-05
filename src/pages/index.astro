@@ -21,10 +21,10 @@ import PaintedMap from '../components/PaintedMap.astro';
 const ov = await onView();
 const show = ov?.show;
 const badge = !ov ? '' :
-  ov.status === 'current' ? (ov.lastWeekend ? `Last weekend · closes ${longDate(ov.end)}` : `Now on view · closes ${shortDate(ov.end)}`) :
+  ov.status === 'current' ? (ov.lastWeekend ? `Last weekend · closes ${longDate(ov.end)}` : (ov.closes ? `Now on view · closes ${shortDate(ov.closes)}` : 'Now on view')) :
   ov.status === 'upcoming' ? `Opens ${longDate(show!.startDate)}` : 'Recently on view';
 const metaDescription = ov?.status === 'current'
-  ? `Holland Tunnel Gallery is open: now showing ${show!.title} through ${longDate(ov.end)}. Contemporary art, music, film and events at 46 Chambers Street, Newburgh, NY. Open Sat & Sun 1–5 pm. Since 1997.`
+  ? `Holland Tunnel Gallery is open: now showing ${show!.title}${ov.closes ? ` through ${longDate(ov.closes)}` : ''}. Contemporary art, music, film and events at 46 Chambers Street, Newburgh, NY. Open Sat & Sun 1–5 pm. Since 1997.`
   : ov?.status === 'upcoming'
   ? `Holland Tunnel Gallery: ${show!.title} opens ${longDate(show!.startDate)}. Contemporary art, music, film and events at 46 Chambers Street, Newburgh, NY. Since 1997.`
   : 'Holland Tunnel Gallery: contemporary art, music, film and events at 46 Chambers Street, Newburgh, NY. Open Sat & Sun 1–5 pm and by appointment. Since 1997.';
@@ -129,7 +129,7 @@ const concerts = (soon.length ? soon : lately).slice(0, 2).map((s) => ({
       <div class="h-hero-text">
         <div>
           <h1 class="h-intro"><b>Holland Tunnel Gallery</b> · Contemporary art, music &amp; film in Newburgh, NY</h1>
-          <p class="h-badge" data-until={ov.status === 'current' ? ov.end : undefined}>
+          <p class="h-badge" data-until={ov.status === 'current' ? ov.closes ?? undefined : undefined}>
             {ov.status === 'current' && <span class="dot" aria-hidden="true"></span>}{badge}{ov.status === 'between' && <> · {show.dates}</>}
           </p>
           <h2 class="h-title" style={`--tw:${Math.max(6, ...show.title.split(/\s+/).map((w) => w.length))}`}>{show.title}</h2>
@@ -365,7 +365,7 @@ const concerts = (soon.length ? soon : lately).slice(0, 2).map((s) => ({
       <div class="h-faq">
         <details>
           <summary>Is Holland Tunnel Gallery open?</summary>
-          <p>Yes. The gallery is open Saturday and Sunday from 1 to 5 pm, and by appointment, at 46 Chambers Street in Newburgh, NY.{ov?.status === 'current' && ` ${show!.title} is on view through ${longDate(ov.end)}.`}{ov?.status === 'upcoming' && ` ${show!.title} opens ${longDate(show!.startDate)}.`}{ov?.status === 'between' && ' The next exhibition will be announced soon; join the mailing list to hear first.'}</p>
+          <p>Yes. The gallery is open Saturday and Sunday from 1 to 5 pm, and by appointment, at 46 Chambers Street in Newburgh, NY.{ov?.status === 'current' && ` ${show!.title} is on view now${ov.closes ? ` through ${longDate(ov.closes)}` : ''}.`}{ov?.status === 'upcoming' && ` ${show!.title} opens ${longDate(show!.startDate)}.`}{ov?.status === 'between' && ' The next exhibition will be announced soon; join the mailing list to hear first.'}</p>
         </details>
         <details>
           <summary>Can I rent the gallery for an event?</summary>

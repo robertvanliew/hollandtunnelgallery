@@ -171,7 +171,7 @@ const jsonld = {
         </details>
         <details>
           <summary>Is Holland Tunnel Gallery still open?</summary>
-          <p>Yes. Holland Tunnel Gallery is open Saturday and Sunday 1–5 pm, and by appointment, at 46 Chambers Street in Newburgh, NY. It runs a regular program of exhibitions, music nights and Cinema Club screenings. {ov?.status === 'current' && <><em>{ov.show.title}</em> is on view through {longDate(ov.end)}.</>}{ov?.status === 'upcoming' && <><em>{ov.show.title}</em> opens {longDate(ov.show.startDate)}.</>}{ov?.status === 'between' && 'The next exhibition will be announced soon.'}</p>
+          <p>Yes. Holland Tunnel Gallery is open Saturday and Sunday 1–5 pm, and by appointment, at 46 Chambers Street in Newburgh, NY. It runs a regular program of exhibitions, music nights and Cinema Club screenings. {ov?.status === 'current' && <><em>{ov.show.title}</em> is on view now{ov.closes && <> through {longDate(ov.closes)}</>}.</>}{ov?.status === 'upcoming' && <><em>{ov.show.title}</em> opens {longDate(ov.show.startDate)}.</>}{ov?.status === 'between' && 'The next exhibition will be announced soon.'}</p>
         </details>
       </div>
     </div>

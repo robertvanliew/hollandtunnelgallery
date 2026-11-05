@@ -7,7 +7,7 @@ interface Props { active?: string }
 const { active } = Astro.props;
 const ov = await onView();
 const whatsOn = !ov ? null
-  : ov.status === 'current' ? { text: `Now on view: ${ov.show.title} · closes ${shortDate(ov.end)}`, href: ov.show.url, until: ov.end }
+  : ov.status === 'current' ? { text: `Now on view: ${ov.show.title}${ov.closes ? ` · closes ${shortDate(ov.closes)}` : ''}`, href: ov.show.url, until: ov.closes ?? undefined }
   : ov.status === 'upcoming' ? { text: `${ov.show.title} opens ${longDate(ov.show.startDate)}`, href: ov.show.url }
   : { text: 'Next exhibition announced soon', href: '/#newsletter', cta: 'Hear first' };
 ---

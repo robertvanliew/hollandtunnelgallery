@@ -20,6 +20,7 @@ const share = s.image ? await getImage({ src: s.image, width: 1200, format: 'jpg
 const today = new Date().toISOString().slice(0, 10);
 const onNow = (s.endDate ?? s.startDate) >= today;
 const names = people.map((p) => p.name);
+const posterSrc = s.video ? (await getImage({ src: s.video.poster, width: 720, format: 'jpeg' })).src : undefined;
 const desc = truncate(
   s.description ? `${s.title}, ${s.dates}, at Holland Tunnel Gallery, Newburgh NY. ${s.description}` : `${s.title} (${s.dates}), ${s.type.toLowerCase()} at Holland Tunnel Gallery, Newburgh NY.${names.length ? ' With ' + names.join(', ') + '.' : ''}`,
 );
@@ -51,6 +52,32 @@ const jsonld = {
       </figure>
     )}
   </section>
+  {(s.video || s.gallery?.length) && (
+    <section class="show-media" aria-labelledby="sm-h">
+      <h2 id="sm-h" class="block-h" style="font:400 30px/1 var(--display);letter-spacing:.05em;margin:0 0 18px">Photos &amp; video</h2>
+      {s.video && (
+        <figure class="sm-video">
+          <video controls playsinline preload="none" poster={posterSrc} width="406" height="720">
+            <source src={s.video.src} type="video/mp4" />
+          </video>
+          <figcaption>{s.video.caption}</figcaption>
+        </figure>
+      )}
+      {s.gallery && (
+        <ul class="sm-grid">
+          {s.gallery.map((g) => (
+            <li>
+              <figure>
+                <Picture src={g.image} alt={g.alt} formats={['avif', 'webp']} widths={[400, 700, 1000]}
+                  sizes="(max-width: 700px) calc(100vw - 32px), (max-width: 1100px) 45vw, 360px" loading="lazy" decoding="async" />
+                <figcaption>{g.alt}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  )}
   {people.length > 0 && (
     <section class="show-people" aria-labelledby="sp-h">
       <h2 id="sp-h" class="block-h" style="font:400 30px/1 var(--display);letter-spacing:.05em;margin:0 0 18px">

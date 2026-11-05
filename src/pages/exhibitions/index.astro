@@ -10,7 +10,7 @@ const ov = await onView();
 const show = ov?.show;
 const kicker = ov?.status === 'current' ? 'Exhibitions · On view now' : ov?.status === 'upcoming' ? 'Exhibitions · Coming up' : 'Exhibitions · Recently on view';
 const badge = !ov ? '' :
-  ov.status === 'current' ? (ov.lastWeekend ? `Last weekend · closes ${longDate(ov.end)}` : `Closes ${longDate(ov.end)}`) :
+  ov.status === 'current' ? (ov.lastWeekend ? `Last weekend · closes ${longDate(ov.end)}` : (ov.closes ? `Closes ${longDate(ov.closes)}` : 'Now on view')) :
   ov.status === 'upcoming' ? `Opens ${longDate(show!.startDate)}` : 'Next exhibition announced soon';
 const pageTitle = show && ov!.status !== 'between' ? `${show.title} · Holland Tunnel Gallery, Newburgh NY` : 'Exhibitions · Holland Tunnel Gallery, Newburgh NY';
 const pageDescription = show && ov!.status !== 'between'
@@ -37,7 +37,7 @@ const jsonld = show ? { "@context": "https://schema.org", ...eventNode(show, { p
           {show.imageAlt && <figcaption>{show.imageAlt}</figcaption>}
         </figure>
         <div>
-          <p class="urgency" data-until={ov.status === 'current' ? ov.end : undefined}>{badge}</p>
+          <p class="urgency" data-until={ov.status === 'current' ? ov.closes ?? undefined : undefined}>{badge}</p>
           <h1>{show.title}</h1>
           <p class="hero-meta">{show.dates}</p>
           <ul class="facts">

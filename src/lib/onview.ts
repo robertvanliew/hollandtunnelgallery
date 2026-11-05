@@ -21,6 +21,8 @@ export interface OnView {
   people: Person[];
   today: string;
   end: string;
+  /** Closing date, or null when the gallery hasn't announced one (open-ended show: no "closes …"). */
+  closes: string | null;
   /** Final weekend (Fri–Sun before closing) of a current show. */
   lastWeekend: boolean;
   /** Closed within the last 30 days. */
@@ -31,7 +33,17 @@ export async function onView(today = todayNY()): Promise<OnView | null> {
   const a = await loadArchive();
   // Only exhibitions with full dates can be placed on the calendar.
   const ex = [...a.shows.values()].filter((s) => !s.isMusic && s.startDate.length === 10);
-  const end = (s: Show) => (s.endDate && s.endDate.length === 10 ? s.endDate : s.startDate);
+  // No end date at all = open-ended: on view until the next exhibition opens, for at most 4 months.
+  // (A partial end date like "2026-11" still means a one-day placement, as before.)
+  const openEnded = (s: Show) => !s.endDate;
+  const plusDays = (iso: string, n: number) => new Date(asDate(iso).getTime() + n * 86_400_000).toISOString().slice(0, 10);
+  const nextStart = (s: Show) => ex.filter((o) => o.startDate > s.startDate).map((o) => o.startDate).sort()[0];
+  const end = (s: Show) => {
+    if (s.endDate && s.endDate.length === 10) return s.endDate;
+    if (!openEnded(s)) return s.startDate;
+    const cap = plusDays(s.startDate, 120), next = nextStart(s);
+    return next && next <= cap ? plusDays(next, -1) : cap;
+  };
   const current = ex.find((s) => s.startDate <= today && end(s) >= today);
   const upcoming = ex.filter((s) => s.startDate > today).sort((x, y) => x.startDate.localeCompare(y.startDate))[0];
   const recent = ex.filter((s) => end(s) < today).sort((x, y) => end(y).localeCompare(end(x)))[0];
@@ -45,7 +57,8 @@ export async function onView(today = todayNY()): Promise<OnView | null> {
     people,
     today,
     end: end(show),
-    lastWeekend: status === 'current' && daysBetween(today, end(show)) <= 2,
+    closes: openEnded(show) ? null : end(show),
+    lastWeekend: status === 'current' && !openEnded(show) && daysBetween(today, end(show)) <= 2,
     justClosed: status === 'between' && daysBetween(end(show), today) <= 30,
   };
 }

@@ -1,0 +1,43 @@
+{
+  "title": "Alone Together",
+  "dates": "Opened Oct 16, 2026",
+  "year": 2026,
+  "venue": "Holland Tunnel Revisited, Newburgh",
+  "type": "Group exhibition",
+  "startDate": "2026-10-16",
+  "reception": "Opened Friday, Oct 16, 2026, with live music",
+  "description": "New work by Julie Lindell, Bix Lye and Paulien Lethen. The opening on Friday, Oct 16 had live music by Duo Laroo/Byrd: Saskia Laroo (trumpet, saxophone, bass, vocals) and Warren Byrd (piano, vocals, bongos).",
+  "image": "../../assets/shows/alone-together-2026-0463.jpg",
+  "imageAlt": "Visitors at the opening of Alone Together, Oct 16, 2026, in the gallery's main room",
+  "video": {
+    "src": "/media/alone-together-opening-2026.mp4",
+    "poster": "../../assets/shows/alone-together-2026-video-poster.jpg",
+    "caption": "Duo Laroo/Byrd playing at the opening of Alone Together, Oct 16, 2026"
+  },
+  "gallery": [
+    {
+      "image": "../../assets/shows/alone-together-2026-0272.jpg",
+      "alt": "Two large prints by Paulien Lethen in Alone Together: layered black, yellow and pink forms, and coral and grey forms"
+    },
+    {
+      "image": "../../assets/shows/alone-together-2026-0460.jpg",
+      "alt": "A drawing of two ornate thrones, from Alone Together"
+    },
+    {
+      "image": "../../assets/shows/alone-together-2026-0271.jpg",
+      "alt": "The gallery hallway, with works from Alone Together on the walls"
+    },
+    {
+      "image": "../../assets/shows/alone-together-2026-0465.jpg",
+      "alt": "Duo Laroo/Byrd setting up at the baby grand before the opening concert"
+    },
+    {
+      "image": "../../assets/shows/alone-together-2026-0466.jpg",
+      "alt": "Getting ready to play: an upright bass beside the grand piano, with bongos in front"
+    },
+    {
+      "image": "../../assets/shows/alone-together-2026-0464.jpg",
+      "alt": "Visitors talking at the opening of Alone Together"
+    }
+  ]
+}
