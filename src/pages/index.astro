@@ -11,6 +11,8 @@ import imgLindell from '../assets/home/reclamation-2025-lindell-garden.webp';
 import imgPaulien from '../assets/home/paulien-lethen-portrait.webp';
 import imgFront from '../assets/home/46-chambers-street-front.jpg';
 import imgDoors from '../assets/home/46-chambers-street-doors.jpg';
+import imgHall from '../assets/home/46-chambers-street-hallway.jpg';
+import imgRoom from '../assets/home/46-chambers-street-main-room.jpg';
 import { onView, shortDate, longDate } from '../lib/onview';
 import { eventNode } from '../lib/jsonld';
 import { EMAIL } from '../lib/site';
@@ -334,6 +336,12 @@ const concerts = (soon.length ? soon : lately).slice(0, 2).map((s) => ({
             { src: imgDoors, tab: 'At the door',
               caption: 'At street level on Chambers Street',
               alt: 'The doors of Holland Tunnel Gallery seen from the sidewalk on Chambers Street, Newburgh NY: a black roll-up door marked 46 and a black gated door in red brick' },
+            { src: imgHall, tab: 'Inside',
+              caption: 'Inside: the gallery hallway',
+              alt: 'Inside Holland Tunnel Gallery: a long white hallway with framed works on the walls, black pendant lamps and wide-plank wood floors' },
+            { src: imgRoom, tab: 'Main room',
+              caption: 'The main room, with the baby grand',
+              alt: 'The main room at Holland Tunnel Gallery: a black baby grand piano under a chandelier, framed black-and-white works on the walls, and musicians setting up' },
           ]} />
         <figcaption class="h-map-card">
           <div>
