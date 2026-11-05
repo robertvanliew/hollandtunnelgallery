@@ -73,8 +73,14 @@ const image = ogImage ? new URL(ogImage, SITE_URL).href : `${SITE_URL}/img/og-un
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
     {ogImageMeta && <meta name="twitter:image:alt" content={ogImageMeta.alt} />}
+    <!-- HTG monogram: SVG for modern browsers (adapts to dark tab bars), a 96 px PNG for Google's search
+         results (square, multiple of 48 px), .ico for older browsers, 180 px for iPhone home screens. -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/brand/favicon-96.png" type="image/png" sizes="96x96" />
     <link rel="apple-touch-icon" href="/brand/htg-mark-180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#111111" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld).replace(/</g, '\\u003c')} />}
     <slot name="head" />
