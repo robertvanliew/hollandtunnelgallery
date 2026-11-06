@@ -7,7 +7,8 @@ import { Picture, getImage } from 'astro:assets';
 import imgMusic from '../assets/home/music-night-performers.webp';
 import imgPostcard from '../assets/home/holland-tunnel-postcard.webp';
 import imgGibian from '../assets/home/reclamation-2025-gibian-gallery-view.webp';
-import imgLindell from '../assets/home/reclamation-2025-lindell-garden.webp';
+import imgStudio1 from '../assets/rent/room-beams.jpg';
+import imgStudio2 from '../assets/rent/room-wide.jpg';
 import imgPaulien from '../assets/home/paulien-lethen-portrait.webp';
 import imgFront from '../assets/home/46-chambers-street-front.jpg';
 import imgDoors from '../assets/home/46-chambers-street-doors.jpg';
@@ -294,17 +295,17 @@ const concerts = (soon.length ? soon : lately).slice(0, 2).map((s) => ({
   <section class="h-rent">
     <div class="h-wrap h-rent-in">
       <div class="h-rent-text">
-        <p class="h-kicker">Rent the space</p>
-        <h2 class="h-h2">A gallery for your gathering</h2>
-        <p>900 square feet, 13-foot ceilings, a classic wooden bar, a baby grand piano and a garden. Small weddings, rehearsal dinners, private concerts, shoots and team days in the heart of historic Newburgh.</p>
+        <p class="h-kicker">Rent the studio</p>
+        <h2 class="h-h2">A studio upstairs, by the hour or month</h2>
+        <p>900 square feet on the second floor, with wood floors, tall ceilings and big windows. Rent it by the hour for workshops, rehearsals, shoots and meetings, or by the month as your own studio.</p>
         <div class="h-btns">
-          <a class="h-btn h-btn--ink" href="/rent#inquire">Check a date</a>
-          <a class="h-btn h-btn--line" href="/rent">See the space</a>
+          <a class="h-btn h-btn--ink" href="/rent#inquire">Check availability</a>
+          <a class="h-btn h-btn--line" href="/rent">See the studio</a>
         </div>
       </div>
       <div class="h-rent-pics">
-        <Picture src={imgGibian} alt="White-walled gallery interior with a red and black sculpture by Mark Gibian on a plinth" formats={['avif', 'webp']} widths={[320, 480, 640, 960]} sizes="(max-width: 600px) 45vw, 330px" loading="lazy" decoding="async" />
-        <Picture src={imgLindell} alt="The gallery garden in summer with a large sculpture by Julie Lindell" formats={['avif', 'webp']} widths={[320, 480, 640, 960]} sizes="(max-width: 600px) 45vw, 330px" loading="lazy" decoding="async" />
+        <Picture src={imgStudio1} alt="The upstairs studio: wide wooden floorboards, a timber post and beam, and tall windows" formats={['avif', 'webp']} widths={[320, 480, 640, 960]} sizes="(max-width: 600px) 45vw, 330px" loading="lazy" decoding="async" />
+        <Picture src={imgStudio2} alt="The studio in daylight, with windows on two sides" formats={['avif', 'webp']} widths={[320, 480, 640, 960]} sizes="(max-width: 600px) 45vw, 330px" loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
@@ -368,8 +369,8 @@ const concerts = (soon.length ? soon : lately).slice(0, 2).map((s) => ({
           <p>Yes. The gallery is open Saturday and Sunday from 1 to 5 pm, and by appointment, at 46 Chambers Street in Newburgh, NY.{ov?.status === 'current' && ` ${show!.title} is on view now${ov.closes ? ` through ${longDate(ov.closes)}` : ''}.`}{ov?.status === 'upcoming' && ` ${show!.title} opens ${longDate(show!.startDate)}.`}{ov?.status === 'between' && ' The next exhibition will be announced soon; join the mailing list to hear first.'}</p>
         </details>
         <details>
-          <summary>Can I rent the gallery for an event?</summary>
-          <p>Yes. The 900 sq ft gallery with a bar, baby grand piano, prep kitchen and garden is available for small weddings, celebrations, meetings, shoots and concerts. Rentals start at four hours. <a href="/rent">See rental details</a>.</p>
+          <summary>Can I rent a space at Holland Tunnel?</summary>
+          <p>Yes. The 900 sq ft studio on the second floor of 46 Chambers Street is for rent by the hour, for workshops, rehearsals, shoots, meetings and small gatherings, or by the month as a private studio with heat and electricity included. <a href="/rent">See the studio</a>.</p>
         </details>
         <details>
           <summary>Is it the same Holland Tunnel Gallery from Williamsburg?</summary>

@@ -66,14 +66,14 @@ const FORMS = {
     skipEmpty: true,
   },
   'rental-inquiry': {
-    subject: (f: FormData) => `Rental inquiry · ${f.get('event_type')} · ${f.get('name')}`,
-    required: ['name', 'email', 'event_type'],
+    subject: (f: FormData) => `Rental inquiry · ${f.get('space') || 'Space not chosen'} · ${f.get('name')}`,
+    required: ['name', 'email', 'space', 'event_type'],
     fields: [
-      ['Event type', 'event_type'],
+      ['Rental', 'space'],
+      ['What it\'s for', 'event_type'],
       ['Preferred date', 'date'],
       ['Number of guests', 'guests'],
       ['Hours needed', 'hours'],
-      ['Music by DJ DX', 'dj_dx'],
       ['Name', 'name'],
       ['Email', 'email'],
       ['Phone', 'phone'],
@@ -135,7 +135,7 @@ export const POST: APIRoute = async ({ request }) => {
   const who = text(form, 'name') || email;
   let rows: Row[] = spec.fields
     .filter(([, key]) => !('skipEmpty' in spec) || text(form, key))
-    .map(([label, key]) => [label, key === 'dj_dx' ? 'Yes, please' : text(form, key)]);
+    .map(([label, key]) => [label, text(form, key)]);
   let subject: string = spec.subject(form);
   let ref: string | undefined;
   let highlight: string | undefined;

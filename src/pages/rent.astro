@@ -1,62 +1,90 @@
 ---
-// Ported from the static demo (rent.html) by scripts/port-demo-pages.py
+// Rent: the second-floor studio at 46 Chambers Street, by the hour or by the month.
+// Facts come from the building's Aug 2026 listing and the photos (900 sq ft, 2nd floor, wood floors,
+// tall ceilings, large windows, sliding barn door, shared bathroom and yard, heat and electricity
+// included on monthly rentals, not for residential use). Rates are given on request; nothing here is guessed.
 import Base from '../layouts/Base.astro';
 import '../styles/pages.css';
+import { Picture, getImage } from 'astro:assets';
+import roomWindows from '../assets/rent/room-windows.jpg';
+import roomBeams from '../assets/rent/room-beams.jpg';
+import roomBrick from '../assets/rent/room-brick-wall.jpg';
+import roomLength from '../assets/rent/room-length.jpg';
+import roomWide from '../assets/rent/room-wide.jpg';
+import roomDoorway from '../assets/rent/room-doorway.jpg';
+import stairs from '../assets/rent/stairs.jpg';
+import front from '../assets/rent/building-front.jpg';
+import doors from '../assets/rent/building-doors.jpg';
+import street from '../assets/rent/building-street.jpg';
+import { SITE_URL, ADDRESS } from '../lib/site';
+
+// "Inside and out". `cls` sets the tile size in the 4-column grid; the rows fill exactly.
+const PHOTOS: { src: ImageMetadata; alt: string; cls?: string }[] = [
+  { src: roomBeams, cls: 'wide tall', alt: 'The studio: wide wooden floorboards, a timber post and beam, and windows along the wall' },
+  { src: front, cls: 'tall', alt: '46 Chambers Street: the 1860 red brick warehouse with its black garage door and arched doorways' },
+  { src: stairs, cls: 'tall', alt: 'The black steel staircase up to the second-floor studio' },
+  { src: roomBrick, cls: 'tall', alt: 'The studio toward the exposed brick wall at the far end' },
+  { src: roomDoorway, cls: 'tall', alt: 'An arched brick doorway opening into the studio' },
+  { src: roomLength, cls: 'wide', alt: 'The full length of the studio, with track lighting along the ceiling' },
+  { src: doors, cls: 'wide', alt: 'The black garage door and gated entrance of 46 Chambers Street' },
+  { src: roomWide, cls: 'wide', alt: 'The studio in daylight, with windows on two sides' },
+  { src: street, cls: 'wide', alt: "Chambers Street outside the building, in Newburgh's Historic District" },
+];
+
+const share = await getImage({ src: roomWindows, width: 1200, format: 'jpg' });
+const url = `${SITE_URL}/rent`;
 const jsonld = {
-  "@context": "https://schema.org",
-  "@type": "EventVenue",
-  "name": "Holland Tunnel Gallery",
-  "description": "900 sq ft gallery event space with 13 ft ceilings, track lighting, wifi, classic wooden bar, baby grand piano, prep kitchen and exterior garden. Four-hour minimum; full-day and multi-day rentals available.",
-  "url": "https://www.hollandtunnelgallery.com/rent",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "46 Chambers Street",
-    "addressLocality": "Newburgh",
-    "addressRegion": "NY",
-    "postalCode": "12550",
-    "addressCountry": "US"
-  },
-  "amenityFeature": [
+  '@context': 'https://schema.org',
+  '@graph': [
     {
-      "@type": "LocationFeatureSpecification",
-      "name": "Baby grand piano",
-      "value": true
+      '@type': ['Place', 'EventVenue'],
+      '@id': `${url}#studio`,
+      name: 'The Studio at 46 Chambers Street · Holland Tunnel',
+      description:
+        'A 900 sq ft second-floor art studio in an 1860 warehouse in Newburgh, NY, for rent by the hour or by the month: wide wooden floors, tall ceilings, large windows, track lighting and a sliding barn-door entrance. Not for residential use.',
+      url,
+      image: SITE_URL + share.src,
+      address: ADDRESS,
+      containedInPlace: { '@id': `${SITE_URL}/#gallery` },
+      floorSize: { '@type': 'QuantitativeValue', value: 900, unitCode: 'FTK' },
+      amenityFeature: [
+        'Wooden floors',
+        'Tall ceilings',
+        'Large windows',
+        'Track lighting',
+        'Sliding barn-door entrance',
+        'Heat and electricity included (monthly)',
+        'Shared bathroom',
+        'Shared yard',
+      ].map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
     },
     {
-      "@type": "LocationFeatureSpecification",
-      "name": "Wooden bar",
-      "value": true
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Rent the studio', item: url },
+      ],
     },
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "Prep kitchen",
-      "value": true
-    },
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "Garden",
-      "value": true
-    },
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "Wifi",
-      "value": true
-    }
-  ]
+  ],
 };
 ---
-<Base title={"Rent the Space \u00b7 Holland Tunnel Gallery, Newburgh NY"} description={"Rent Holland Tunnel Gallery in Newburgh's Historic District: 900 sq ft, 13 ft ceilings, wooden bar, baby grand piano, prep kitchen and garden. Small weddings, rehearsal dinners, concerts, shoots and meetings."} path="/rent" active="rent" jsonld={jsonld}>
-
-
-  <section class="page-hero">
-    <img src="/img/dark-abyss-of-time-2026-installation.webp" width="1600" height="1008"
-         alt="The white-walled gallery lit by two vintage pendant lamps, with a wall of small painted panels and wall sculptures">
+<Base
+  title="Studio for Rent, by the Hour or Month · 46 Chambers St, Newburgh NY"
+  description="Rent a 900 sq ft art studio in an 1860 warehouse in Newburgh's Historic District: wood floors, tall ceilings, big windows. By the hour for workshops, rehearsals, shoots and meetings, or by the month as your own studio."
+  path="/rent"
+  active="rent"
+  ogImage={share.src}
+  jsonld={jsonld}
+>
+  <section class="page-hero studio-hero">
+    <Picture src={roomWindows} alt="The studio at 46 Chambers Street: an open room with wide wooden floorboards, timber posts and beams, and tall windows"
+      formats={['avif', 'webp']} widths={[640, 1000, 1561]} sizes="100vw" loading="eager" fetchpriority="high" />
     <div class="wrap">
-      <p class="eyebrow" style="color:#fff;">Rent the space · Newburgh Historic District</p>
-      <h1>Your event, <span>in a gallery</span></h1>
-      <p class="lede">A 900 sq ft white-wall gallery with a wooden bar, a baby grand piano and a garden, in an 1860 warehouse on Chambers Street.</p>
+      <p class="eyebrow" style="color:#fff;">Rent the studio · Newburgh Historic District</p>
+      <h1>A studio, <span>by the hour or month</span></h1>
+      <p class="lede">900 sq ft of light, wood floors and tall ceilings on the second floor of an 1860 warehouse at 46 Chambers Street, home of Holland Tunnel Gallery.</p>
       <div class="btn-row">
-        <a class="btn" href="#inquire">Check your date</a>
+        <a class="btn" href="#inquire">Check availability</a>
         <a class="btn light" href="#photos">See the space</a>
       </div>
     </div>
@@ -65,9 +93,9 @@ const jsonld = {
   <section>
     <div class="wrap">
       <div class="specs">
-        <div class="spec"><b>900 sq ft</b><span>open floor plan</span></div>
-        <div class="spec"><b>13 ft</b><span>ceilings with track lighting</span></div>
-        <div class="spec"><b>4 hours</b><span>minimum, full-day &amp; multi-day available</span></div>
+        <div class="spec"><b>900 sq ft</b><span>open floor on the second floor</span></div>
+        <div class="spec"><b>Hourly</b><span>workshops, rehearsals, shoots, meetings</span></div>
+        <div class="spec"><b>Monthly</b><span>your own studio, heat &amp; electricity included</span></div>
         <div class="spec"><b>1860</b><span>historic warehouse building</span></div>
       </div>
     </div>
@@ -76,18 +104,18 @@ const jsonld = {
   <section style="padding-top:0;">
     <div class="wrap split">
       <div>
-        <p class="eyebrow orange">What's included</p>
-        <h2>Everything you need, nothing you don't</h2>
-        <p class="lede">Hold your event with the current exhibition on the walls, or as a blank white-wall venue you make your own. The garden opens up room for larger groups in fair weather.</p>
+        <p class="eyebrow orange">The space</p>
+        <h2>Light, wood and brick</h2>
+        <p class="lede">An open room with wide wooden floorboards, timber posts and beams, exposed brick, track lighting and big windows on two sides. You come in through a solid sliding barn door, one flight up from Chambers Street.</p>
       </div>
       <ul class="amenities">
-        <li>Classic wooden bar</li>
-        <li>Baby grand piano</li>
-        <li>Prep kitchen with sink &amp; fridge</li>
-        <li>Track lighting</li>
-        <li>Wifi</li>
-        <li>Exterior garden</li>
-        <li>Art on the walls, or blank walls</li>
+        <li>900 sq ft open floor</li>
+        <li>Tall ceilings with track lighting</li>
+        <li>Wide wooden floorboards</li>
+        <li>Large windows on two sides</li>
+        <li>Sliding barn-door entrance</li>
+        <li>Shared bathroom</li>
+        <li>Shared yard</li>
         <li>Newburgh Historic District location</li>
       </ul>
     </div>
@@ -95,69 +123,54 @@ const jsonld = {
 
   <section class="wash">
     <div class="wrap">
-      <p class="eyebrow orange">Made for</p>
-      <h2>Small, memorable gatherings</h2>
-      <div class="uses">
-        <div class="use"><b>Small weddings</b><span>Ceremonies, receptions and rehearsal dinners among the art.</span></div>
-        <div class="use"><b>Celebrations</b><span>Birthdays, anniversaries, launches and private parties.</span></div>
-        <div class="use"><b>Team days</b><span>Offsites, meetings and workshops somewhere inspiring.</span></div>
-        <div class="use"><b>Film &amp; photo</b><span>Clean white walls, high ceilings and a historic facade.</span></div>
-        <div class="use"><b>Private concerts</b><span>A baby grand and a room with a musical history.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="photos">
-    <div class="wrap">
-      <div class="section-head">
+      <p class="eyebrow orange">Two ways to rent</p>
+      <h2>By the hour, or by the month</h2>
+      <div class="terms">
         <div>
-          <p class="eyebrow orange">The space</p>
-          <h2>Inside and out</h2>
+          <h3>By the hour</h3>
+          <p>Book the studio for a workshop, class, rehearsal, meeting, small gathering, or a photo or film shoot. Tell us your date and how long you need it, and we'll send availability and rates.</p>
+        </div>
+        <div>
+          <h3>By the month</h3>
+          <p>Make it your own private studio on a monthly lease, with heat and electricity included. For work and creative use only: the studio is not for residential use.</p>
+        </div>
+        <div>
+          <h3>Among artists</h3>
+          <p>The building houses several multimedia artists, with Holland Tunnel Gallery downstairs: exhibitions, music nights and film screenings every weekend.</p>
         </div>
       </div>
-      <div class="gallery">
-        <figure class="wide tall"><img src="/img/dark-abyss-of-time-2026-installation.webp" alt="Main gallery wall with pendant lamps and a grid of small painted works" loading="lazy"></figure>
-        <figure class="tall"><img src="/img/reclamation-2025-gibian-gallery-view.webp" alt="Gallery interior with sculpture on a white plinth" loading="lazy"></figure>
-        <figure class="tall"><img src="/img/reclamation-2025-lindell-garden.webp" alt="The gallery garden with a large colorful sculpture on the lawn" loading="lazy"></figure>
-        <figure><img src="/img/gallery-installation-view-1.webp" alt="Textile works and small sculptures on plinths in the gallery" loading="lazy"></figure>
-        <figure><img src="/img/music-night-singer.webp" alt="A singer in a white feather boa performing at a gallery music night" loading="lazy"></figure>
-        <figure class="wide"><img src="/img/gallery-installing-a-show.webp" alt="An artist installing a sculpture in the high-ceilinged gallery" loading="lazy"></figure>
-        <figure class="tall"><img src="/img/reclamation-2025-rutkowski-garden.webp" alt="Tall dark sculptures standing in the garden among trees" loading="lazy"></figure>
-        <figure class="tall"><img src="/img/reclamation-2025-bursztyn-garden-sculpture.webp" alt="Wooden sculpture in the garden with historic Newburgh buildings behind" loading="lazy"></figure>
-        <figure class="wide tall"><img src="/img/music-night-performers.webp" alt="Musicians who have performed at the gallery, including a pianist at the grand piano" loading="lazy"></figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="dark">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow">Add-on</p>
-        <h2>Music by DJ DX</h2>
-        <p>Soul, jazz and Latin on vinyl, matched to your crowd. Add DJ DX to any rental for dinners, receptions and parties, or pair him with a live pianist on the baby grand.</p>
-        <p class="muted">Just tick the box on the inquiry form.</p>
-      </div>
-      <img src="/img/music-night-singer.webp" alt="Singer performing at a Holland Tunnel music night" loading="lazy" style="max-height:420px; object-fit:cover; width:100%;">
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <p class="eyebrow orange">How it works</p>
-      <h2>Simple terms</h2>
-      <div class="terms">
+      <p class="eyebrow orange">Made for</p>
+      <h2>Making, meeting, gathering</h2>
+      <div class="uses">
+        <div class="use"><b>Workshops &amp; classes</b><span>Painting, drawing, movement, writing: room for a group to spread out.</span></div>
+        <div class="use"><b>Rehearsals</b><span>Music, dance and theater, with space to move.</span></div>
+        <div class="use"><b>Photo &amp; film</b><span>Daylight from two sides, wood floors, brick and beams.</span></div>
+        <div class="use"><b>Meetings</b><span>Offsites and team days somewhere inspiring.</span></div>
+        <div class="use"><b>Your studio</b><span>A monthly workspace in a building full of artists.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="photos" class="rule-top">
+    <div class="wrap">
+      <div class="section-head">
         <div>
-          <h3>Four-hour minimum</h3>
-          <p>Every rental includes your setup and breakdown time. Full-day and multi-day bookings are available.</p>
+          <p class="eyebrow orange">The studio</p>
+          <h2>Inside and out</h2>
         </div>
-        <div>
-          <h3>Art on, or walls blank</h3>
-          <p>Enjoy the current exhibition as your backdrop, or book the space as a clean white-wall venue.</p>
-        </div>
-        <div>
-          <h3>Garden for more guests</h3>
-          <p>In fair weather the exterior garden opens up extra room for larger groups.</p>
-        </div>
+      </div>
+      <div class="gallery">
+        {PHOTOS.map((p) => (
+          <figure class={p.cls}>
+            <Picture src={p.src} alt={p.alt} formats={['avif', 'webp']} widths={[480, 900, 1500]}
+              sizes={p.cls?.includes('wide') ? '(max-width: 760px) 100vw, 640px' : '(max-width: 760px) 50vw, 320px'} loading="lazy" decoding="async" />
+          </figure>
+        ))}
       </div>
     </div>
   </section>
@@ -165,8 +178,8 @@ const jsonld = {
   <section class="wash" id="inquire">
     <div class="wrap" style="max-width: 860px;">
       <p class="eyebrow orange">Inquire</p>
-      <h2>Check your date</h2>
-      <p class="lede">Tell us a little about your event. Paulien will reply personally with availability and rates.</p>
+      <h2>Check availability</h2>
+      <p class="lede">Tell us how you'd like to use the studio. Paulien will reply personally with availability and rates.</p>
       <form name="rental-inquiry" method="POST" action="/api/forms" style="margin-top: 28px;">
         <input type="hidden" name="form-name" value="rental-inquiry" />
         <p class="vh"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
@@ -175,38 +188,48 @@ const jsonld = {
           <div><label for="r-email">Email</label><input id="r-email" type="email" name="email" required autocomplete="email"></div>
           <div><label for="r-phone">Phone</label><input id="r-phone" type="tel" name="phone" autocomplete="tel"></div>
           <div>
-            <label for="r-type">Event type</label>
+            <label for="r-space">How would you like to rent?</label>
+            <select id="r-space" name="space" required>
+              <option value="">Choose one</option>
+              <option>By the hour</option>
+              <option>By the month</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div>
+            <label for="r-type">What it's for</label>
             <select id="r-type" name="event_type" required>
               <option value="">Choose one</option>
-              <option>Small wedding or rehearsal dinner</option>
-              <option>Celebration or private party</option>
-              <option>Team meeting or offsite</option>
-              <option>Film or photo shoot</option>
-              <option>Private concert</option>
+              <option>Workshop or class</option>
+              <option>Rehearsal</option>
+              <option>Photo or film shoot</option>
+              <option>Meeting or offsite</option>
+              <option>Small gathering</option>
+              <option>A studio to work in</option>
               <option>Something else</option>
             </select>
           </div>
-          <div><label for="r-date">Preferred date</label><input id="r-date" type="date" name="date"></div>
-          <div><label for="r-guests">Number of guests</label><input id="r-guests" type="number" min="1" name="guests"></div>
+          <div><label for="r-date">Start date</label><input id="r-date" type="date" name="date"></div>
+          <div><label for="r-guests">Number of people</label><input id="r-guests" type="number" min="1" name="guests"></div>
           <div>
-            <label for="r-hours">Hours needed</label>
+            <label for="r-hours">How long</label>
             <select id="r-hours" name="hours">
-              <option>4 hours (minimum)</option>
-              <option>5–8 hours</option>
-              <option>Full day</option>
-              <option>Multiple days</option>
+              <option>A few hours</option>
+              <option>A full day</option>
+              <option>Several days</option>
+              <option>Monthly</option>
             </select>
           </div>
-          <div style="display:flex; align-items:flex-end;">
-            <label class="check"><input type="checkbox" name="dj_dx"> Add music by DJ DX</label>
-          </div>
-          <div class="full"><label for="r-msg">Tell us about your event</label><textarea id="r-msg" name="message"></textarea></div>
+          <div class="full"><label for="r-msg">Tell us what you have in mind</label><textarea id="r-msg" name="message"></textarea></div>
           <div class="full"><button class="btn" type="submit">Send inquiry</button></div>
         </div>
       </form>
     </div>
   </section>
 
-
 <script src="/js/site.js" is:inline defer></script>
+<style>
+  /* The studio photo is bright (white walls, daylight), so the text needs a deeper shade behind it. */
+  .studio-hero::after { background: linear-gradient(to top, rgba(0,0,0,.86) 0%, rgba(0,0,0,.6) 50%, rgba(0,0,0,.2) 100%); }
+</style>
 </Base>
