@@ -5,6 +5,7 @@ import { FORMS_FROM, FORMS_TO, RESEND_API_KEY } from 'astro:env/server';
 import { Resend } from 'resend';
 import { EMAIL, PUBLIC_SITE } from '../../lib/site';
 import { getProduct, money, MAX_QTY } from '../../lib/shop';
+import { renderEmail, type Row } from '../../lib/email';
 
 export const prerender = false;
 
@@ -115,12 +116,22 @@ export const POST: APIRoute = async ({ request }) => {
     attachments.push({ filename: photo.name.replace(/[^\w.\-]+/g, '_'), content: Buffer.from(await photo.arrayBuffer()) });
   }
 
-  let body = spec.fields
+  const who = text(form, 'name') || email;
+  let rows: Row[] = spec.fields
     .filter(([, key]) => !('skipEmpty' in spec) || text(form, key))
-    .map(([label, key]) => `${label}:\n${text(form, key) || '(none)'}`)
-    .join('\n\n');
+    .map(([label, key]) => [label, text(form, key)]);
   let subject: string = spec.subject(form);
   let ref: string | undefined;
+  let highlight: string | undefined;
+  // Headline for the branded email; the subject line stays as it was so inbox search keeps working.
+  const heads: Record<FormName, () => [kicker: string, title: string, label: string]> = {
+    'claim-profile': () => ['Artist profile', text(form, 'profile') || who, 'artist profile'],
+    contact: () => [`Contact · ${text(form, 'topic') || 'Message'}`, `Message from ${who}`, 'contact'],
+    'school-visit': () => ['School visit', text(form, 'school') || who, 'school visit'],
+    'shop-order': () => ['Shop order request', who, 'shop'],
+    newsletter: () => ['Newsletter', 'New subscriber', 'newsletter'],
+  };
+  let [kicker, title, formLabel] = heads[name]();
 
   if (name === 'shop-order') {
     // Check everything against the shop data; the price comes from src/lib/shop.ts, never from the form.
@@ -138,19 +149,33 @@ export const POST: APIRoute = async ({ request }) => {
     if (delivery === 'ship' && !address) return new Response('Please add a shipping address.', { status: 422 });
     ref = orderRef();
     const item = `${product.title}${product.options ? ` (${product.options.label}: ${option})` : ''}`;
-    subject = `Shop order request ${ref}: ${qty} × ${product.title} (${text(form, 'name')})`;
-    body = [
-      `Order request ${ref}`,
-      `Item:\n${item}`,
-      `Quantity:\n${qty} × ${money(product.price)} = ${money(qty * product.price)}${delivery === 'ship' ? ' + shipping' : ''}`,
-      `Delivery:\n${delivery === 'ship' ? `Ship to:\n${address}` : 'Pick up at the gallery'}`,
-      `Name:\n${text(form, 'name')}`,
-      `Email:\n${email}`,
-      `Phone:\n${text(form, 'phone') || '(none)'}`,
-      `Note:\n${text(form, 'note') || '(none)'}`,
-      'No payment has been taken. Reply to this email to arrange payment and delivery.',
-    ].join('\n\n');
+    const total = `${money(qty * product.price)}${delivery === 'ship' ? ' + shipping' : ''}`;
+    subject = `Shop order request ${ref}: ${qty} × ${product.title} (${who})`;
+    kicker = `Shop order request · ${ref}`;
+    title = `${qty} × ${product.title}`;
+    highlight = `${total} · ${delivery === 'ship' ? 'ship within the USA' : 'pickup at the gallery'} · no payment taken yet`;
+    rows = [
+      ['Reference', ref],
+      ['Item', item],
+      ['Quantity', `${qty} × ${money(product.price)} = ${total}`],
+      ['Delivery', delivery === 'ship' ? `Ship to:\n${address}` : 'Pick up at the gallery'],
+      ['Name', text(form, 'name')],
+      ['Email', email],
+      ['Phone', text(form, 'phone')],
+      ['Note', text(form, 'note')],
+    ];
   }
+
+  const body = [
+    ...(ref ? [`Order request ${ref}`] : []),
+    ...rows.map(([label, value]) => `${label}:\n${value || '(none)'}`),
+    ...(ref ? ['No payment has been taken. Reply to this email to arrange payment and delivery.'] : []),
+  ].join('\n\n');
+  const html = renderEmail({
+    kicker, title, rows, highlight, formLabel,
+    reply: { email, name: who, subject: `Re: ${subject}` },
+    origin: new URL(request.url).origin,
+  });
 
   if (!RESEND_API_KEY) {
     // Private demo without email configured: accept and log so the flow can be tried end to end.
@@ -167,6 +192,7 @@ export const POST: APIRoute = async ({ request }) => {
     replyTo: email,
     subject,
     text: `${body}\n\n(Sent from the ${name} form on hollandtunnelgallery.com)`,
+    html,
     attachments,
   });
   if (error) {
