@@ -17,6 +17,7 @@ import front from '../assets/rent/building-front.jpg';
 import doors from '../assets/rent/building-doors.jpg';
 import street from '../assets/rent/building-street.jpg';
 import { SITE_URL, ADDRESS } from '../lib/site';
+import Lightbox from '../components/Lightbox.astro';
 
 // "Inside and out". `cls` sets the tile size in the 4-column grid; the rows fill exactly.
 const PHOTOS: { src: ImageMetadata; alt: string; cls?: string }[] = [
@@ -31,6 +32,8 @@ const PHOTOS: { src: ImageMetadata; alt: string; cls?: string }[] = [
   { src: street, cls: 'wide', alt: "Chambers Street outside the building, in Newburgh's Historic District" },
 ];
 
+// Full-size versions for the photo viewer (WebP, never wider than the original).
+const FULL = await Promise.all(PHOTOS.map((p) => getImage({ src: p.src, width: Math.min(p.src.width, 1800), format: 'webp' })));
 const share = await getImage({ src: roomWindows, width: 1200, format: 'jpg' });
 const url = `${SITE_URL}/rent`;
 const jsonld = {
@@ -164,14 +167,17 @@ const jsonld = {
           <h2>Inside and out</h2>
         </div>
       </div>
-      <div class="gallery">
-        {PHOTOS.map((p) => (
+      <div class="gallery" data-lb-group>
+        {PHOTOS.map((p, i) => (
           <figure class={p.cls}>
-            <Picture src={p.src} alt={p.alt} formats={['avif', 'webp']} widths={[480, 900, 1500]}
-              sizes={p.cls?.includes('wide') ? '(max-width: 760px) 100vw, 640px' : '(max-width: 760px) 50vw, 320px'} loading="lazy" decoding="async" />
+            <a href={FULL[i].src} data-lb data-w={p.src.width} data-h={p.src.height} data-alt={p.alt} aria-label={`Open photo: ${p.alt}`}>
+              <Picture src={p.src} alt={p.alt} formats={['avif', 'webp']} widths={[480, 900, 1500]}
+                sizes={p.cls?.includes('wide') ? '(max-width: 760px) 100vw, 640px' : '(max-width: 760px) 50vw, 320px'} loading="lazy" decoding="async" />
+            </a>
           </figure>
         ))}
       </div>
+      <Lightbox />
     </div>
   </section>
 

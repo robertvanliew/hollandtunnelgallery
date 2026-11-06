@@ -1,0 +1,240 @@
+---
+// Photo viewer for any grid of links marked [data-lb] inside a [data-lb-group]. Each link points at the
+// full-size image (so without JavaScript it still opens the photo) and carries data-w / data-h (the image's
+// size) and data-alt (its caption).
+//
+// Motion (shared element): the photo grows out of its own tile into the viewer and shrinks back on close.
+// The full image is laid out at its final size and position, then animated from the tile with transform
+// and clip-path only (GPU, no layout), so the crop of the tile opens out into the whole picture.
+// Arrows, keys (← → Esc) and swipe move between photos. Reduced motion: a plain fade.
+---
+<dialog class="lb" aria-label="Photo viewer">
+  <div class="lb-stage">
+    <img class="lb-img" alt="" decoding="async" />
+  </div>
+  <p class="lb-cap" aria-live="polite"></p>
+  <p class="lb-count" aria-hidden="true"></p>
+  <button class="lb-btn lb-close" type="button" aria-label="Close">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
+  </button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 4l-8 8 8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
+  </button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 4l8 8-8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
+  </button>
+</dialog>
+
+<style is:global>
+  [data-lb] { display: block; width: 100%; height: 100%; cursor: zoom-in; }
+  [data-lb]:focus-visible { outline: 3px solid var(--orange, #E75D18); outline-offset: 3px; }
+
+  .lb { position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0;
+    color: #fff; overflow: hidden;
+    /* The dark, blurred layer is the viewer's own background (::backdrop transitions are unreliable). */
+    background: rgba(10, 10, 10, 0); backdrop-filter: blur(0px);
+    transition: background-color .32s ease, backdrop-filter .32s ease; }
+  .lb::backdrop { background: transparent; }
+  .lb.is-in { background: rgba(10, 10, 10, .9); backdrop-filter: blur(10px); }
+  @media (prefers-reduced-transparency: reduce) { .lb.is-in { background: rgba(10, 10, 10, .97); backdrop-filter: none; } }
+  .lb-stage { position: absolute; inset: 0; touch-action: pan-y; }
+  .lb-img { position: absolute; left: 0; top: 0; max-width: none; transform-origin: 0 0; will-change: transform, clip-path;
+    user-select: none; -webkit-user-drag: none; box-shadow: none; }
+  .lb-cap { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); width: min(720px, calc(100vw - 140px));
+    margin: 0; text-align: center; font-size: 14px; line-height: 1.45; color: #e8e4e1; opacity: 0; transition: opacity .25s ease; }
+  .lb-count { position: absolute; left: 22px; top: 20px; margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .14em; color: #bdb5b1; opacity: 0; transition: opacity .25s ease; }
+  .lb-btn { position: absolute; display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 0; border-radius: 0;
+    background: rgba(17, 17, 17, .6); color: #fff; cursor: pointer; opacity: 0;
+    transition: opacity .25s ease, background-color .2s ease, transform .16s cubic-bezier(.23, 1, .32, 1); }
+  .lb-btn:active { transform: scale(.94); }
+  .lb-btn:focus-visible { outline: 3px solid var(--orange, #E75D18); outline-offset: 2px; }
+  @media (hover: hover) and (pointer: fine) { .lb-btn:hover { background: var(--orange, #E75D18); } }
+  .lb-close { top: 12px; right: 12px; }
+  .lb-prev, .lb-next { top: 50%; margin-top: -24px; }
+  .lb-prev { left: 12px; } .lb-next { right: 12px; }
+  .lb.is-in .lb-btn, .lb.is-in .lb-cap, .lb.is-in .lb-count { opacity: 1; }
+  .lb.is-single .lb-prev, .lb.is-single .lb-next, .lb.is-single .lb-count { display: none; }
+  @media (max-width: 640px) { .lb-prev, .lb-next { top: auto; bottom: 64px; margin: 0; } .lb-cap { bottom: 20px; width: calc(100vw - 32px); } }
+  html.lb-lock { overflow: hidden; }
+</style>
+
+<script>
+  const dlg = document.querySelector<HTMLDialogElement>('dialog.lb');
+  if (dlg) {
+    const img = dlg.querySelector<HTMLImageElement>('.lb-img')!;
+    const cap = dlg.querySelector<HTMLElement>('.lb-cap')!;
+    const count = dlg.querySelector<HTMLElement>('.lb-count')!;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    const EASE = 'cubic-bezier(.32,.72,0,1)'; // drawer-like: fast start, soft landing
+    const PAD = () => (innerWidth < 640 ? 12 : 72);
+
+    let items: HTMLAnchorElement[] = [];
+    let index = 0;
+    let busy = false;
+
+    /** Where the photo sits when fully open: as large as fits, centered, never upscaled past 1.0. */
+    const finalRect = (a: HTMLAnchorElement) => {
+      const w = Number(a.dataset.w), h = Number(a.dataset.h);
+      const maxW = innerWidth - PAD() * 2, maxH = innerHeight - (innerWidth < 640 ? 150 : 120);
+      const s = Math.min(maxW / w, maxH / h, 1.6);
+      const fw = w * s, fh = h * s;
+      return { x: (innerWidth - fw) / 2, y: (innerHeight - fh) / 2 - (innerWidth < 640 ? 30 : 6), w: fw, h: fh };
+    };
+    const place = (r: { x: number; y: number; w: number; h: number }) => {
+      img.style.width = `${r.w}px`; img.style.height = `${r.h}px`;
+      img.style.left = `${r.x}px`; img.style.top = `${r.y}px`;
+    };
+    /** Transform + clip that make the full photo look exactly like its cropped tile (object-fit: cover). */
+    const fromTile = (tile: DOMRect, f: { x: number; y: number; w: number; h: number }) => {
+      const s = Math.max(tile.width / f.w, tile.height / f.h);
+      const vw = tile.width / s, vh = tile.height / s; // visible part, in the full image's own pixels
+      const ix = (f.w - vw) / 2, iy = (f.h - vh) / 2;
+      const tx = tile.left - (f.x + ix * s), ty = tile.top - (f.y + iy * s);
+      return {
+        transform: `translate(${tx}px, ${ty}px) scale(${s})`,
+        clipPath: `inset(${iy}px ${ix}px ${iy}px ${ix}px)`,
+      };
+    };
+    const thumb = (a: HTMLAnchorElement) => a.querySelector('img') as HTMLImageElement | null;
+    const visible = (r: DOMRect) => r.bottom > 0 && r.top < innerHeight && r.width > 0;
+
+    const load = (a: HTMLAnchorElement) =>
+      new Promise<void>((res) => {
+        const t = thumb(a);
+        // Show the tile's already-loaded image at once, then swap in the full one when it arrives.
+        if (t?.currentSrc) img.src = t.currentSrc;
+        const full = new Image();
+        full.decoding = 'async';
+        full.src = a.href;
+        const done = () => { if (items[index] === a) img.src = a.href; res(); };
+        full.decode().then(done, done);
+        setTimeout(res, 160); // never wait long for the big file: the small one is already showing
+      });
+    const preload = (i: number) => { const a = items[(i + items.length) % items.length]; if (a) new Image().src = a.href; };
+
+    const label = () => {
+      const a = items[index];
+      img.alt = a.dataset.alt ?? '';
+      cap.textContent = a.dataset.alt ?? '';
+      count.textContent = `${index + 1} / ${items.length}`;
+      preload(index + 1); preload(index - 1);
+    };
+
+    async function open(a: HTMLAnchorElement) {
+      if (busy) return;
+      busy = true;
+      const group = a.closest('[data-lb-group]');
+      items = Array.from((group ?? document).querySelectorAll<HTMLAnchorElement>('[data-lb]'));
+      index = items.indexOf(a);
+      dlg!.classList.toggle('is-single', items.length < 2);
+      const f = finalRect(a);
+      place(f);
+      label();
+      const t = thumb(a);
+      const tile = t?.getBoundingClientRect();
+      await load(a);
+      document.documentElement.classList.add('lb-lock');
+      dlg!.showModal();
+      requestAnimationFrame(() => dlg!.classList.add('is-in'));
+      if (reduce.matches || !tile || !visible(tile)) {
+        await img.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: 'ease-out' }).finished;
+      } else {
+        t!.style.visibility = 'hidden';
+        const start = fromTile(tile, f);
+        await img.animate(
+          [start, { transform: 'translate(0px, 0px) scale(1)', clipPath: 'inset(0px 0px 0px 0px)' }],
+          { duration: 460, easing: EASE },
+        ).finished;
+      }
+      busy = false;
+    }
+
+    async function close() {
+      if (busy || !dlg!.open) return;
+      busy = true;
+      const a = items[index];
+      const t = thumb(a);
+      // Bring the tile into view behind the viewer so the photo can land back in it.
+      t?.closest('figure')?.scrollIntoView({ block: 'nearest' });
+      const tile = t?.getBoundingClientRect();
+      dlg!.classList.remove('is-in');
+      if (reduce.matches || !tile || !visible(tile)) {
+        await img.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, easing: 'ease-in', fill: 'forwards' }).finished;
+      } else {
+        items.forEach((x) => { const ti = thumb(x); if (ti && x !== a) ti.style.visibility = ''; });
+        if (t) t.style.visibility = 'hidden';
+        const f = finalRect(a);
+        await img.animate(
+          [{ transform: 'translate(0px, 0px) scale(1)', clipPath: 'inset(0px 0px 0px 0px)' }, fromTile(tile, f)],
+          { duration: 340, easing: EASE, fill: 'forwards' },
+        ).finished;
+      }
+      items.forEach((x) => { const ti = thumb(x); if (ti) ti.style.visibility = ''; });
+      dlg!.close();
+      img.getAnimations().forEach((an) => an.cancel());
+      document.documentElement.classList.remove('lb-lock');
+      a.focus({ preventScroll: true });
+      busy = false;
+    }
+
+    async function go(step: number) {
+      if (busy || items.length < 2) return;
+      busy = true;
+      const prev = items[index];
+      const pt = thumb(prev); if (pt) pt.style.visibility = '';
+      index = (index + step + items.length) % items.length;
+      const a = items[index];
+      const dx = reduce.matches ? 0 : 48 * step;
+      await img.animate([{ opacity: 1, transform: 'translateX(0px)' }, { opacity: 0, transform: `translateX(${-dx}px)` }],
+        { duration: 140, easing: 'ease-in', fill: 'forwards' }).finished;
+      place(finalRect(a));
+      label();
+      await load(a);
+      const nt = thumb(a); if (nt) nt.style.visibility = 'hidden';
+      img.getAnimations().forEach((an) => an.cancel());
+      await img.animate([{ opacity: 0, transform: `translateX(${dx}px)` }, { opacity: 1, transform: 'translateX(0px)' }],
+        { duration: 260, easing: 'cubic-bezier(.23,1,.32,1)' }).finished;
+      busy = false;
+    }
+
+    document.addEventListener('click', (e) => {
+      const a = (e.target as Element).closest?.<HTMLAnchorElement>('a[data-lb]');
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      open(a);
+    });
+    dlg.querySelector('.lb-close')!.addEventListener('click', close);
+    dlg.querySelector('.lb-prev')!.addEventListener('click', () => go(-1));
+    dlg.querySelector('.lb-next')!.addEventListener('click', () => go(1));
+    dlg.addEventListener('cancel', (e) => { e.preventDefault(); close(); }); // Esc
+    dlg.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    });
+    // Click on the dark area (not the photo or a button) closes.
+    dlg.addEventListener('click', (e) => { if (e.target === dlg || (e.target as Element).classList.contains('lb-stage')) close(); });
+
+    // Swipe: a quick flick is enough (velocity), or a long drag.
+    let sx = 0, sy = 0, st = 0, dragging = false;
+    const stage = dlg.querySelector<HTMLElement>('.lb-stage')!;
+    stage.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse') return; dragging = true; sx = e.clientX; sy = e.clientY; st = performance.now(); });
+    stage.addEventListener('pointermove', (e) => {
+      if (!dragging || busy) return;
+      const dx = e.clientX - sx;
+      if (Math.abs(dx) > Math.abs(e.clientY - sy)) img.style.translate = `${dx * 0.6}px 0`;
+    });
+    const end = (e: PointerEvent) => {
+      if (!dragging) return;
+      dragging = false;
+      const dx = e.clientX - sx, dy = e.clientY - sy;
+      const v = Math.abs(dx) / Math.max(1, performance.now() - st);
+      img.style.translate = '';
+      if (Math.abs(dx) > Math.abs(dy) && (Math.abs(dx) > 70 || v > 0.4)) go(dx < 0 ? 1 : -1);
+      else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) close(); // swipe down to close
+    };
+    stage.addEventListener('pointerup', end);
+    stage.addEventListener('pointercancel', () => { dragging = false; img.style.translate = ''; });
+
+    addEventListener('resize', () => { if (dlg.open && !busy) place(finalRect(items[index])); });
+  }
+</script>
