@@ -1,0 +1,54 @@
+{
+  "title": "Otherness",
+  "dates": "Aug 20 – Sep 25, 2022",
+  "year": 2022,
+  "venue": "Holland Tunnel Newburgh",
+  "type": "Group exhibition",
+  "startDate": "2022-08-20",
+  "endDate": "2022-09-25",
+  "description": "Chantelle Norton, Carl Van Brunt and Joseph Ayers weave together an eclectic array of media, approaches and subjects. Sharing interests in time, history, myth and phenomenology, each explores the self in relation to the other.",
+  "image": "../../assets/shows/otherness-2022-norton.jpg",
+  "imageAlt": "Chantelle Norton, Medusa: a ceramic plate set on blue and white patterned wallpaper",
+  "gallery": [
+    {
+      "image": "../../assets/shows/otherness-2022-van-brunt.jpg",
+      "alt": "Carl Van Brunt, self: a dense, colorful AI-transformed image with an eye and spheres"
+    },
+    {
+      "image": "../../assets/shows/otherness-2022-ayers.jpg",
+      "alt": "Joseph Ayers, Ancillary Dreams, 2022: a curving yellow form in a dark corridor"
+    }
+  ],
+  "artists": [
+    "Chantelle Norton",
+    "Carl Van Brunt",
+    "Joseph Ayers"
+  ],
+  "about": [
+    "For Otherness, Chantelle Norton, Carl Van Brunt and Joseph Ayers weave together an eclectic array of combined media, approaches and subjects. Sharing interests in time, history, myth and phenomenology, each artist explores notions of one's self in relation to the other.",
+    "Chantelle Norton reinterprets the myth of Medusa through ceramic plates and wallpaper designed with hand-made drawings. Of her approach she said: \"my idea to incorporate ceramic plates came from thinking about stoneware and Medusa's power turning men to stone, and Athena's circular shield with an image of Medusa's head.\" Her wallpaper patterns retell the ancient myth and re-examine the story in a modern context. Medusa was a rape victim who was punished and beheaded; her head became an iconic symbol used in both domestic and public spaces throughout the ancient world.",
+    "Carl Van Brunt continues to push the boundaries between notions of the self in the face of the emergence of AI. Starting from hand-made drawings and sketches as well as digital sources such as fractals and 3D renders, he uses AI technology to transform them into seemingly infinite permutations. Combining video, animation, analog drawings and prints, Van Brunt draws on the spiritual self, past and present, as a way of tapping into the future alter ego of AI.",
+    "Joseph Ayers uses traditional media, new technology, video, sound and sculpture to explore both the connections and the disparity between physical and psychological perceptions. For Otherness he presents a meta-cluster of drawings and paintings, and a pairing of sculptures that can be seen with the eyes, juxtaposed with video-sculptures that can only be felt with the hands. \"As a multimedia artist I think a lot about appearances and perceptions,\" Ayers has said, \"and how relationships between these two things influence, and to some degree have authority over, everything we experience.\""
+  ],
+  "program": [
+    {
+      "date": "Sat, Aug 20, 2022",
+      "text": "Opening reception"
+    },
+    {
+      "date": "Sun, Sep 18, 2022 · 3 pm",
+      "text": "Ben Neill plays the Mutantrumpet, followed at 4 pm by an informal talk with the three artists, with wine and cheese"
+    },
+    {
+      "date": "Sun, Sep 25, 2022",
+      "text": "Last day"
+    }
+  ],
+  "press": [
+    {
+      "title": "The Holland Tunnel Reaches Newburgh",
+      "outlet": "The Highlands Current · Aug 19, 2022",
+      "url": "https://highlandscurrent.org/2022/08/19/the-holland-tunnel-reaches-newburgh/"
+    }
+  ]
+}

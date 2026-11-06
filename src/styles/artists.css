@@ -266,3 +266,22 @@ ul.plain li.no-y { display: block; }
 .film-btn { position: absolute; left: 18px; bottom: 16px; z-index: 1; display: inline-flex; align-items: center; gap: 10px; font: 400 26px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; background: var(--orange); color: #fff; padding: 12px 18px 10px; }
 .film-play:hover .film-btn, .film-play:focus-visible .film-btn { background: #fff; color: var(--ink); }
 .film-desc { margin: 12px 0 0; max-width: 68ch; font-size: 15px; }
+
+/* Show page: the show's own words (about, statements), its program and press. */
+.show-text { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 40px 64px; margin-top: 44px; align-items: start; }
+.show-text .block-h { font: 400 30px/1 var(--display); letter-spacing: .05em; color: var(--ink); margin: 0 0 16px; }
+.st-main > p { max-width: 66ch; font-size: 17px; line-height: 1.65; color: var(--text); margin: 0 0 14px; }
+.st-main > p.lede { font-size: 19px; color: var(--ink); }
+.st-statement { margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--border); max-width: 66ch; }
+.st-statement h3 { margin: 0 0 12px; font: 400 26px/1.05 var(--display); letter-spacing: .04em; color: var(--ink); }
+.st-statement h3 span { display: block; margin-top: 6px; font: 600 12px/1.4 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--label); }
+.st-statement p { font-size: 16px; line-height: 1.65; color: var(--text); margin: 0 0 12px; }
+.st-side { position: sticky; top: 24px; padding: 22px 22px 6px; background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--orange); }
+.st-side .block-h { font-size: 24px; margin-bottom: 12px; }
+.st-side ul { list-style: none; margin: 0 0 22px; padding: 0; }
+.st-side li { padding: 10px 0; border-top: 1px solid var(--border); font-size: 15px; line-height: 1.45; color: var(--text); }
+.st-side li:first-child { border-top: 0; padding-top: 0; }
+.st-program b, .st-press span { display: block; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--label); margin-bottom: 3px; }
+.st-press span { margin: 3px 0 0; }
+.st-press a { color: var(--ink); font-weight: 600; }
+@media (max-width: 900px) { .show-text { grid-template-columns: 1fr; } .st-side { position: static; } }

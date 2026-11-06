@@ -1,0 +1,143 @@
+---
+// Stairmasters: Holland Tunnel's third space (Williamsburg, 2003 onward), an art installation up the
+// four-flight staircase of the brownstone next to the original gallery. Kept at its old address,
+// /stairmasters, with the text and artist lists from the old Squarespace page.
+import Base from '../layouts/Base.astro';
+import { Picture } from 'astro:assets';
+import '../styles/pages.css';
+import framed from '../assets/history/stairmasters-framed.jpg';
+import delftInvite from '../assets/history/stairmasters-delft-blues-invite.jpg';
+import delft1 from '../assets/history/stairmasters-delft-blues-1.jpg';
+import delft2 from '../assets/history/stairmasters-delft-blues-2.jpg';
+import delft3 from '../assets/history/stairmasters-delft-blues-3.jpg';
+import delft4 from '../assets/history/stairmasters-delft-blues-4.jpg';
+import { SITE_URL } from '../lib/site';
+
+const FRAMED = 'Marjolijn van den Assem, Lauren Bakoian, C Bangs, Sarah Barker, Joe Barnes, Wayne Barnes, Claire Begheyn, Jean Betancourt, Alan M Bolle, Céline Bouchez, Mireille Brouwer, Ken Butler, KaKyung Cho, Angiola Churchill, Marieken Cochius, John Crawford, Susan Daboll, Melissa Dadourian, Timothy Daly, Paula De Luccia, Francoise van Dijk, Elizabeth Duffy, Julie Durkin, Rupert Eder, Stephen Eins, Margot Farrington, Alexa Gambal, Naomi Beth Gans, Serge Gavronsky, Stephen Gerberich, Luke Gray + Dorke Poelz, Meghan Harkins, Jan Hartzema, Heff Heisler, Neddi Heller, Jenny Hellman, Molly Herman, Shelley Himmelstein, Wendy Hirschberg, Cody Hughes, Matt Jenkins, Nikos Karpodinis, Miki Katagiri, Tim Knox, John Koos, Fran Kornfeld, Marni Kotak, Liv Mette Larsen, Gerda van Leeuwen, Jan Lethen, Roy Lethen, Paulien Lethen, Alexandra Limpert, Liz-N-Val, Gisèle A. Lubsen, Bix Lye, S.J. Lye, Ernest Marciano, Grace Markman, Tony Martin, John McNulty, Alice Meyer Wallace, Elizabeth Morris, Jan Mulder, Victor Nieuwenhuijs, Yukako Okudaira, Victor Ortale, Judith Page, Kent Peterson, Brian Prugh, Carla van de Puttelaar, Jacqueline Sferra Rada, Ellen Rand, Pablo Rey, Jacques Roch, Mimmo Roselli, Sheila Ross, Anthony Rubino, Kiyomitsu Saito, Heleen Schuttevaêr, Maartje Seyferth, Carri Skoczek, Louise P. Sloane, Andrea Spiros, Amanda Staszewski, Greet Steenland, Meryl Taradash, Judy Thomas, Richard Timperio, Nathalie Trovato, Francesco Mario Tumbiolo, Hans van Uden, Lynn Umlauf, Harry Vandevliet, Hanny Veenendaal, Victor Veldhuijzen van Zanten, Daniel Vernola, Rob Voerman, Michael Volonakis, Jan Maarten Voskuil, Larry Walczak, Joy Walker, Larry Webb, Anna West, Tristan Wolski, Peter Yamaoka, Christopher Yeatman, Apostolis Zolotakis';
+const DELFT = 'Marjolijn van den Assem, Joe Barnes, Heleen Bijvank, Mireille Brouwer, KaKyung Cho, Angiola Churchill, Francoise van Dijk, Rupert Eder, Maartje Folkeringa, Monica Gaertuer, Serge Gavronsky, Neddi Heller, Tracy Heneberger, Nieske Kalkman, Karl Kautzinski, Fran Kornfeld, Paulien Lethen, Richard Lethen, Alexandra Limpert, Jos Looise, Tony Martin, Margot Farrington, Susan Mayr, Jan Mulder, Marc Peters, Jan van der Ploeg, Jacques Roch, Tony Roch, Michiel Sanders, Heleen Schuttevaêr, Michal Shapiro, Carri Skoczek, Andrea Spiros, Richard Timperio, Elisabeth Tonnard, Pim Trooster, Nathalie Trovato, Hans van Uden, Lynn Umlauf, Daniel Vernola, Rob Voerman, Joy Walker, Larry Webb, Terryl Sellers, Thornton Willis';
+const OPENING_MUSIC = 'Heleen Schuttevaêr with guest jazz musicians Syberen van Munster, Vitor Gonçalves, Jay Rattman, Rick Rosato, Colin Stranahan, Ron Jackson, Adam Kabak and Art Lillard, and The Silent Brass Band (De Stille Fanfare)';
+
+const DELFT_PHOTOS: { src: ImageMetadata; alt: string }[] = [
+  { src: delft1, alt: 'Delft Blues: hand-painted plates hung along the Stairmasters stairwell' },
+  { src: delft2, alt: 'Delft Blues: plates painted with faces and figures in blue and black' },
+  { src: delft3, alt: 'Delft Blues: a cluster of blue and white plates on the staircase wall' },
+  { src: delft4, alt: 'Delft Blues: blue and white plates above an antique cabinet' },
+  { src: delftInvite, alt: 'The Delft Blues invitation: a blue and white Delft pattern inside the outline of the Holland Tunnel shed' },
+];
+
+const url = `${SITE_URL}/stairmasters`;
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      url,
+      name: 'Stairmasters · Holland Tunnel Gallery, Williamsburg',
+      isPartOf: { '@id': `${SITE_URL}/#gallery` },
+    },
+    {
+      '@type': 'ExhibitionEvent',
+      name: 'Stairmasters / Framed',
+      startDate: '2014-11-07',
+      location: { '@type': 'Place', name: 'Stairmasters, Holland Tunnel Gallery', address: 'Williamsburg, Brooklyn, NY' },
+      organizer: { '@id': `${SITE_URL}/#gallery` },
+      description: 'A group show of 110 artists on the theme "framed", celebrating 17 years of Holland Tunnel Gallery Williamsburg.',
+    },
+    {
+      '@type': 'ExhibitionEvent',
+      name: 'Stairmasters / Delft Blues',
+      startDate: '2009-12-05',
+      endDate: '2014-10-15',
+      location: { '@type': 'Place', name: 'Stairmasters, Holland Tunnel Gallery', address: 'Williamsburg, Brooklyn, NY' },
+      organizer: { '@id': `${SITE_URL}/#gallery` },
+      description: '125 hand-painted ceramics by 50 artists, for 400 years of Netherlands–Japan connections.',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'About', item: `${SITE_URL}/about` },
+        { '@type': 'ListItem', position: 3, name: 'Stairmasters', item: url },
+      ],
+    },
+  ],
+};
+---
+<Base
+  title="Stairmasters: the Staircase Gallery · Holland Tunnel Williamsburg"
+  description="Stairmasters was Holland Tunnel Gallery's third space: art installed up the four-flight staircase of a Williamsburg brownstone, from 2003. Framed (110 artists), Delft Blues (125 ceramics) and Night and Day."
+  path="/stairmasters"
+  active="about"
+  jsonld={jsonld}
+>
+  <section class="hero">
+    <div class="wrap story-grid">
+      <div>
+        <h1 class="eyebrow">Stairmasters · Holland Tunnel Williamsburg</h1>
+        <p class="since">The staircase gallery</p>
+        <p class="lede">Stairmasters, a four-floor permanent art installation, is the third art space Paulien Lethen started for Holland Tunnel. It launched in 2003 in the hall and monumental four-flight staircase of the brownstone next to Holland Tunnel Gallery in Williamsburg.</p>
+      </div>
+      <figure class="sm-hero-fig">
+        <Picture src={framed} alt="Looking down the Stairmasters staircase: works from Framed hung up the stairwell walls" formats={['avif', 'webp']} widths={[480, 800]} sizes="(max-width: 900px) 100vw, 480px" loading="eager" fetchpriority="high" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="wash">
+    <div class="wrap" style="max-width: 900px;">
+      <p>For a Williamsburg curators' art weekend, gallery director and curator Paulien Lethen wanted to do something outstanding to present her stable of artists. She used the just-restored hall and staircase as an extra exhibition space. From then on she presented long-term exhibitions in Stairmasters, with the artworks installed from the ground floor to the top, inviting visitors to get some exercise while looking at the show.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="max-width: 900px;">
+      <p class="eyebrow orange">Nov 7, 2014 onward</p>
+      <h2>Stairmasters / Framed</h2>
+      <p class="lede">To celebrate 17 years of Holland Tunnel Gallery Williamsburg, Paulien Lethen invited 110 artists to make work freely interpreting the theme "framed", a play on the double meaning of the word. The mega group show includes many of the roughly 700 artists who had shown at the gallery since it opened in 1997.</p>
+      <h3>The opening weekend, Nov 7–9, 2014</h3>
+      <p>A weekend of events at the gallery, in a party tent and in the parking lot: the celebration of 17 years of Holland Tunnel Gallery Brooklyn and the 5 Dutch Days in the Fall festival; the launch of the <a href="/shop/holland-tunnel-gallery-book">Holland Tunnel Gallery book</a> by Rob de Vos, Consul General of the Netherlands in New York; the opening of Framed; and concerts by Lex Grey &amp; the Urban Pioneers. Paulien Lethen, Bix Lye and Jan Mulder were "framed" in the Holland Tunnel garden shed for the weekend, with live music by {OPENING_MUSIC}.</p>
+      <details class="names">
+        <summary>All 110 artists in Framed</summary>
+        <p>{FRAMED}</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="wash">
+    <div class="wrap" style="max-width: 900px;">
+      <p class="eyebrow orange">Dec 5, 2009 – Oct 15, 2014</p>
+      <h2>Stairmasters / Delft Blues</h2>
+      <p class="lede">For 400 years of Netherlands–Japan connections, Paulien Lethen invited 50 artists and gave each a plate or vase to make their own variation on the famous Delft Blue pottery. The result: 125 hand-painted ceramics on the walls of Stairmasters, the four-flight staircase of her monumental brownstone.</p>
+      <ul class="sm-grid" style="list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:14px; margin:24px 0;">
+        {DELFT_PHOTOS.map((p) => (
+          <li><Picture src={p.src} alt={p.alt} formats={['avif', 'webp']} widths={[400, 800]} sizes="(max-width: 600px) 100vw, 280px" loading="lazy" style="width:100%; height:auto; display:block;" /></li>
+        ))}
+      </ul>
+      <details class="names">
+        <summary>The artists in Delft Blues</summary>
+        <p>{DELFT}</p>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="max-width: 900px;">
+      <p class="eyebrow orange">Oct 11, 2008 – Nov 30, 2009</p>
+      <h2>Stairmasters / Night and Day</h2>
+      <p>A group show up the four flights of stairs.</p>
+      <div class="btn-row">
+        <a class="btn ghost" href="/about#story">The whole Holland Tunnel story</a>
+        <a class="btn ghost" href="/shop/holland-tunnel-gallery-book">The book: Williamsburg 1997–2015</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .sm-hero-fig { margin: 0; width: 100%; max-width: 440px; justify-self: end; }
+  .sm-hero-fig :global(img) { width: 100%; height: auto; display: block; }
+  .names { margin-top: 22px; border-top: 1px solid var(--border, #E4DEDA); padding-top: 14px; }
+  .names summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+  .names p { margin-top: 12px; font-size: 15px; line-height: 1.7; color: var(--text); }
+  h3 { margin: 26px 0 8px; }
+</style>

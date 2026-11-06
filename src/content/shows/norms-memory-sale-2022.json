@@ -1,0 +1,31 @@
+{
+  "title": "Norm's Memory Sale",
+  "dates": "Mar 19 & Apr 2, 2022",
+  "year": 2022,
+  "venue": "Holland Tunnel Newburgh",
+  "type": "Performance · spoken word with music",
+  "startDate": "2022-03-19",
+  "endDate": "2022-04-02",
+  "description": "Norm Magnusson tells the fictional-ish stories behind the objects in his Memory Sale, with musical interludes, during the exhibition The Narrative of Things.",
+  "image": "../../assets/shows/norms-memory-sale-2022.jpg",
+  "imageAlt": "Norm Magnusson performing Norm's Memory Sale",
+  "artists": [
+    "Norm Magnusson",
+    "Peter Dougan",
+    "Steve Mosto"
+  ],
+  "about": [
+    "Norm Magnusson regales the audience with tales of the objects in his Memory Sale, part of the exhibition The Narrative of Things. The delightful narratives tied to the objects make you think about the memories you have tied to all of your own things: stories with musical interludes.",
+    "The first performance, with improv guitar by Peter Dougan, was planned for March 12 and moved to March 19 because of the weather. Because of high demand, a second performance followed on April 2 with music by Steve Mosto. Both started at 6 pm, with a $10 suggested donation for the performers."
+  ],
+  "program": [
+    {
+      "date": "Sat, Mar 19, 2022 · 6 pm",
+      "text": "With Peter Dougan, improv guitar"
+    },
+    {
+      "date": "Sat, Apr 2, 2022 · 6 pm",
+      "text": "With Steve Mosto, music"
+    }
+  ]
+}

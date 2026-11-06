@@ -28,6 +28,15 @@ const shows = defineCollection({
       gallery: z.array(z.object({ image: image(), alt: z.string() })).optional(),
       // A short clip from the show (an .mp4 in /public), with a still to show before it plays.
       video: z.object({ src: z.string(), poster: image(), caption: z.string() }).optional(),
+      // Everyone in the show by name. People with a profile are linked from their own profile's `shows`;
+      // this list adds the ones without a profile, so the show page can name everybody.
+      artists: z.array(z.string()).optional(),
+      // Dated happenings within the show: opening, talks, performances, closing.
+      program: z.array(z.object({ date: z.string(), text: z.string() })).optional(),
+      // Curator's and artists' statements, each under its own heading.
+      statements: z.array(z.object({ by: z.string(), title: z.string().optional(), paragraphs: z.array(z.string()) })).optional(),
+      // Reviews and articles about the show.
+      press: z.array(z.object({ title: z.string(), outlet: z.string(), url: z.string().url() })).optional(),
     }),
 });
 

@@ -150,7 +150,9 @@ const jsonld = show ? { "@context": "https://schema.org", ...eventNode(show, { p
     <div class="wrap">
       <h2>Be first to the next opening</h2>
       <p class="lede" style="margin-inline:auto;">One email a month with the next show, films and music nights.</p>
-      <form class="inline-form" name="newsletter" data-demo="You're on the list. See you at the next opening.">
+      <form class="inline-form" name="newsletter" method="POST" action="/api/forms">
+        <input type="hidden" name="form-name" value="newsletter" />
+        <p class="vh"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
         <label class="sr-only" for="nl-email">Email address</label>
         <input id="nl-email" type="email" name="email" placeholder="Your email" required autocomplete="email">
         <button class="btn" type="submit">Sign up</button>

@@ -1,0 +1,20 @@
+{
+  "title": "20/20 Vision",
+  "dates": "Feb 8 – Sep 27, 2020",
+  "year": 2020,
+  "venue": "Holland Tunnel Newburgh",
+  "type": "Group exhibition",
+  "startDate": "2020-02-08",
+  "endDate": "2020-09-27",
+  "description": "A group exhibition that ran from February to September 2020, closing during the 10th annual Newburgh Open Studios.",
+  "program": [
+    {
+      "date": "Feb 29 – Mar 22, 2020",
+      "text": "Live music Saturdays"
+    },
+    {
+      "date": "Sun, Sep 27, 2020",
+      "text": "Last day, during the 10th annual Newburgh Open Studios"
+    }
+  ]
+}

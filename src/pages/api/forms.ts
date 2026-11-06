@@ -5,7 +5,7 @@ import { FORMS_FROM, FORMS_TO, RESEND_API_KEY } from 'astro:env/server';
 import { Resend } from 'resend';
 import { EMAIL, PUBLIC_SITE } from '../../lib/site';
 import { getProduct, money, MAX_QTY } from '../../lib/shop';
-import { renderEmail, type Row } from '../../lib/email';
+import { renderConfirmation, renderEmail, type ConfirmParts, type Row } from '../../lib/email';
 
 export const prerender = false;
 
@@ -65,6 +65,22 @@ const FORMS = {
     ],
     skipEmpty: true,
   },
+  'rental-inquiry': {
+    subject: (f: FormData) => `Rental inquiry · ${f.get('event_type')} · ${f.get('name')}`,
+    required: ['name', 'email', 'event_type'],
+    fields: [
+      ['Event type', 'event_type'],
+      ['Preferred date', 'date'],
+      ['Number of guests', 'guests'],
+      ['Hours needed', 'hours'],
+      ['Music by DJ DX', 'dj_dx'],
+      ['Name', 'name'],
+      ['Email', 'email'],
+      ['Phone', 'phone'],
+      ['Message', 'message'],
+    ],
+    skipEmpty: true,
+  },
   // Shop order request: no payment here; the gallery replies to arrange payment and delivery.
   // Subject and body are built from the product data below (prices are never taken from the form).
   'shop-order': {
@@ -119,15 +135,17 @@ export const POST: APIRoute = async ({ request }) => {
   const who = text(form, 'name') || email;
   let rows: Row[] = spec.fields
     .filter(([, key]) => !('skipEmpty' in spec) || text(form, key))
-    .map(([label, key]) => [label, text(form, key)]);
+    .map(([label, key]) => [label, key === 'dj_dx' ? 'Yes, please' : text(form, key)]);
   let subject: string = spec.subject(form);
   let ref: string | undefined;
   let highlight: string | undefined;
+  let order: ConfirmParts['order'];
   // Headline for the branded email; the subject line stays as it was so inbox search keeps working.
   const heads: Record<FormName, () => [kicker: string, title: string, label: string]> = {
     'claim-profile': () => ['Artist profile', text(form, 'profile') || who, 'artist profile'],
     contact: () => [`Contact · ${text(form, 'topic') || 'Message'}`, `Message from ${who}`, 'contact'],
     'school-visit': () => ['School visit', text(form, 'school') || who, 'school visit'],
+    'rental-inquiry': () => [`Rental inquiry · ${text(form, 'event_type')}`, `Rental inquiry from ${who}`, 'rental inquiry'],
     'shop-order': () => ['Shop order request', who, 'shop'],
     newsletter: () => ['Newsletter', 'New subscriber', 'newsletter'],
   };
@@ -154,6 +172,7 @@ export const POST: APIRoute = async ({ request }) => {
     kicker = `Shop order request · ${ref}`;
     title = `${qty} × ${product.title}`;
     highlight = `${total} · ${delivery === 'ship' ? 'ship within the USA' : 'pickup at the gallery'} · no payment taken yet`;
+    order = { ref, item, quantity: `${qty} × ${money(product.price)}`, total, pickup: delivery === 'pickup' };
     rows = [
       ['Reference', ref],
       ['Item', item],
@@ -171,10 +190,10 @@ export const POST: APIRoute = async ({ request }) => {
     ...rows.map(([label, value]) => `${label}:\n${value || '(none)'}`),
     ...(ref ? ['No payment has been taken. Reply to this email to arrange payment and delivery.'] : []),
   ].join('\n\n');
+  const origin = new URL(request.url).origin;
   const html = renderEmail({
-    kicker, title, rows, highlight, formLabel,
+    kicker, title, rows, highlight, formLabel, origin,
     reply: { email, name: who, subject: `Re: ${subject}` },
-    origin: new URL(request.url).origin,
   });
 
   if (!RESEND_API_KEY) {
@@ -186,7 +205,8 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(`Form delivery is not configured yet. Please email ${EMAIL}.`, { status: 503 });
   }
 
-  const { error } = await new Resend(RESEND_API_KEY).emails.send({
+  const resend = new Resend(RESEND_API_KEY);
+  const { error } = await resend.emails.send({
     from: FORMS_FROM,
     to: FORMS_TO,
     replyTo: email,
@@ -199,5 +219,18 @@ export const POST: APIRoute = async ({ request }) => {
     console.error('[forms] Resend error', error);
     return new Response(`Sorry, that did not send. Please email ${EMAIL}.`, { status: 502 });
   }
+
+  // "We got it" to the visitor, replying to the gallery inbox. Best effort: the gallery already has the
+  // submission, so a failure here is only logged and the visitor still gets the normal thank-you.
+  const confirm = renderConfirmation({ kind: name, name: who, origin, order });
+  const { error: confirmError } = await resend.emails.send({
+    from: FORMS_FROM,
+    to: email,
+    replyTo: FORMS_TO,
+    subject: confirm.subject,
+    html: confirm.html,
+    text: confirm.text,
+  });
+  if (confirmError) console.error('[forms] confirmation not sent', confirmError);
   return done(request, { ref });
 };

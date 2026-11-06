@@ -19,7 +19,9 @@ const section = s.isMusic ? { name: 'Events', href: '/events' } : { name: 'Exhib
 const share = s.image ? await getImage({ src: s.image, width: 1200, format: 'jpg' }) : null;
 const today = new Date().toISOString().slice(0, 10);
 const onNow = (s.endDate ?? s.startDate) >= today;
-const names = people.map((p) => p.name);
+// Named in the show but without a profile (yet): listed by name, never guessed into a link.
+const others = (s.artists ?? []).filter((n) => !people.some((p) => p.name === n || a.findByName(n)?.slug === p.slug));
+const names = [...people.map((p) => p.name), ...others];
 const posterSrc = s.video ? (await getImage({ src: s.video.poster, width: 720, format: 'jpeg' })).src : undefined;
 const desc = truncate(
   s.description ? `${s.title}, ${s.dates}, at Holland Tunnel Gallery, Newburgh NY. ${s.description}` : `${s.title} (${s.dates}), ${s.type.toLowerCase()} at Holland Tunnel Gallery, Newburgh NY.${names.length ? ' With ' + names.join(', ') + '.' : ''}`,
@@ -52,6 +54,40 @@ const jsonld = {
       </figure>
     )}
   </section>
+  {(s.about?.length || s.program?.length || s.statements?.length || s.press?.length) && (
+    <section class="show-text" aria-labelledby="st-h">
+      <div class="st-main">
+        {s.about?.length && (
+          <>
+            <h2 id="st-h" class="block-h">{s.aboutTitle ?? 'About the show'}</h2>
+            {s.about.map((t, i) => <p class={i === 0 ? 'lede' : undefined}>{t}</p>)}
+          </>
+        )}
+        {s.statements?.map((st) => (
+          <article class="st-statement">
+            <h3>{st.by}{st.title && <span>{st.title}</span>}</h3>
+            {st.paragraphs.map((t) => <p>{t}</p>)}
+          </article>
+        ))}
+      </div>
+      {(s.program?.length || s.press?.length) && (
+        <aside class="st-side">
+          {s.program?.length && (
+            <>
+              <h2 class="block-h" id={s.about?.length ? undefined : 'st-h'}>Program</h2>
+              <ul class="st-program">{s.program.map((p) => <li><b>{p.date}</b><span>{p.text}</span></li>)}</ul>
+            </>
+          )}
+          {s.press?.length && (
+            <>
+              <h2 class="block-h">Press</h2>
+              <ul class="st-press">{s.press.map((p) => <li><a href={p.url} rel="noopener">{p.title}</a><span>{p.outlet}</span></li>)}</ul>
+            </>
+          )}
+        </aside>
+      )}
+    </section>
+  )}
   {(s.video || s.gallery?.length) && (
     <section class="show-media" aria-labelledby="sm-h">
       <h2 id="sm-h" class="block-h" style="font:400 30px/1 var(--display);letter-spacing:.05em;margin:0 0 18px">Photos &amp; video</h2>
@@ -78,14 +114,16 @@ const jsonld = {
       )}
     </section>
   )}
-  {people.length > 0 && (
+  {names.length > 0 && (
     <section class="show-people" aria-labelledby="sp-h">
       <h2 id="sp-h" class="block-h" style="font:400 30px/1 var(--display);letter-spacing:.05em;margin:0 0 18px">
         {s.isMusic ? 'Musicians & performers' : 'Artists in this show'}
       </h2>
-      <ul class="cards">{published.map((p) => <ArtistCard p={p} a={a} />)}</ul>
-      {pending.length > 0 && (
-        <p class="sub" style="margin-top:22px">Also in this show, profiles in progress: {pending.map((p) => p.name).join(', ')}.</p>
+      {published.length > 0 && <ul class="cards">{published.map((p) => <ArtistCard p={p} a={a} />)}</ul>}
+      {(pending.length > 0 || others.length > 0) && (
+        <p class="sub" style={published.length ? 'margin-top:22px' : undefined}>
+          {published.length ? 'Also in this show: ' : ''}{[...pending.map((p) => p.name), ...others].join(', ')}.
+        </p>
       )}
     </section>
   )}

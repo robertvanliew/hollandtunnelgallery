@@ -386,7 +386,9 @@ const concerts = (soon.length ? soon : lately).slice(0, 2).map((s) => ({
         <h2 class="h-h2">Don't miss an opening</h2>
         <p>One email a month: the show on view, films, music nights and openings. No spam.</p>
       </div>
-      <form class="h-join-form" name="newsletter" data-demo="You're on the list. See you at the next opening.">
+      <form class="h-join-form" name="newsletter" method="POST" action="/api/forms">
+        <input type="hidden" name="form-name" value="newsletter" />
+        <p class="vh"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
         <label for="nl-email">Email address</label>
         <div>
           <input id="nl-email" type="email" name="email" placeholder="you@email.com" required autocomplete="email" />

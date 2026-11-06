@@ -1,0 +1,39 @@
+{
+  "title": "Dare to Be Square",
+  "dates": "Apr 16 – May 15, 2022",
+  "year": 2022,
+  "venue": "Holland Tunnel Newburgh",
+  "type": "Two-person exhibition",
+  "startDate": "2022-04-16",
+  "endDate": "2022-05-15",
+  "description": "Paintings by Marc Bernier and sculpture by Tadashi Hashimoto, two artists who use the square and the cube as a vehicle for creation.",
+  "image": "../../assets/shows/dare-to-be-square-2022-bernier.jpg",
+  "imageAlt": "Marc Bernier, Fuchsia-Purple: a square painting",
+  "gallery": [
+    {
+      "image": "../../assets/shows/dare-to-be-square-2022-hashimoto.jpg",
+      "alt": "Tadashi Hashimoto, Grounding Sky 2: a sculpture built from cubes"
+    },
+    {
+      "image": "../../assets/shows/dare-to-be-square-2022-card.jpg",
+      "alt": "Exhibition card for Dare to Be Square, Holland Tunnel Newburgh, 2022"
+    }
+  ],
+  "artists": [
+    "Marc Bernier",
+    "Tadashi Hashimoto"
+  ],
+  "about": [
+    "Dare to Be Square brings together paintings by Marc Bernier and sculpture by Tadashi Hashimoto. Both artists use the square and the cube as a vehicle for creation in the works exhibited. They delight in the potential of the square and its capacity to generate possibilities within a recognized universal language."
+  ],
+  "program": [
+    {
+      "date": "Sat, Apr 16, 2022 · 5–7 pm",
+      "text": "Opening reception"
+    },
+    {
+      "date": "Sun, May 15, 2022 · 3–5 pm",
+      "text": "Artist talk and closing reception: Marc Bernier and Tadashi Hashimoto on their work, inspiration, process and the dialogue between their work"
+    }
+  ]
+}

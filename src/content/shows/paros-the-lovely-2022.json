@@ -1,0 +1,56 @@
+{
+  "title": "Paros the Lovely",
+  "dates": "Jul 27 – Aug 27, 2022",
+  "year": 2022,
+  "venue": "Holland Tunnel Paros, Parikia, Greece",
+  "type": "Group exhibition",
+  "startDate": "2022-07-27",
+  "endDate": "2022-08-27",
+  "description": "Six artists with a close connection to the island show Paros as it was. Paros the Lovely (Η Πάρος η Ωραία) is what the island was called in ancient times.",
+  "image": "../../assets/shows/paros-the-lovely-2022-2.jpg",
+  "imageAlt": "A colorful painting of villagers dancing and feasting on Paros, from Paros the Lovely",
+  "gallery": [
+    {
+      "image": "../../assets/shows/paros-the-lovely-2022-1.jpg",
+      "alt": "A black and white photograph of a windmill above the sea on Paros"
+    },
+    {
+      "image": "../../assets/shows/paros-the-lovely-2022-6.jpg",
+      "alt": "A painting of a white Cycladic church between cypress trees"
+    },
+    {
+      "image": "../../assets/shows/paros-the-lovely-2022-3.jpg",
+      "alt": "A black and white photograph of an ancient olive tree"
+    },
+    {
+      "image": "../../assets/shows/paros-the-lovely-2022-4.jpg",
+      "alt": "A carved standing figure, from Paros the Lovely"
+    },
+    {
+      "image": "../../assets/shows/paros-the-lovely-2022-5.jpg",
+      "alt": "A photograph of red fruit in a bowl, from Paros the Lovely"
+    }
+  ],
+  "artists": [
+    "Nikos Karpodinis",
+    "Maria Agourou",
+    "Nikos Voulgaris",
+    "Susan Daboll",
+    "Elizabeth Carson",
+    "Petros Avlitis"
+  ],
+  "about": [
+    "Paros the Lovely (Η Πάρος η Ωραία), as the island was called in ancient times, was the summer exhibition at Holland Tunnel Gallery in Parikia, with six artists who have a close connection to Paros. Their work reflects and visualizes life on the island as it was.",
+    "The gallery was open Wednesday through Saturday evenings, 8:30–11 pm, and by appointment."
+  ],
+  "program": [
+    {
+      "date": "Wed, Jul 27, 2022",
+      "text": "Exhibition opens"
+    },
+    {
+      "date": "Sat, Aug 27, 2022 · 8:30–11 pm",
+      "text": "Closing reception: a last look at the work as summer winds down"
+    }
+  ]
+}

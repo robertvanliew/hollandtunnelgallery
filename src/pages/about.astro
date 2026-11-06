@@ -3,6 +3,9 @@
 import Base from '../layouts/Base.astro';
 import '../styles/pages.css';
 import { onView, longDate } from '../lib/onview';
+import { Picture } from 'astro:assets';
+import paros1 from '../assets/history/paros-house-1.jpg';
+import paros3 from '../assets/history/paros-house-3.jpg';
 const ov = await onView();
 const jsonld = {
   "@context": "https://schema.org",
@@ -77,8 +80,8 @@ const jsonld = {
       <h2>A shed, an island, a warehouse</h2>
       <ul class="year-list">
         <li><b>1997</b><span><strong>The garden shed.</strong> In November 1997, Paulien Lethen put a Home Depot garden shed (the “Chelsea” model, 8 × 10 ft) in her Williamsburg backyard and hung a show in it for a neighborhood art-tour weekend. For the next ten years she ran a new show there every month. Only six people fit inside, so openings spilled into the parking lot next door, with jazz, rock and blues.</span></li>
-        <li><b>2000</b><span><strong>Paros.</strong> Paulien and her sister, Dutch jazz pianist and vocalist Heleen Schuttevaêr, bought an 18th-century Cycladic merchant's house in the old center of Parikia on the Greek island of Paros. Every summer they open it for exhibitions, concerts, poetry readings, artist talks and drawing classes.</span></li>
-        <li><b>2003</b><span><strong>Stairmasters.</strong> A third space in Williamsburg: an art installation up the four-flight staircase of the brownstone next to the gallery, with art from the ground floor to the top.</span></li>
+        <li><b>2000</b><span><strong>Paros.</strong> In July 2000, Holland Tunnel opened a second space on the Greek island of Paros, in an 18th-century Cycladic merchant's house in the old center of Parikia that Paulien bought with her sister, Dutch jazz pianist and vocalist Heleen Schuttevaêr. Every summer they open it for exhibitions, concerts, poetry readings, artist talks and drawing classes. <a href="#paros">More about Paros</a></span></li>
+        <li><b>2003</b><span><strong>Stairmasters.</strong> A third space in Williamsburg: an art installation up the four-flight staircase of the brownstone next to the gallery, with art from the ground floor to the top, including Delft Blues (125 ceramics by 50 artists) and Framed (110 artists). <a href="/stairmasters">The Stairmasters shows</a></span></li>
         <li><b>2018</b><span><strong>Newburgh.</strong> In May 2018, Holland Tunnel Gallery &amp; Studios opened in an 1860 warehouse at 46 Chambers Street, between Broadway and First Street. The Williamsburg gallery closed in 2019, and Newburgh became Holland Tunnel's home.</span></li>
         <li><b>2023</b><span><strong>A retrospective.</strong> Paulien showed a retrospective of her own work at the gallery.</span></li>
         <li><b>2025</b><span><strong>Holland Tunnel Revisited.</strong> In August 2025, <em>Reclamation: Lost and Found in Newburgh</em> brought 24 artists to Chambers Street and launched Holland Tunnel Revisited, the gallery's current chapter.</span></li>
@@ -102,6 +105,24 @@ const jsonld = {
         <div class="btn-row">
           <a class="btn ghost" href="https://paulienlethen.com">Paulien's work: paulienlethen.com</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paros -->
+  <section class="wash" id="paros">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow orange">Parikia, Paros, Greece · since July 2000</p>
+        <h2>Holland Tunnel Paros</h2>
+        <p>Before moving to New York in the 1980s, Paulien Lethen lived on Paros for a number of years. When she and Heleen Schuttevaêr bought a Cycladic 18th-century merchant's house in the old center of Parikia, they could finally bring Holland Tunnel to the island, an idea they had carried for a long time.</p>
+        <p>The opposite of the one-room Williamsburg shed, Holland Tunnel Paros exhibitions begin at street level in arched spaces where potatoes, onions, olives and wine were once stored, then continue to the courtyard and upstairs, where the kitchen, dining room, library and family bedrooms lead to the spectacular 15-foot-high salla, the salon.</p>
+        <p>Every summer the sisters open the house for concerts, poetry readings, artist talks and model drawing classes, where artists, neighbors, friends and visitors gather. Exhibitions often have an ancient Greek theme, such as Labyrinth, Metamorphosis, Oracle and Pandemonium, and are often part of the island's arts festival. <a href="/exhibitions/paros-the-lovely-2022">Paros the Lovely (2022)</a> · <a href="/exhibitions/paros-remembered-2025">Paros Remembered (2025)</a></p>
+        <p class="muted"><a href="https://parola-paros-freepress.gr/en/paulien-lethen-eng/" rel="noopener">Read the Parola interview with Paulien Lethen</a></p>
+      </div>
+      <div class="duo">
+        <Picture src={paros1} alt="Holland Tunnel Paros: white arched rooms on the ground floor of the house, hung with paintings" formats={['avif', 'webp']} widths={[400, 800]} sizes="(max-width: 900px) 50vw, 300px" loading="lazy" />
+        <Picture src={paros3} alt="Holland Tunnel Paros: the salla upstairs, with a wooden floor, a daybed and paintings on white walls" formats={['avif', 'webp']} widths={[400, 800]} sizes="(max-width: 900px) 50vw, 300px" loading="lazy" />
       </div>
     </div>
   </section>
@@ -181,7 +202,9 @@ const jsonld = {
     <div class="wrap">
       <h2>Stay in the loop</h2>
       <p class="lede" style="margin-inline:auto;">One email a month with the next show, films and music nights.</p>
-      <form class="inline-form" name="newsletter" data-demo="You're on the list. See you at the next opening.">
+      <form class="inline-form" name="newsletter" method="POST" action="/api/forms">
+        <input type="hidden" name="form-name" value="newsletter" />
+        <p class="vh"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
         <label class="sr-only" for="nl-email">Email address</label>
         <input id="nl-email" type="email" name="email" placeholder="Your email" required autocomplete="email">
         <button class="btn" type="submit">Sign up</button>

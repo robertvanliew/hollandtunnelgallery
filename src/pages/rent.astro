@@ -167,7 +167,9 @@ const jsonld = {
       <p class="eyebrow orange">Inquire</p>
       <h2>Check your date</h2>
       <p class="lede">Tell us a little about your event. Paulien will reply personally with availability and rates.</p>
-      <form name="rental-inquiry" data-demo="Thank you. Paulien will be in touch about your date soon." style="margin-top: 28px;">
+      <form name="rental-inquiry" method="POST" action="/api/forms" style="margin-top: 28px;">
+        <input type="hidden" name="form-name" value="rental-inquiry" />
+        <p class="vh"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
         <div class="form-grid">
           <div><label for="r-name">Name</label><input id="r-name" name="name" required autocomplete="name"></div>
           <div><label for="r-email">Email</label><input id="r-email" type="email" name="email" required autocomplete="email"></div>
