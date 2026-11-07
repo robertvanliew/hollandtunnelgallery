@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import '../styles/home.css';
 import { Picture, getImage } from 'astro:assets';
 // Home images go through Astro's image pipeline: resized to their display size, AVIF/WebP, real dimensions.
-import imgMusic from '../assets/home/music-night-performers.webp';
+import imgMusic from '../assets/home/soul-shades-julie-schatz-violin.jpg';
 import imgPostcard from '../assets/home/holland-tunnel-postcard.webp';
 import imgGibian from '../assets/home/reclamation-2025-gibian-gallery-view.webp';
 import imgStudio1 from '../assets/rent/room-beams.jpg';
@@ -194,10 +194,10 @@ const concerts = (soon.length ? soon : lately).slice(0, 2).map((s) => ({
           <p class="h-when">This fall</p>
           <div class="h-what">
             <p class="h-tag">Music night · New</p>
-            <h3><a href="/artists/julie-schatz">Vinyl Night with Soul Shades<span class="h-go" aria-hidden="true">→</span></a></h3>
-            <p>Soul Shades, the violin, piano and DJ duo of Julie Schatz and DJ DX, bring soul, jazz and Latin on vinyl to the gallery, with the baby grand as a backdrop. A new monthly night, built around the show on view.</p>
+            <h3><a href="/artists/julie-schatz">Soul Shades: Turntablism on the Decks<span class="h-go" aria-hidden="true">→</span></a></h3>
+            <p>Soul Shades, the duo of Julie Schatz on violin and piano and DJ DX on the decks, blend live strings with turntablism: soul, jazz and Latin, mixed and cut live, with the baby grand as a backdrop. A new monthly night, built around the show on view.</p>
           </div>
-          <Picture src={imgMusic} alt="" formats={['avif', 'webp']} widths={[240, 480, 720]} sizes="(max-width: 700px) calc(100vw - 32px), 240px" loading="lazy" decoding="async" />
+          <Picture src={imgMusic} alt="Julie Schatz of Soul Shades playing violin in the gallery" formats={['avif', 'webp']} widths={[240, 480, 720]} sizes="(max-width: 700px) calc(100vw - 32px), 240px" loading="lazy" decoding="async" />
         </li>
         <li id="cinema-club">
           <p class="h-when">Monthly</p>
