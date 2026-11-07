@@ -1,0 +1,19 @@
+# After Vercel deploys a push to main, announce every page to IndexNow (Bing, Copilot, DuckDuckGo,
+# Yahoo, Yandex, Naver, Seznam, Yep). Waits for the new deploy to be live first.
+name: IndexNow
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Wait for the Vercel deploy
+        run: sleep 240
+      - name: Submit URLs
+        run: node scripts/indexnow.mjs
