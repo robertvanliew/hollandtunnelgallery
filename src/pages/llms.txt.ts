@@ -36,6 +36,7 @@ export const GET: APIRoute = async () => {
 - [School visits](${SITE_URL}/schools): field trips and lesson plans for middle and high schools in the Hudson Valley
 - [Shop](${SITE_URL}/shop): the Holland Tunnel Gallery book, an artist cookbook, shirts and bags
 - [About](${SITE_URL}/about): history from the 1997 Williamsburg garden shed to Paros, Greece and Newburgh
+- [Art in Newburgh](${SITE_URL}/art-in-newburgh): visitor guide to galleries, Newburgh Open Studios and nearby art and history
 - [Stairmasters](${SITE_URL}/stairmasters): the staircase gallery in Williamsburg (Framed, Delft Blues)
 
 ## Key facts

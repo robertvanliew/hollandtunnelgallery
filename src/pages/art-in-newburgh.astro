@@ -1,0 +1,210 @@
+---
+// Visitor guide: "Art in Newburgh". Targets "art galleries Newburgh", "things to do in Newburgh NY" and
+// "art galleries Hudson Valley". Every fact about other places was checked on that place's own site (or an
+// official source) on CHECKED below; re-check hours before relying on them, and update CHECKED when you do.
+// Closed/suspended things are left out on purpose (Elijah Wheat Showroom moved to Beacon; the ferry is
+// suspended). Lead with a self-contained answer so search engines and AI assistants can quote it.
+import Base from '../layouts/Base.astro';
+import '../styles/pages.css';
+import { SITE_URL, ADDRESS } from '../lib/site';
+import { onView, longDate } from '../lib/onview';
+
+const CHECKED = '2026-11-06';
+const CHECKED_TEXT = 'November 6, 2026';
+const ov = await onView();
+const url = `${SITE_URL}/art-in-newburgh`;
+
+const GALLERIES = [
+  {
+    name: 'Holland Tunnel Gallery',
+    href: '/',
+    address: '46 Chambers Street',
+    hours: 'Saturday & Sunday, 1–5 pm, and by appointment. Free.',
+    text: 'A contemporary art gallery, music room and film club in an 1860 warehouse in the Historic District, founded in 1997 by Dutch artist Paulien Lethen in a Brooklyn garden shed. New shows every few weeks, concerts on the baby grand and a monthly Cinema Club.',
+    ours: true,
+  },
+  {
+    name: 'Ann Street Gallery',
+    href: 'https://www.annstreetgallery.org',
+    address: '104 Ann Street',
+    hours: 'Saturday & Sunday, 1–5 pm, and by appointment (per the gallery).',
+    text: 'A free gallery run by the nonprofit Safe Harbors of the Hudson, home of an Emerging Artist Fellowship for early-career Newburgh and Hudson Valley artists.',
+  },
+  {
+    name: 'Bank Art Gallery',
+    href: 'https://www.bankartgallery.com',
+    address: '94 Broadway',
+    hours: 'Friday 5–9 pm, Saturday 1–6 pm, Sunday 12–5 pm, and by appointment (per the gallery).',
+    text: 'A contemporary gallery for Hudson Valley artists and beyond, in the former Newburgh Savings Bank building on Broadway.',
+  },
+  {
+    name: 'STRONGROOM',
+    href: 'https://strongroom.us',
+    address: 'Sites around the city',
+    hours: 'No fixed gallery; see their site for what is on view and where.',
+    text: 'A Newburgh nonprofit, founded in 2016, that commissions site-specific contemporary art installations in temporary spaces around the city.',
+  },
+];
+
+const NEARBY = [
+  {
+    name: "Washington's Headquarters State Historic Site",
+    href: 'https://parks.ny.gov/visit/historic-sites/washingtons-headquarters-state-historic-site',
+    address: '84 Liberty Street, Newburgh',
+    text: "The Hasbrouck House, where George Washington kept his headquarters for more than 16 months at the end of the Revolutionary War, and the first publicly owned historic site in the United States. Museum and grounds; check the site for seasonal hours (house tours are paused for restoration).",
+  },
+  {
+    name: 'Storm King Art Center',
+    href: 'https://stormking.org/visit/',
+    address: '1 Museum Road, New Windsor',
+    text: 'The outdoor sculpture museum, a short drive south. Open Wednesday to Monday, 10 am–4 pm; closed in winter, so check dates before you go.',
+  },
+  {
+    name: 'Dia Beacon',
+    href: 'https://www.diaart.org/visit/visit-our-locations-sites/dia-beacon-beacon-united-states',
+    address: '3 Beekman Street, Beacon',
+    text: 'The major contemporary art museum just across the river. Open Friday to Monday; check the site for seasonal hours and reservations.',
+  },
+];
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      '@id': `${url}#guide`,
+      headline: 'Art in Newburgh, NY: galleries, art events and a day out',
+      description: 'A visitor guide to contemporary art in Newburgh, NY: galleries, Newburgh Open Studios, and nearby art and history, from Holland Tunnel Gallery.',
+      url,
+      dateModified: CHECKED,
+      author: { '@id': `${SITE_URL}/#gallery` },
+      publisher: { '@id': `${SITE_URL}/#gallery` },
+      about: { '@type': 'City', name: 'Newburgh', containedInPlace: { '@type': 'State', name: 'New York' } },
+      mainEntity: {
+        '@type': 'ItemList',
+        name: 'Art galleries in Newburgh, NY',
+        itemListElement: GALLERIES.map((g, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          item: {
+            '@type': 'ArtGallery',
+            name: g.name,
+            url: g.ours ? `${SITE_URL}/` : g.href,
+            ...(g.address.match(/^\d/) ? { address: { ...ADDRESS, streetAddress: g.address } } : {}),
+          },
+        })),
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Art in Newburgh', item: url },
+      ],
+    },
+  ],
+};
+---
+<Base
+  title="Art in Newburgh, NY: Galleries, Open Studios & a Day Out | Holland Tunnel Gallery"
+  description="Where to see art in Newburgh, NY: the city's contemporary galleries, Newburgh Open Studios, Washington's Headquarters, and Storm King and Dia Beacon nearby. A visitor guide from Holland Tunnel Gallery."
+  path="/art-in-newburgh"
+  jsonld={jsonld}
+>
+  <section class="hero">
+    <div class="wrap" style="max-width: 900px;">
+      <h1 class="eyebrow">Art in Newburgh, NY · a visitor's guide</h1>
+      <p class="since">Galleries, studios &amp; a day out</p>
+      <p class="lede">Newburgh, on the Hudson River about 60 miles north of New York City, has a small, independent art scene in and around its Historic District. On a weekend you can walk between galleries on Chambers Street, Ann Street and Broadway, see the city's artists open their studios each September, and add Washington's Headquarters, Storm King or Dia Beacon to the day.</p>
+      <p class="muted" style="margin-top:14px;">Checked {CHECKED_TEXT}. Hours change, so check each place's site before you go.</p>
+    </div>
+  </section>
+
+  <section class="wash">
+    <div class="wrap" style="max-width: 900px;">
+      <p class="eyebrow orange">Galleries</p>
+      <h2>Contemporary art galleries in Newburgh</h2>
+      <div class="guide-list">
+        {GALLERIES.map((g) => (
+          <article class="guide-item">
+            <h3>{g.ours ? <a href={g.href}>{g.name}</a> : <a href={g.href} rel="noopener">{g.name}</a>}</h3>
+            <p class="guide-meta">{g.address}{g.address.match(/^\d/) ? ', Newburgh, NY' : ''} · {g.hours}</p>
+            <p>{g.text}</p>
+            {g.ours && ov?.status === 'current' && <p class="guide-now">On view now: <a href={ov.show.url}>{ov.show.title}</a>{ov.closes && <>, through {longDate(ov.closes)}</>}.</p>}
+            {g.ours && ov?.status === 'upcoming' && <p class="guide-now">Next: <a href={ov.show.url}>{ov.show.title}</a>, opening {longDate(ov.show.startDate)}.</p>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="max-width: 900px;">
+      <p class="eyebrow orange">Art events</p>
+      <h2>When the whole city opens up</h2>
+      <div class="guide-list">
+        <article class="guide-item">
+          <h3><a href="https://newburghopenstudios.org" rel="noopener">Newburgh Open Studios</a></h3>
+          <p class="guide-meta">Every September · next: Saturday–Sunday, Sep 25–26, 2027</p>
+          <p>A free, self-guided weekend when artists across the City of Newburgh open their studios to the public. Maps are available at Newburgh Art Supply, 5 Grand Street. Holland Tunnel has been part of it since 2017.</p>
+        </article>
+        <article class="guide-item">
+          <h3><a href="https://newburghart.org/nbny-artseen" rel="noopener">NBNY Art Seen</a></h3>
+          <p class="guide-meta">Newburgh Arts &amp; Cultural Commission</p>
+          <p>A citywide showcase of Newburgh's galleries and art spaces, with participating venues open on the same days. Check the Commission's site for the current schedule.</p>
+        </article>
+        <article class="guide-item">
+          <h3><a href="/events">Concerts and Cinema Club at Holland Tunnel</a></h3>
+          <p class="guide-meta">Through the year</p>
+          <p>Jazz and new music on the gallery's baby grand piano, poetry, performance, and a monthly film night. Join the newsletter to hear about the next one.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wash">
+    <div class="wrap" style="max-width: 900px;">
+      <p class="eyebrow orange">Make a day of it</p>
+      <h2>Art and history nearby</h2>
+      <div class="guide-list">
+        {NEARBY.map((n) => (
+          <article class="guide-item">
+            <h3><a href={n.href} rel="noopener">{n.name}</a></h3>
+            <p class="guide-meta">{n.address}</p>
+            <p>{n.text}</p>
+          </article>
+        ))}
+      </div>
+      <h3 style="margin-top:34px;">Getting here</h3>
+      <p>Newburgh is about 60 miles north of New York City off I-84 and the New York State Thruway (I-87). From Beacon (Metro-North), New York State's Newburgh–Beacon Bridge Shuttle bus runs on weekends and holidays and is free through the end of 2026. The Newburgh–Beacon ferry is currently suspended.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="max-width: 900px;">
+      <p class="eyebrow orange">A weekend afternoon</p>
+      <h2>A simple gallery walk</h2>
+      <ol class="guide-walk">
+        <li><b>1 pm · Holland Tunnel Gallery</b>, 46 Chambers Street. See the current show, the baby grand and the garden.</li>
+        <li><b>Ann Street Gallery</b>, 104 Ann Street, a few blocks away, open the same weekend afternoon hours.</li>
+        <li><b>Bank Art Gallery</b>, 94 Broadway, in the old bank building.</li>
+        <li><b>Washington's Headquarters</b>, 84 Liberty Street, for the river view and the grounds (check seasonal hours).</li>
+      </ol>
+      <div class="btn-row">
+        <a class="btn" href="/#visit">Plan your visit to Holland Tunnel</a>
+        <a class="btn ghost" href="/exhibitions">See what's on</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .guide-list { display: grid; gap: 0; margin-top: 18px; }
+  .guide-item { padding: 20px 0; border-top: 1px solid var(--htg-line, #E4DEDA); }
+  .guide-item:first-child { border-top: 0; padding-top: 6px; }
+  .guide-item h3 { margin: 0 0 6px; }
+  .guide-item p { margin: 0 0 8px; }
+  .guide-meta { font-size: 14px; font-weight: 600; color: var(--htg-muted, #5E5555); }
+  .guide-now { font-weight: 600; }
+  .guide-walk { margin: 18px 0 26px; padding-left: 22px; display: grid; gap: 10px; }
+</style>
