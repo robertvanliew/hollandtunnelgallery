@@ -4,6 +4,16 @@ import { filmEmbed } from './film';
 
 const abs = (path: string) => new URL(path, SITE_URL).href;
 
+/** A YYYY-MM-DD date as a full ISO 8601 datetime at noon in New York (Google's ProfilePage and
+ *  VideoObject dates must include a time and time zone, or Search Console flags "invalid datetime"). */
+export function nyDateTime(date: string) {
+  const noonUtc = new Date(`${date}T16:00:00Z`);
+  const tz = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortOffset' })
+    .formatToParts(noonUtc).find((x) => x.type === 'timeZoneName')!.value; // e.g. "GMT-4"
+  const h = Number(tz.replace('GMT', '')) || 0;
+  return `${date}T12:00:00${h < 0 ? '-' : '+'}${String(Math.abs(h)).padStart(2, '0')}:00`;
+}
+
 const LOCATION = { '@type': 'ArtGallery', name: 'Holland Tunnel Gallery', address: ADDRESS } as const;
 const ORGANIZER = { '@type': 'ArtGallery', name: 'Holland Tunnel Gallery', url: `${SITE_URL}/` } as const;
 
@@ -82,7 +92,7 @@ export function profileGraph(p: Person, a: Archive, imageUrl?: string, filmThumb
         '@id': url,
         url,
         name: `${p.name} · Holland Tunnel Gallery`,
-        dateModified: LAST_REVIEWED,
+        dateModified: nyDateTime(LAST_REVIEWED),
         mainEntity: { '@id': personId },
         isPartOf: { '@type': 'WebSite', name: 'Holland Tunnel Gallery', url: `${SITE_URL}/` },
       },
@@ -94,7 +104,7 @@ export function profileGraph(p: Person, a: Archive, imageUrl?: string, filmThumb
             name: p.video.title,
             description: p.video.description || `A short film about ${p.name}, made for Holland Tunnel Gallery.`,
             thumbnailUrl: [abs(filmThumb)],
-            uploadDate: p.video.uploadDate,
+            uploadDate: nyDateTime(p.video.uploadDate),
             ...(p.video.duration ? { duration: p.video.duration } : {}),
             ...(filmEmbed(p.video.url) ? { embedUrl: filmEmbed(p.video.url)!.src.split('?')[0] } : { contentUrl: abs(p.video.url) }),
             about: { '@id': personId },
