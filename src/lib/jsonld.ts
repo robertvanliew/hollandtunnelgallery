@@ -7,21 +7,36 @@ const abs = (path: string) => new URL(path, SITE_URL).href;
 const LOCATION = { '@type': 'ArtGallery', name: 'Holland Tunnel Gallery', address: ADDRESS } as const;
 const ORGANIZER = { '@type': 'ArtGallery', name: 'Holland Tunnel Gallery', url: `${SITE_URL}/` } as const;
 
-/** A show as ExhibitionEvent, or MusicEvent for concerts and performances. */
+/** Event photo when a page doesn't pass the show's own image: the gallery interior. */
+const FALLBACK_EVENT_IMAGE = '/img/gallery-installation-view-1.webp';
+
+/** A show as ExhibitionEvent, or MusicEvent for concerts and performances.
+ *  Google's Event rich results recommend endDate, image and offers on every event (Search Console flags
+ *  them as missing otherwise), so all three are always present: one-day events end the day they start,
+ *  and entry is free (concerts ask only a suggested donation at the door). */
 export function eventNode(s: Show, opts: { image?: string; performers?: Person[] } = {}) {
   const node: Record<string, unknown> = {
     '@type': s.isMusic ? 'MusicEvent' : 'ExhibitionEvent',
     '@id': `${abs(s.url)}#event`,
     name: s.title,
     url: abs(s.url),
-    description: `${s.type} at Holland Tunnel Gallery (${s.venue}), ${s.dates}.`,
+    description: s.description ?? `${s.type} at Holland Tunnel Gallery (${s.venue}), ${s.dates}.`,
     startDate: s.startDate,
-    ...(s.endDate ? { endDate: s.endDate } : {}),
+    endDate: s.endDate ?? s.startDate,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: LOCATION,
     organizer: ORGANIZER,
-    ...(opts.image ? { image: [abs(opts.image)] } : {}),
+    image: [abs(opts.image ?? FALLBACK_EVENT_IMAGE)],
+    isAccessibleForFree: true,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url: abs(s.url),
+      validFrom: s.startDate,
+    },
   };
   if (opts.performers?.length)
     node.performer = opts.performers.map((p) => ({
