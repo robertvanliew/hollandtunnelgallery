@@ -48,12 +48,17 @@ export function eventNode(s: Show, opts: { image?: string; performers?: Person[]
       validFrom: s.startDate,
     },
   };
-  if (opts.performers?.length)
-    node.performer = opts.performers.map((p) => ({
-      '@type': 'Person',
-      name: p.name,
-      ...(p.url ? { url: abs(p.url), '@id': `${abs(p.url)}#person` } : {}),
-    }));
+  // Performers: linked profiles first, then everyone else the show names (Google recommends a performer
+  // on every event; for exhibitions these are the exhibiting artists). Never guessed: only listed names.
+  const linked = (opts.performers ?? []).map((p) => ({
+    '@type': 'Person',
+    name: p.name,
+    ...(p.url ? { url: abs(p.url), '@id': `${abs(p.url)}#person` } : {}),
+  }));
+  const named = (s.artists ?? [])
+    .filter((n) => !linked.some((p) => p.name === n))
+    .map((name) => ({ '@type': 'Person', name }));
+  if (linked.length || named.length) node.performer = [...linked, ...named];
   return node;
 }
 
@@ -63,7 +68,7 @@ export function profileGraph(p: Person, a: Archive, imageUrl?: string, filmThumb
   const sameAs = linkItems(p).map((l) => l.url).filter((u) => u.startsWith('http'));
   const events = p.showIds.map((id) => a.shows.get(id)!);
   const music = events.filter((s) => s.isMusic).map((s) => eventNode(s, { performers: [p] }));
-  const exhibitions = events.filter((s) => !s.isMusic).map((s) => eventNode(s));
+  const exhibitions = events.filter((s) => !s.isMusic).map((s) => eventNode(s, { performers: [p] }));
   const person: Record<string, unknown> = {
     '@type': 'Person',
     '@id': personId,
