@@ -60,5 +60,14 @@
  "/publications-and-objects-shop/jacque-roch-tote-bag": "/shop/jacques-roch-tote-bag",
  "/publications-and-objects-shop/jacque-roche-t-shirt": "/shop/jacques-roch-t-shirt",
  "/publications-and-objects-shop/sbsz0lwy7joouk7ntqkmmbovnxmnyq": "/shop",
- "/the-narrative-of-things": "/exhibitions/narrative-of-things-2022"
+ "/the-narrative-of-things": "/exhibitions/narrative-of-things-2022",
+ "/sitemap.xml": "/sitemap-index.xml",
+ "/cart": "/shop",
+ "/search": "/",
+ "/blog": "/events",
+ "/calendar": "/events",
+ "/press": "/about",
+ "/news": "/events",
+ "/home-1": "/",
+ "/contact-1": "/#visit"
 }
