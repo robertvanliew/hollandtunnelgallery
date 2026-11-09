@@ -3,6 +3,7 @@
 //   story 1080×1920 Instagram / Facebook Stories (shared as an image file via the share sheet)
 // satori lays the card out and draws text as vector paths (no system fonts needed); sharp encodes JPEG.
 import fs from 'node:fs/promises';
+import path from 'node:path';
 import { createRequire } from 'node:module';
 import satori from 'satori';
 import sharp from 'sharp';
@@ -105,4 +106,59 @@ export async function storyCard(p: Person, a: Archive) {
       h('div', { fontFamily: 'Montserrat', fontWeight: 500, fontSize: 26, color: '#D9D5D2' }, 'Artists & Musicians · 46 Chambers Street, Newburgh'),
       h('div', { fontFamily: 'Montserrat', fontWeight: 600, fontSize: urlSize(p, 960, 36), color: C.orangeLight, marginTop: 10, whiteSpace: 'nowrap' }, urlText(p))));
   return render(tree, 1080, 1920);
+}
+
+// ---- Site pages: one branded link-preview card per main page --------------------------------------
+// Ink panel with the HTG monogram, the gallery name, the page's title and the address, beside a real
+// photo of that part of the gallery. Replaces the generic default image so every shared link (iMessage,
+// WhatsApp, Facebook, LinkedIn, Slack) is clearly Holland Tunnel.
+
+const MARK = `data:image/svg+xml;base64,${Buffer.from(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 200" fill="none"><path d="M26 26 V184 M26 108 H118 M118 26 V184" stroke="#FFFFFF" stroke-width="28"/><path d="M76 26 H248 A76 76 0 1 0 324 108 H262" stroke="#E75D18" stroke-width="28"/></svg>',
+).toString('base64')}`;
+
+export interface SiteCard {
+  /** Big line, e.g. "Art, music & film" or "Studio for rent". */
+  title: string;
+  /** One short line under the title. */
+  sub: string;
+  /** Source photo on disk (repo-relative), cropped to fill the right side. */
+  photo: string;
+}
+
+export const SITE_CARDS: Record<string, SiteCard> = {
+  home: { title: 'Art, music & film', sub: 'Open Saturday & Sunday, 1–5 pm · Free', photo: 'src/assets/home/46-chambers-street-front.jpg' },
+  about: { title: 'Since 1997', sub: 'From a Brooklyn garden shed to Newburgh', photo: 'src/assets/home/46-chambers-street-hallway.jpg' },
+  exhibitions: { title: 'Exhibitions', sub: 'New shows by Hudson Valley & international artists', photo: 'src/assets/shows/alone-together-2026-0272.jpg' },
+  events: { title: 'Music & events', sub: 'Concerts, performance & Cinema Club', photo: 'src/assets/shows/alone-together-2026-0466.jpg' },
+  artists: { title: 'Artists & musicians', sub: 'Who has shown and played at Holland Tunnel', photo: 'src/assets/shows/alone-together-2026-0463.jpg' },
+  schools: { title: 'School visits', sub: 'Field trips for grades 6–12', photo: 'src/assets/home/46-chambers-street-main-room.jpg' },
+  shop: { title: 'Shop', sub: 'The Holland Tunnel book, cookbook, shirts & bags', photo: 'src/assets/shop/holland-tunnel-gallery-book-3.jpg' },
+  rent: { title: 'Studio for rent', sub: '900 sq ft · by the hour or by the month', photo: 'src/assets/rent/room-windows.jpg' },
+  'art-in-newburgh': { title: 'Art in Newburgh', sub: "A visitor's guide to galleries & a day out", photo: 'src/assets/home/46-chambers-street-doors.jpg' },
+  stairmasters: { title: 'Stairmasters', sub: 'The staircase gallery, Williamsburg, from 2003', photo: 'src/assets/history/stairmasters-framed.jpg' },
+};
+
+export async function siteCard(key: string) {
+  const c = SITE_CARDS[key];
+  const W = 1200, H = 630, PW = 500;
+  // Builds run from the project root, so repo-relative photo paths resolve from process.cwd().
+  const buf = await sharp(path.join(process.cwd(), c.photo))
+    .rotate()
+    .resize(PW * 2, H * 2, { fit: 'cover', position: 'attention' })
+    .jpeg({ quality: 86 })
+    .toBuffer();
+  const pic = `data:image/jpeg;base64,${buf.toString('base64')}`;
+  const titleSize = Math.min(118, Math.floor((W - PW - 112) / (c.title.length * 0.42)));
+  const panel = h('div', { flexDirection: 'column', justifyContent: 'space-between', width: W - PW, height: H, padding: '50px 56px 44px', background: C.ink },
+    h('div', { alignItems: 'center' },
+      { type: 'img', props: { src: MARK, width: 102, height: 60, style: { width: 102, height: 60 } } },
+      h('div', { fontFamily: 'Bebas', fontSize: 40, letterSpacing: 6, color: C.orange, marginLeft: 22, marginTop: 6 }, 'Holland Tunnel Gallery')),
+    h('div', { flexDirection: 'column' },
+      h('div', { width: 54, height: 5, background: C.orange, marginBottom: 22 }),
+      h('div', { fontFamily: 'Bebas', fontSize: titleSize, lineHeight: 0.92, color: C.white }, c.title),
+      h('div', { fontFamily: 'Montserrat', fontWeight: 500, fontSize: 24, lineHeight: 1.35, color: '#D9D5D2', marginTop: 16, maxWidth: W - PW - 112 }, c.sub)),
+    h('div', { fontFamily: 'Montserrat', fontWeight: 600, fontSize: 19, letterSpacing: 1, color: '#BDB5B1', borderTop: '2px solid #3A3636', paddingTop: 16 },
+      '46 Chambers Street, Newburgh, NY · Since 1997'));
+  return render(h('div', { width: W, height: H, flexDirection: 'row' }, panel, img(pic, PW, H)), W, H);
 }

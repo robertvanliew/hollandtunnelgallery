@@ -32,7 +32,16 @@ interface Props {
 const { title, description, path, noindex = false, jsonld, ogType = 'website', ogImage, ogImageMeta, active } = Astro.props;
 const canonical = SITE_URL + (path === '/' ? '/' : path.replace(/\/$/, ''));
 const robots = !PUBLIC_SITE ? 'noindex, nofollow' : noindex ? 'noindex, follow' : null;
-const image = ogImage ? new URL(ogImage, SITE_URL).href : `${SITE_URL}/img/og-unframed.jpg`;
+// Pages without their own share image use the branded card for their section (src/lib/shareCards.ts,
+// SITE_CARDS), and anything else falls back to the main gallery card, so every shared link is clearly
+// Holland Tunnel. Cards are 1200×630 JPEGs generated at build time under /share/site/.
+const SECTION_CARD: Record<string, string> = {
+  '/': 'home', '/about': 'about', '/exhibitions': 'exhibitions', '/events': 'events', '/artists': 'artists',
+  '/schools': 'schools', '/shop': 'shop', '/rent': 'rent', '/art-in-newburgh': 'art-in-newburgh', '/stairmasters': 'stairmasters',
+};
+const cardKey = ogImage ? null : (SECTION_CARD[path.replace(/\/$/, '') || '/'] ?? 'home');
+const image = ogImage ? new URL(ogImage, SITE_URL).href : `${SITE_URL}/share/site/${cardKey}.jpg`;
+const imageMeta = ogImageMeta ?? (cardKey ? { width: 1200, height: 630, alt: 'Holland Tunnel Gallery, 46 Chambers Street, Newburgh, NY' } : undefined);
 ---
 <!doctype html>
 <html lang="en">
@@ -59,12 +68,12 @@ const image = ogImage ? new URL(ogImage, SITE_URL).href : `${SITE_URL}/img/og-un
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
-    {ogImageMeta && (
+    {imageMeta && (
       <>
         <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content={String(ogImageMeta.width)} />
-        <meta property="og:image:height" content={String(ogImageMeta.height)} />
-        <meta property="og:image:alt" content={ogImageMeta.alt} />
+        <meta property="og:image:width" content={String(imageMeta.width)} />
+        <meta property="og:image:height" content={String(imageMeta.height)} />
+        <meta property="og:image:alt" content={imageMeta.alt} />
       </>
     )}
     <meta property="og:locale" content="en_US" />
@@ -72,7 +81,7 @@ const image = ogImage ? new URL(ogImage, SITE_URL).href : `${SITE_URL}/img/og-un
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-    {ogImageMeta && <meta name="twitter:image:alt" content={ogImageMeta.alt} />}
+    {imageMeta && <meta name="twitter:image:alt" content={imageMeta.alt} />}
     <!-- HTG monogram: SVG for modern browsers (adapts to dark tab bars), a 96 px PNG for Google's search
          results (square, multiple of 48 px), .ico for older browsers, 180 px for iPhone home screens. -->
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
