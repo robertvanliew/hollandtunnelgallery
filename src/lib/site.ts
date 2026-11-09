@@ -5,6 +5,10 @@ export const PUBLIC_SITE = import.meta.env.PUBLIC_SITE === 'true';
 
 export const EMAIL = 'info@hollandtunnelgallery.com';
 
+/** Gallery phone (confirmed by Paulien, Nov 8, 2026). PHONE_TEL is for tel: links and structured data. */
+export const PHONE = '(347) 743-4755';
+export const PHONE_TEL = '+1-347-743-4755';
+
 /** Date the artist research was last reviewed (shown in each profile's "Sources & verification" box). */
 export const LAST_REVIEWED = '2026-09-27';
 

@@ -1,15 +1,15 @@
 {
   "title": "Alone Together",
-  "dates": "Oct 17 – Nov 21, 2026",
+  "dates": "Oct 17 – Nov 22, 2026",
   "year": 2026,
   "venue": "Holland Tunnel Revisited, Newburgh",
   "type": "Group exhibition",
   "startDate": "2026-10-16",
-  "endDate": "2026-11-21",
+  "endDate": "2026-11-22",
   "reception": "Opening Friday, Oct 16, 2026, 5–8 pm, with live music",
   "description": "Six artists from different backgrounds and places, most of whom have never met: Angiola Churchill, Sydney Cash, Julie Lindell, Jan Mulder, Bix Lye and Paulien Lethen. The opening on Friday, Oct 16 had live music by Duo Laroo/Byrd: Saskia Laroo (trumpet, saxophone, bass, vocals) and Warren Byrd (piano, vocals, bongos).",
   "image": "../../assets/shows/alone-together-2026-0460.jpg",
-  "imageAlt": "A drawing of two ornate thrones, from Alone Together",
+  "imageAlt": "Julie Lindell, a drawing of two ornate chairs, in Alone Together",
   "gallery": [
     {
       "image": "../../assets/shows/alone-together-2026-0272.jpg",
@@ -58,8 +58,12 @@
       "text": "Opening, with live music by Duo Laroo/Byrd"
     },
     {
-      "date": "Oct 17 – Nov 21, 2026",
+      "date": "Oct 17 – Nov 22, 2026",
       "text": "Open Saturday & Sunday, 1–5 pm, and by appointment"
+    },
+    {
+      "date": "Sun, Nov 22, 2026 · 3–6 pm",
+      "text": "Closing reception, with music"
     }
   ]
 }

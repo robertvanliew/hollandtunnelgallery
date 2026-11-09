@@ -16,7 +16,7 @@ import imgHall from '../assets/home/46-chambers-street-hallway.jpg';
 import imgRoom from '../assets/home/46-chambers-street-main-room.jpg';
 import { onView, shortDate, longDate } from '../lib/onview';
 import { eventNode } from '../lib/jsonld';
-import { EMAIL } from '../lib/site';
+import { EMAIL, PHONE, PHONE_TEL } from '../lib/site';
 import { loadArchive } from '../lib/people';
 import PaintedMap from '../components/PaintedMap.astro';
 const ov = await onView();
@@ -57,6 +57,7 @@ const jsonld = {
       "logo": "https://www.hollandtunnelgallery.com/brand/favicon-512.png",
       "url": "https://www.hollandtunnelgallery.com/",
       "email": EMAIL,
+      "telephone": PHONE_TEL,
       // what the place looks like (storefront first), where it is exactly, and its map
       "image": [
         { "@type": "ImageObject", "url": SITE + frontJpg.src, "caption": "Holland Tunnel Gallery, 46 Chambers Street, Newburgh NY: the red-brick building with the black door marked 46" },
@@ -339,7 +340,7 @@ const concerts = (soon.length ? soon : lately).slice(0, 2).map((s) => ({
             <ul class="h-wx-list"></ul>
             <a class="h-wx-more" href="https://forecast.weather.gov/MapClick.php?lat=41.5018&lon=-74.0114">Full forecast from the National Weather Service →</a>
           </dd>
-          <dt>Contact</dt><dd><a href={`mailto:${EMAIL}`} data-contact="visit">{EMAIL}</a><br /><a href="https://www.instagram.com/hollandtunnelnewburgh/">@hollandtunnelnewburgh</a></dd>
+          <dt>Contact</dt><dd><a href={`mailto:${EMAIL}`} data-contact="visit">{EMAIL}</a><br /><a href={`tel:${PHONE_TEL}`}>{PHONE}</a><br /><a href="https://www.instagram.com/hollandtunnelnewburgh/">@hollandtunnelnewburgh</a></dd>
         </dl>
         <p class="h-aside">Bringing a class? <a href="/schools">School visits for grades 6–12 →</a></p>
       </div>

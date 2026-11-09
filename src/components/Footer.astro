@@ -1,5 +1,5 @@
 ---
-import { EMAIL, PUBLIC_SITE } from '../lib/site';
+import { EMAIL, PHONE, PHONE_TEL, PUBLIC_SITE } from '../lib/site';
 import HtgMark from './HtgMark.astro';
 ---
 <footer class="site-foot">
@@ -13,7 +13,7 @@ import HtgMark from './HtgMark.astro';
     <div>
       <p class="foot-h">Gallery hours</p>
       <p>Saturday &amp; Sunday, 1–5 pm<br />and by appointment</p>
-      <p style="margin-top:10px"><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+      <p style="margin-top:10px"><a href={`mailto:${EMAIL}`}>{EMAIL}</a><br /><a href={`tel:${PHONE_TEL}`}>{PHONE}</a></p>
     </div>
     <div>
       <p class="foot-h">Explore</p>

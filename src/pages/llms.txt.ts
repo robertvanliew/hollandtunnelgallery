@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { SITE_URL, EMAIL } from '../lib/site';
+import { SITE_URL, EMAIL, PHONE } from '../lib/site';
 import { onView, longDate } from '../lib/onview';
 import { loadArchive } from '../lib/people';
 
@@ -25,7 +25,7 @@ export const GET: APIRoute = async () => {
 - Open Saturday and Sunday, 1–5 pm, and by appointment. Admission is free.
 - Address: 46 Chambers Street, Newburgh, NY 12550 (between Broadway and First Street).
 - ${now}
-- Contact: ${EMAIL}
+- Contact: ${EMAIL} · ${PHONE}
 
 ## Main pages
 - [Home](${SITE_URL}/): what's on, opening hours, map and directions
