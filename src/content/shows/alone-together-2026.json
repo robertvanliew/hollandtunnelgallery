@@ -50,7 +50,8 @@
     "Paulien Lethen"
   ],
   "about": [
-    "Holland Tunnel Gallery is pleased to present Alone Together, an exhibition featuring six artists from different backgrounds and places, most of whom have never met. Each artist's work stands on its own, yet the works find unexpected connections when brought together. The exhibition invites viewers to discover those connections while appreciating what makes each work distinct."
+    "Holland Tunnel Gallery is pleased to present Alone Together, an exhibition featuring six artists from different backgrounds and places, most of whom have never met.",
+    "Each artist's work stands on its own, yet the works find unexpected connections when brought together. The exhibition invites viewers to discover those connections, while appreciating what makes each work distinct."
   ],
   "program": [
     {
@@ -64,6 +65,53 @@
     {
       "date": "Sun, Nov 22, 2026 · 3–6 pm",
       "text": "Closing reception, with music"
+    }
+  ],
+  "aboutTitle": "About the show",
+  "statements": [
+    {
+      "by": "Angiola Churchill",
+      "title": "Italy",
+      "paragraphs": [
+        "A latent visual artist, Angiola lived through exposure to scenes of our most significant modernist developments.",
+        "She passed away on June 16; she was 104 years old."
+      ]
+    },
+    {
+      "by": "Julie Lindell",
+      "title": "USA",
+      "paragraphs": [
+        "Julie is an installation artist. Her work examines the functions assigned to objects, and the forces that render them obsolete."
+      ]
+    },
+    {
+      "by": "Bix Lye",
+      "title": "England",
+      "paragraphs": [
+        "“I like playing with colors, shapes and their relationship.”",
+        "He passed away in 2023; he was 86 years old."
+      ]
+    },
+    {
+      "by": "Sydney Cash",
+      "title": "USA",
+      "paragraphs": [
+        "Sydney's long-term interest in spirituality has been fundamental to his personal exploration of “seeing,” the intuitive basis of artistic creation."
+      ]
+    },
+    {
+      "by": "Jan Mulder",
+      "title": "The Netherlands",
+      "paragraphs": [
+        "“I waterwash the applied ink, still wet, off the paper. When dry, brush ink on, repeat, repeat, until I peek into an Asian landscape, a Northern darkness, a Southern light, or the alley around the corner.”"
+      ]
+    },
+    {
+      "by": "Paulien Lethen",
+      "title": "The Netherlands",
+      "paragraphs": [
+        "“My work is influenced by movement, and the places I lived: Holland, Greece, Japan and New York.”"
+      ]
     }
   ]
 }
