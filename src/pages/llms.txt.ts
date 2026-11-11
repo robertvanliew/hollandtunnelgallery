@@ -34,7 +34,7 @@ export const GET: APIRoute = async () => {
 - [Artists](${SITE_URL}/artists): profiles of artists and musicians who have shown or played at Holland Tunnel
 - [Rent the studio](${SITE_URL}/rent): a 900 sq ft second-floor art studio at 46 Chambers Street, by the hour or by the month
 - [School visits](${SITE_URL}/schools): field trips and lesson plans for middle and high schools in the Hudson Valley
-- [Shop](${SITE_URL}/shop): the Holland Tunnel Gallery book, an artist cookbook, shirts and bags
+- [Shop](${SITE_URL}/shop): the Holland Tunnel Gallery book, an artist cookbook and a tote bag
 - [About](${SITE_URL}/about): history from the 1997 Williamsburg garden shed to Paros, Greece and Newburgh
 - [Art in Newburgh](${SITE_URL}/art-in-newburgh): visitor guide to galleries, Newburgh Open Studios and nearby art and history
 - [Stairmasters](${SITE_URL}/stairmasters): the staircase gallery in Williamsburg (Framed, Delft Blues)

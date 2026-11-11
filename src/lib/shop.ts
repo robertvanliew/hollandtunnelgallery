@@ -1,10 +1,8 @@
-// The shop: books, shirts and bags. There is no online payment: a visitor sends an order request
+// The shop: books and tote bags. There is no online payment: a visitor sends an order request
 // (src/pages/api/forms.ts, form "shop-order"), the gallery gets it by email, and Paulien replies to
 // arrange payment and shipping or pickup. Prices here are the only prices: the server looks them up,
 // so an edited form can't change what is charged.
 // Descriptions use only what the old Squarespace shop said; add more detail as it's confirmed.
-import shirt1 from '../assets/shop/jacques-roch-t-shirt-1.jpg';
-import shirt2 from '../assets/shop/jacques-roch-t-shirt-2.jpg';
 import tote1 from '../assets/shop/jacques-roch-tote-bag-1.jpg';
 import tote2 from '../assets/shop/jacques-roch-tote-bag-2.jpg';
 import book1 from '../assets/shop/holland-tunnel-gallery-book-1.jpg';
@@ -65,20 +63,6 @@ export const PRODUCTS: Product[] = [
     ],
     artist: { name: 'Jacques Roch', url: '/artists/jacques-roch' },
     images: [{ src: cookbook1, alt: 'Cover of Good Heavens! Artist Cookbook: Erotic Pasta & Fruity Salad' }],
-  },
-  {
-    slug: 'jacques-roch-t-shirt',
-    title: 'Jacques Roch T-shirt',
-    kind: 'T-shirt',
-    price: 20,
-    options: { label: 'Size', values: ['Small', 'Medium', 'Large', 'XLarge'] },
-    summary: 'All-cotton baby-blue T-shirt with an illustration in white by artist Jacques Roch on the front. The back is plain.',
-    details: ['Sizes Small to XLarge.', 'Ships within the USA, or pick it up at the gallery.'],
-    artist: { name: 'Jacques Roch', url: '/artists/jacques-roch' },
-    images: [
-      { src: shirt1, alt: 'Baby-blue Jacques Roch T-shirt with a white illustration on the front' },
-      { src: shirt2, alt: 'Jacques Roch T-shirt, second view' },
-    ],
   },
   {
     slug: 'jacques-roch-tote-bag',

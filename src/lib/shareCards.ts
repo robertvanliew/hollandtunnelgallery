@@ -133,7 +133,7 @@ export const SITE_CARDS: Record<string, SiteCard> = {
   events: { title: 'Music & events', sub: 'Concerts, performance & Cinema Club', photo: 'src/assets/shows/alone-together-2026-0466.jpg' },
   artists: { title: 'Artists & musicians', sub: 'Who has shown and played at Holland Tunnel', photo: 'src/assets/shows/alone-together-2026-0463.jpg' },
   schools: { title: 'School visits', sub: 'Field trips for grades 6–12', photo: 'src/assets/home/46-chambers-street-main-room.jpg' },
-  shop: { title: 'Shop', sub: 'The Holland Tunnel book, cookbook, shirts & bags', photo: 'src/assets/shop/holland-tunnel-gallery-book-3.jpg' },
+  shop: { title: 'Shop', sub: 'The Holland Tunnel book, cookbook & tote bags', photo: 'src/assets/shop/holland-tunnel-gallery-book-3.jpg' },
   rent: { title: 'Studio for rent', sub: '900 sq ft · by the hour or by the month', photo: 'src/assets/rent/room-windows.jpg' },
   'art-in-newburgh': { title: 'Art in Newburgh', sub: "A visitor's guide to galleries & a day out", photo: 'src/assets/home/46-chambers-street-doors.jpg' },
   stairmasters: { title: 'Stairmasters', sub: 'The staircase gallery, Williamsburg, from 2003', photo: 'src/assets/history/stairmasters-framed.jpg' },
