@@ -1,7 +1,7 @@
 // Form handler (Vercel function). Emails each submission to the gallery inbox via Resend.
 // Nothing is published: Paulien reviews claim/update requests and applies them in the CMS.
 import type { APIRoute } from 'astro';
-import { FORMS_FROM, FORMS_TO, RESEND_API_KEY } from 'astro:env/server';
+import { FORMS_FROM, FORMS_TO, RESEND_API_KEY, RESEND_SEGMENT_ID } from 'astro:env/server';
 import { Resend } from 'resend';
 import { EMAIL, PUBLIC_SITE } from '../../lib/site';
 import { getProduct, money, MAX_QTY } from '../../lib/shop';
@@ -218,6 +218,18 @@ export const POST: APIRoute = async ({ request }) => {
   if (error) {
     console.error('[forms] Resend error', error);
     return new Response(`Sorry, that did not send. Please email ${EMAIL}.`, { status: 502 });
+  }
+
+  // Newsletter: save the subscriber as a Resend contact so broadcasts (with their own unsubscribe link)
+  // can be sent from the Resend dashboard. Best effort: the gallery has the signup email either way.
+  // Needs a Full-access API key; a sending-only key is refused here and the error is logged.
+  if (name === 'newsletter') {
+    const { error: contactError } = await resend.contacts.create({
+      email,
+      unsubscribed: false,
+      ...(RESEND_SEGMENT_ID ? { segments: [{ id: RESEND_SEGMENT_ID }] } : {}),
+    });
+    if (contactError && !/already exists/i.test(contactError.message)) console.error('[forms] newsletter contact not saved', contactError);
   }
 
   // "We got it" to the visitor, replying to the gallery inbox. Best effort: the gallery already has the

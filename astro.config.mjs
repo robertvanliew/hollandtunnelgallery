@@ -37,6 +37,8 @@ export default defineConfig({
   env: {
     schema: {
       RESEND_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
+      // Newsletter: signups are saved as Resend contacts (and added to this segment when set).
+      RESEND_SEGMENT_ID: envField.string({ context: 'server', access: 'secret', optional: true }),
       FORMS_TO: envField.string({ context: 'server', access: 'secret', default: 'info@hollandtunnelgallery.com' }),
       FORMS_FROM: envField.string({
         context: 'server',
