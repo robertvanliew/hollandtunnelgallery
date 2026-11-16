@@ -14,6 +14,29 @@ export function nyDateTime(date: string) {
   return `${date}T12:00:00${h < 0 ? '-' : '+'}${String(Math.abs(h)).padStart(2, '0')}:00`;
 }
 
+/** A YYYY-MM-DD date at a local New York hour (0–23, may be fractional), with the right UTC offset. */
+function nyAt(date: string, hour: number) {
+  const [h, m] = [Math.floor(hour), Math.round((hour % 1) * 60)];
+  const off = nyDateTime(date).slice(-6); // "-05:00" or "-04:00" for that day
+  return `${date}T${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:00${off}`;
+}
+
+/** Start and end as full datetimes. Concerts and one-day events use the hours in their listing
+ *  ("4–7 pm", "3 pm"); otherwise the gallery's opening hours, 1–5 pm. Validators flag date-only events. */
+function eventTimes(s: Show): [string, string] {
+  const end = s.endDate ?? s.startDate;
+  const full = /^\d{4}-\d{2}-\d{2}$/;
+  if (!full.test(s.startDate) || !full.test(end)) return [s.startDate, end]; // year-only dates stay as they are
+  const m = (s.reception ?? '').match(/(\d{1,2})(?::(\d{2}))?\s*(?:–|-|to)?\s*(?:(\d{1,2})(?::(\d{2}))?)?\s*(am|pm)/i);
+  const pm = (h: number) => (m?.[5]?.toLowerCase() === 'pm' && h < 12 ? h + 12 : h);
+  if (m && end === s.startDate) {
+    const from = pm(Number(m[1])) + Number(m[2] ?? 0) / 60;
+    const to = m[3] ? pm(Number(m[3])) + Number(m[4] ?? 0) / 60 : from + 2;
+    return [nyAt(s.startDate, from), nyAt(s.startDate, to > from ? to : from + 2)];
+  }
+  return [nyAt(s.startDate, 13), nyAt(end, 17)];
+}
+
 const LOCATION = { '@type': 'ArtGallery', name: 'Holland Tunnel Gallery', address: ADDRESS } as const;
 const ORGANIZER = { '@type': 'ArtGallery', name: 'Holland Tunnel Gallery', url: `${SITE_URL}/` } as const;
 
@@ -25,14 +48,15 @@ const FALLBACK_EVENT_IMAGE = '/img/gallery-installation-view-1.webp';
  *  them as missing otherwise), so all three are always present: one-day events end the day they start,
  *  and entry is free (concerts ask only a suggested donation at the door). */
 export function eventNode(s: Show, opts: { image?: string; performers?: Person[] } = {}) {
+  const [startDate, endDate] = eventTimes(s);
   const node: Record<string, unknown> = {
     '@type': s.isMusic ? 'MusicEvent' : 'ExhibitionEvent',
     '@id': `${abs(s.url)}#event`,
     name: s.title,
     url: abs(s.url),
     description: s.description ?? `${s.type} at Holland Tunnel Gallery (${s.venue}), ${s.dates}.`,
-    startDate: s.startDate,
-    endDate: s.endDate ?? s.startDate,
+    startDate,
+    endDate,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: LOCATION,
@@ -45,7 +69,7 @@ export function eventNode(s: Show, opts: { image?: string; performers?: Person[]
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
       url: abs(s.url),
-      validFrom: s.startDate,
+      validFrom: /^\d{4}-\d{2}-\d{2}$/.test(s.startDate) ? nyAt(s.startDate, 0) : s.startDate,
     },
   };
   // Performers: linked profiles first, then everyone else the show names (Google recommends a performer

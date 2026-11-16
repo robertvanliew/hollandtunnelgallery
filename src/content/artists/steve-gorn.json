@@ -212,7 +212,7 @@
     "status": "verified",
     "evidence": "Gallery describes bansuri/soprano sax/clarinet, Indian classical and new American music, site stevegorn.com; all match his official site, Wikipedia and AllMusic. Hearn Gadbois' Ghost Notation credits him.",
     "sources": [
-      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.hollandtunnelgallery.com/exhibitions",
       "https://stevegorn.com/bio/",
       "https://stevegorn.com/extended-artist-bio/",
       "https://en.wikipedia.org/wiki/Steve_Gorn",
@@ -228,6 +228,6 @@
   "shows": [
     "world-rhythms-2023"
   ],
-  "image": "../../assets/artists/steve-gorn.png",
+  "image": "../../assets/artists/steve-gorn.jpg",
   "imageAlt": "Steve Gorn"
 }

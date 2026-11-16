@@ -274,7 +274,7 @@
     "status": "verified",
     "evidence": "The Holland Tunnel bio (Cleveland birth, Carnegie Mellon BFA, Instituto Allende MFA, 1977 move to NYC, Yaddo/MacDowell, welding at Salem Art Works in 2017) matches her own website resume, which lists solo shows at Holland Tunnel Gallery Newburgh and a 2020 group show there. Wikidata Q109887351 (Cleveland birthplace, Carnegie Mellon) matches.",
     "sources": [
-      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.hollandtunnelgallery.com/exhibitions",
       "https://viviencollens.com/bio.html",
       "https://www.viviencollens.com/resume.html",
       "https://www.wikidata.org/wiki/Q109887351"
@@ -291,6 +291,6 @@
     "new-sculpture-2019",
     "holiday-art-sale-2018"
   ],
-  "image": "../../assets/artists/vivien-collens-new-sculpture-2023.png",
+  "image": "../../assets/artists/vivien-collens-new-sculpture-2023.jpg",
   "imageAlt": "Vivien Collens, New Sculpture, 2023"
 }

@@ -212,8 +212,8 @@
     "status": "verified",
     "evidence": "Gallery bio (Minnesota, conga at 15, NYC 1980, Saqqara Dogs, Ben Hume, Prague, Rara Avis, Hudson Valley) matches Abstrakce label page, Trouser Press, TMBW and his own site/Bandcamp. Unusual name; no namesakes found.",
     "sources": [
-      "https://www.hollandtunnelgallery.com/htcalendar2023/2023/7/22/wood-wool-glass-amp-clay-kakyung-cho-naomi-beth-gans-romina-gonzales-stuart-sachs-tina-scepanovic",
-      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.hollandtunnelgallery.com/exhibitions/wood-wool-2023",
+      "https://www.hollandtunnelgallery.com/exhibitions",
       "https://abstrakce.bandcamp.com/album/rara-avis",
       "https://trouserpress.com/reviews/saqqara-dogs/",
       "https://tmbw.net/wiki/Hearn_Gadbois",
@@ -231,6 +231,6 @@
     "world-rhythms-2023",
     "wood-wool-2023"
   ],
-  "image": "../../assets/artists/hearn-gadbois-hearn-in-the-land-of-the-blues.png",
+  "image": "../../assets/artists/hearn-gadbois-hearn-in-the-land-of-the-blues.jpg",
   "imageAlt": "Hearn Gadbois, Hearn in the Land of the Blues"
 }

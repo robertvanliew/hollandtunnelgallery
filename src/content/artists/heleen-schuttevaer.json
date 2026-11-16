@@ -212,8 +212,8 @@
     "status": "verified",
     "evidence": "Gallery names her as Paulien Lethen's sister and house-band leader; Newburgh Restoration (2018) confirms the sisters opened Holland Tunnel Paros in 2000 and she played the Newburgh opening; her own website calendar lists the Newburgh quartet with Jackson, Sullivan and Latos.",
     "sources": [
-      "https://www.hollandtunnelgallery.com/htcalendar2023",
-      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.hollandtunnelgallery.com/events",
+      "https://www.hollandtunnelgallery.com/exhibitions",
       "https://www.heleenschuttevaer.nl/calendar",
       "https://www.heleenschuttevaer.nl/about",
       "https://newburghrestoration.com/blog/2018/05/15/new-art-venue-the-holland-tunnel-art-gallery-comes-to-newburgh1/",
@@ -233,6 +233,6 @@
     "jazz-quartet-2022",
     "grand-opening-2018"
   ],
-  "image": "../../assets/artists/heleen-schuttevaer.png",
+  "image": "../../assets/artists/heleen-schuttevaer.jpg",
   "imageAlt": "Heleen Schuttevaêr (photo: Xandra van Rossem)"
 }

@@ -198,7 +198,7 @@
     "status": "verified",
     "evidence": "Gallery names him as composer and inventor of the Mutantrumpet; only one person matches (official site, Wikipedia).",
     "sources": [
-      "https://www.hollandtunnelgallery.com/htrevisisted",
+      "https://www.hollandtunnelgallery.com/exhibitions",
       "https://benneill.com/biography/",
       "https://en.wikipedia.org/wiki/Ben_Neill"
     ]
@@ -210,6 +210,6 @@
   "shows": [
     "otherness-2022"
   ],
-  "image": "../../assets/artists/ben-neill-playing-the-mutantrumpet.png",
+  "image": "../../assets/artists/ben-neill-playing-the-mutantrumpet.jpg",
   "imageAlt": "Ben Neill playing the Mutantrumpet"
 }
